@@ -38,4 +38,31 @@ describe("normalizeLayout", () => {
     expect(store["/kontakt"]?.sm?.["h1:nth-of-type(1)"]?.y).toBe(40);
     expect(store["/kontakt"]?.lg?.["h1:nth-of-type(1)"]?.y).toBe(-20);
   });
+
+  it("keeps text size and line breaks for one screen size", () => {
+    const store = normalizeLayout({
+      "/o-nas": {
+        lg: {
+          "h1:nth-of-type(1)": {
+            x: 0,
+            y: 0,
+            z: 0,
+            fontSize: 72,
+            width: 420,
+            breaks: [2, 2, 5, -1, 1.5],
+          },
+        },
+      },
+    });
+
+    expect(store["/o-nas"]?.lg?.["h1:nth-of-type(1)"]).toEqual({
+      x: 0,
+      y: 0,
+      z: 0,
+      fontSize: 72,
+      width: 420,
+      breaks: [2, 5],
+    });
+    expect(store["/o-nas"]?.sm).toBeUndefined();
+  });
 });

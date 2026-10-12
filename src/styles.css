@@ -144,15 +144,27 @@ body[data-frame="formularz"] .container-site {
   opacity: 1;
   transform: none;
 }
-.img-zoom img {
-  transition: transform 1.4s var(--ease-calm);
+.gallery-frame {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  transition: transform 0.8s var(--ease-calm);
 }
-.img-zoom:hover img {
-  transform: scale(1.035);
+.gallery-frame:hover {
+  z-index: 3;
+  transform: scale(1.08);
+}
+.reveal:has(.gallery-frame:hover) {
+  position: relative;
+  z-index: 3;
 }
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
+    transform: none;
+  }
+  .gallery-frame,
+  .gallery-frame:hover {
     transform: none;
   }
 }

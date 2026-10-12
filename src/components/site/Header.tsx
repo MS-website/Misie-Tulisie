@@ -7,7 +7,11 @@ import { cn } from "@/lib/utils";
 
 export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
   return (
-    <Link to="/" className="flex items-center gap-3" aria-label="Misie Tulisie — strona główna">
+    <Link
+      to="/"
+      className="flex items-center gap-3"
+      aria-label="Misie Tulisie — strona główna"
+    >
       <img
         src={logo}
         alt="Logo Misie Tulisie"
@@ -47,7 +51,7 @@ export function Header() {
     >
       <div className="container-site flex h-20 items-center justify-between">
         <Logo />
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
           {nav.map((n) => (
             <Link
               key={n.to}
@@ -59,7 +63,10 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className={cn("hidden lg:block", !showVisitButton && "invisible")} inert={!showVisitButton}>
+        <div
+          className={cn("hidden lg:block", !showVisitButton && "invisible")}
+          inert={!showVisitButton}
+        >
           <ButtonLink to="/kontakt" hash="wizyta" className="h-11">
             Umów wizytę
           </ButtonLink>
@@ -117,7 +124,10 @@ export function Header() {
                 </ButtonLink>
               </div>
             )}
-            <a href={contact.phoneHref} className="block text-center text-sm text-muted-foreground">
+            <a
+              href={contact.phoneHref}
+              className="block text-center text-sm text-muted-foreground"
+            >
               {contact.phone}
             </a>
           </div>

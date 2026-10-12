@@ -5,7 +5,14 @@ import story from "@/assets/story.jpg";
 import play from "@/assets/play.jpg";
 import int1 from "@/assets/interior-1.jpg";
 import int2 from "@/assets/interior-2.jpg";
-import int3 from "@/assets/interior-3.jpg";
+import wiz1 from "@/assets/wizualizacja-1.jpg";
+import wiz2 from "@/assets/wizualizacja-2.jpg";
+import wiz3 from "@/assets/wizualizacja-3.jpg";
+import wiz4 from "@/assets/wizualizacja-4.jpg";
+import wiz5 from "@/assets/wizualizacja-5.jpg";
+import wiz6 from "@/assets/wizualizacja-6.jpg";
+import wiz7 from "@/assets/wizualizacja-7.jpg";
+import wiz8 from "@/assets/wizualizacja-8.jpg";
 import { contact } from "@/lib/site";
 import { ButtonA, ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
@@ -256,12 +263,14 @@ export function Development() {
 
 /* ---------- SPACE / GALLERY ---------- */
 export const galleryImages = [
-  { src: int1, alt: "Jasna sala zabaw z drewnianymi regałami" },
-  { src: int2, alt: "Kącik do odpoczynku z drewnianymi łóżeczkami" },
-  { src: play, alt: "Zabawa sensoryczna" },
-  { src: int3, alt: "Stolik i krzesełka w kąciku posiłków" },
-  { src: hero, alt: "Wspólna zabawa z opiekunką" },
-  { src: story, alt: "Pierwsze kroki" },
+  { src: wiz1, alt: "Wizualizacja sali z żółwiem na ścianie, stolikami i niebieskimi szafkami" },
+  { src: wiz2, alt: "Wizualizacja sali z niebieskim domkiem do zabawy" },
+  { src: wiz3, alt: "Wizualizacja sali z dużymi oknami i zielonym dywanem" },
+  { src: wiz4, alt: "Wizualizacja sali w zieleni ze stolikami i domkiem do zabawy" },
+  { src: wiz5, alt: "Wizualizacja sali z oknem, szafkami i stolikami" },
+  { src: wiz6, alt: "Wizualizacja sali ze stolikami, szafkami i dywanem" },
+  { src: wiz7, alt: "Wizualizacja szatni z kolorowymi szafkami" },
+  { src: wiz8, alt: "Wizualizacja szatni z lustrami i ławkami" },
 ];
 export function Space({ full = false }: { full?: boolean }) {
   const imgs = full ? galleryImages : galleryImages.slice(0, 4);
@@ -277,10 +286,15 @@ export function Space({ full = false }: { full?: boolean }) {
           Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym.
           </p>
         </Reveal>
-        <div className="mt-16 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {imgs.map((im, i) => (
-            <Reveal key={i} delay={(i % 3) * 100} className="break-inside-avoid">
-              <Photo src={im.src} alt={im.alt} />
+            <Reveal key={im.src} delay={(i % 3) * 100}>
+              <Photo
+                src={im.src}
+                alt={im.alt}
+                zoomOut
+                className="aspect-[1024/592] w-full"
+              />
             </Reveal>
           ))}
         </div>
@@ -314,21 +328,6 @@ export function Team() {
             </p>
           </div>
         </Reveal>
-        <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {[1, 2, 3, 4].map((n, i) => (
-            <Reveal key={n} delay={i * 80}>
-              {/* Podmień na zdjęcie opiekunki */}
-              <div className="flex aspect-[3/4] items-end rounded-md bg-sand p-5">
-                <div>
-                  <p className="font-display text-2xl text-foreground/50">Imię opiekunki</p>
-                  <p className="mt-1 text-xs uppercase tracking-widest text-foreground/40">
-                    Zdjęcie wkrótce
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -415,6 +414,11 @@ export function ParentsSection() {
           <p className="mt-8 max-w-sm leading-relaxed text-muted-foreground">
             Adaptacja, pierwsze rozstanie, sen, jedzenie, bezpieczeństwo — odpowiadamy na pytania,
             które zadaje sobie każdy rodzic.
+          </p>
+          <p className="mt-8">
+            <Link to="/galeria" className="link-underline text-sm font-medium tracking-wide">
+              Zobacz nasz żłobek
+            </Link>
           </p>
           <ButtonLink to="/kontakt" variant="ghost" className="mt-10">
             Masz pytania? Napisz do nas
@@ -641,49 +645,93 @@ export function ContactBlock() {
             <p className="text-lg">{contact.hours}</p>
           </div>
         </Reveal>
-        <Reveal className="lg:col-span-6 lg:col-start-7" delay={100}>
-          <div id="wizyta" className="scroll-mt-28 rounded-md bg-secondary p-8 md:p-12">
-            <h2 className="font-display text-4xl md:text-5xl">Umów wizytę</h2>
-            <p className="mt-3 text-muted-foreground">Zostaw kontakt — oddzwonimy i ustalimy dogodny termin.</p>
+        <Reveal className="lg:col-span-7 lg:col-start-6" delay={100}>
+          <div
+            id="wizyta"
+            className="scroll-mt-28 w-full rounded-md bg-secondary px-5 py-5 md:px-8 md:py-6"
+          >
+            <h2 className="font-display text-3xl md:text-4xl">Umów wizytę</h2>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              Zostaw kontakt — oddzwonimy i ustalimy dogodny termin.
+            </p>
             {sent ? (
-              <p className="mt-10 text-lg">Dziękujemy! Otworzyliśmy Twój program pocztowy z gotową wiadomością.</p>
+              <p className="mt-6 text-base">Dziękujemy! Otworzyliśmy Twój program pocztowy z gotową wiadomością.</p>
             ) : (
               <form
-                className="mt-10 space-y-6"
+                className="mt-5 space-y-4"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const f = new FormData(e.currentTarget);
-                  const body = `Imię: ${f.get("name")}\nTelefon: ${f.get("phone")}\nWiek dziecka: ${f.get("age")}\n\n${f.get("msg")}`;
+                  const phone = String(f.get("phone") ?? "").trim();
+                  const body = [
+                    `Imię i nazwisko: ${f.get("name")}`,
+                    `E-mail: ${f.get("email")}`,
+                    phone ? `Telefon: ${phone}` : null,
+                    "",
+                    String(f.get("msg")),
+                  ]
+                    .filter((line) => line != null)
+                    .join("\n");
                   window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent("Umówienie wizyty")}&body=${encodeURIComponent(body)}`;
                   setSent(true);
                 }}
               >
-                {[
-                  ["name", "Imię i nazwisko", "text", true],
-                  ["phone", "Telefon", "tel", true],
-                  ["age", "Wiek dziecka", "text", false],
-                ].map(([n, l, t, r]) => (
-                  <label key={n as string} className="block">
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">{l}</span>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                      Imię i nazwisko
+                    </span>
                     <input
-                      name={n as string}
-                      type={t as string}
-                      required={r as boolean}
+                      name="name"
+                      type="text"
+                      required
+                      autoComplete="name"
                       maxLength={120}
-                      className="mt-2 w-full border-b border-foreground/20 bg-transparent py-3 text-lg outline-none transition-colors focus:border-foreground"
+                      className="mt-1.5 w-full border-b border-foreground/20 bg-transparent py-2 text-base outline-none transition-colors focus:border-foreground"
                     />
                   </label>
-                ))}
+                  <label className="block">
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                      Telefon (opcjonalnie)
+                    </span>
+                    <input
+                      name="phone"
+                      type="tel"
+                      autoComplete="tel"
+                      maxLength={40}
+                      className="mt-1.5 w-full border-b border-foreground/20 bg-transparent py-2 text-base outline-none transition-colors focus:border-foreground"
+                    />
+                  </label>
+                </div>
                 <label className="block">
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground">Wiadomość</span>
-                  <textarea
-                    name="msg"
-                    rows={3}
-                    maxLength={1000}
-                    className="mt-2 w-full resize-none border-b border-foreground/20 bg-transparent py-3 text-lg outline-none transition-colors focus:border-foreground"
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    Adres e-mail
+                  </span>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    maxLength={120}
+                    className="mt-1.5 w-full border-b border-foreground/20 bg-transparent py-2 text-base outline-none transition-colors focus:border-foreground"
                   />
                 </label>
-                <button type="submit" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-500 hover:-translate-y-px hover:bg-honey sm:w-auto">
+                <label className="block">
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">
+                    Wiadomość
+                  </span>
+                  <textarea
+                    name="msg"
+                    required
+                    rows={2}
+                    maxLength={1000}
+                    className="mt-1.5 w-full resize-none border-b border-foreground/20 bg-transparent py-2 text-base outline-none transition-colors focus:border-foreground"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-500 hover:-translate-y-px hover:bg-honey sm:w-auto"
+                >
                   Wyślij zapytanie
                 </button>
               </form>

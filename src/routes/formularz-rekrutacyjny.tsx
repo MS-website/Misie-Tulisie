@@ -6,9 +6,9 @@ import { RecruitmentForm } from "@/components/site/RecruitmentForm";
 
 function FormularzPage() {
   useLayoutEffect(() => {
-    document.body.dataset.frame = "formularz";
+    document.body.dataset["frame"] = "formularz";
     return () => {
-      delete document.body.dataset.frame;
+      delete document.body.dataset["frame"];
     };
   }, []);
 
@@ -32,6 +32,11 @@ function FormularzPage() {
 }
 
 export const Route = createFileRoute("/formularz-rekrutacyjny")({
-  head: () => ({ meta: seo("Formularz rekrutacyjny | Żłobek Misie Tulisie Gniezno", "Formularz rekrutacyjny do żłobka Misie Tulisie w Gnieźnie.") }),
+  head: () => ({
+    meta: seo(
+      "Formularz rekrutacyjny | Żłobek Misie Tulisie Gniezno",
+      "Formularz rekrutacyjny do żłobka Misie Tulisie w Gnieźnie.",
+    ),
+  }),
   component: FormularzPage,
 });

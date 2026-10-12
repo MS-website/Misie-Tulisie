@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AktywnyMaluchRouteImport } from './routes/aktywny-maluch'
 import { Route as DlaRodzicowRouteImport } from './routes/dla-rodzicow'
 import { Route as FormularzRekrutacyjnyRouteImport } from './routes/formularz-rekrutacyjny'
 import { Route as GaleriaRouteImport } from './routes/galeria'
@@ -21,6 +22,11 @@ import { Route as RekrutacjaRouteImport } from './routes/rekrutacja'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AktywnyMaluchRoute = AktywnyMaluchRouteImport.update({
+  id: '/aktywny-maluch',
+  path: '/aktywny-maluch',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DlaRodzicowRoute = DlaRodzicowRouteImport.update({
@@ -61,6 +67,7 @@ const RekrutacjaRoute = RekrutacjaRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
   '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
   '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
   '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aktywny-maluch'
     | '/dla-rodzicow'
     | '/formularz-rekrutacyjny'
     | '/galeria'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aktywny-maluch'
     | '/dla-rodzicow'
     | '/formularz-rekrutacyjny'
     | '/galeria'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aktywny-maluch'
     | '/dla-rodzicow'
     | '/formularz-rekrutacyjny'
     | '/galeria'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AktywnyMaluchRoute: typeof AktywnyMaluchRoute
   DlaRodzicowRoute: typeof DlaRodzicowRoute
   FormularzRekrutacyjnyRoute: typeof FormularzRekrutacyjnyRoute
   GaleriaRoute: typeof GaleriaRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aktywny-maluch': {
+      id: '/aktywny-maluch'
+      path: '/aktywny-maluch'
+      fullPath: '/aktywny-maluch'
+      preLoaderRoute: typeof AktywnyMaluchRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dla-rodzicow': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AktywnyMaluchRoute: AktywnyMaluchRoute,
   DlaRodzicowRoute: DlaRodzicowRoute,
   FormularzRekrutacyjnyRoute: FormularzRekrutacyjnyRoute,
   GaleriaRoute: GaleriaRoute,

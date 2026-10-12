@@ -94,14 +94,22 @@ export function Photo({
   alt,
   className,
   eager,
+  zoomOut,
 }: {
   src: string;
   alt: string;
   className?: string;
   eager?: boolean;
+  zoomOut?: boolean;
 }) {
   return (
-    <div className={cn("img-zoom overflow-hidden rounded-md bg-sand", className)}>
+    <div
+      className={cn(
+        "rounded-md bg-sand",
+        zoomOut ? "gallery-frame" : "overflow-hidden",
+        className,
+      )}
+    >
       <img
         src={src}
         alt={alt}

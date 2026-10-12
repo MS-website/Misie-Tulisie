@@ -19,6 +19,9 @@ export type Box = {
   paddingBottom?: number;
   marginTop?: number;
   marginBottom?: number;
+  fontSize?: number;
+  width?: number;
+  breaks?: number[];
 };
 
 export type TextChange = {
@@ -86,7 +89,32 @@ function readBox(value: unknown): Box | null {
     const next = numberOrNull(value[key]);
     if (next != null) box[key] = next;
   }
+  const fontSize = numberOrNull(value["fontSize"]);
+  if (fontSize != null && fontSize >= 8 && fontSize <= 240)
+    box.fontSize = fontSize;
+  const width = numberOrNull(value["width"]);
+  if (width != null && width >= 40 && width <= 2000) box.width = width;
+  const breaks = readBreaks(value["breaks"]);
+  if (breaks) box.breaks = breaks;
   return box;
+}
+
+function readBreaks(value: unknown) {
+  if (!Array.isArray(value)) return null;
+  const breaks = [
+    ...new Set(
+      value.filter(
+        (item): item is number =>
+          typeof item === "number" &&
+          Number.isInteger(item) &&
+          item >= 0 &&
+          item < 500,
+      ),
+    ),
+  ]
+    .sort((a, b) => a - b)
+    .slice(0, 80);
+  return breaks.length > 0 ? breaks : null;
 }
 
 function readText(value: unknown): TextChange | null {
@@ -195,5 +223,14 @@ export function mergeBox(current: Box, patch: Partial<Box>): Box {
     const value = key in patch ? patch[key] : current[key];
     if (value != null) next[key] = value;
   }
+  if (typeof patch.fontSize === "number") next.fontSize = patch.fontSize;
+  else if (!("fontSize" in patch) && typeof current.fontSize === "number")
+    next.fontSize = current.fontSize;
+  if (typeof patch.width === "number") next.width = patch.width;
+  else if (!("width" in patch) && typeof current.width === "number")
+    next.width = current.width;
+  if (patch.breaks && patch.breaks.length > 0) next.breaks = patch.breaks;
+  else if (!("breaks" in patch) && current.breaks && current.breaks.length > 0)
+    next.breaks = current.breaks;
   return next;
 }

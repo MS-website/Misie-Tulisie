@@ -8,8 +8,14 @@ import {
 import {
   applyLayout,
   clearBox,
+  htmlWithoutLines,
   isApplying,
   isHtmlElement,
+  isTextBlock,
+  linesFromBreaks,
+  moveLineWord,
+  visualBreaks,
+  wordRanges,
 } from "@/lib/uklad-dom";
 import {
   mergeBox,
@@ -139,22 +145,145 @@ function labelFor(el: HTMLElement) {
   return labels[el.tagName] ?? "Blok";
 }
 
+type BoxPatch = {
+  x?: number;
+  y?: number;
+  z?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+  marginTop?: number;
+  marginBottom?: number;
+  fontSize?: number | null;
+  width?: number | null;
+  breaks?: number[] | null;
+};
+
 function writeBox(
   pathname: string,
   size: SizeId,
   selector: string,
-  patch: Partial<Box>,
+  patch: BoxPatch,
 ) {
   rememberHistory();
   const store = loadStore();
   const page: PageLayout = store[pathname] ?? {};
   const sizeMap = page[size] ?? {};
   const current = sizeMap[selector] ?? { x: 0, y: 0, z: 0 };
-  sizeMap[selector] = mergeBox(current, patch);
+  const boxPatch: Partial<Box> = {};
+  if (patch.x != null) boxPatch.x = patch.x;
+  if (patch.y != null) boxPatch.y = patch.y;
+  if (patch.z != null) boxPatch.z = patch.z;
+  for (const key of [
+    "paddingTop",
+    "paddingBottom",
+    "marginTop",
+    "marginBottom",
+  ] as const) {
+    const value = patch[key];
+    if (value != null) boxPatch[key] = value;
+  }
+  if (typeof patch.fontSize === "number") boxPatch.fontSize = patch.fontSize;
+  if (typeof patch.width === "number") boxPatch.width = patch.width;
+  if (patch.breaks && patch.breaks.length > 0) boxPatch.breaks = patch.breaks;
+  const next = mergeBox(current, boxPatch);
+  if (patch.fontSize === null) delete next.fontSize;
+  if (patch.width === null) delete next.width;
+  if (patch.breaks === null) delete next.breaks;
+  sizeMap[selector] = next;
   page[size] = sizeMap;
   store[pathname] = page;
   saveStore(store);
-  return sizeMap[selector];
+  return next;
+}
+
+type LineView = { text: string; canUp: boolean; canDown: boolean };
+
+type TextView = {
+  fontSize: number;
+  customSize: boolean;
+  width: number;
+  customWidth: boolean;
+  customBreaks: boolean;
+  lines: LineView[];
+};
+
+function syncResizeFrame(doc: Document, el: HTMLElement | null) {
+  const id = "uklad-resize";
+  const layer = doc.getElementById(id);
+  if (!el) {
+    layer?.remove();
+    return;
+  }
+  const frame = layer ?? doc.createElement("div");
+  frame.id = id;
+  frame.setAttribute("data-layout-editor", "1");
+  const rect = el.getBoundingClientRect();
+  frame.style.position = "fixed";
+  frame.style.left = `${rect.left}px`;
+  frame.style.top = `${rect.top}px`;
+  frame.style.width = `${rect.width}px`;
+  frame.style.height = `${Math.max(rect.height, 24)}px`;
+  frame.style.zIndex = "60";
+  frame.style.pointerEvents = "none";
+  if (!frame.querySelector("[data-layout-resize]")) {
+    for (const edge of ["w", "e"] as const) {
+      const handle = doc.createElement("button");
+      handle.type = "button";
+      handle.dataset["layoutResize"] = edge;
+      handle.setAttribute(
+        "aria-label",
+        edge === "e" ? "Rozciągnij ramkę w prawo" : "Rozciągnij ramkę w lewo",
+      );
+      handle.style.position = "absolute";
+      handle.style.top = "0";
+      handle.style.bottom = "0";
+      handle.style.width = "14px";
+      handle.style.padding = "0";
+      handle.style.border = "0";
+      handle.style.background = "transparent";
+      handle.style.pointerEvents = "auto";
+      handle.style.cursor = "ew-resize";
+      if (edge === "e") handle.style.right = "-7px";
+      else handle.style.left = "-7px";
+      const bar = doc.createElement("span");
+      bar.style.position = "absolute";
+      bar.style.top = "8px";
+      bar.style.bottom = "8px";
+      bar.style.left = "5px";
+      bar.style.width = "3px";
+      bar.style.borderRadius = "999px";
+      bar.style.background = "#b08954";
+      bar.style.pointerEvents = "none";
+      handle.appendChild(bar);
+      frame.appendChild(handle);
+    }
+  }
+  if (!frame.parentElement) doc.body.appendChild(frame);
+}
+
+function textView(el: HTMLElement, box: Box): TextView | null {
+  if (!isTextBlock(el)) return null;
+  const words = wordRanges(el).map((word) =>
+    word.node.data.slice(word.start, word.end),
+  );
+  if (words.length === 0) return null;
+  const customBreaks = !!box.breaks?.length;
+  const indexes = customBreaks ? (box.breaks ?? []) : visualBreaks(el);
+  const groups = linesFromBreaks(words.length, indexes);
+  return {
+    fontSize:
+      box.fontSize ??
+      Math.round(parseFloat(getComputedStyle(el).fontSize) || 16),
+    customSize: box.fontSize != null,
+    width: box.width ?? Math.round(el.getBoundingClientRect().width),
+    customWidth: box.width != null,
+    customBreaks,
+    lines: groups.map((group, index) => ({
+      text: group.map((wordIndex) => words[wordIndex] ?? "").join(" "),
+      canUp: index > 0,
+      canDown: group.length > 1,
+    })),
+  };
 }
 
 function writeText(
@@ -228,6 +357,7 @@ export function LayoutEditor() {
   >("idle");
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
   const [selectedSelector, setSelectedSelector] = useState<string | null>(null);
+  const [textInfo, setTextInfo] = useState<TextView | null>(null);
   const [previewSize, setPreviewSize] = useState<SizeId | "okno">("okno");
   const [previewSrc, setPreviewSrc] = useState<string | null>(null);
   const [framePath, setFramePath] = useState(pathname);
@@ -235,6 +365,8 @@ export function LayoutEditor() {
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
   const [fileReady, setFileReady] = useState(0);
   const selectedSelectorRef = useRef<string | null>(null);
+  const refreshTextRef = useRef<(selector: string | null) => void>(() => {});
+  const syncResizeRef = useRef<(selector: string | null) => void>(() => {});
   const frameRef = useRef<HTMLIFrameElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const panelBoxRef = useRef(panelBox);
@@ -258,6 +390,26 @@ export function LayoutEditor() {
     previewSize === "okno"
       ? document
       : (frameRef.current?.contentDocument ?? null);
+
+  const refreshText = (selector: string | null) => {
+    syncResizeRef.current(selector);
+    if (!selector) {
+      setTextInfo(null);
+      return;
+    }
+    const el = currentDoc()?.querySelector("main")?.querySelector(selector);
+    if (!isHtmlElement(el)) {
+      setTextInfo(null);
+      return;
+    }
+    setTextInfo(
+      textView(
+        el,
+        boxFor(editPathRef.current, activeSizeRef.current, selector),
+      ),
+    );
+  };
+  refreshTextRef.current = refreshText;
 
   useEffect(() => {
     setCollapsed(localStorage.getItem(COLLAPSE_KEY) === "1");
@@ -310,6 +462,7 @@ export function LayoutEditor() {
     selectedSelectorRef.current = null;
     setSelectedSelector(null);
     setSelectedLabel(null);
+    setTextInfo(null);
     const doc =
       previewSize === "okno" ? document : frameRef.current?.contentDocument;
     doc
@@ -370,6 +523,7 @@ export function LayoutEditor() {
       previewSize === "okno" ? document : frameRef.current?.contentDocument;
     const view = doc?.defaultView;
     if (!enabled || collapsed || !doc || !view) {
+      if (doc) syncResizeFrame(doc, null);
       doc
         ?.querySelectorAll("[data-layout-hover], [data-layout-selected]")
         .forEach((el) => {
@@ -393,7 +547,24 @@ export function LayoutEditor() {
       originY: number;
       moved: boolean;
     } | null = null;
+    let stretch: {
+      selector: string;
+      edge: "e" | "w";
+      startX: number;
+      startWidth: number;
+      originX: number;
+    } | null = null;
     let suppressClick = false;
+
+    const syncResize = (selector: string | null) => {
+      const el = selector ? main.querySelector(selector) : null;
+      if (!isHtmlElement(el) || !isTextBlock(el)) {
+        syncResizeFrame(doc, null);
+        return;
+      }
+      syncResizeFrame(doc, el);
+    };
+    syncResizeRef.current = syncResize;
 
     const markSelected = (selector: string | null) => {
       doc
@@ -411,6 +582,7 @@ export function LayoutEditor() {
       setSelectedSelector(selector);
       setSelectedLabel(labelFor(el));
       markSelected(selector);
+      refreshTextRef.current(selector);
       return selector;
     };
 
@@ -418,6 +590,33 @@ export function LayoutEditor() {
       if (event.button !== 0) return;
       const pointed = eventTargetElement(event.target);
       if (!pointed) return;
+      const handle = pointed.closest("[data-layout-resize]");
+      if (isHtmlElement(handle)) {
+        const edge = handle.dataset["layoutResize"];
+        const selector = selectedSelectorRef.current;
+        const target = selector ? main.querySelector(selector) : null;
+        if (
+          !isHtmlElement(target) ||
+          !selector ||
+          (edge !== "e" && edge !== "w")
+        )
+          return;
+        event.preventDefault();
+        event.stopPropagation();
+        const box = boxFor(
+          editPathRef.current,
+          activeSizeRef.current,
+          selector,
+        );
+        stretch = {
+          selector,
+          edge,
+          startX: event.clientX,
+          startWidth: Math.round(target.getBoundingClientRect().width),
+          originX: box.x,
+        };
+        return;
+      }
       const el = findBlock(pointed, doc);
       if (!el || el.isContentEditable) return;
       const selector = select(el);
@@ -449,6 +648,25 @@ export function LayoutEditor() {
           next.dataset["layoutHover"] = "1";
         hovered = next;
       }
+      if (stretch) {
+        const dx = event.clientX - stretch.startX;
+        const raw =
+          stretch.edge === "e"
+            ? stretch.startWidth + dx
+            : stretch.startWidth - dx;
+        const width = clamp(Math.round(raw), 80, 1600);
+        writeBox(editPathRef.current, activeSizeRef.current, stretch.selector, {
+          width,
+          breaks: null,
+          ...(stretch.edge === "w"
+            ? { x: Math.round(stretch.originX + (stretch.startWidth - width)) }
+            : {}),
+        });
+        paint(doc, editPathRef.current, activeSizeRef.current);
+        syncResize(stretch.selector);
+        refreshTextRef.current(stretch.selector);
+        return;
+      }
       if (!drag) return;
       const dx = event.clientX - drag.startX;
       const dy = event.clientY - drag.startY;
@@ -471,10 +689,12 @@ export function LayoutEditor() {
         },
       );
       if (box) paint(doc, editPathRef.current, activeSizeRef.current);
+      syncResize(drag.selector);
     };
 
     const onPointerUp = () => {
       drag = null;
+      stretch = null;
       finishStep();
     };
 
@@ -501,13 +721,20 @@ export function LayoutEditor() {
       if (!selector) return;
       const original =
         loadStore()[editPathRef.current]?.text?.[selector]?.originalHtml ??
-        el.innerHTML;
+        htmlWithoutLines(el);
       el.contentEditable = "true";
       el.focus();
       const finish = () => {
         el.contentEditable = "false";
-        writeText(editPathRef.current, selector, el.innerHTML, original);
+        writeText(
+          editPathRef.current,
+          selector,
+          htmlWithoutLines(el),
+          original,
+        );
         finishStep();
+        paint(doc, editPathRef.current, activeSizeRef.current);
+        refreshTextRef.current(selector);
         el.removeEventListener("blur", finish);
         el.removeEventListener("keydown", onKey);
       };
@@ -522,13 +749,16 @@ export function LayoutEditor() {
       el.addEventListener("keydown", onKey);
     };
 
+    const onScroll = () => syncResize(selectedSelectorRef.current);
     markSelected(selectedSelectorRef.current);
+    syncResize(selectedSelectorRef.current);
     view.addEventListener("pointerdown", onPointerDown);
     view.addEventListener("pointermove", onPointerMove);
     view.addEventListener("pointerup", onPointerUp);
     view.addEventListener("click", onClick, true);
     view.addEventListener("dblclick", onDoubleClick, true);
     window.addEventListener("pointerup", onPointerUp);
+    doc.addEventListener("scroll", onScroll, true);
     return () => {
       view.removeEventListener("pointerdown", onPointerDown);
       view.removeEventListener("pointermove", onPointerMove);
@@ -536,7 +766,10 @@ export function LayoutEditor() {
       view.removeEventListener("click", onClick, true);
       view.removeEventListener("dblclick", onDoubleClick, true);
       window.removeEventListener("pointerup", onPointerUp);
+      doc.removeEventListener("scroll", onScroll, true);
       hovered?.removeAttribute("data-layout-hover");
+      syncResizeFrame(doc, null);
+      syncResizeRef.current = () => {};
     };
   }, [enabled, collapsed, previewSize, frameTick]);
 
@@ -544,6 +777,7 @@ export function LayoutEditor() {
     const doc = currentDoc();
     if (!doc) return;
     paint(doc, editPath, activeSize);
+    syncResizeRef.current(selectedSelectorRef.current);
   };
 
   const nudge = (dx: number, dy: number) => {
@@ -682,6 +916,7 @@ export function LayoutEditor() {
     selectedSelectorRef.current = null;
     setSelectedSelector(null);
     setSelectedLabel(null);
+    setTextInfo(null);
   };
 
   const resetSize = () => {
@@ -698,7 +933,70 @@ export function LayoutEditor() {
     selectedSelectorRef.current = null;
     setSelectedSelector(null);
     setSelectedLabel(null);
+    setTextInfo(null);
     applyCurrent();
+  };
+
+  const changeFont = (direction: -1 | 1) => {
+    if (!selectedSelector) return;
+    const el = currentDoc()
+      ?.querySelector("main")
+      ?.querySelector(selectedSelector);
+    if (!isHtmlElement(el) || !isTextBlock(el)) return;
+    const box = boxFor(editPath, activeSize, selectedSelector);
+    const current =
+      box.fontSize ??
+      Math.round(parseFloat(getComputedStyle(el).fontSize) || 16);
+    const step = current >= 40 ? 4 : 2;
+    writeBox(editPath, activeSize, selectedSelector, {
+      fontSize: clamp(current + direction * step, 12, 240),
+    });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const resetFont = () => {
+    if (!selectedSelector) return;
+    writeBox(editPath, activeSize, selectedSelector, { fontSize: null });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const resetWidth = () => {
+    if (!selectedSelector) return;
+    writeBox(editPath, activeSize, selectedSelector, { width: null });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const moveWord = (lineIndex: number, direction: -1 | 1) => {
+    if (!selectedSelector) return;
+    const el = currentDoc()
+      ?.querySelector("main")
+      ?.querySelector(selectedSelector);
+    if (!isHtmlElement(el) || !isTextBlock(el)) return;
+    const box = boxFor(editPath, activeSize, selectedSelector);
+    const count = wordRanges(el).length;
+    const base = box.breaks?.length ? box.breaks : visualBreaks(el);
+    const next = moveLineWord(count, base, lineIndex, direction);
+    if (!next) return;
+    writeBox(editPath, activeSize, selectedSelector, {
+      breaks: next.length > 0 ? next : null,
+    });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const resetBreaks = () => {
+    if (!selectedSelector) return;
+    writeBox(editPath, activeSize, selectedSelector, { breaks: null });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
   };
 
   const undo = () => {
@@ -710,6 +1008,7 @@ export function LayoutEditor() {
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     saveStore(previous);
     if (applyLayout(doc, editPath, activeSize, previous)) saveStore(previous);
+    refreshText(selectedSelectorRef.current);
     window.dispatchEvent(new Event(HISTORY_EVENT));
   };
 
@@ -966,7 +1265,9 @@ export function LayoutEditor() {
         {enabled && (
           <div className="mt-4 space-y-3">
             <p className="leading-relaxed text-muted-foreground">
-              Przeciągnij blok myszą. Dwuklik zmienia tekst.
+              Przeciągnij blok, żeby go przenieść. Złap krawędź ramki tekstu i
+              rozciągnij — słowa same przejdą między linijkami. Dwuklik zmienia
+              treść.
             </p>
             <p className="text-muted-foreground">
               {selectedLabel
@@ -1032,6 +1333,63 @@ export function LayoutEditor() {
               Cofnij zaznaczenie
             </ToolButton>
             <ToolButton onClick={resetSize}>Cofnij ten rozmiar</ToolButton>
+            {textInfo && (
+              <div className="space-y-3 border-t border-border pt-3">
+                <p className="text-muted-foreground">
+                  Szerokość ramki: {textInfo.width} px
+                </p>
+                {textInfo.customWidth && (
+                  <ToolButton onClick={resetWidth}>
+                    Szerokość z projektu
+                  </ToolButton>
+                )}
+                <p className="text-muted-foreground">
+                  Rozmiar tekstu na tym ekranie: {textInfo.fontSize} px
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  <ToolButton onClick={() => changeFont(-1)}>
+                    Mniejszy
+                  </ToolButton>
+                  <ToolButton onClick={() => changeFont(1)}>Większy</ToolButton>
+                </div>
+                {textInfo.customSize && (
+                  <ToolButton onClick={resetFont}>
+                    Rozmiar z projektu
+                  </ToolButton>
+                )}
+                <div className="space-y-2">
+                  <p className="text-muted-foreground">Linijki</p>
+                  <p className="text-xs leading-relaxed text-muted-foreground">
+                    Rozciąganie ramki układa tekst samo. Słowo wyżej bierze
+                    pierwsze słowo linijki, słowo niżej ostatnie.
+                  </p>
+                  {textInfo.lines.map((line, index) => (
+                    <div key={`${index}-${line.text}`} className="space-y-1">
+                      <p className="break-words text-xs leading-snug">
+                        {index + 1}. {line.text}
+                      </p>
+                      <div className="grid grid-cols-2 gap-2">
+                        <ToolButton
+                          disabled={!line.canUp}
+                          onClick={() => moveWord(index, -1)}
+                        >
+                          Słowo wyżej
+                        </ToolButton>
+                        <ToolButton
+                          disabled={!line.canDown}
+                          onClick={() => moveWord(index, 1)}
+                        >
+                          Słowo niżej
+                        </ToolButton>
+                      </div>
+                    </div>
+                  ))}
+                  {textInfo.customBreaks && (
+                    <ToolButton onClick={resetBreaks}>Złącz linijki</ToolButton>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
