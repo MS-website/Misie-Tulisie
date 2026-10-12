@@ -90,33 +90,35 @@
     "lg": {
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
-        "y": -76,
+        "y": -96,
         "z": 0
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
-        "y": -64,
-        "z": 0
+        "y": -72,
+        "z": 0,
+        "width": 1039
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
-        "y": -72,
+        "y": -104,
         "z": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -68,
-        "z": 0
+        "x": 2,
+        "y": -34,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
         "x": 0,
-        "y": -36,
+        "y": -12,
         "z": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 0,
-        "y": -68,
-        "z": 0
+        "y": -88,
+        "z": 0,
+        "width": 413
       },
       "section:nth-of-type(2)": {
         "x": 0,
@@ -126,7 +128,7 @@
       },
       "section:nth-of-type(3)": {
         "x": 0,
-        "y": 0,
+        "y": -28,
         "z": 0,
         "paddingTop": 56
       },
@@ -135,6 +137,27 @@
         "y": 0,
         "z": 0,
         "width": 448
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": -68,
+        "z": 0
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": 0,
+        "y": -48,
+        "z": 0
+      },
+      "section:nth-of-type(1)": {
+        "x": 0,
+        "y": 4,
+        "z": 0,
+        "paddingTop": 136
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0
       }
     },
     "text": {
@@ -153,6 +176,14 @@
       "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
         "html": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br></div></div>",
         "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "html": "Przez cały rok,&nbsp;<div>od 6. miesiąca do 3 lat</div>",
+        "originalHtml": "Przez cały rok, od 6. miesiąca do 3 lat."
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "<br>",
+        "originalHtml": "Rekrutacja"
       }
     }
   },

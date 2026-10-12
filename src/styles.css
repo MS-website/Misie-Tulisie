@@ -32,6 +32,7 @@
   --color-sand: var(--sand);
   --color-honey: var(--honey);
   --color-sage: var(--sage);
+  --color-cream: var(--cream);
 }
 
 :root {
@@ -52,6 +53,7 @@
   --accent: oklch(0.92 0.022 70);
   --accent-foreground: oklch(0.3 0.012 70);
   --sand: oklch(0.915 0.02 75);
+  --cream: oklch(0.968 0.012 82);
   --honey: oklch(0.64 0.075 60);
   --sage: oklch(0.74 0.035 130);
   --destructive: oklch(0.577 0.245 27.325);

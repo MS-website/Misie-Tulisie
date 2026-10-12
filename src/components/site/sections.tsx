@@ -570,8 +570,8 @@ export function Adaptation() {
 export function Recruitment() {
   return (
     <section className="container-site pb-24 md:pb-36">
-      <Reveal className="grid overflow-hidden rounded-md bg-sand md:grid-cols-2">
-        <div className="p-10 md:p-16 lg:p-20">
+      <Reveal className="grid min-h-0 overflow-hidden rounded-md bg-cream md:grid-cols-2">
+        <div className="min-h-0 p-10 md:p-16 lg:p-20">
           <Eyebrow>Rekrutacja</Eyebrow>
           <h2 className="font-display text-4xl md:text-6xl">
             Zastanawiasz się, czy Misie Tulisie są dla Was?
@@ -583,7 +583,11 @@ export function Recruitment() {
             <ButtonLink to="/kontakt">Umów wizytę</ButtonLink>
           </div>
         </div>
-        <Photo src={int1} alt="Sala zabaw w żłobku" className="aspect-[4/3] rounded-none md:aspect-auto" />
+        <Photo
+          src={int1}
+          alt="Przytulny kącik zabaw z namiotem tipi, drewnianymi zabawkami i miękkimi poduszkami"
+          className="aspect-[4/3] min-h-0 overflow-hidden rounded-none rounded-b-md bg-cream md:aspect-auto md:h-full md:rounded-b-none md:rounded-r-md"
+        />
       </Reveal>
     </section>
   );
