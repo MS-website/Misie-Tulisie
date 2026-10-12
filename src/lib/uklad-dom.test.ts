@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   applyBreaks,
+  applyLayout,
   clearLines,
   htmlWithoutLines,
   moveLineWord,
@@ -11,6 +12,24 @@ function wordsIn(root: ParentNode) {
     (line.textContent ?? "").replace(/\s+/g, " ").trim(),
   );
 }
+
+describe("layout boxes", () => {
+  it("moves inline links with saved offsets", () => {
+    document.body.innerHTML =
+      '<main><section><p class="eyebrow">Telefon</p><a href="tel:1">+48 791</a></section></main>';
+    applyLayout(document, "/kontakt", "lg", {
+      "/kontakt": {
+        lg: {
+          "section:nth-of-type(1) > a:nth-of-type(1)": { x: 12, y: 8, z: 0 },
+        },
+      },
+    });
+    const link = document.querySelector("a");
+    if (!link) throw new Error("missing link");
+    expect(link.style.display).toBe("inline-block");
+    expect(link.style.translate).toBe("12px 8px");
+  });
+});
 
 describe("line breaks", () => {
   it("moves the first word of a line up and the last word down", () => {

@@ -23,9 +23,9 @@ export const Route = createFileRoute("/o-nas")({
       <Story cta={false} />
       <AboutIntro />
       <Foundations />
-      <WhyMisie />
-      <Team />
       <CareAreas />
+      <Team />
+      <WhyMisie />
       <GalleryVisit />
     </>
   ),

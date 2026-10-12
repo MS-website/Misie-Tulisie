@@ -342,7 +342,7 @@
         "paddingTop": 72,
         "paddingBottom": 96
       },
-      "section:nth-of-type(5)": {
+      "section:nth-of-type(7)": {
         "x": 0,
         "y": -128,
         "z": 0,
@@ -356,7 +356,7 @@
         "paddingTop": 96,
         "paddingBottom": 96
       },
-      "section:nth-of-type(7)": {
+      "section:nth-of-type(5)": {
         "x": 0,
         "y": -156,
         "z": 0,
@@ -367,8 +367,8 @@
         "x": 2,
         "y": -2,
         "z": 2,
-        "paddingTop": 96,
-        "paddingBottom": 72
+        "paddingTop": 72,
+        "paddingBottom": 48
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "x": 0,
@@ -409,43 +409,43 @@
         "y": -44,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "x": -24,
         "y": -1,
         "z": 2
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": -32,
         "y": 28,
         "z": 0,
         "width": 629
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
         "y": 24,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
         "x": 0,
         "y": 8,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
         "x": 0,
         "y": 8,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
         "x": 0,
         "y": 8,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
         "x": 0,
         "y": 8,
         "z": 0
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
         "x": 0,
         "y": 8,
         "z": 0
@@ -459,6 +459,11 @@
         "x": 155,
         "y": 92,
         "z": 2
+      },
+      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1)": {
+        "x": 59,
+        "y": -1,
+        "z": 2
       }
     },
     "text": {
@@ -466,27 +471,27 @@
         "html": "Zajrzyj do nas!",
         "originalHtml": "Zajrzyj do nas."
       },
-      "section:nth-of-type(7) > ul:nth-of-type(1) > li:nth-of-type(3) > p:nth-of-type(1)": {
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(3) > p:nth-of-type(1)": {
         "html": "Wszystkie pomieszczenia naszego żłobka spełniają wszelkie normy wymagane przez sanepid. Sale zabaw wyposażone w najwyższej jakości zabawki oraz pomoce dydaktyczne pozwalają na bezpieczną zabawę i naukę. Wszystkie meble oraz akcesoria Misiów Tulisiów posiadają niezbędne atesty oraz certyfikaty,&nbsp;<div>aby móc bezpiecznie służyć potrzebom najmłodszych.</div>",
         "originalHtml": "Wszystkie pomieszczenia naszego żłobka spełniają wszelkie normy wymagane przez sanepid. Sale zabaw wyposażone w najwyższej jakości zabawki oraz pomoce dydaktyczne pozwalają na bezpieczną zabawę i naukę. Wszystkie meble oraz akcesoria Misiów Tulisiów posiadają niezbędne atesty oraz certyfikaty, aby móc bezpiecznie służyć potrzebom najmłodszych."
       },
-      "section:nth-of-type(7) > ul:nth-of-type(1) > li:nth-of-type(2) > h2:nth-of-type(1)": {
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(2) > h2:nth-of-type(1)": {
         "html": "Różnorodne zajęcia rozwojowe",
         "originalHtml": "Różnorodne zajęcia rozwojowe."
       },
-      "section:nth-of-type(7) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
         "html": "Zdrowe posiłki każdego dnia",
         "originalHtml": "Zdrowe posiłki każdego dnia."
       },
-      "section:nth-of-type(7) > ul:nth-of-type(1) > li:nth-of-type(3) > h2:nth-of-type(1)": {
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(3) > h2:nth-of-type(1)": {
         "html": "Odpowiednio wyposażone sale",
         "originalHtml": "Odpowiednio wyposażone sale."
       },
-      "section:nth-of-type(7) > ul:nth-of-type(1) > li:nth-of-type(4) > h2:nth-of-type(1)": {
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(4) > h2:nth-of-type(1)": {
         "html": "Zaufane i doświadczone opiekunki",
         "originalHtml": "Zaufane i doświadczone opiekunki."
       },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
+      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "html": "Misie Tulisie to przestrzeń, w której zdajemy sobie sprawę,&nbsp;<div>że<!-- --> <strong class=\"font-semibold text-foreground\">dzieciństwo jest naprawdę ważne</strong>, a rodzice mogą mieć pewność, że ich dziecko jest w dobrych rękach.</div>",
         "originalHtml": "Misie Tulisie to przestrzeń, w której zdajemy sobie sprawę, że<!-- --> <strong class=\"font-semibold text-foreground\">dzieciństwo jest naprawdę ważne</strong>, a rodzice mogą mieć pewność, że ich dziecko jest w dobrych rękach."
       },
@@ -620,15 +625,16 @@
         "z": 0
       },
       "section:nth-of-type(2)": {
-        "x": 4,
-        "y": -9,
+        "x": 15,
+        "y": -6,
         "z": 2,
         "paddingBottom": 96
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -16,
-        "y": -4,
-        "z": 0
+        "x": -55,
+        "y": 2,
+        "z": 2,
+        "paddingBottom": 48
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 48,
@@ -650,33 +656,35 @@
         "y": 0,
         "z": 0
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
-        "x": 335,
-        "y": 241,
-        "z": 2,
-        "paddingBottom": 24,
-        "width": 125
-      },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)": {
         "x": 48,
         "y": 0,
         "z": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)": {
-        "x": 92,
-        "y": 0,
+        "x": 48,
+        "y": -49,
         "z": 2,
+        "paddingTop": 48,
+        "paddingBottom": 24,
+        "fontSize": 16,
         "width": 282
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)": {
         "x": 48,
-        "y": 0,
-        "z": 0
+        "y": -80,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(2)": {
         "x": 48,
-        "y": 0,
+        "y": -84,
         "z": 0
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
+        "x": 48,
+        "y": 0,
+        "z": 0,
+        "fontSize": 26
       }
     },
     "text": {

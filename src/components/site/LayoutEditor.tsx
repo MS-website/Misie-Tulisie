@@ -42,6 +42,12 @@ const OUTLINE_STYLE = `
   [data-layout-hover="1"] { outline: 1px dashed #b08954; outline-offset: 4px; }
   [data-layout-selected="1"] { outline: 2px solid #b08954; outline-offset: 4px; }
   [contenteditable="true"] { outline: 2px solid #8c6a3d; outline-offset: 4px; cursor: text; }
+  body[data-layout-editing="1"] main a,
+  body[data-layout-editing="1"] main button {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+  }
 `;
 
 let stepRecorded = false;
@@ -58,6 +64,65 @@ function loadStore(): Store {
 function saveStore(store: Store) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   window.dispatchEvent(new Event(CHANGE_EVENT));
+}
+
+function remapSection57<T>(record: Record<string, T> | undefined) {
+  if (!record) return;
+  const next: Record<string, T> = {};
+  for (const [key, value] of Object.entries(record)) {
+    let mapped = key;
+    if (mapped.includes("section:nth-of-type(5)")) {
+      mapped = mapped.replace(
+        "section:nth-of-type(5)",
+        "section:nth-of-type(§)",
+      );
+    }
+    if (mapped.includes("section:nth-of-type(7)")) {
+      mapped = mapped.replace(
+        "section:nth-of-type(7)",
+        "section:nth-of-type(5)",
+      );
+    }
+    mapped = mapped.replace("section:nth-of-type(§)", "section:nth-of-type(7)");
+    next[mapped] = value;
+  }
+  for (const key of Object.keys(record)) delete record[key];
+  Object.assign(record, next);
+}
+
+function moveAboutSections(store: Store) {
+  const page = store["/o-nas"];
+  const text = page?.text;
+  if (
+    !page ||
+    !text ||
+    !Object.keys(text).some((key) =>
+      key.startsWith("section:nth-of-type(7) > ul"),
+    )
+  ) {
+    return;
+  }
+  remapSection57(page.sm);
+  remapSection57(page.md);
+  remapSection57(page.lg);
+  remapSection57(page.text);
+}
+
+function migrateAboutSections() {
+  const store = loadStore();
+  const before = stableLayout(store);
+  moveAboutSections(store);
+  if (stableLayout(store) !== before) saveStore(store);
+  const history = loadHistory();
+  let historyChanged = false;
+  for (const entry of history) {
+    const snap = stableLayout(entry);
+    moveAboutSections(entry);
+    if (stableLayout(entry) !== snap) historyChanged = true;
+  }
+  if (historyChanged) {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  }
 }
 
 function loadHistory(): Store[] {
@@ -412,6 +477,7 @@ export function LayoutEditor() {
   refreshTextRef.current = refreshText;
 
   useEffect(() => {
+    migrateAboutSections();
     setCollapsed(localStorage.getItem(COLLAPSE_KEY) === "1");
     const sync = () => {
       const nextDirty = stableLayout(loadStore()) !== savedSnapshot.current;
@@ -586,6 +652,14 @@ export function LayoutEditor() {
       return selector;
     };
 
+    const blockLayoutTarget = (event: Event) => {
+      const pointed = eventTargetElement(event.target);
+      if (!pointed || !main.contains(pointed)) return null;
+      if (pointed.closest("[data-layout-editor], [data-layout-resize]"))
+        return null;
+      return findBlock(pointed, doc);
+    };
+
     const onPointerDown = (event: PointerEvent) => {
       if (event.button !== 0) return;
       const pointed = eventTargetElement(event.target);
@@ -635,8 +709,26 @@ export function LayoutEditor() {
         originY: change.y,
         moved: false,
       };
-      if (el.querySelector("img") || el.tagName === "IMG")
+      if (
+        el.tagName === "A" ||
+        el.tagName === "BUTTON" ||
+        el.querySelector("img") ||
+        el.tagName === "IMG"
+      ) {
         event.preventDefault();
+      }
+    };
+
+    const onMouseDown = (event: MouseEvent) => {
+      if (event.button !== 0) return;
+      const el = blockLayoutTarget(event);
+      if (!el) return;
+      if (el.tagName === "A" || el.tagName === "BUTTON") event.preventDefault();
+    };
+
+    const onDragStart = (event: DragEvent) => {
+      if (!blockLayoutTarget(event)) return;
+      event.preventDefault();
     };
 
     const onPointerMove = (event: PointerEvent) => {
@@ -750,19 +842,25 @@ export function LayoutEditor() {
     };
 
     const onScroll = () => syncResize(selectedSelectorRef.current);
+    doc.body.dataset["layoutEditing"] = "1";
     markSelected(selectedSelectorRef.current);
     syncResize(selectedSelectorRef.current);
-    view.addEventListener("pointerdown", onPointerDown);
+    main.addEventListener("pointerdown", onPointerDown, true);
+    main.addEventListener("mousedown", onMouseDown, true);
     view.addEventListener("pointermove", onPointerMove);
     view.addEventListener("pointerup", onPointerUp);
+    view.addEventListener("dragstart", onDragStart, true);
     view.addEventListener("click", onClick, true);
     view.addEventListener("dblclick", onDoubleClick, true);
     window.addEventListener("pointerup", onPointerUp);
     doc.addEventListener("scroll", onScroll, true);
     return () => {
-      view.removeEventListener("pointerdown", onPointerDown);
+      delete doc.body.dataset["layoutEditing"];
+      main.removeEventListener("pointerdown", onPointerDown, true);
+      main.removeEventListener("mousedown", onMouseDown, true);
       view.removeEventListener("pointermove", onPointerMove);
       view.removeEventListener("pointerup", onPointerUp);
+      view.removeEventListener("dragstart", onDragStart, true);
       view.removeEventListener("click", onClick, true);
       view.removeEventListener("dblclick", onDoubleClick, true);
       window.removeEventListener("pointerup", onPointerUp);
@@ -781,9 +879,10 @@ export function LayoutEditor() {
   };
 
   const nudge = (dx: number, dy: number) => {
-    if (!selectedSelector) return;
-    const current = boxFor(editPath, activeSize, selectedSelector);
-    writeBox(editPath, activeSize, selectedSelector, {
+    const selector = selectedSelectorRef.current;
+    if (!selector) return;
+    const current = boxFor(editPath, activeSize, selector);
+    writeBox(editPath, activeSize, selector, {
       x: current.x + dx,
       y: current.y + dy,
     });
@@ -792,9 +891,10 @@ export function LayoutEditor() {
   };
 
   const adjustSpace = (edge: "top" | "bottom", delta: number) => {
-    if (!selectedSelector) return;
+    const selector = selectedSelectorRef.current;
+    if (!selector) return;
     const main = currentDoc()?.querySelector("main");
-    const el = main?.querySelector(selectedSelector);
+    const el = main?.querySelector(selector);
     if (!isHtmlElement(el)) return;
     const paddingProp = edge === "bottom" ? "paddingBottom" : "paddingTop";
     const marginProp = edge === "bottom" ? "marginBottom" : "marginTop";
@@ -806,11 +906,11 @@ export function LayoutEditor() {
       const margin =
         parseFloat(edge === "bottom" ? style.marginBottom : style.marginTop) ||
         0;
-      writeBox(editPath, activeSize, selectedSelector, {
+      writeBox(editPath, activeSize, selector, {
         [marginProp]: Math.round(margin + delta),
       });
     } else {
-      writeBox(editPath, activeSize, selectedSelector, {
+      writeBox(editPath, activeSize, selector, {
         [paddingProp]: Math.max(0, Math.round(padding + delta)),
       });
     }

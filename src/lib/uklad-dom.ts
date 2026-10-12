@@ -19,6 +19,14 @@ const LINE_MARK = "data-uklad-line";
 
 export type WordRange = { node: Text; start: number; end: number };
 
+function ensureLayoutInlineBox(el: HTMLElement) {
+  const display = getComputedStyle(el).display;
+  const inlineTag = el.tagName === "A" || el.tagName === "BUTTON";
+  if (!inlineTag && display !== "inline" && display !== "contents") return;
+  el.style.display = "inline-block";
+  el.dataset["layoutDisplay"] = "1";
+}
+
 export function clearBox(el: HTMLElement) {
   el.style.translate = "";
   el.style.zIndex = "";
@@ -33,6 +41,10 @@ export function clearBox(el: HTMLElement) {
   if (el.dataset["layoutPosition"] === "1") {
     el.style.position = "";
     delete el.dataset["layoutPosition"];
+  }
+  if (el.dataset["layoutDisplay"] === "1") {
+    el.style.display = "";
+    delete el.dataset["layoutDisplay"];
   }
 }
 
@@ -185,6 +197,7 @@ export function isTextBlock(el: HTMLElement) {
 
 function applyBox(el: HTMLElement, box: Box) {
   if (el.isContentEditable) return;
+  if (box.x || box.y) ensureLayoutInlineBox(el);
   el.style.translate = box.x || box.y ? `${box.x}px ${box.y}px` : "";
   if (getComputedStyle(el).position === "static") {
     el.style.position = "relative";
