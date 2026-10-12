@@ -286,14 +286,14 @@ export function Space({ full = false }: { full?: boolean }) {
           Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym.
           </p>
         </Reveal>
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="-mx-4 mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:-mx-6 md:-mx-10 md:gap-4 lg:grid-cols-3">
           {imgs.map((im, i) => (
-            <Reveal key={im.src} delay={(i % 3) * 100}>
+            <Reveal key={im.src} delay={(i % 3) * 100} className="h-full w-full">
               <Photo
                 src={im.src}
                 alt={im.alt}
                 zoomOut
-                className="aspect-[1024/592] w-full"
+                className="aspect-video h-full w-full"
               />
             </Reveal>
           ))}
@@ -579,9 +579,8 @@ export function Recruitment() {
           <p className="mt-8 max-w-md text-lg leading-relaxed text-muted-foreground">
             Najlepiej przyjechać, zobaczyć nasze wnętrza, poznać nas i porozmawiać.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <ButtonLink to="/kontakt" hash="wizyta">Umów wizytę</ButtonLink>
-            <ButtonLink to="/kontakt" hash="wizyta" variant="ghost">Zapytaj o wolne miejsce</ButtonLink>
+          <div className="mt-10">
+            <ButtonLink to="/kontakt">Umów wizytę</ButtonLink>
           </div>
         </div>
         <Photo src={int1} alt="Sala zabaw w żłobku" className="aspect-[4/3] rounded-none md:aspect-auto" />

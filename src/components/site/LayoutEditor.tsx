@@ -845,7 +845,7 @@ export function LayoutEditor() {
     doc.body.dataset["layoutEditing"] = "1";
     markSelected(selectedSelectorRef.current);
     syncResize(selectedSelectorRef.current);
-    main.addEventListener("pointerdown", onPointerDown, true);
+    doc.addEventListener("pointerdown", onPointerDown, true);
     main.addEventListener("mousedown", onMouseDown, true);
     view.addEventListener("pointermove", onPointerMove);
     view.addEventListener("pointerup", onPointerUp);
@@ -856,7 +856,7 @@ export function LayoutEditor() {
     doc.addEventListener("scroll", onScroll, true);
     return () => {
       delete doc.body.dataset["layoutEditing"];
-      main.removeEventListener("pointerdown", onPointerDown, true);
+      doc.removeEventListener("pointerdown", onPointerDown, true);
       main.removeEventListener("mousedown", onMouseDown, true);
       view.removeEventListener("pointermove", onPointerMove);
       view.removeEventListener("pointerup", onPointerUp);
