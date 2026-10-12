@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sand: var(--sand);
+  --color-honey: var(--honey);
+  --color-sage: var(--sage);
+}
+
+:root {
+  --radius: 0.5rem;
+  /* Ivory & oat base, honey-tan from the bear logo, sage as quiet accent */
+  --background: oklch(0.985 0.006 85);
+  --foreground: oklch(0.25 0.008 80);
+  --card: oklch(0.995 0.003 85);
+  --card-foreground: oklch(0.25 0.008 80);
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.25 0.008 80);
+  --primary: oklch(0.3 0.012 70);
+  --primary-foreground: oklch(0.985 0.006 85);
+  --secondary: oklch(0.955 0.011 80);
+  --secondary-foreground: oklch(0.25 0.008 80);
+  --muted: oklch(0.955 0.011 80);
+  --muted-foreground: oklch(0.5 0.014 70);
+  --accent: oklch(0.92 0.022 70);
+  --accent-foreground: oklch(0.3 0.012 70);
+  --sand: oklch(0.915 0.02 75);
+  --honey: oklch(0.64 0.075 60);
+  --sage: oklch(0.74 0.035 130);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.012 75);
+  --input: oklch(0.9 0.012 75);
+  --ring: oklch(0.64 0.075 60);
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--sand);
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--honey);
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Formularz trzyma kolumnę z trzech ustawionych szerokości: 390, 820 i 1280. */
+body[data-frame="formularz"] .container-site {
+  max-width: 24.375rem;
+}
+
+@media (width >= 48rem) {
+  body[data-frame="formularz"] .container-site {
+    max-width: 51.25rem;
+  }
+}
+
+@media (width >= 64rem) {
+  body[data-frame="formularz"] .container-site {
+    max-width: 80rem;
+  }
+}
+
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s var(--ease-calm);
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s var(--ease-calm),
+    transform 1s var(--ease-calm);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.img-zoom img {
+  transition: transform 1.4s var(--ease-calm);
+}
+.img-zoom:hover img {
+  transform: scale(1.035);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
