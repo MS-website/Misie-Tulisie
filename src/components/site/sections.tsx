@@ -677,12 +677,31 @@ export function ContactBlock() {
               Zostaw kontakt — oddzwonimy i ustalimy dogodny termin.
             </p>
             {sent ? (
-              <p className="mt-6 text-base">Dziękujemy! Otworzyliśmy Twój program pocztowy z gotową wiadomością.</p>
+              <div
+                className="mt-6 rounded-md bg-sand p-6 leading-relaxed"
+                aria-live="polite"
+                role="status"
+              >
+                <p className="font-display text-2xl text-foreground">
+                  Dziękujemy!
+                </p>
+                <p className="mt-3 text-base text-muted-foreground">
+                  Otrzymaliśmy Twoje zapytanie. Skontaktujemy się z Tobą w ciągu 24h.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSent(false)}
+                  className="link-underline mt-6 text-sm font-medium text-foreground"
+                >
+                  Wyślij kolejne zapytanie
+                </button>
+              </div>
             ) : (
               <form
                 className="mt-5 space-y-4"
                 onSubmit={(e) => {
                   e.preventDefault();
+                  if (!e.currentTarget.reportValidity()) return;
                   const f = new FormData(e.currentTarget);
                   const phone = String(f.get("phone") ?? "").trim();
                   const body = [

@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { flushSync } from "react-dom";
-import { contact } from "@/lib/site";
 import { submitRecruitment } from "@/lib/forms";
+import { contact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /* ---------- telefon: krajowy 9-cyfrowy → +48; zagraniczny z + / 00 ---------- */
@@ -503,6 +503,18 @@ function validate(v: Values): Errors {
 
 type Status = "idle" | "sending" | "sent" | "unavailable";
 
+function resetRecruitmentForm(
+  setValues: (v: Values) => void,
+  setErrors: (e: Errors) => void,
+  setTouchedSubmit: (v: boolean) => void,
+  setStatus: (s: Status) => void,
+) {
+  setValues(empty);
+  setErrors({});
+  setTouchedSubmit(false);
+  setStatus("idle");
+}
+
 function NotesField({
   id,
   value,
@@ -561,6 +573,33 @@ export function RecruitmentForm() {
     if (touchedSubmit) setErrors(validate(next));
   };
 
+  if (status === "sent") {
+    return (
+      <div
+        className="w-full max-w-xl rounded-2xl border border-honey/20 bg-sand p-6 leading-relaxed md:p-10 lg:max-w-none lg:w-[55%]"
+        aria-live="polite"
+        role="status"
+      >
+        <p className="font-display text-2xl text-foreground md:text-3xl">
+          Dziękujemy!
+        </p>
+        <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+          Otrzymaliśmy Twoje zgłoszenie rekrutacyjne. Skontaktujemy się z Tobą najszybciej
+          jak to możliwe.
+        </p>
+        <button
+          type="button"
+          onClick={() =>
+            resetRecruitmentForm(setValues, setErrors, setTouchedSubmit, setStatus)
+          }
+          className="link-underline mt-6 text-sm font-medium text-foreground"
+        >
+          Wyślij kolejne zgłoszenie
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form
       noValidate
@@ -587,10 +626,13 @@ export function RecruitmentForm() {
           email: values.email.trim(),
           notes: values.notes.trim(),
         });
-        setStatus(sent ? "sent" : "unavailable");
         if (sent) {
           setValues(empty);
           setTouchedSubmit(false);
+          setErrors({});
+          setStatus("sent");
+        } else {
+          setStatus("unavailable");
         }
       }}
     >
@@ -711,16 +753,11 @@ export function RecruitmentForm() {
       </div>
 
       <div aria-live="polite">
-        {status === "sent" && (
-          <p className="mt-8 max-w-2xl rounded-md bg-sand p-6 leading-relaxed">
-            Dziękujemy! Otrzymaliśmy zgłoszenie i wkrótce się odezwiemy.
-          </p>
-        )}
         {status === "unavailable" && (
-          <p className="mt-8 max-w-2xl rounded-md bg-sand p-6 leading-relaxed">
+          <p className="mt-8 max-w-2xl rounded-md bg-sand p-6 leading-relaxed text-muted-foreground">
             Formularz jest poprawnie wypełniony, ale wysyłanie zgłoszeń przez stronę nie jest
             jeszcze dostępne — dane nie zostały nigdzie przesłane. Prosimy o kontakt telefoniczny:{" "}
-            <a href={contact.phoneHref} className="link-underline whitespace-nowrap">
+            <a href={contact.phoneHref} className="link-underline whitespace-nowrap text-foreground">
               {contact.phone}
             </a>
             .
