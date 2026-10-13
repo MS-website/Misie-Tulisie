@@ -90,6 +90,18 @@ function remapSection57<T>(record: Record<string, T> | undefined) {
   Object.assign(record, next);
 }
 
+const KONTAKT_EMAIL_LINK =
+  "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)";
+
+function stripKontaktEmailLinkWidth(store: Store) {
+  const page = store["/kontakt"];
+  if (!page) return;
+  for (const size of SIZE_ORDER) {
+    const box = page[size]?.[KONTAKT_EMAIL_LINK];
+    if (box && box.width != null) delete box.width;
+  }
+}
+
 function moveAboutSections(store: Store) {
   const page = store["/o-nas"];
   const text = page?.text;
@@ -112,12 +124,14 @@ function migrateAboutSections() {
   const store = loadStore();
   const before = stableLayout(store);
   moveAboutSections(store);
+  stripKontaktEmailLinkWidth(store);
   if (stableLayout(store) !== before) saveStore(store);
   const history = loadHistory();
   let historyChanged = false;
   for (const entry of history) {
     const snap = stableLayout(entry);
     moveAboutSections(entry);
+    stripKontaktEmailLinkWidth(entry);
     if (stableLayout(entry) !== snap) historyChanged = true;
   }
   if (historyChanged) {

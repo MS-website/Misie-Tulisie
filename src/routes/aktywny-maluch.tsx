@@ -92,14 +92,13 @@ function AktywnyMaluch() {
             <h2 className="font-display text-4xl leading-tight md:text-5xl">
               Wartość zadania i dofinansowanie
             </h2>
-            <div className="mt-3 h-px w-14 bg-honey/50" aria-hidden="true" />
 
-            <div className="mt-12 flex min-w-0 overflow-hidden rounded-md bg-secondary/90 md:mt-14">
+            <div className="mt-12 flex min-w-0 md:mt-14">
               <div
-                className="w-1.5 shrink-0 bg-honey md:w-2"
+                className="w-1.5 shrink-0 rounded-l-sm bg-sky-500/75 md:w-2"
                 aria-hidden="true"
               />
-              <div className="min-w-0 flex-1 space-y-4 px-5 py-5 text-base leading-relaxed text-foreground md:space-y-5 md:px-8 md:py-6 md:text-lg">
+              <div className="min-w-0 flex-1 space-y-4 bg-gradient-to-r from-sky-100/55 via-sky-100/25 to-transparent px-5 py-5 text-base leading-relaxed text-foreground md:space-y-5 md:px-8 md:py-6 md:text-lg">
                 <p className="min-w-0 break-words">
                   <strong className="font-semibold">Wartość zadania:</strong>{" "}
                   898 350,00 zł

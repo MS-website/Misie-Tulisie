@@ -315,7 +315,7 @@
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
         "x": 0,
-        "y": 4,
+        "y": 0,
         "z": 0,
         "width": 615
       },
@@ -324,15 +324,16 @@
         "y": -148,
         "z": 0,
         "paddingTop": 24,
-        "paddingBottom": 96,
+        "paddingBottom": 48,
         "marginTop": -24,
-        "marginBottom": -48
+        "marginBottom": -192
       },
       "section:nth-of-type(3)": {
-        "x": -2,
-        "y": -276,
+        "x": -1,
+        "y": -210,
         "z": 2,
         "paddingTop": 96,
+        "paddingBottom": 24,
         "marginTop": -96,
         "marginBottom": -216
       },
@@ -399,22 +400,32 @@
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2)": {
         "x": 0,
-        "y": -20,
+        "y": 0,
         "z": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -40,
-        "z": 0
+        "x": 27,
+        "y": -92,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > ol:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 0,
-        "y": -36,
-        "z": 0
+        "x": 22,
+        "y": -101,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > ol:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 0,
-        "y": -48,
+        "x": 22,
+        "y": -116,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > h2:nth-of-type(1)": {
+        "x": -2,
+        "y": -37,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 16,
+        "y": -60,
         "z": 0
       }
     },
@@ -428,8 +439,8 @@
         "originalHtml": "Strona przedstawia informacje o realizowanym zadaniu i dofinansowaniu."
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > ol:nth-of-type(1) > li:nth-of-type(2)": {
-        "html": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich (BP) – 141 002,42 zł (17,48 % dofinansowania)",
-        "originalHtml": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich (BP) – 141 002,42 zł (17,48 % dofinansowania)"
+        "html": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich (BP) –141 002,42 zł (17,48 % dofinansowania)",
+        "originalHtml": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich ( BP) –141 002,42 zł (17,48 % dofinansowania)"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(3)": {
         "html": "Wartość dofinansowania – środki z FERS: <span class=\"mt-3 block font-display text-4xl leading-none text-foreground md:text-5xl\">826 650,00 zł,</span><span class=\"mt-3 block font-display text-4xl leading-none text-foreground md:text-5xl\"><br></span> pochodzące z następujących źródeł:",
@@ -511,10 +522,10 @@
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
-        "y": -68,
+        "y": -72,
         "z": 0,
         "paddingBottom": 24,
-        "fontSize": 76,
+        "fontSize": 68,
         "width": 1094
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
@@ -641,6 +652,16 @@
         "x": 32,
         "y": 0,
         "z": 0
+      },
+      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": -16,
+        "z": 0
+      },
+      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": -8,
+        "y": -5,
+        "z": 2
       }
     },
     "text": {
@@ -849,8 +870,7 @@
         "z": 2,
         "paddingTop": 48,
         "paddingBottom": 24,
-        "fontSize": 16,
-        "width": 282
+        "fontSize": 16
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)": {
         "x": 64,
@@ -869,9 +889,9 @@
         "fontSize": 26
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -24,
-        "z": 0
+        "x": -5,
+        "y": -22,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,

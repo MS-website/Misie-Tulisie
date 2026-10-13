@@ -641,7 +641,12 @@ export function ContactBlock() {
           </div>
           <div>
             <p className="eyebrow mb-3">E-mail</p>
-            <a href={`mailto:${contact.email}`} className="link-underline text-lg break-all">{contact.email}</a>
+            <a
+              href={`mailto:${contact.email}`}
+              className="inline-block w-fit max-w-full text-lg"
+            >
+              <span className="link-underline break-all">{contact.email}</span>
+            </a>
           </div>
           <div>
             <p className="eyebrow mb-3">Godziny otwarcia</p>
