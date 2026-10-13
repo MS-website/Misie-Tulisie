@@ -196,18 +196,18 @@ body[data-frame="formularz"] .container-site {
   opacity: 0;
   transform: translateY(-20px);
   transition:
-    opacity 1.25s var(--ease-calm),
-    transform 1.25s var(--ease-calm);
+    opacity 1.05s var(--ease-calm),
+    transform 1.05s var(--ease-calm);
 }
 .reveal-stagger.reveal-stagger-text-then-arrow > li > img {
   opacity: 0;
   margin-left: -1.5rem;
   transition:
-    opacity 1.25s var(--ease-calm),
-    margin-left 1.25s var(--ease-calm);
+    opacity 1.05s var(--ease-calm),
+    margin-left 1.05s var(--ease-calm);
 }
 .reveal-stagger.reveal-stagger-text-then-arrow {
-  --reveal-stagger-arrow: 1250ms;
+  --reveal-stagger-arrow: 1000ms;
   --reveal-row-step: calc(var(--reveal-stagger-inner) + var(--reveal-stagger-arrow));
 }
 .reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(1) > span {

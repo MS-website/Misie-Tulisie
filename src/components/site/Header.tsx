@@ -15,9 +15,11 @@ export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
       <img
         src={logo}
         alt="Logo Misie Tulisie"
-        className={size === "lg" ? "h-16 w-auto" : "h-11 w-auto"}
+        className={size === "lg" ? "h-16 w-auto" : "h-14 w-auto"}
       />
-      <span className="font-display text-2xl leading-none">Misie Tulisie</span>
+      <span className="font-display text-[1.75rem] leading-none md:text-[1.875rem]">
+        Misie Tulisie
+      </span>
     </Link>
   );
 }
@@ -59,7 +61,7 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
-              className="link-underline text-sm text-foreground/80 hover:text-foreground"
+              className="link-underline text-[0.9375rem] text-foreground/80 hover:text-foreground md:text-base"
               activeProps={{ className: "text-foreground" }}
             >
               {n.label}

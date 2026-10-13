@@ -168,7 +168,7 @@ export function WhyMisie() {
           </Reveal>
           <RevealStaggerList
             className="mt-12 border-b border-border"
-            innerStagger={980}
+            innerStagger={800}
             motion="text-then-arrow"
           >
             {reasons.map((item) => (
