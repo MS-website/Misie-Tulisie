@@ -26,7 +26,10 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const showVisitButton = useRouterState({
-    select: (state) => state.location.pathname !== "/formularz-rekrutacyjny",
+    select: (state) => {
+      const path = state.location.pathname;
+      return path !== "/formularz-rekrutacyjny" && path !== "/kontakt";
+    },
   });
 
   useEffect(() => {
@@ -49,9 +52,9 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-site flex h-20 items-center justify-between">
+      <div className="container-site grid h-20 grid-cols-[1fr_auto_1fr] items-center">
         <Logo />
-        <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
+        <nav className="hidden items-center justify-center gap-5 xl:gap-8 lg:flex">
           {nav.map((n) => (
             <Link
               key={n.to}
@@ -63,33 +66,32 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div
-          className={cn("hidden lg:block", !showVisitButton && "invisible")}
-          inert={!showVisitButton}
-        >
-          <ButtonLink to="/kontakt" className="h-11">
-            Umów wizytę
-          </ButtonLink>
+        <div className="col-start-3 flex items-center justify-end gap-3">
+          {showVisitButton && (
+            <ButtonLink to="/kontakt" className="hidden h-11 lg:inline-flex">
+              Umów wizytę
+            </ButtonLink>
+          )}
+          <button
+            className="relative h-10 w-10 lg:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Zamknij menu" : "Otwórz menu"}
+            aria-expanded={open}
+          >
+            <span
+              className={cn(
+                "absolute left-2 right-2 h-px bg-foreground transition-all duration-500",
+                open ? "top-1/2 rotate-45" : "top-[15px]",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute left-2 right-2 h-px bg-foreground transition-all duration-500",
+                open ? "top-1/2 -rotate-45" : "top-[25px]",
+              )}
+            />
+          </button>
         </div>
-        <button
-          className="relative h-10 w-10 lg:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Zamknij menu" : "Otwórz menu"}
-          aria-expanded={open}
-        >
-          <span
-            className={cn(
-              "absolute left-2 right-2 h-px bg-foreground transition-all duration-500",
-              open ? "top-1/2 rotate-45" : "top-[15px]",
-            )}
-          />
-          <span
-            className={cn(
-              "absolute left-2 right-2 h-px bg-foreground transition-all duration-500",
-              open ? "top-1/2 -rotate-45" : "top-[25px]",
-            )}
-          />
-        </button>
       </div>
 
       <div

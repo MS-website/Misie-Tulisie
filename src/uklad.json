@@ -823,7 +823,7 @@
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
-        "y": -44,
+        "y": -32,
         "z": 0
       },
       "section:nth-of-type(2)": {
@@ -907,6 +907,10 @@
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "html": "<br>",
         "originalHtml": "Kontakt"
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin",
+        "originalHtml": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin."
       }
     }
   }
