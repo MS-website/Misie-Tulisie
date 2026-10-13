@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function Reveal({
@@ -32,6 +32,57 @@ export function Reveal({
     <div ref={ref} className={cn("reveal", className)} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
+  );
+}
+
+export function RevealStaggerList({
+  className,
+  stagger = 480,
+  innerStagger = 560,
+  motion = "up",
+  children,
+}: {
+  className?: string;
+  /** Opóźnienie między kolejnymi elementami listy (ms). */
+  stagger?: number;
+  /** Przy `text-then-arrow`: opóźnienie strzałki względem tekstu w wierszu (ms). */
+  innerStagger?: number;
+  motion?: "up" | "text-then-arrow";
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLUListElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          el.classList.add("is-visible");
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <ul
+      ref={ref}
+      className={cn(
+        "reveal-stagger",
+        motion === "text-then-arrow" && "reveal-stagger-text-then-arrow",
+        className,
+      )}
+      style={
+        {
+          "--reveal-stagger": `${stagger}ms`,
+          "--reveal-stagger-inner": `${innerStagger}ms`,
+        } as CSSProperties
+      }
+    >
+      {children}
+    </ul>
   );
 }
 

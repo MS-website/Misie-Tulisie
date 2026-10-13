@@ -67,7 +67,7 @@ export function Header() {
           className={cn("hidden lg:block", !showVisitButton && "invisible")}
           inert={!showVisitButton}
         >
-          <ButtonLink to="/kontakt" hash="wizyta" className="h-11">
+          <ButtonLink to="/kontakt" className="h-11">
             Umów wizytę
           </ButtonLink>
         </div>
@@ -119,7 +119,7 @@ export function Header() {
           <div className="space-y-4">
             {showVisitButton && (
               <div onClick={() => setOpen(false)}>
-                <ButtonLink to="/kontakt" hash="wizyta" className="w-full">
+                <ButtonLink to="/kontakt" className="w-full">
                   Umów wizytę
                 </ButtonLink>
               </div>

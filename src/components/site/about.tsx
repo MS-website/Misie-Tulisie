@@ -6,8 +6,9 @@ import carers from "@/assets/opiekunki.png";
 import rainbow from "@/assets/zajrzyj-tecza.png";
 import rooms from "@/assets/sale.png";
 import meals from "@/assets/zdrowe-posilki.png";
+import arrowMark from "@/assets/strzalka-dlaczego.png";
 import shapes from "@/assets/zabawa-ksztalty.jpg";
-import { ButtonLink, Photo, Reveal } from "@/components/site/ui";
+import { ButtonLink, Photo, Reveal, RevealStaggerList } from "@/components/site/ui";
 import { MarkBadge } from "@/components/site/marks";
 
 function MealsMark({ className }: { className?: string }) {
@@ -106,13 +107,16 @@ export function Foundations() {
             Fundamenty naszej pracy
           </h2>
         </Reveal>
-        <Reveal className="lg:col-span-6 lg:col-start-7" delay={80}>
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            Misie Tulisie działają w oparciu o aktualne podstawy programowe oraz
-            wartości zawarte w <Em>Konwencji o prawach dziecka</Em>, w
-            szczególności prawo dziecka do:
-          </p>
-          <ul className="mt-10">
+        <div className="lg:col-span-6 lg:col-start-7">
+          <Reveal delay={80}>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Misie Tulisie działają w oparciu o aktualne podstawy programowe
+              oraz wartości zawarte w{" "}
+              <Em>Konwencji o prawach dziecka</Em>, w szczególności prawo
+              dziecka do:
+            </p>
+          </Reveal>
+          <RevealStaggerList className="mt-10" stagger={820}>
             {rights.map((item, i) => (
               <li
                 key={item}
@@ -127,8 +131,8 @@ export function Foundations() {
                 <span>{item}</span>
               </li>
             ))}
-          </ul>
-        </Reveal>
+          </RevealStaggerList>
+        </div>
       </div>
     </section>
   );
@@ -162,20 +166,26 @@ export function WhyMisie() {
               Ponieważ w naszym żłobku dzieci:
             </p>
           </Reveal>
-          <ul className="mt-12 border-b border-border">
+          <RevealStaggerList
+            className="mt-12 border-b border-border"
+            innerStagger={980}
+            motion="text-then-arrow"
+          >
             {reasons.map((item) => (
               <li
                 key={item}
-                className="flex gap-5 border-t border-border py-6 text-lg leading-relaxed text-muted-foreground"
+                className="flex items-start gap-4 border-t border-border py-6 text-lg leading-relaxed text-muted-foreground"
               >
-                <span
-                  className="mt-3 h-px w-6 shrink-0 bg-honey"
+                <img
+                  src={arrowMark}
+                  alt=""
                   aria-hidden="true"
+                  className="mt-2.5 h-[0.65rem] w-7 shrink-0 origin-left translate-y-1.5 -rotate-[8deg] object-contain object-left brightness-[0.62] contrast-[1.08]"
                 />
                 <span>{item}</span>
               </li>
             ))}
-          </ul>
+          </RevealStaggerList>
           <Reveal delay={80}>
             <p className="mt-16 text-lg leading-relaxed text-muted-foreground">
               Misie Tulisie to przestrzeń, w której zdajemy sobie sprawę, że{" "}

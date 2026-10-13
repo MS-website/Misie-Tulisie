@@ -23,7 +23,10 @@ function ensureLayoutInlineBox(el: HTMLElement) {
   const display = getComputedStyle(el).display;
   const inlineTag = el.tagName === "A" || el.tagName === "BUTTON";
   if (!inlineTag && display !== "inline" && display !== "contents") return;
-  el.style.display = "inline-block";
+  const flexButton =
+    inlineTag &&
+    (display.includes("flex") || el.classList.contains("inline-flex"));
+  el.style.display = flexButton ? "inline-flex" : "inline-block";
   el.dataset["layoutDisplay"] = "1";
 }
 

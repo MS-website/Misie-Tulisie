@@ -146,6 +146,124 @@ body[data-frame="formularz"] .container-site {
   opacity: 1;
   transform: none;
 }
+.reveal-stagger {
+  --reveal-stagger: 480ms;
+  --reveal-stagger-inner: 560ms;
+}
+.reveal-stagger > li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.25s var(--ease-calm),
+    transform 1.25s var(--ease-calm);
+}
+.reveal-stagger > li:nth-child(1) {
+  transition-delay: calc(var(--reveal-stagger) * 0);
+}
+.reveal-stagger > li:nth-child(2) {
+  transition-delay: calc(var(--reveal-stagger) * 1);
+}
+.reveal-stagger > li:nth-child(3) {
+  transition-delay: calc(var(--reveal-stagger) * 2);
+}
+.reveal-stagger > li:nth-child(4) {
+  transition-delay: calc(var(--reveal-stagger) * 3);
+}
+.reveal-stagger > li:nth-child(5) {
+  transition-delay: calc(var(--reveal-stagger) * 4);
+}
+.reveal-stagger > li:nth-child(6) {
+  transition-delay: calc(var(--reveal-stagger) * 5);
+}
+.reveal-stagger > li:nth-child(7) {
+  transition-delay: calc(var(--reveal-stagger) * 6);
+}
+.reveal-stagger > li:nth-child(8) {
+  transition-delay: calc(var(--reveal-stagger) * 7);
+}
+.reveal-stagger.is-visible > li {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li > span {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    opacity 1.25s var(--ease-calm),
+    transform 1.25s var(--ease-calm);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li > img {
+  opacity: 0;
+  margin-left: -1.5rem;
+  transition:
+    opacity 1.25s var(--ease-calm),
+    margin-left 1.25s var(--ease-calm);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow {
+  --reveal-stagger-arrow: 1250ms;
+  --reveal-row-step: calc(var(--reveal-stagger-inner) + var(--reveal-stagger-arrow));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(1) > span {
+  transition-delay: 0ms;
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(1) > img {
+  transition-delay: var(--reveal-stagger-inner);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(2) > span {
+  transition-delay: calc(var(--reveal-row-step) * 1);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(2) > img {
+  transition-delay: calc(var(--reveal-row-step) * 1 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(3) > span {
+  transition-delay: calc(var(--reveal-row-step) * 2);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(3) > img {
+  transition-delay: calc(var(--reveal-row-step) * 2 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(4) > span {
+  transition-delay: calc(var(--reveal-row-step) * 3);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(4) > img {
+  transition-delay: calc(var(--reveal-row-step) * 3 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(5) > span {
+  transition-delay: calc(var(--reveal-row-step) * 4);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(5) > img {
+  transition-delay: calc(var(--reveal-row-step) * 4 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(6) > span {
+  transition-delay: calc(var(--reveal-row-step) * 5);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(6) > img {
+  transition-delay: calc(var(--reveal-row-step) * 5 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(7) > span {
+  transition-delay: calc(var(--reveal-row-step) * 6);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(7) > img {
+  transition-delay: calc(var(--reveal-row-step) * 6 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(8) > span {
+  transition-delay: calc(var(--reveal-row-step) * 7);
+}
+.reveal-stagger.reveal-stagger-text-then-arrow > li:nth-child(8) > img {
+  transition-delay: calc(var(--reveal-row-step) * 7 + var(--reveal-stagger-inner));
+}
+.reveal-stagger.reveal-stagger-text-then-arrow.is-visible > li > span {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.reveal-stagger-text-then-arrow.is-visible > li > img {
+  opacity: 1;
+  margin-left: 0;
+}
 .gallery-frame {
   position: relative;
   z-index: 0;
@@ -164,6 +282,18 @@ body[data-frame="formularz"] .container-site {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+  .reveal-stagger > li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal-stagger.reveal-stagger-text-then-arrow > li > span,
+  .reveal-stagger.reveal-stagger-text-then-arrow > li > img {
+    opacity: 1;
+    transform: none;
+    margin-left: 0;
+    transition: none;
   }
   .gallery-frame,
   .gallery-frame:hover {
