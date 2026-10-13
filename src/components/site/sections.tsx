@@ -747,7 +747,7 @@ export function ContactBlock() {
           </div>
         </Reveal>
       </div>
-      <Reveal className="mt-20">
+      <Reveal className="mt-5 md:mt-7">
         <iframe
           title="Mapa — Żłobek Misie Tulisie"
           src="https://www.google.com/maps?q=Pozna%C5%84ska+99,+62-200+Gniezno&output=embed"
