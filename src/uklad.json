@@ -424,7 +424,7 @@
       },
       "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
-        "y": -29,
+        "y": -33,
         "z": 2
       },
       "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
@@ -499,6 +499,20 @@
         "html": "Małe kroki ku nowemu",
         "originalHtml": "Bezpieczna adaptacja"
       }
+    },
+    "theme": {
+      "cardL": 0.895,
+      "cardC": 0.061,
+      "cardH": 291.9553137155499,
+      "cardAlpha": 16,
+      "spaceL": 0.859,
+      "spaceC": 0.119,
+      "spaceH": 254.23991126387995,
+      "spaceAlpha": 16,
+      "discoverL": 0.719,
+      "discoverC": 0.06,
+      "discoverH": 94.93187451023095,
+      "discoverAlpha": 7
     }
   },
   "/aktywny-maluch": {

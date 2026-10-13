@@ -36,6 +36,7 @@
   --color-sky-soft: var(--sky-soft);
   --color-sun-soft: var(--sun-soft);
   --color-blush: var(--blush);
+  --color-berry-soft: var(--berry-soft);
   --color-cream: var(--cream);
 }
 
@@ -64,12 +65,28 @@
   --sky-soft: oklch(0.795 0.074 234);
   --sun-soft: oklch(0.902 0.042 88);
   --blush: oklch(0.945 0.018 12);
+  --berry-soft: oklch(0.78 0.11 355);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.9 0.012 75);
   --input: oklch(0.9 0.012 75);
   --ring: oklch(0.64 0.075 60);
   --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+  --home-card-fill: oklch(0.912 0.05 278 / 48%);
+  --home-space-fill: oklch(0.859 0.119 254.2 / 16%);
+  --home-discover-fill: oklch(0.955 0.011 80 / 40%);
+}
+
+@utility bg-berry-card {
+  background-color: var(--home-card-fill);
+}
+
+@utility bg-space-fill {
+  background-color: var(--home-space-fill);
+}
+
+@utility bg-discover-fill {
+  background-color: var(--home-discover-fill);
 }
 
 @layer base {

@@ -1,7 +1,7 @@
 import { useRouterState } from "@tanstack/react-router";
 import { useEffect } from "react";
 import savedFile from "@/uklad.json";
-import { applyLayout, isApplying } from "@/lib/uklad-dom";
+import { applyLayout, applyTheme, isApplying } from "@/lib/uklad-dom";
 import { normalizeLayout, sizeForWidth } from "@/lib/uklad-data";
 
 const store = normalizeLayout(savedFile);
@@ -12,8 +12,11 @@ export function SavedLayout() {
   });
 
   useEffect(() => {
-    const run = () =>
-      applyLayout(document, pathname, sizeForWidth(window.innerWidth), store);
+    const run = () => {
+      const size = sizeForWidth(window.innerWidth);
+      applyLayout(document, pathname, size, store);
+      applyTheme(document, pathname, store);
+    };
     run();
     const later = window.setTimeout(run, 80);
     const main = document.querySelector("main");

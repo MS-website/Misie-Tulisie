@@ -30,12 +30,153 @@ export type TextChange = {
   originalHtml: string;
 };
 
+export type PageTheme = {
+  berryOpacity?: number;
+  cardL?: number;
+  cardC?: number;
+  cardH?: number;
+  cardAlpha?: number;
+  spaceL?: number;
+  spaceC?: number;
+  spaceH?: number;
+  spaceAlpha?: number;
+  discoverL?: number;
+  discoverC?: number;
+  discoverH?: number;
+  discoverAlpha?: number;
+};
+
+export type CardFill = {
+  l: number;
+  c: number;
+  h: number;
+  alpha: number;
+};
+
 export type PageLayout = {
   text?: Record<string, TextChange>;
+  theme?: PageTheme;
   sm?: Record<string, Box>;
   md?: Record<string, Box>;
   lg?: Record<string, Box>;
 };
+
+export const DEFAULT_CARD_FILL: CardFill = {
+  l: 0.912,
+  c: 0.05,
+  h: 278,
+  alpha: 48,
+};
+
+export const DEFAULT_SPACE_FILL: CardFill = {
+  l: 0.795,
+  c: 0.074,
+  h: 234,
+  alpha: 20,
+};
+
+export const DEFAULT_DISCOVER_FILL: CardFill = {
+  l: 0.955,
+  c: 0.011,
+  h: 80,
+  alpha: 40,
+};
+
+type ThemeFillKeys = {
+  l: keyof PageTheme;
+  c: keyof PageTheme;
+  h: keyof PageTheme;
+  a: keyof PageTheme;
+};
+
+function clampAlpha(value: number) {
+  return Math.min(100, Math.max(0, Math.round(value)));
+}
+
+function clampCardL(value: number) {
+  return Math.min(0.98, Math.max(0.58, Math.round(value * 1000) / 1000));
+}
+
+function clampCardC(value: number) {
+  return Math.min(0.16, Math.max(0, Math.round(value * 1000) / 1000));
+}
+
+function normHue(value: number) {
+  const h = value % 360;
+  return h < 0 ? h + 360 : h;
+}
+
+function fillForTheme(
+  theme: PageTheme | undefined,
+  keys: ThemeFillKeys,
+  defaults: CardFill,
+  legacyAlpha?: number,
+): CardFill {
+  if (!theme) return defaults;
+  const alphaRaw = theme[keys.a];
+  const alpha =
+    typeof alphaRaw === "number"
+      ? clampAlpha(alphaRaw)
+      : legacyAlpha != null
+        ? clampAlpha(legacyAlpha)
+        : defaults.alpha;
+  const l = theme[keys.l];
+  const c = theme[keys.c];
+  const h = theme[keys.h];
+  if (
+    typeof l === "number" &&
+    typeof c === "number" &&
+    typeof h === "number"
+  ) {
+    return {
+      l: clampCardL(l),
+      c: clampCardC(c),
+      h: normHue(h),
+      alpha,
+    };
+  }
+  return { ...defaults, alpha };
+}
+
+export function cardFillFor(store: Store, pathname: string): CardFill {
+  const theme = store[pathname]?.theme;
+  return fillForTheme(
+    theme,
+    { l: "cardL", c: "cardC", h: "cardH", a: "cardAlpha" },
+    DEFAULT_CARD_FILL,
+    theme?.berryOpacity,
+  );
+}
+
+export function spaceFillFor(store: Store, pathname: string): CardFill {
+  const theme = store[pathname]?.theme;
+  return fillForTheme(
+    theme,
+    { l: "spaceL", c: "spaceC", h: "spaceH", a: "spaceAlpha" },
+    DEFAULT_SPACE_FILL,
+  );
+}
+
+export function discoverFillFor(store: Store, pathname: string): CardFill {
+  const theme = store[pathname]?.theme;
+  return fillForTheme(
+    theme,
+    {
+      l: "discoverL",
+      c: "discoverC",
+      h: "discoverH",
+      a: "discoverAlpha",
+    },
+    DEFAULT_DISCOVER_FILL,
+  );
+}
+
+export function cardFillCss(fill: CardFill): string {
+  const l = Math.round(fill.l * 1000) / 1000;
+  const c = Math.round(fill.c * 1000) / 1000;
+  const h = Math.round(fill.h * 10) / 10;
+  return `oklch(${l} ${c} ${h} / ${fill.alpha}%)`;
+}
 
 export type Store = Record<string, PageLayout>;
 
@@ -129,9 +270,78 @@ function readText(value: unknown): TextChange | null {
   return { html, originalHtml };
 }
 
+function readTheme(value: Record<string, unknown>): PageTheme | undefined {
+  const raw = value["theme"];
+  if (!isRecord(raw)) return undefined;
+  const theme: PageTheme = {};
+  const berryOpacity = numberOrNull(raw["berryOpacity"]);
+  if (berryOpacity != null && berryOpacity >= 0 && berryOpacity <= 100) {
+    theme.berryOpacity = berryOpacity;
+  }
+  const cardL = typeof raw["cardL"] === "number" ? raw["cardL"] : null;
+  if (cardL != null && Number.isFinite(cardL) && cardL >= 0.5 && cardL <= 1) {
+    theme.cardL = cardL;
+  }
+  const cardC = typeof raw["cardC"] === "number" ? raw["cardC"] : null;
+  if (cardC != null && Number.isFinite(cardC) && cardC >= 0 && cardC <= 0.2) {
+    theme.cardC = cardC;
+  }
+  const cardH = typeof raw["cardH"] === "number" ? raw["cardH"] : null;
+  if (cardH != null && Number.isFinite(cardH)) theme.cardH = cardH;
+  const cardAlpha = numberOrNull(raw["cardAlpha"]);
+  if (cardAlpha != null && cardAlpha >= 0 && cardAlpha <= 100) {
+    theme.cardAlpha = cardAlpha;
+  }
+  const spaceL = typeof raw["spaceL"] === "number" ? raw["spaceL"] : null;
+  if (spaceL != null && Number.isFinite(spaceL) && spaceL >= 0.5 && spaceL <= 1) {
+    theme.spaceL = spaceL;
+  }
+  const spaceC = typeof raw["spaceC"] === "number" ? raw["spaceC"] : null;
+  if (spaceC != null && Number.isFinite(spaceC) && spaceC >= 0 && spaceC <= 0.2) {
+    theme.spaceC = spaceC;
+  }
+  const spaceH = typeof raw["spaceH"] === "number" ? raw["spaceH"] : null;
+  if (spaceH != null && Number.isFinite(spaceH)) theme.spaceH = spaceH;
+  const spaceAlpha = numberOrNull(raw["spaceAlpha"]);
+  if (spaceAlpha != null && spaceAlpha >= 0 && spaceAlpha <= 100) {
+    theme.spaceAlpha = spaceAlpha;
+  }
+  const discoverL = typeof raw["discoverL"] === "number" ? raw["discoverL"] : null;
+  if (
+    discoverL != null &&
+    Number.isFinite(discoverL) &&
+    discoverL >= 0.5 &&
+    discoverL <= 1
+  ) {
+    theme.discoverL = discoverL;
+  }
+  const discoverC = typeof raw["discoverC"] === "number" ? raw["discoverC"] : null;
+  if (
+    discoverC != null &&
+    Number.isFinite(discoverC) &&
+    discoverC >= 0 &&
+    discoverC <= 0.2
+  ) {
+    theme.discoverC = discoverC;
+  }
+  const discoverH = typeof raw["discoverH"] === "number" ? raw["discoverH"] : null;
+  if (discoverH != null && Number.isFinite(discoverH)) theme.discoverH = discoverH;
+  const discoverAlpha = numberOrNull(raw["discoverAlpha"]);
+  if (discoverAlpha != null && discoverAlpha >= 0 && discoverAlpha <= 100) {
+    theme.discoverAlpha = discoverAlpha;
+  }
+  return Object.keys(theme).length > 0 ? theme : undefined;
+}
+
 function isOldPage(value: Record<string, unknown>) {
   return Object.entries(value).some(([key, entry]) => {
-    if (key === "sm" || key === "md" || key === "lg" || key === "text")
+    if (
+      key === "sm" ||
+      key === "md" ||
+      key === "lg" ||
+      key === "text" ||
+      key === "theme"
+    )
       return false;
     return isRecord(entry) && "x" in entry;
   });
@@ -196,7 +406,9 @@ function convertNew(value: Record<string, unknown>): PageLayout | null {
   }
   const text = readTextMap(value["text"]);
   if (text) page.text = text;
-  if (!page.sm && !page.md && !page.lg && !page.text) return null;
+  const theme = readTheme(value);
+  if (theme) page.theme = theme;
+  if (!page.sm && !page.md && !page.lg && !page.text && !page.theme) return null;
   return page;
 }
 

@@ -111,7 +111,7 @@ export function HomePlayGrowth() {
 
 export function HomeSpace() {
   return (
-    <section className="bg-sky-soft/20 py-20 md:py-28">
+    <section className="bg-space-fill py-20 md:py-28">
       <div className="container-site min-w-0">
         <div className="grid min-w-0 items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="min-w-0 lg:col-span-6">
@@ -149,7 +149,7 @@ export function HomeIndividualApproach() {
   return (
     <section className="container-site min-w-0 py-20 md:py-24">
       <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:gap-8">
-        <Reveal className="min-w-0 rounded-md bg-cream p-8 md:p-10 lg:p-12">
+        <Reveal className="min-w-0 rounded-md bg-berry-card p-8 md:p-10 lg:p-12">
           <Eyebrow>Każde dziecko</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl">Każde dziecko jest wyjątkowe</h2>
           <div className="mt-6 min-w-0 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -166,7 +166,7 @@ export function HomeIndividualApproach() {
           </div>
         </Reveal>
 
-        <Reveal className="min-w-0 rounded-md bg-cream p-8 md:p-10 lg:p-12" delay={80}>
+        <Reveal className="min-w-0 rounded-md bg-berry-card p-8 md:p-10 lg:p-12" delay={80}>
           <Eyebrow>Adaptacja</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl">Bezpieczna adaptacja</h2>
           <div className="mt-6 min-w-0 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -192,7 +192,7 @@ export function HomeIndividualApproach() {
 
 export function HomeDiscover() {
   return (
-    <section className="border-t border-border bg-secondary/40 py-24 md:py-32">
+    <section className="border-t border-border bg-discover-fill py-24 md:py-32">
       <div className="container-site min-w-0 text-center">
         <Reveal>
           <p className="font-display mx-auto max-w-3xl text-3xl leading-snug md:text-4xl lg:text-5xl">

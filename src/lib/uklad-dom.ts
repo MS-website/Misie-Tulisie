@@ -1,4 +1,11 @@
-import type { Box, SizeId, Store } from "./uklad-data";
+import {
+  cardFillCss,
+  cardFillFor,
+  discoverFillFor,
+  type Box,
+  type SizeId,
+  type Store,
+} from "./uklad-data";
 
 const applied = new WeakMap<Document, Set<string>>();
 let applying = false;
@@ -249,6 +256,18 @@ function applyBox(el: HTMLElement, box: Box) {
   el.style.height = box.height != null ? `${box.height}px` : "";
   el.style.maxHeight = box.height != null ? `${box.height}px` : "";
   applyBreaks(el, box.breaks ?? []);
+}
+
+export function applyTheme(doc: Document, pathname: string, store: Store) {
+  if (pathname !== "/") return;
+  doc.documentElement.style.setProperty(
+    "--home-card-fill",
+    cardFillCss(cardFillFor(store, pathname)),
+  );
+  doc.documentElement.style.setProperty(
+    "--home-discover-fill",
+    cardFillCss(discoverFillFor(store, pathname)),
+  );
 }
 
 export function applyLayout(

@@ -7,6 +7,7 @@ import {
 } from "react";
 import {
   applyLayout,
+  applyTheme,
   clearBox,
   htmlWithoutLines,
   isApplying,
@@ -20,6 +21,8 @@ import {
   wordRanges,
 } from "@/lib/uklad-dom";
 import {
+  cardFillFor,
+  discoverFillFor,
   mergeBox,
   normalizeLayout,
   sizeForWidth,
@@ -27,10 +30,12 @@ import {
   SIZE_META,
   SIZE_ORDER,
   type Box,
+  type CardFill,
   type PageLayout,
   type SizeId,
   type Store,
 } from "@/lib/uklad-data";
+import { CardColorWheel } from "./CardColorWheel";
 
 const STORAGE_KEY = "misie-uklad-v1";
 const COLLAPSE_KEY = "misie-uklad-collapsed";
@@ -445,6 +450,35 @@ function boxFor(pathname: string, size: SizeId, selector: string) {
 function paint(doc: Document, pathname: string, size: SizeId) {
   const store = loadStore();
   if (applyLayout(doc, pathname, size, store)) saveStore(store);
+  applyTheme(doc, pathname, store);
+}
+
+function writeCardFill(pathname: string, fill: CardFill) {
+  const store = loadStore();
+  const page: PageLayout = store[pathname] ?? {};
+  page.theme = {
+    ...page.theme,
+    cardL: fill.l,
+    cardC: fill.c,
+    cardH: fill.h,
+    cardAlpha: fill.alpha,
+  };
+  store[pathname] = page;
+  saveStore(store);
+}
+
+function writeDiscoverFill(pathname: string, fill: CardFill) {
+  const store = loadStore();
+  const page: PageLayout = store[pathname] ?? {};
+  page.theme = {
+    ...page.theme,
+    discoverL: fill.l,
+    discoverC: fill.c,
+    discoverH: fill.h,
+    discoverAlpha: fill.alpha,
+  };
+  store[pathname] = page;
+  saveStore(store);
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -497,6 +531,18 @@ export function LayoutEditor() {
   const [frameTick, setFrameTick] = useState(0);
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
   const [fileReady, setFileReady] = useState(0);
+  const [cardFill, setCardFill] = useState<CardFill>(() => ({
+    l: 0.912,
+    c: 0.05,
+    h: 278,
+    alpha: 48,
+  }));
+  const [discoverFill, setDiscoverFill] = useState<CardFill>(() => ({
+    l: 0.955,
+    c: 0.011,
+    h: 80,
+    alpha: 40,
+  }));
   const selectedSelectorRef = useRef<string | null>(null);
   const refreshTextRef = useRef<(selector: string | null) => void>(() => {});
   const syncResizeRef = useRef<(selector: string | null) => void>(() => {});
@@ -564,13 +610,47 @@ export function LayoutEditor() {
         setFileReady((value) => value + 1);
       })
       .catch(() => {});
+    const syncThemeFills = () => {
+      const store = loadStore();
+      const path = editPathRef.current;
+      setCardFill(cardFillFor(store, path));
+      setDiscoverFill(discoverFillFor(store, path));
+    };
     window.addEventListener(CHANGE_EVENT, sync);
     window.addEventListener(HISTORY_EVENT, sync);
+    window.addEventListener(CHANGE_EVENT, syncThemeFills);
+    window.addEventListener(HISTORY_EVENT, syncThemeFills);
+    syncThemeFills();
     return () => {
       window.removeEventListener(CHANGE_EVENT, sync);
       window.removeEventListener(HISTORY_EVENT, sync);
+      window.removeEventListener(CHANGE_EVENT, syncThemeFills);
+      window.removeEventListener(HISTORY_EVENT, syncThemeFills);
     };
   }, []);
+
+  useEffect(() => {
+    const store = loadStore();
+    setCardFill(cardFillFor(store, editPath));
+    setDiscoverFill(discoverFillFor(store, editPath));
+  }, [editPath, fileReady]);
+
+  const applyThemeLive = () => {
+    const doc = currentDoc();
+    if (doc) applyTheme(doc, editPath, loadStore());
+  };
+
+  const setCardFillLive = (fill: CardFill) => {
+    setCardFill(fill);
+    writeCardFill(editPath, fill);
+    applyThemeLive();
+  };
+
+  const setDiscoverFillLive = (fill: CardFill) => {
+    setDiscoverFill(fill);
+    writeDiscoverFill(editPath, fill);
+    applyThemeLive();
+  };
 
   useEffect(() => {
     const onResize = () =>
@@ -1450,6 +1530,20 @@ export function LayoutEditor() {
           ))}
         </div>
         <p className="mt-2 text-xs text-muted-foreground">{sizeLabel}</p>
+        {editPath === "/" && (
+          <>
+            <CardColorWheel
+              title="Wierzymy, że żłobek…"
+              value={discoverFill}
+              onChange={setDiscoverFillLive}
+            />
+            <CardColorWheel
+              title="Karty na dole strony"
+              value={cardFill}
+              onChange={setCardFillLive}
+            />
+          </>
+        )}
         {previewSize !== "okno" && (
           <button
             type="button"
