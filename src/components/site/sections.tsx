@@ -12,7 +12,7 @@ import galeria4 from "@/assets/galeria-4.jpg";
 import galeria5 from "@/assets/galeria-5.jpg";
 import galeria6 from "@/assets/galeria-6.jpg";
 import { contact } from "@/lib/site";
-import { ButtonA, ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
+import { ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
 
 /* ---------- HERO ---------- */
@@ -416,41 +416,6 @@ export function FAQ() {
   );
 }
 
-export function ParentsSection() {
-  return (
-    <section className="container-site py-24 md:py-36">
-      <div className="grid gap-14 lg:grid-cols-12">
-        <Reveal className="lg:col-span-5">
-          <Eyebrow>Dla rodzica</Eyebrow>
-          <h2 className="font-display text-4xl md:text-6xl">
-            Bo wiemy, że pierwszy dzień w żłobku przeżywa cała rodzina.
-          </h2>
-          <p className="mt-8 max-w-sm leading-relaxed text-muted-foreground">
-            Adaptacja, pierwsze rozstanie, sen, jedzenie, bezpieczeństwo — odpowiadamy na pytania,
-            które zadaje sobie każdy rodzic.
-          </p>
-          <Photo
-            src={play}
-            alt="Dziecko bawi się w żłobku"
-            className="mt-10 aspect-[4/5] max-w-sm"
-          />
-          <p className="mt-8">
-            <Link to="/galeria" className="link-underline text-sm font-medium tracking-wide">
-              Zobacz nasz żłobek
-            </Link>
-          </p>
-          <ButtonLink to="/kontakt" variant="ghost" className="mt-10">
-            Masz pytania? Napisz do nas
-          </ButtonLink>
-        </Reveal>
-        <Reveal className="lg:col-span-6 lg:col-start-7" delay={100}>
-          <FAQ />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- RECRUITMENT RULES ---------- */
 export function RecruitmentRules() {
   return (
@@ -626,9 +591,8 @@ export function FinalCTA() {
           <p className="mx-auto mt-8 max-w-md text-lg leading-relaxed text-muted-foreground">
             Chętnie pokażemy Ci nasze miejsce i odpowiemy na wszystkie pytania.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <ButtonLink to="/kontakt" hash="wizyta">Umów wizytę</ButtonLink>
-            <ButtonA href={contact.phoneHref} variant="ghost">Skontaktuj się z nami</ButtonA>
+          <div className="mt-10 flex justify-center">
+            <ButtonLink to="/kontakt">Umów wizytę</ButtonLink>
           </div>
         </Reveal>
       </div>

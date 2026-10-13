@@ -208,6 +208,12 @@ body[data-frame="formularz"] .container-site {
 .reveal-stagger > li:nth-child(8) {
   transition-delay: calc(var(--reveal-stagger) * 7);
 }
+.reveal-stagger > li:nth-child(9) {
+  transition-delay: calc(var(--reveal-stagger) * 8);
+}
+.reveal-stagger > li:nth-child(10) {
+  transition-delay: calc(var(--reveal-stagger) * 9);
+}
 .reveal-stagger.is-visible > li {
   opacity: 1;
   transform: none;

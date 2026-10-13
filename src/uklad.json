@@ -215,7 +215,8 @@
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
         "y": -56,
-        "z": 0
+        "z": 0,
+        "width": 1072
       },
       "section:nth-of-type(2)": {
         "x": 0,
@@ -259,6 +260,30 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "html": "<br>",
         "originalHtml": "Dla rodzica"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
+        "html": "<strong class=\"font-semibold text-foreground\">Prosimy, aby wszystkie rzeczy były podpisane na specjalnych naklejanych etykietkach bądź markerem.</strong>",
+        "originalHtml": "<strong class=\"font-semibold text-foreground\">Prosimy aby wszystkie rzeczy były podpisane na specjalnych naklejanych etykietkach bądź markerem.</strong>"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
+        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub leginsy).</span>",
+        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie(najlepiej dresowe lub leginsy).</span>"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
+        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59</span>",
+        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59.</span>"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
+        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pampersy (podpisane opakowanie)</span>",
+        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pampersy (podpisane opakowanie).</span>"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
+        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Mokre chusteczki (podpisane opakowanie)</span>",
+        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Mokre chusteczki (podpisane opakowanie).</span>"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
+        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Śliniaczek gumowy lub plastikowy z korytkiem</span>",
+        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Śliniaczek gumowy lub plastikowy z korytkiem.</span>"
       }
     }
   },
@@ -501,10 +526,10 @@
       }
     },
     "theme": {
-      "cardL": 0.895,
-      "cardC": 0.061,
-      "cardH": 291.9553137155499,
-      "cardAlpha": 16,
+      "cardL": 0.88,
+      "cardC": 0.064,
+      "cardH": 139.46084825851653,
+      "cardAlpha": 24,
       "spaceL": 0.859,
       "spaceC": 0.119,
       "spaceH": 254.23991126387995,
@@ -512,7 +537,7 @@
       "discoverL": 0.719,
       "discoverC": 0.06,
       "discoverH": 94.93187451023095,
-      "discoverAlpha": 7
+      "discoverAlpha": 6
     }
   },
   "/aktywny-maluch": {
