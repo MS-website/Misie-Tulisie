@@ -40,7 +40,16 @@ export function clearBox(el: HTMLElement) {
   el.style.fontSize = "";
   el.style.width = "";
   el.style.maxWidth = "";
+  el.style.height = "";
+  el.style.maxHeight = "";
+  el.style.aspectRatio = "";
   clearLines(el);
+  if (el.dataset["layoutHidden"] === "1") {
+    el.style.display = el.dataset["layoutHiddenDisplay"] ?? "";
+    el.removeAttribute("hidden");
+    delete el.dataset["layoutHidden"];
+    delete el.dataset["layoutHiddenDisplay"];
+  }
   if (el.dataset["layoutPosition"] === "1") {
     el.style.position = "";
     delete el.dataset["layoutPosition"];
@@ -198,6 +207,24 @@ export function isTextBlock(el: HTMLElement) {
   return true;
 }
 
+export function isPhotoFrame(el: HTMLElement) {
+  if (el.closest("header, footer, [data-layout-editor]")) return false;
+  const children = [...el.children];
+  const directImg = children.find((child) => child.tagName === "IMG");
+  if (!directImg) return false;
+  if (children.some((child) => child.tagName !== "IMG")) return false;
+  return (
+    el.classList.contains("rounded-md") ||
+    el.classList.contains("rounded-2xl") ||
+    el.classList.contains("gallery-frame") ||
+    el.tagName === "FIGURE"
+  );
+}
+
+export function isStretchBlock(el: HTMLElement) {
+  return isTextBlock(el) || isPhotoFrame(el);
+}
+
 function applyBox(el: HTMLElement, box: Box) {
   if (el.isContentEditable) return;
   if (box.x || box.y) ensureLayoutInlineBox(el);
@@ -216,6 +243,11 @@ function applyBox(el: HTMLElement, box: Box) {
   el.style.fontSize = box.fontSize != null ? `${box.fontSize}px` : "";
   el.style.width = box.width != null ? `${box.width}px` : "";
   el.style.maxWidth = box.width != null ? `${box.width}px` : "";
+  if (isPhotoFrame(el) && (box.width != null || box.height != null)) {
+    el.style.aspectRatio = "auto";
+  }
+  el.style.height = box.height != null ? `${box.height}px` : "";
+  el.style.maxHeight = box.height != null ? `${box.height}px` : "";
   applyBreaks(el, box.breaks ?? []);
 }
 

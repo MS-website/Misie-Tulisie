@@ -228,7 +228,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <FaviconProbe />
       <Header />
-      <main>
+      <main className="min-w-0">
         <Outlet />
       </main>
       <Footer />

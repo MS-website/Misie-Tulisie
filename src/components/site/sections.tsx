@@ -429,6 +429,11 @@ export function ParentsSection() {
             Adaptacja, pierwsze rozstanie, sen, jedzenie, bezpieczeństwo — odpowiadamy na pytania,
             które zadaje sobie każdy rodzic.
           </p>
+          <Photo
+            src={play}
+            alt="Dziecko bawi się w żłobku"
+            className="mt-10 aspect-[4/5] max-w-sm"
+          />
           <p className="mt-8">
             <Link to="/galeria" className="link-underline text-sm font-medium tracking-wide">
               Zobacz nasz żłobek

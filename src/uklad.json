@@ -96,6 +96,12 @@
         "z": 0,
         "width": 586
       }
+    },
+    "text": {
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "html": "Otrzymaliśmy Twoje zgłoszenie rekrutacyjne. Skontaktujemy się&nbsp;<span style=\"font-size: var(--text-base); font-family: var(--font-sans);\">z Tobą najszybciej jak to możliwe.</span>",
+        "originalHtml": "Otrzymaliśmy zgłoszenie rekrutacyjne. Wkrótce skontaktujemy się z Tobą."
+      }
     }
   },
   "/rekrutacja": {
@@ -259,29 +265,34 @@
   "/": {
     "lg": {
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 0,
-        "y": -176,
-        "z": 0
+        "x": 69,
+        "y": 1044,
+        "z": 2,
+        "width": 485
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -16,
-        "z": 0
+        "x": -6,
+        "y": -21,
+        "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
-        "y": -28,
-        "z": 0
+        "y": -29,
+        "z": 2,
+        "fontSize": 92,
+        "width": 648
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -32,
-        "z": 0
+        "x": 1,
+        "y": -40,
+        "z": 2,
+        "fontSize": 20,
+        "width": 583
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)": {
         "x": 0,
-        "y": -44,
-        "z": 0
+        "y": -51,
+        "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(2)": {
         "x": 16,
@@ -299,8 +310,10 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 64,
-        "paddingBottom": 64
+        "paddingTop": 0,
+        "paddingBottom": 96,
+        "marginTop": -216,
+        "marginBottom": -96
       },
       "section:nth-of-type(3)": {
         "x": 0,
@@ -308,12 +321,90 @@
         "z": 0,
         "paddingTop": 72,
         "paddingBottom": 96
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": -23,
+        "y": -568,
+        "z": 2,
+        "width": 494
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 687,
+        "y": 28,
+        "z": 2,
+        "fontSize": 20,
+        "width": 523
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": 686,
+        "y": 31,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": -757,
+        "y": -530,
+        "z": 2,
+        "paddingBottom": 0,
+        "marginBottom": -72,
+        "width": 600
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": 1,
+        "y": -67,
+        "z": 2,
+        "width": 744
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": -55,
+        "y": -40,
+        "z": 2,
+        "width": 603
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 1,
+        "y": -52,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": -2,
+        "y": -41,
+        "z": 2
+      },
+      "section:nth-of-type(4)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingBottom": 16
       }
     },
     "text": {
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Miejsce,&nbsp;<span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">w którym małe kroki mają </span><em class=\"text-honey\" style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">wielkie</em><span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\"> znaczenie.</span>",
+        "html": "Miejsce,&nbsp;<div><span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">w którym małe kroki mają </span><em class=\"text-honey\" style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">wielkie</em><span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\"> znaczenie</span></div>",
         "originalHtml": "Miejsce, w którym małe kroki mają <em class=\"text-honey\">wielkie</em> znaczenie."
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)": {
+        "html": "Poznaj Misie Tulisie →",
+        "originalHtml": "Poznaj Misie Tulisie →"
+      },
+      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Wierzymy, że żłobek to coś więcej&nbsp;<div>niż dobra opieka – to miejsce, które daje dzieciom radość, a rodzicom spokój&nbsp;</div><div>i poczucie zaufania.</div>",
+        "originalHtml": "Wierzymy, że żłobek to coś więcej niż dobra opieka – to miejsce, które daje dzieciom radość, a rodzicom spokój i poczucie zaufania."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy,&nbsp;<span style=\"font-family: var(--font-sans);\">aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni.</span>",
+        "originalHtml": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy, aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni."
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
+        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-sage-soft/80\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"3\" class=\"stroke-honey\" stroke-width=\"1.25\"></circle><circle cx=\"21\" cy=\"11\" r=\"3\" class=\"stroke-sage\" stroke-width=\"1.25\"></circle><path d=\"M6 26c0-4 3-7 7-7M19 19c4 0 7 3 7 7\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Budowanie relacji &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style=\"font-size: var(--text-sm); font-family: var(--font-sans);\">z rówieśnikami</span></span>",
+        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-sage-soft/80\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"3\" class=\"stroke-honey\" stroke-width=\"1.25\"></circle><circle cx=\"21\" cy=\"11\" r=\"3\" class=\"stroke-sage\" stroke-width=\"1.25\"></circle><path d=\"M6 26c0-4 3-7 7-7M19 19c4 0 7 3 7 7\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Budowanie relacji z rówieśnikami</span>"
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6)": {
+        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M10 18c0-3 2-5 6-5s6 2 6 5M8 22h16\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path><path d=\"M12 14l4-4 4 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Nauka współpracy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i wyrażania emocji</span>",
+        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M10 18c0-3 2-5 6-5s6 2 6 5M8 22h16\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path><path d=\"M12 14l4-4 4 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Nauka współpracy i wyrażania emocji</span>"
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
+        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i komunikacji</span>",
+        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy i komunikacji</span>"
       }
     }
   },
@@ -924,6 +1015,10 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "html": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin",
         "originalHtml": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "html": "Otrzymaliśmy Twoje zapytanie. Skontaktujemy się z Tobą w ciągu 24h.",
+        "originalHtml": "Otrzymaliśmy Twoje zapytanie o wizytę. Wkrótce skontaktujemy się z Tobą, aby ustalić dogodny termin."
       }
     }
   }

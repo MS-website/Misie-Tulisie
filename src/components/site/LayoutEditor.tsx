@@ -11,6 +11,8 @@ import {
   htmlWithoutLines,
   isApplying,
   isHtmlElement,
+  isPhotoFrame,
+  isStretchBlock,
   isTextBlock,
   linesFromBreaks,
   moveLineWord,
@@ -120,11 +122,18 @@ function moveAboutSections(store: Store) {
   remapSection57(page.text);
 }
 
+function stripLegacyHidden(store: Store) {
+  for (const page of Object.values(store)) {
+    delete (page as PageLayout & { hidden?: unknown }).hidden;
+  }
+}
+
 function migrateAboutSections() {
   const store = loadStore();
   const before = stableLayout(store);
   moveAboutSections(store);
   stripKontaktEmailLinkWidth(store);
+  stripLegacyHidden(store);
   if (stableLayout(store) !== before) saveStore(store);
   const history = loadHistory();
   let historyChanged = false;
@@ -132,6 +141,7 @@ function migrateAboutSections() {
     const snap = stableLayout(entry);
     moveAboutSections(entry);
     stripKontaktEmailLinkWidth(entry);
+    stripLegacyHidden(entry);
     if (stableLayout(entry) !== snap) historyChanged = true;
   }
   if (historyChanged) {
@@ -208,6 +218,7 @@ function findBlock(start: Element | null, doc: Document) {
 }
 
 function labelFor(el: HTMLElement) {
+  if (isPhotoFrame(el)) return "Zdjęcie";
   const labels: Record<string, string> = {
     H1: "Nagłówek",
     H2: "Nagłówek",
@@ -234,6 +245,7 @@ type BoxPatch = {
   marginBottom?: number;
   fontSize?: number | null;
   width?: number | null;
+  height?: number | null;
   breaks?: number[] | null;
 };
 
@@ -263,10 +275,12 @@ function writeBox(
   }
   if (typeof patch.fontSize === "number") boxPatch.fontSize = patch.fontSize;
   if (typeof patch.width === "number") boxPatch.width = patch.width;
+  if (typeof patch.height === "number") boxPatch.height = patch.height;
   if (patch.breaks && patch.breaks.length > 0) boxPatch.breaks = patch.breaks;
   const next = mergeBox(current, boxPatch);
   if (patch.fontSize === null) delete next.fontSize;
   if (patch.width === null) delete next.width;
+  if (patch.height === null) delete next.height;
   if (patch.breaks === null) delete next.breaks;
   sizeMap[selector] = next;
   page[size] = sizeMap;
@@ -284,6 +298,20 @@ type TextView = {
   customWidth: boolean;
   customBreaks: boolean;
   lines: LineView[];
+};
+
+type PhotoView = {
+  width: number;
+  height: number;
+  customWidth: boolean;
+  customHeight: boolean;
+};
+
+const RESIZE_LABELS: Record<"w" | "e" | "n" | "s", string> = {
+  e: "Poszerz zdjęcie w prawo",
+  w: "Poszerz zdjęcie w lewo",
+  n: "Poszerz zdjęcie do góry",
+  s: "Poszerz zdjęcie w dół",
 };
 
 function syncResizeFrame(doc: Document, el: HTMLElement | null) {
@@ -304,40 +332,65 @@ function syncResizeFrame(doc: Document, el: HTMLElement | null) {
   frame.style.height = `${Math.max(rect.height, 24)}px`;
   frame.style.zIndex = "60";
   frame.style.pointerEvents = "none";
-  if (!frame.querySelector("[data-layout-resize]")) {
-    for (const edge of ["w", "e"] as const) {
-      const handle = doc.createElement("button");
-      handle.type = "button";
-      handle.dataset["layoutResize"] = edge;
-      handle.setAttribute(
-        "aria-label",
-        edge === "e" ? "Rozciągnij ramkę w prawo" : "Rozciągnij ramkę w lewo",
-      );
-      handle.style.position = "absolute";
+  frame.replaceChildren();
+  const photo = isPhotoFrame(el);
+  const edges = photo ? (["w", "e", "n", "s"] as const) : (["w", "e"] as const);
+  for (const edge of edges) {
+    const handle = doc.createElement("button");
+    handle.type = "button";
+    handle.dataset["layoutResize"] = edge;
+    handle.setAttribute(
+      "aria-label",
+      photo ? RESIZE_LABELS[edge] : edge === "e" ? "Rozciągnij ramkę w prawo" : "Rozciągnij ramkę w lewo",
+    );
+    handle.style.position = "absolute";
+    handle.style.padding = "0";
+    handle.style.border = "0";
+    handle.style.background = "transparent";
+    handle.style.pointerEvents = "auto";
+    const bar = doc.createElement("span");
+    bar.style.position = "absolute";
+    bar.style.borderRadius = "999px";
+    bar.style.background = "#b08954";
+    bar.style.pointerEvents = "none";
+    if (edge === "e" || edge === "w") {
       handle.style.top = "0";
       handle.style.bottom = "0";
       handle.style.width = "14px";
-      handle.style.padding = "0";
-      handle.style.border = "0";
-      handle.style.background = "transparent";
-      handle.style.pointerEvents = "auto";
       handle.style.cursor = "ew-resize";
       if (edge === "e") handle.style.right = "-7px";
       else handle.style.left = "-7px";
-      const bar = doc.createElement("span");
-      bar.style.position = "absolute";
       bar.style.top = "8px";
       bar.style.bottom = "8px";
       bar.style.left = "5px";
       bar.style.width = "3px";
-      bar.style.borderRadius = "999px";
-      bar.style.background = "#b08954";
-      bar.style.pointerEvents = "none";
-      handle.appendChild(bar);
-      frame.appendChild(handle);
+    } else {
+      handle.style.left = "0";
+      handle.style.right = "0";
+      handle.style.height = "14px";
+      handle.style.cursor = "ns-resize";
+      if (edge === "s") handle.style.bottom = "-7px";
+      else handle.style.top = "-7px";
+      bar.style.left = "8px";
+      bar.style.right = "8px";
+      bar.style.top = "5px";
+      bar.style.height = "3px";
     }
+    handle.appendChild(bar);
+    frame.appendChild(handle);
   }
   if (!frame.parentElement) doc.body.appendChild(frame);
+}
+
+function photoView(el: HTMLElement, box: Box): PhotoView | null {
+  if (!isPhotoFrame(el)) return null;
+  const rect = el.getBoundingClientRect();
+  return {
+    width: box.width ?? Math.round(rect.width),
+    height: box.height ?? Math.round(rect.height),
+    customWidth: box.width != null,
+    customHeight: box.height != null,
+  };
 }
 
 function textView(el: HTMLElement, box: Box): TextView | null {
@@ -437,6 +490,7 @@ export function LayoutEditor() {
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
   const [selectedSelector, setSelectedSelector] = useState<string | null>(null);
   const [textInfo, setTextInfo] = useState<TextView | null>(null);
+  const [photoInfo, setPhotoInfo] = useState<PhotoView | null>(null);
   const [previewSize, setPreviewSize] = useState<SizeId | "okno">("okno");
   const [previewSrc, setPreviewSrc] = useState<string | null>(null);
   const [framePath, setFramePath] = useState(pathname);
@@ -474,19 +528,18 @@ export function LayoutEditor() {
     syncResizeRef.current(selector);
     if (!selector) {
       setTextInfo(null);
+      setPhotoInfo(null);
       return;
     }
     const el = currentDoc()?.querySelector("main")?.querySelector(selector);
     if (!isHtmlElement(el)) {
       setTextInfo(null);
+      setPhotoInfo(null);
       return;
     }
-    setTextInfo(
-      textView(
-        el,
-        boxFor(editPathRef.current, activeSizeRef.current, selector),
-      ),
-    );
+    const box = boxFor(editPathRef.current, activeSizeRef.current, selector);
+    setTextInfo(textView(el, box));
+    setPhotoInfo(photoView(el, box));
   };
   refreshTextRef.current = refreshText;
 
@@ -543,6 +596,7 @@ export function LayoutEditor() {
     setSelectedSelector(null);
     setSelectedLabel(null);
     setTextInfo(null);
+    setPhotoInfo(null);
     const doc =
       previewSize === "okno" ? document : frameRef.current?.contentDocument;
     doc
@@ -629,16 +683,19 @@ export function LayoutEditor() {
     } | null = null;
     let stretch: {
       selector: string;
-      edge: "e" | "w";
+      edge: "e" | "w" | "n" | "s";
       startX: number;
+      startY: number;
       startWidth: number;
+      startHeight: number;
       originX: number;
+      originY: number;
     } | null = null;
     let suppressClick = false;
 
     const syncResize = (selector: string | null) => {
       const el = selector ? main.querySelector(selector) : null;
-      if (!isHtmlElement(el) || !isTextBlock(el)) {
+      if (!isHtmlElement(el) || !isStretchBlock(el)) {
         syncResizeFrame(doc, null);
         return;
       }
@@ -686,7 +743,15 @@ export function LayoutEditor() {
         if (
           !isHtmlElement(target) ||
           !selector ||
-          (edge !== "e" && edge !== "w")
+          (edge !== "e" &&
+            edge !== "w" &&
+            edge !== "n" &&
+            edge !== "s")
+        )
+          return;
+        if (
+          (edge === "n" || edge === "s") &&
+          !isPhotoFrame(target)
         )
           return;
         event.preventDefault();
@@ -696,12 +761,16 @@ export function LayoutEditor() {
           activeSizeRef.current,
           selector,
         );
+        const rect = target.getBoundingClientRect();
         stretch = {
           selector,
           edge,
           startX: event.clientX,
-          startWidth: Math.round(target.getBoundingClientRect().width),
+          startY: event.clientY,
+          startWidth: Math.round(rect.width),
+          startHeight: Math.round(rect.height),
           originX: box.x,
+          originY: box.y,
         };
         return;
       }
@@ -755,19 +824,34 @@ export function LayoutEditor() {
         hovered = next;
       }
       if (stretch) {
-        const dx = event.clientX - stretch.startX;
-        const raw =
-          stretch.edge === "e"
-            ? stretch.startWidth + dx
-            : stretch.startWidth - dx;
-        const width = clamp(Math.round(raw), 80, 1600);
-        writeBox(editPathRef.current, activeSizeRef.current, stretch.selector, {
-          width,
-          breaks: null,
-          ...(stretch.edge === "w"
-            ? { x: Math.round(stretch.originX + (stretch.startWidth - width)) }
-            : {}),
-        });
+        if (stretch.edge === "e" || stretch.edge === "w") {
+          const dx = event.clientX - stretch.startX;
+          const raw =
+            stretch.edge === "e"
+              ? stretch.startWidth + dx
+              : stretch.startWidth - dx;
+          const width = clamp(Math.round(raw), 80, 1600);
+          writeBox(editPathRef.current, activeSizeRef.current, stretch.selector, {
+            width,
+            breaks: null,
+            ...(stretch.edge === "w"
+              ? { x: Math.round(stretch.originX + (stretch.startWidth - width)) }
+              : {}),
+          });
+        } else {
+          const dy = event.clientY - stretch.startY;
+          const raw =
+            stretch.edge === "s"
+              ? stretch.startHeight + dy
+              : stretch.startHeight - dy;
+          const height = clamp(Math.round(raw), 80, 1600);
+          writeBox(editPathRef.current, activeSizeRef.current, stretch.selector, {
+            height,
+            ...(stretch.edge === "n"
+              ? { y: Math.round(stretch.originY + (stretch.startHeight - height)) }
+              : {}),
+          });
+        }
         paint(doc, editPathRef.current, activeSizeRef.current);
         syncResize(stretch.selector);
         refreshTextRef.current(stretch.selector);
@@ -1031,6 +1115,7 @@ export function LayoutEditor() {
     setSelectedSelector(null);
     setSelectedLabel(null);
     setTextInfo(null);
+    setPhotoInfo(null);
   };
 
   const resetSize = () => {
@@ -1048,6 +1133,7 @@ export function LayoutEditor() {
     setSelectedSelector(null);
     setSelectedLabel(null);
     setTextInfo(null);
+    setPhotoInfo(null);
     applyCurrent();
   };
 
@@ -1081,6 +1167,25 @@ export function LayoutEditor() {
   const resetWidth = () => {
     if (!selectedSelector) return;
     writeBox(editPath, activeSize, selectedSelector, { width: null });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const resetHeight = () => {
+    if (!selectedSelector) return;
+    writeBox(editPath, activeSize, selectedSelector, { height: null });
+    finishStep();
+    applyCurrent();
+    refreshText(selectedSelector);
+  };
+
+  const resetPhotoSize = () => {
+    if (!selectedSelector) return;
+    writeBox(editPath, activeSize, selectedSelector, {
+      width: null,
+      height: null,
+    });
     finishStep();
     applyCurrent();
     refreshText(selectedSelector);
@@ -1184,7 +1289,6 @@ export function LayoutEditor() {
     previewSize === "okno"
       ? `To okno: ${SIZE_META[activeSize].label}`
       : `Podgląd: ${SIZE_META[previewSize].label}`;
-
   const preview = frame ? (
     <div
       className="fixed inset-y-0 right-0 z-[70] overflow-auto bg-muted"
@@ -1380,8 +1484,9 @@ export function LayoutEditor() {
           <div className="mt-4 space-y-3">
             <p className="leading-relaxed text-muted-foreground">
               Przeciągnij blok, żeby go przenieść. Złap krawędź ramki tekstu i
-              rozciągnij — słowa same przejdą między linijkami. Dwuklik zmienia
-              treść.
+              rozciągnij — słowa same przejdą między linijkami. Zdjęcie możesz
+              powiększać i pomniejszać za krawędzie z boku i z góry/dołu. Dwuklik
+              zmienia treść.
             </p>
             <p className="text-muted-foreground">
               {selectedLabel
@@ -1447,6 +1552,24 @@ export function LayoutEditor() {
               Cofnij zaznaczenie
             </ToolButton>
             <ToolButton onClick={resetSize}>Cofnij ten rozmiar</ToolButton>
+            {photoInfo && (
+              <div className="space-y-3 border-t border-border pt-3">
+                <p className="text-muted-foreground">
+                  Zdjęcie: {photoInfo.width} × {photoInfo.height} px
+                </p>
+                {(photoInfo.customWidth || photoInfo.customHeight) && (
+                  <ToolButton onClick={resetPhotoSize}>
+                    Rozmiar z projektu
+                  </ToolButton>
+                )}
+                {photoInfo.customWidth && !photoInfo.customHeight && (
+                  <ToolButton onClick={resetWidth}>Szerokość z projektu</ToolButton>
+                )}
+                {photoInfo.customHeight && !photoInfo.customWidth && (
+                  <ToolButton onClick={resetHeight}>Wysokość z projektu</ToolButton>
+                )}
+              </div>
+            )}
             {textInfo && (
               <div className="space-y-3 border-t border-border pt-3">
                 <p className="text-muted-foreground">

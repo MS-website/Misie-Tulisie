@@ -65,4 +65,5 @@ describe("normalizeLayout", () => {
     });
     expect(store["/o-nas"]?.sm).toBeUndefined();
   });
+
 });

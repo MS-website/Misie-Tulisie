@@ -4,6 +4,7 @@ import {
   applyLayout,
   clearLines,
   htmlWithoutLines,
+  isPhotoFrame,
   moveLineWord,
 } from "./uklad-dom";
 
@@ -14,6 +15,30 @@ function wordsIn(root: ParentNode) {
 }
 
 describe("layout boxes", () => {
+  it("applies width and height to photo frames", () => {
+    document.body.innerHTML =
+      '<main><section><div class="rounded-md overflow-hidden"><img alt="test" src="/x.jpg" /></div></section></main>';
+    const frame = document.querySelector("div.rounded-md");
+    if (!frame || !(frame instanceof HTMLElement)) throw new Error("missing frame");
+    expect(isPhotoFrame(frame)).toBe(true);
+    applyLayout(document, "/", "lg", {
+      "/": {
+        lg: {
+          "section:nth-of-type(1) > div:nth-of-type(1)": {
+            x: 0,
+            y: 0,
+            z: 0,
+            width: 320,
+            height: 400,
+          },
+        },
+      },
+    });
+    expect(frame.style.width).toBe("320px");
+    expect(frame.style.height).toBe("400px");
+    expect(frame.style.aspectRatio).toBe("auto");
+  });
+
   it("moves inline links with saved offsets", () => {
     document.body.innerHTML =
       '<main><section><p class="eyebrow">Telefon</p><a href="tel:1">+48 791</a></section></main>';

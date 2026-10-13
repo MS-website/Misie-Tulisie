@@ -1,9 +1,13 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { contact, nav } from "@/lib/site";
 import { Logo } from "./Header";
 import { ButtonLink } from "./ui";
 
 export function Footer() {
+  const showContactButton = useRouterState({
+    select: (state) => state.location.pathname !== "/kontakt",
+  });
+
   return (
     <footer className="border-t border-border bg-secondary/60">
       <div className="container-site grid gap-14 py-20 md:grid-cols-12">
@@ -12,9 +16,11 @@ export function Footer() {
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
             Bezpieczna i ciepła przestrzeń dla najmłodszych.
           </p>
-          <ButtonLink to="/kontakt" hash="wizyta" className="mt-8">
-            Umów wizytę
-          </ButtonLink>
+          {showContactButton && (
+            <ButtonLink to="/kontakt" className="mt-8">
+              Skontaktuj się z nami
+            </ButtonLink>
+          )}
         </div>
         <div className="md:col-span-3">
           <p className="eyebrow mb-5">Strona</p>

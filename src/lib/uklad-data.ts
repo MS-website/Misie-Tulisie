@@ -21,6 +21,7 @@ export type Box = {
   marginBottom?: number;
   fontSize?: number;
   width?: number;
+  height?: number;
   breaks?: number[];
 };
 
@@ -94,6 +95,8 @@ function readBox(value: unknown): Box | null {
     box.fontSize = fontSize;
   const width = numberOrNull(value["width"]);
   if (width != null && width >= 40 && width <= 2000) box.width = width;
+  const height = numberOrNull(value["height"]);
+  if (height != null && height >= 40 && height <= 2000) box.height = height;
   const breaks = readBreaks(value["breaks"]);
   if (breaks) box.breaks = breaks;
   return box;

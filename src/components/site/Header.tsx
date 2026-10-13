@@ -15,7 +15,7 @@ export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
       <img
         src={logo}
         alt="Logo Misie Tulisie"
-        className={size === "lg" ? "h-16 w-auto" : "h-14 w-auto"}
+        className={size === "lg" ? "h-20 w-auto md:h-[5.5rem]" : "h-14 w-auto"}
       />
       <span className="font-display text-[1.75rem] leading-none md:text-[1.875rem]">
         Misie Tulisie
