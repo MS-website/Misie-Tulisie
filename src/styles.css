@@ -129,6 +129,7 @@ body[data-frame="formularz"] .container-site {
   background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
+  background-origin: content-box;
   transition: background-size 0.5s var(--ease-calm);
   &:hover {
     background-size: 100% 1px;
