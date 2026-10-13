@@ -5,14 +5,12 @@ import story from "@/assets/story.jpg";
 import play from "@/assets/play.jpg";
 import int1 from "@/assets/interior-1.jpg";
 import int2 from "@/assets/interior-2.jpg";
-import wiz1 from "@/assets/wizualizacja-1.jpg";
-import wiz2 from "@/assets/wizualizacja-2.jpg";
-import wiz3 from "@/assets/wizualizacja-3.jpg";
-import wiz4 from "@/assets/wizualizacja-4.jpg";
-import wiz5 from "@/assets/wizualizacja-5.jpg";
-import wiz6 from "@/assets/wizualizacja-6.jpg";
-import wiz7 from "@/assets/wizualizacja-7.jpg";
-import wiz8 from "@/assets/wizualizacja-8.jpg";
+import galeria1 from "@/assets/galeria-1.jpg";
+import galeria2 from "@/assets/galeria-2.jpg";
+import galeria3 from "@/assets/galeria-3.jpg";
+import galeria4 from "@/assets/galeria-4.jpg";
+import galeria5 from "@/assets/galeria-5.jpg";
+import galeria6 from "@/assets/galeria-6.jpg";
 import { contact } from "@/lib/site";
 import { ButtonA, ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
@@ -263,14 +261,30 @@ export function Development() {
 
 /* ---------- SPACE / GALLERY ---------- */
 export const galleryImages = [
-  { src: wiz1, alt: "Wizualizacja sali z żółwiem na ścianie, stolikami i niebieskimi szafkami" },
-  { src: wiz2, alt: "Wizualizacja sali z niebieskim domkiem do zabawy" },
-  { src: wiz3, alt: "Wizualizacja sali z dużymi oknami i zielonym dywanem" },
-  { src: wiz4, alt: "Wizualizacja sali w zieleni ze stolikami i domkiem do zabawy" },
-  { src: wiz5, alt: "Wizualizacja sali z oknem, szafkami i stolikami" },
-  { src: wiz6, alt: "Wizualizacja sali ze stolikami, szafkami i dywanem" },
-  { src: wiz7, alt: "Wizualizacja szatni z kolorowymi szafkami" },
-  { src: wiz8, alt: "Wizualizacja szatni z lustrami i ławkami" },
+  {
+    src: galeria1,
+    alt: "Jasna sala żłobkowa ze stolikami, niebieskimi szafkami i dużym oknem",
+  },
+  {
+    src: galeria2,
+    alt: "Przestronna sala z drewnianymi meblami i kącikiem do zabawy",
+  },
+  {
+    src: galeria3,
+    alt: "Sala zabaw z oknami, dywanem i drewnianym wyposażeniem",
+  },
+  {
+    src: galeria4,
+    alt: "Sala na zielonej ścianie ze stolikami, szafkami i domkiem do zabawy",
+  },
+  {
+    src: galeria5,
+    alt: "Wnętrze sali z kącikiem zabaw i naturalnym światłem z okien",
+  },
+  {
+    src: galeria6,
+    alt: "Przytulna sala żłobkowa z drewnianymi meblami i miejscem do zabawy",
+  },
 ];
 export function Space({ full = false }: { full?: boolean }) {
   const imgs = full ? galleryImages : galleryImages.slice(0, 4);
