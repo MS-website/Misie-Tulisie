@@ -265,33 +265,33 @@
   "/": {
     "lg": {
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 69,
-        "y": 1044,
+        "x": 86,
+        "y": 1081,
         "z": 2,
-        "width": 485
+        "width": 502
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": -6,
-        "y": -21,
+        "y": -13,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
         "x": 0,
-        "y": -29,
+        "y": -25,
         "z": 2,
         "fontSize": 92,
         "width": 648
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "x": 1,
-        "y": -40,
+        "y": -36,
         "z": 2,
         "fontSize": 20,
         "width": 583
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)": {
         "x": 0,
-        "y": -51,
+        "y": -47,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(2)": {
@@ -319,14 +319,14 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 72,
-        "paddingBottom": 96
+        "paddingTop": 48,
+        "paddingBottom": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -23,
-        "y": -568,
+        "x": -14,
+        "y": -533,
         "z": 2,
-        "width": 494
+        "width": 491
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 687,
@@ -341,8 +341,8 @@
         "z": 2
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -757,
-        "y": -530,
+        "x": -755,
+        "y": -525,
         "z": 2,
         "paddingBottom": 0,
         "marginBottom": -72,
@@ -355,10 +355,10 @@
         "width": 744
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -55,
-        "y": -40,
+        "x": -50,
+        "y": 3,
         "z": 2,
-        "width": 603
+        "width": 570
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 1,
@@ -375,6 +375,67 @@
         "y": 0,
         "z": 0,
         "paddingBottom": 16
+      },
+      "section:nth-of-type(6)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 80,
+        "paddingBottom": 80
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
+        "x": -45,
+        "y": 10,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 6,
+        "y": -58,
+        "z": 2,
+        "width": 682,
+        "height": 377
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "fontSize": 20,
+        "width": 636
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": 1,
+        "y": 4,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "x": 1,
+        "y": -40,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
+        "x": 1,
+        "y": -41,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 2,
+        "y": -32,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": -29,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 1,
+        "y": -15,
+        "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 2,
+        "y": -19,
+        "z": 2
       }
     },
     "text": {
@@ -405,6 +466,38 @@
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
         "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i komunikacji</span>",
         "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy i komunikacji</span>"
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Wiemy, jak dużym wydarzeniem zarówno dla rodziców,&nbsp;<div>jak i dla dziecka jest rozpoczęcie przygody ze żłobkiem. Dlatego szczególną uwagę przykładamy do poczucia bezpieczeństwa dziecka, łagodnej adaptacji&nbsp;<span style=\"font-size: var(--text-lg); font-family: var(--font-sans);\">oraz indywidualnego podejścia do jego potrzeb.&nbsp;</span><span style=\"font-family: var(--font-sans); font-size: var(--text-lg);\">Każde dziecko jest inne – ma swój temperament, rytm dnia, zainteresowania i sposób poznawania świata. Chcemy je poznać, zrozumieć&nbsp;</span></div><div><span style=\"font-family: var(--font-sans); font-size: var(--text-lg);\">i towarzyszyć mu w rozwoju z uważnością oraz szacunkiem.</span></div>",
+        "originalHtml": "Wiemy, jak dużym wydarzeniem zarówno dla rodziców, jak i dla dziecka jest rozpoczęcie przygody ze żłobkiem. Dlatego szczególną uwagę przykładamy do poczucia bezpieczeństwa dziecka, łagodnej adaptacji oraz indywidualnego podejścia do jego potrzeb. Każde dziecko jest inne – ma swój temperament, rytm dnia, zainteresowania i sposób poznawania świata. Chcemy je poznać, zrozumieć i towarzyszyć mu w rozwoju z uważnością oraz szacunkiem."
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "html": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji&nbsp;<div>z innymi.</div>",
+        "originalHtml": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji z innymi."
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Dysponujemy kolorowymi, nowoczesnymi salami dostosowanymi&nbsp;<div>do potrzeb najmłodszych. Wyposażyliśmy je w zabawki i pomoce edukacyjne, wspierające rozwój ruchowy, sensoryczny i poznawczy maluchów.</div>",
+        "originalHtml": "Dysponujemy kolorowymi, nowoczesnymi salami dostosowanymi do potrzeb najmłodszych. Wyposażyliśmy je w zabawki i pomoce edukacyjne, wspierające rozwój ruchowy, sensoryczny i poznawczy maluchów."
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę,&nbsp;<div>w której dzieci mogą rozwijać się we własnym tempie.&nbsp;<span style=\"font-family: var(--font-sans);\">Pod czujnym okiem troskliwych opiekunek maluchy każdego dnia uczą się poprzez zabawę, rozwijają samodzielność, poznają otaczający je świat, zdobywają nowe umiejętności i budują relacje&nbsp;</span></div><div>z rówieśnikami.</div>",
+        "originalHtml": "W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę, w której dzieci mogą rozwijać się we własnym tempie. Pod czujnym okiem troskliwych opiekunek maluchy każdego dnia uczą się poprzez zabawę, rozwijają samodzielność, poznają otaczający je świat, zdobywają nowe umiejętności i budują relacje z rówieśnikami."
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
+        "html": "Przestrzeń dla najmłodszych",
+        "originalHtml": "Przestrzeń dla najmłodszych"
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
+        "html": "<br>",
+        "originalHtml": "Adaptacja"
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "<br>",
+        "originalHtml": "Każde dziecko"
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
+        "html": "Małe kroki ku nowemu",
+        "originalHtml": "Bezpieczna adaptacja"
       }
     }
   },

@@ -146,17 +146,20 @@ export function Photo({
   className,
   eager,
   zoomOut,
+  fit = "cover",
 }: {
   src: string;
   alt: string;
   className?: string;
   eager?: boolean;
   zoomOut?: boolean;
+  fit?: "cover" | "contain";
 }) {
   return (
     <div
       className={cn(
-        "rounded-md bg-sand",
+        "rounded-md",
+        fit === "contain" ? "bg-transparent" : "bg-sand",
         zoomOut ? "gallery-frame" : "overflow-hidden",
         className,
       )}
@@ -165,7 +168,10 @@ export function Photo({
         src={src}
         alt={alt}
         loading={eager ? "eager" : "lazy"}
-        className="h-full w-full object-cover"
+        className={cn(
+          "h-full w-full",
+          fit === "contain" ? "object-contain object-left" : "object-cover",
+        )}
       />
     </div>
   );

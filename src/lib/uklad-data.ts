@@ -232,6 +232,9 @@ export function mergeBox(current: Box, patch: Partial<Box>): Box {
   if (typeof patch.width === "number") next.width = patch.width;
   else if (!("width" in patch) && typeof current.width === "number")
     next.width = current.width;
+  if (typeof patch.height === "number") next.height = patch.height;
+  else if (!("height" in patch) && typeof current.height === "number")
+    next.height = current.height;
   if (patch.breaks && patch.breaks.length > 0) next.breaks = patch.breaks;
   else if (!("breaks" in patch) && current.breaks && current.breaks.length > 0)
     next.breaks = current.breaks;
