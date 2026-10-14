@@ -100,7 +100,10 @@ export default defineConfig({
     tanstackStart({
       server: { entry: "server" },
     }),
-    netlify(),
+    // Edge Functions emulacja pada na Deno 2.9.6+ (--allow-scripts vs deno eval); SSR idzie na Functions.
+    netlify({
+      dev: { edgeFunctions: { enabled: false } },
+    }),
     viteReact(),
   ],
 });

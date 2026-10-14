@@ -530,10 +530,10 @@
       }
     },
     "theme": {
-      "cardL": 0.88,
-      "cardC": 0.064,
-      "cardH": 139.46084825851653,
-      "cardAlpha": 24,
+      "cardL": 0.94,
+      "cardC": 0.022,
+      "cardH": 110,
+      "cardAlpha": 90,
       "spaceL": 0.859,
       "spaceC": 0.119,
       "spaceH": 254.23991126387995,

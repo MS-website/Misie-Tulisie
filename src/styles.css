@@ -72,7 +72,7 @@
   --input: oklch(0.9 0.012 75);
   --ring: oklch(0.64 0.075 60);
   --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
-  --home-card-fill: oklch(0.912 0.05 278 / 48%);
+  --home-card-fill: oklch(0.94 0.022 110 / 90%);
   --home-space-fill: oklch(0.859 0.119 254.2 / 16%);
   --home-discover-fill: oklch(0.955 0.011 80 / 40%);
 }

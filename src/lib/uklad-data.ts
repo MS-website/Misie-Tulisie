@@ -62,10 +62,10 @@ export type PageLayout = {
 };
 
 export const DEFAULT_CARD_FILL: CardFill = {
-  l: 0.912,
-  c: 0.05,
-  h: 278,
-  alpha: 48,
+  l: 0.94,
+  c: 0.022,
+  h: 110,
+  alpha: 90,
 };
 
 export const DEFAULT_SPACE_FILL: CardFill = {

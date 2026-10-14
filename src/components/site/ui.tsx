@@ -168,6 +168,8 @@ export function Photo({
         src={src}
         alt={alt}
         loading={eager ? "eager" : "lazy"}
+        fetchPriority={eager ? "high" : undefined}
+        decoding={eager ? "sync" : "async"}
         className={cn(
           "h-full w-full",
           fit === "contain" ? "object-contain object-left" : "object-cover",

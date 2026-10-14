@@ -48,7 +48,7 @@ export function HomeMission() {
     <section className="container-site min-w-0 py-20 md:py-28">
       <div className="grid min-w-0 items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="min-w-0 lg:col-span-6">
-          <Reveal>
+          <div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">Nasza misja</h2>
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
               Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się{" "}
@@ -58,15 +58,16 @@ export function HomeMission() {
               . Chcemy, aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania
               świata i pierwszych dziecięcych przyjaźni.
             </p>
-          </Reveal>
+          </div>
         </div>
-        <Reveal className="min-w-0 lg:col-span-5 lg:col-start-8" delay={80}>
+        <div className="min-w-0 lg:col-span-5 lg:col-start-8">
           <Photo
             src={missionPhoto}
             alt="Dziecko w spokojnej, ciepłej sytuacji podczas zabawy"
+            eager
             className="aspect-[4/5] max-w-full"
           />
-        </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -96,13 +97,14 @@ export function HomePlayGrowth() {
               />
             </Reveal>
           </div>
-          <Reveal className="min-w-0 lg:col-span-5 lg:col-start-8" delay={80}>
+          <div className="min-w-0 lg:col-span-5 lg:col-start-8">
             <Photo
               src={playPhoto}
               alt="Dwoje dzieci bawi się drewnianymi klockami w jasnej sali"
+              eager
               className="aspect-[4/3] max-w-full md:aspect-[3/2]"
             />
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>

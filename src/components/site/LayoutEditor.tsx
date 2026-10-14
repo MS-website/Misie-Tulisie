@@ -46,6 +46,7 @@ const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
 const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
+const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const BLOCK =
   "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md";
 const OUTLINE_STYLE = `
@@ -155,8 +156,25 @@ function resetParentsPageLayoutOnce() {
   return false;
 }
 
+function resetHomeCardFillOnce() {
+  if (localStorage.getItem(HOME_CARD_FILL_RESET_KEY)) return;
+  localStorage.setItem(HOME_CARD_FILL_RESET_KEY, "1");
+  const store = loadStore();
+  const page = store["/"] ?? {};
+  page.theme = {
+    ...(page.theme ?? {}),
+    cardL: 0.94,
+    cardC: 0.022,
+    cardH: 110,
+    cardAlpha: 90,
+  };
+  store["/"] = page;
+  saveStore(store);
+}
+
 function migrateAboutSections() {
   if (resetParentsPageLayoutOnce()) return;
+  resetHomeCardFillOnce();
   const store = loadStore();
   const before = stableLayout(store);
   moveAboutSections(store);
