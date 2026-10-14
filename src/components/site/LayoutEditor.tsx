@@ -45,11 +45,12 @@ const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
-const HERO_HONEY_UNDO_KEY = "misie-uklad-hero-honey-undo-v1";
+const HERO_COLOR_KEY = "misie-uklad-hero-wielkie-color-v1";
 const HERO_H1 =
   "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)";
-const HERO_HTML =
-  'Miejsce,<br>w którym małe<br>kroki mają<br><em class="text-honey">wielkie znaczenie</em>';
+const HERO_OLD_EM = '<em class="text-honey">wielkie znaczenie</em>';
+const HERO_NEW_EM =
+  '<em><span class="text-honey">wielkie</span> znaczenie</em>';
 const KROKI_PARAGRAPH =
   "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)";
 const BLOCK =
@@ -241,24 +242,26 @@ function resetKrokiLinesOnce() {
   return false;
 }
 
-function undoHeroHoney(page: PageLayout | undefined) {
+function colorHeroWord(page: PageLayout | undefined) {
   const text = page?.text?.[HERO_H1];
-  if (!text?.html.includes(">wielkie</em> znaczenie")) return false;
-  text.html = HERO_HTML;
-  text.originalHtml = HERO_HTML;
+  if (!text?.html.includes(HERO_OLD_EM)) return false;
+  text.html = text.html.replaceAll(HERO_OLD_EM, HERO_NEW_EM);
+  if (text.originalHtml.includes(HERO_OLD_EM)) {
+    text.originalHtml = text.originalHtml.replaceAll(HERO_OLD_EM, HERO_NEW_EM);
+  }
   return true;
 }
 
-function undoHeroHoneyOnce() {
-  if (localStorage.getItem(HERO_HONEY_UNDO_KEY)) return false;
-  localStorage.setItem(HERO_HONEY_UNDO_KEY, "1");
+function colorHeroWordOnce() {
+  if (localStorage.getItem(HERO_COLOR_KEY)) return false;
+  localStorage.setItem(HERO_COLOR_KEY, "1");
   const store = loadStore();
-  const changed = undoHeroHoney(store["/"]);
+  const changed = colorHeroWord(store["/"]);
   if (changed) saveStore(store);
   const history = loadHistory();
   let historyChanged = false;
   for (const entry of history) {
-    if (undoHeroHoney(entry["/"])) historyChanged = true;
+    if (colorHeroWord(entry["/"])) historyChanged = true;
   }
   if (historyChanged)
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
@@ -272,14 +275,14 @@ function undoHeroHoneyOnce() {
 if (typeof window !== "undefined") {
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
-  undoHeroHoneyOnce();
+  colorHeroWordOnce();
 }
 
 function migrateAboutSections() {
   if (resetParentsPageLayoutOnce()) return;
   if (resetHomeLayoutOnce()) return;
   if (resetKrokiLinesOnce()) return;
-  if (undoHeroHoneyOnce()) return;
+  if (colorHeroWordOnce()) return;
   resetHomeCardFillOnce();
   const store = loadStore();
   const before = stableLayout(store);

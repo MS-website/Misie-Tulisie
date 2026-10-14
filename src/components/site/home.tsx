@@ -21,7 +21,7 @@ export function HomeHero() {
             <br />
             kroki mają
             <br />
-            <em className="text-honey">wielkie znaczenie</em>
+            <em><span className="text-honey">wielkie</span> znaczenie</em>
           </h1>
           <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
             Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we
