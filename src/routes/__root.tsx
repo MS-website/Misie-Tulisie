@@ -195,7 +195,6 @@ function PublishedLayout() {
   const [Node, setNode] = useState<ComponentType | null>(null);
 
   useEffect(() => {
-    if (import.meta.env.DEV) return;
     void import("@/components/site/SavedLayout").then((mod) => {
       setNode(() => mod.SavedLayout);
     });

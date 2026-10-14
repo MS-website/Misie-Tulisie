@@ -1,15 +1,26 @@
 import { useRouterState } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import savedFile from "@/uklad.json";
 import { applyLayout, applyTheme, isApplying } from "@/lib/uklad-dom";
-import { normalizeLayout, sizeForWidth } from "@/lib/uklad-data";
+import { normalizeLayout, sizeForWidth, type Store } from "@/lib/uklad-data";
 
-const store = normalizeLayout(savedFile);
+const bundledStore = normalizeLayout(savedFile);
 
 export function SavedLayout() {
+  const [store, setStore] = useState<Store>(bundledStore);
   const pathname = useRouterState({
     select: (state) => state.location.pathname,
   });
+
+  useEffect(() => {
+    if (!import.meta.env.DEV) return;
+    void fetch("/__uklad")
+      .then(async (response) => {
+        if (!response.ok) return;
+        setStore(normalizeLayout(await response.json()));
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const run = () => {
@@ -43,7 +54,7 @@ export function SavedLayout() {
       observer?.disconnect();
       for (const query of queries) query.removeEventListener("change", run);
     };
-  }, [pathname]);
+  }, [pathname, store]);
 
   return null;
 }

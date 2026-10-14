@@ -50,9 +50,11 @@ const AKTYWNIE_FAQ: [string, string][] = [
 function Accordion({
   items,
   className,
+  itemBorderClassName = "border-border/80",
 }: {
   items: [string, string][];
   className?: string;
+  itemBorderClassName?: string;
 }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -60,7 +62,10 @@ function Accordion({
       {items.map(([q, a], i) => {
         const isOpen = open === i;
         return (
-          <div key={q} className="border-t border-border/80 last:border-b">
+          <div
+            key={q}
+            className={cn("border-t last:border-b", itemBorderClassName)}
+          >
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
@@ -267,11 +272,15 @@ export function ParentsPageSections() {
                     </p>
                   </div>
                 </div>
-                <div className="min-w-0 rounded-md border border-border/70 bg-cream/80 p-6 md:p-8 lg:col-span-6">
+                <div className="min-w-0 rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:col-span-6">
                   <p className="text-sm font-semibold tracking-wide text-foreground">
                     „Aktywnie w żłobku” — pytania i odpowiedzi
                   </p>
-                  <Accordion items={AKTYWNIE_FAQ} className="mt-4" />
+                  <Accordion
+                    items={AKTYWNIE_FAQ}
+                    className="mt-4"
+                    itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
+                  />
                 </div>
               </div>
             </Reveal>

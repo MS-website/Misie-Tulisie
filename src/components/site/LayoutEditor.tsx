@@ -62,7 +62,7 @@ const OUTLINE_STYLE = `
 
 let stepRecorded = false;
 
-const publishedLayout = normalizeLayout(savedFile);
+let publishedLayout = normalizeLayout(savedFile);
 
 function loadStore(): Store {
   try {
@@ -663,6 +663,7 @@ export function LayoutEditor() {
       .then(async (response) => {
         if (!response.ok) return;
         const layout = normalizeLayout(await response.json());
+        publishedLayout = layout;
         savedSnapshot.current = stableLayout(layout);
         if (localStorage.getItem(STORAGE_KEY) == null) saveStore(layout);
         setDirty(stableLayout(loadStore()) !== savedSnapshot.current);
@@ -1498,7 +1499,7 @@ export function LayoutEditor() {
     }
     setSaveState("saving");
     try {
-      const layout = loadStore();
+      const layout = layoutStore();
       const response = await fetch("/__uklad", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
