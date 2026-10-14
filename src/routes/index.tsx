@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import missionPhoto from "@/assets/story.jpg";
-import playPhoto from "@/assets/rozwój-zabawa.jpg";
+import heroWalk from "@/assets/story.jpg";
+import missionKids from "@/assets/rozwój-zabawa.jpg";
 import { seo } from "@/lib/site";
 import {
   HomeDiscover,
@@ -18,8 +18,8 @@ export const Route = createFileRoute("/")({
       "Misie Tulisie to bezpieczny i przyjazny żłobek w Gnieźnie. Ciepła przestrzeń, w której dzieci rozwijają się we własnym tempie.",
     ),
     links: [
-      { rel: "preload", as: "image", href: missionPhoto },
-      { rel: "preload", as: "image", href: playPhoto },
+      { rel: "preload", as: "image", href: heroWalk },
+      { rel: "preload", as: "image", href: missionKids },
     ],
   }),
   component: () => (

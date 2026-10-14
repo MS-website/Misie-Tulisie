@@ -22,8 +22,6 @@ import {
 } from "@/lib/uklad-dom";
 import savedFile from "@/uklad.json";
 import {
-  cardFillFor,
-  discoverFillFor,
   mergeBox,
   mergeStores,
   normalizeLayout,
@@ -32,12 +30,10 @@ import {
   SIZE_META,
   SIZE_ORDER,
   type Box,
-  type CardFill,
   type PageLayout,
   type SizeId,
   type Store,
 } from "@/lib/uklad-data";
-import { CardColorWheel } from "./CardColorWheel";
 
 const STORAGE_KEY = "misie-uklad-v1";
 const COLLAPSE_KEY = "misie-uklad-collapsed";
@@ -47,6 +43,10 @@ const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
 const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
+const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
+const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
+const KROKI_PARAGRAPH =
+  "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)";
 const BLOCK =
   "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md";
 const OUTLINE_STYLE = `
@@ -172,8 +172,79 @@ function resetHomeCardFillOnce() {
   saveStore(store);
 }
 
+function stripHomeOffsets(page: PageLayout | undefined) {
+  if (!page) return;
+  delete page.sm;
+  delete page.md;
+  delete page.lg;
+  delete page.text;
+}
+
+function resetHomeLayoutOnce() {
+  if (localStorage.getItem(HOME_LAYOUT_ZERO_KEY)) return false;
+  const store = loadStore();
+  const page = store["/"];
+  const hadOffsets = Boolean(page?.sm || page?.md || page?.lg || page?.text);
+  localStorage.setItem(HOME_LAYOUT_ZERO_KEY, "1");
+  stripHomeOffsets(page);
+  saveStore(store);
+  const history = loadHistory();
+  for (const entry of history) stripHomeOffsets(entry["/"]);
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  if (hadOffsets && window.location.pathname === "/") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
+function stripKrokiOverride(page: PageLayout | undefined) {
+  if (!page) return false;
+  let changed = false;
+  if (page.text?.[KROKI_PARAGRAPH]) {
+    delete page.text[KROKI_PARAGRAPH];
+    if (Object.keys(page.text).length === 0) delete page.text;
+    changed = true;
+  }
+  for (const size of SIZE_ORDER) {
+    const boxes = page[size];
+    if (!boxes?.[KROKI_PARAGRAPH]) continue;
+    delete boxes[KROKI_PARAGRAPH];
+    if (Object.keys(boxes).length === 0) delete page[size];
+    changed = true;
+  }
+  return changed;
+}
+
+function resetKrokiLinesOnce() {
+  if (localStorage.getItem(HOME_KROKI_LINES_KEY)) return false;
+  localStorage.setItem(HOME_KROKI_LINES_KEY, "1");
+  const store = loadStore();
+  const changed = stripKrokiOverride(store["/"]);
+  if (changed) saveStore(store);
+  const history = loadHistory();
+  let historyChanged = false;
+  for (const entry of history) {
+    if (stripKrokiOverride(entry["/"])) historyChanged = true;
+  }
+  if (historyChanged)
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  if (changed && window.location.pathname === "/") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
+if (typeof window !== "undefined") {
+  resetHomeLayoutOnce();
+  resetKrokiLinesOnce();
+}
+
 function migrateAboutSections() {
   if (resetParentsPageLayoutOnce()) return;
+  if (resetHomeLayoutOnce()) return;
+  if (resetKrokiLinesOnce()) return;
   resetHomeCardFillOnce();
   const store = loadStore();
   const before = stableLayout(store);
@@ -530,34 +601,6 @@ function paint(doc: Document, pathname: string, size: SizeId) {
   applyTheme(doc, pathname, store);
 }
 
-function writeCardFill(pathname: string, fill: CardFill) {
-  const store = loadStore();
-  const page: PageLayout = store[pathname] ?? {};
-  page.theme = {
-    ...page.theme,
-    cardL: fill.l,
-    cardC: fill.c,
-    cardH: fill.h,
-    cardAlpha: fill.alpha,
-  };
-  store[pathname] = page;
-  saveStore(store);
-}
-
-function writeDiscoverFill(pathname: string, fill: CardFill) {
-  const store = loadStore();
-  const page: PageLayout = store[pathname] ?? {};
-  page.theme = {
-    ...page.theme,
-    discoverL: fill.l,
-    discoverC: fill.c,
-    discoverH: fill.h,
-    discoverAlpha: fill.alpha,
-  };
-  store[pathname] = page;
-  saveStore(store);
-}
-
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
@@ -608,18 +651,6 @@ export function LayoutEditor() {
   const [frameTick, setFrameTick] = useState(0);
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
   const [fileReady, setFileReady] = useState(0);
-  const [cardFill, setCardFill] = useState<CardFill>(() => ({
-    l: 0.912,
-    c: 0.05,
-    h: 278,
-    alpha: 48,
-  }));
-  const [discoverFill, setDiscoverFill] = useState<CardFill>(() => ({
-    l: 0.955,
-    c: 0.011,
-    h: 80,
-    alpha: 40,
-  }));
   const selectedSelectorRef = useRef<string | null>(null);
   const refreshTextRef = useRef<(selector: string | null) => void>(() => {});
   const syncResizeRef = useRef<(selector: string | null) => void>(() => {});
@@ -688,47 +719,13 @@ export function LayoutEditor() {
         setFileReady((value) => value + 1);
       })
       .catch(() => {});
-    const syncThemeFills = () => {
-      const store = loadStore();
-      const path = editPathRef.current;
-      setCardFill(cardFillFor(store, path));
-      setDiscoverFill(discoverFillFor(store, path));
-    };
     window.addEventListener(CHANGE_EVENT, sync);
     window.addEventListener(HISTORY_EVENT, sync);
-    window.addEventListener(CHANGE_EVENT, syncThemeFills);
-    window.addEventListener(HISTORY_EVENT, syncThemeFills);
-    syncThemeFills();
     return () => {
       window.removeEventListener(CHANGE_EVENT, sync);
       window.removeEventListener(HISTORY_EVENT, sync);
-      window.removeEventListener(CHANGE_EVENT, syncThemeFills);
-      window.removeEventListener(HISTORY_EVENT, syncThemeFills);
     };
   }, []);
-
-  useEffect(() => {
-    const store = loadStore();
-    setCardFill(cardFillFor(store, editPath));
-    setDiscoverFill(discoverFillFor(store, editPath));
-  }, [editPath, fileReady]);
-
-  const applyThemeLive = () => {
-    const doc = currentDoc();
-    if (doc) applyTheme(doc, editPath, loadStore());
-  };
-
-  const setCardFillLive = (fill: CardFill) => {
-    setCardFill(fill);
-    writeCardFill(editPath, fill);
-    applyThemeLive();
-  };
-
-  const setDiscoverFillLive = (fill: CardFill) => {
-    setDiscoverFill(fill);
-    writeDiscoverFill(editPath, fill);
-    applyThemeLive();
-  };
 
   useEffect(() => {
     const onResize = () =>
@@ -1734,20 +1731,6 @@ export function LayoutEditor() {
           ))}
         </div>
         <p className="mt-2 text-xs text-muted-foreground">{sizeLabel}</p>
-        {editPath === "/" && (
-          <>
-            <CardColorWheel
-              title="Wierzymy, że żłobek…"
-              value={discoverFill}
-              onChange={setDiscoverFillLive}
-            />
-            <CardColorWheel
-              title="Karty na dole strony"
-              value={cardFill}
-              onChange={setCardFillLive}
-            />
-          </>
-        )}
         {previewSize !== "okno" && (
           <button
             type="button"
