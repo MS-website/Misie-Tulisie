@@ -241,12 +241,26 @@ function applyBox(el: HTMLElement, box: Box) {
     el.dataset["layoutPosition"] = "1";
   }
   el.style.zIndex = box.z > 0 ? String(box.z) : "";
-  el.style.paddingTop = box.paddingTop != null ? `${box.paddingTop}px` : "";
-  el.style.paddingBottom =
-    box.paddingBottom != null ? `${box.paddingBottom}px` : "";
-  el.style.marginTop = box.marginTop != null ? `${box.marginTop}px` : "";
-  el.style.marginBottom =
-    box.marginBottom != null ? `${box.marginBottom}px` : "";
+  if (box.paddingTop != null) {
+    el.style.setProperty("padding-top", `${box.paddingTop}px`, "important");
+  }
+  if (box.paddingBottom != null) {
+    el.style.setProperty(
+      "padding-bottom",
+      `${box.paddingBottom}px`,
+      "important",
+    );
+  }
+  if (box.marginTop != null) {
+    el.style.setProperty("margin-top", `${box.marginTop}px`, "important");
+  }
+  if (box.marginBottom != null) {
+    el.style.setProperty(
+      "margin-bottom",
+      `${box.marginBottom}px`,
+      "important",
+    );
+  }
   el.style.fontSize = box.fontSize != null ? `${box.fontSize}px` : "";
   el.style.width = box.width != null ? `${box.width}px` : "";
   el.style.maxWidth = box.width != null ? `${box.width}px` : "";

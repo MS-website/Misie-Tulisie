@@ -1,95 +1,47 @@
 import { useState } from "react";
-import galeria3 from "@/assets/galeria-3.jpg";
+import oplatyInfografika from "@/assets/oplaty-infografika.png";
+import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
+import planDniaMisie from "@/assets/plan-dnia-misie-tulisie.png";
+import rytmDniaMisiePrzytulenie from "@/assets/rytm-dnia-misie-przytulenie.png";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
-import { Eyebrow, Photo, Reveal, RevealStaggerList } from "./ui";
+import { Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
 
-const SECTION_NAV = [
-  { id: "oplaty", label: "Opłaty i dofinansowania" },
-  { id: "plan-dnia", label: "Plan dnia" },
-  { id: "wyprawka", label: "Wyprawka" },
-] as const;
-
-const FEES = [
-  { label: "Czesne w żłobku", amount: "0 zł" },
-  { label: "Wpisowe", amount: "0 zł" },
-  { label: "Wyżywienie", amount: "25 zł/dzień" },
-  { label: "Koszt diety indywidualnej", amount: "27 zł/dzień" },
-];
-
-const DAY_PLAN: [string, string][] = [
-  ["7:30 – 8:00", "Zaczynamy dzień w Misiach Tulisiach"],
-  ["8:00 – 8:30", "Śniadanko"],
-  ["8:30 -9:30", "Zajęcia grupowe"],
-  [
-    "9:30 – 10:45",
-    "Wyjście na plac zabaw (w okresie zimowym w zależności od pogody)",
-  ],
-  ["10:45 – 11:00", "Mycie rączek"],
-  ["11:00-11:30", "Zupka"],
-  ["11:30 – 13:30", "Leżakowanie."],
-  ["13:30 – 14:00", "Obiadek."],
-  ["14:00 – 15:30", "Mycie ząbków i następnie wspólne zabawy grupowe"],
-  ["15:30 – 16:00", "Podwieczorek"],
-  ["16:00 – 17:30", "Luźne zabawy , czytanki , oczekiwanie na rodziców J"],
-];
-
 const WYPRAWKA_ITEMS = [
-  "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59.",
-  "Pampersy (podpisane opakowanie).",
-  "Mokre chusteczki (podpisane opakowanie).",
-  "Śliniaczek gumowy lub plastikowy z korytkiem.",
-  "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie(najlepiej dresowe lub leginsy).",
-  "Kubeczek (jeżeli dziecko nie pije jeszcze ze standardowego kubka).",
-  "Krem na odparzenia dla niemowląt(może być też sudocrem).",
-  "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana.",
-  "Rolka ręczników papierowych (raz na 3 miesiące).",
-  "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka).",
+  "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59",
+  "Pampersy (podpisane opakowanie)",
+  "Mokre chusteczki (podpisane opakowanie)",
+  "Śliniaczek gumowy lub plastikowy z korytkiem",
+  "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub leginsy)",
+  "Kubeczek (jeśli dziecko nie pije jeszcze ze standardowego kubka)",
+  "Krem na odparzenia dla niemowląt (może być też Sudocrem)",
+  "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana",
+  "Rolka ręczników papierowych (raz na 3 miesiące)",
+  "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka)",
 ];
 
 const AKTYWNIE_FAQ: [string, string][] = [
   [
     "Kto może skorzystać ze świadczenia „Aktywnie w żłobku”?",
-    "Treść odpowiedzi do uzupełnienia przez placówkę (materiały ZUS / gov.pl).",
+    "Rodzice i opiekunowie dzieci uczęszczających do żłobka, klubu dziecięcego lub objętych opieką dziennego opiekuna. Świadczenie przysługuje niezależnie od dochodu rodziny.",
   ],
   [
-    "Komu nie przysługuje dofinansowanie w ramach programu „Aktywny Rodzic”?",
-    "Treść odpowiedzi do uzupełnienia przez placówkę.",
+    "Komu nie przysługuje świadczenie?",
+    "Świadczenie nie przysługuje osobom korzystającym ze świadczenia „Aktywnie w domu” lub „Aktywni rodzice w pracy” na to samo dziecko w tym samym miesiącu.",
   ],
   [
     "Jaka jest wysokość świadczenia „Aktywnie w żłobku”?",
-    "Treść odpowiedzi do uzupełnienia przez placówkę.",
+    "Do 1500 zł miesięcznie na dziecko lub do 1900 zł w przypadku dziecka z odpowiednim orzeczeniem o niepełnosprawności. Świadczenie nie obejmuje kosztów wyżywienia.",
   ],
   [
     "Jak wypłacane jest świadczenie?",
-    "Treść odpowiedzi do uzupełnienia przez placówkę.",
+    "ZUS przekazuje pieniądze bezpośrednio na rachunek podmiotu prowadzącego żłobek lub zapewniającego opiekę. Rodzic pokrywa ewentualną różnicę w opłacie oraz koszt wyżywienia.",
   ],
   [
-    "Gdzie i jak złożyć wniosek?",
-    "Treść odpowiedzi do uzupełnienia przez placówkę.",
+    "Gdzie złożyć wniosek?",
+    "Wniosek można złożyć elektronicznie przez PUE ZUS (eZUS), aplikację mZUS, bankowość elektroniczną lub portal Emp@tia. Warto zrobić to w ciągu 2 miesięcy od rozpoczęcia opieki, aby uzyskać świadczenie od pierwszego dnia pobytu dziecka.",
   ],
 ];
-
-function SectionNav() {
-  return (
-    <nav
-      aria-label="Spis treści strony"
-      className="sticky top-20 z-40 border-y border-border/70 bg-background/92 backdrop-blur-md"
-    >
-      <div className="container-site flex gap-1 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {SECTION_NAV.map(({ id, label }) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className="shrink-0 rounded-full border border-border/80 px-4 py-2 text-sm text-foreground/85 transition-colors hover:border-honey/40 hover:text-foreground"
-          >
-            {label}
-          </a>
-        ))}
-      </div>
-    </nav>
-  );
-}
 
 function Accordion({
   items,
@@ -166,10 +118,7 @@ function WyprawkaPdfDownload({ className }: { className?: string }) {
 
 function WyprawkaList() {
   return (
-    <RevealStaggerList
-      className="mt-10 divide-y divide-border/70 border-y border-border/70"
-      stagger={520}
-    >
+    <ul className="mt-10 divide-y divide-border/70 border-y border-border/70">
       {WYPRAWKA_ITEMS.map((item) => (
         <li key={item} className="flex gap-4 py-5 md:gap-5">
           <span
@@ -181,18 +130,16 @@ function WyprawkaList() {
           </span>
         </li>
       ))}
-    </RevealStaggerList>
+    </ul>
   );
 }
 
 export function ParentsPageSections() {
   return (
     <>
-      <SectionNav />
-
       <section
         id="oplaty"
-        className="scroll-mt-[7.75rem] border-b border-border/60 bg-background py-20 md:py-28"
+        className="scroll-mt-24 border-b border-border/60 bg-background py-20 md:py-28"
       >
         <div className="container-site min-w-0">
           <Reveal>
@@ -201,30 +148,33 @@ export function ParentsPageSections() {
               Przejrzyste informacje o kosztach
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Poniżej znajdziesz najważniejsze kwoty oraz informacje o
-              programach, z których mogą skorzystać rodzice zapisujący dziecko
-              do Misiów Tulisi.
+              Tu znajdziesz najważniejsze kwoty oraz informacje o programach,
+              <br />
+              z których mogą korzystać rodzice zapisujący dzieci do Misi Tulisi.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-10">
-            <Reveal className="lg:col-span-7">
-              <div className="grid gap-px overflow-hidden rounded-md border border-border/80 bg-border/80 sm:grid-cols-2">
-                {FEES.map(({ label, amount }) => (
-                  <div
-                    key={label}
-                    className="bg-card px-6 py-8 md:px-8 md:py-10"
-                  >
-                    <p className="text-sm font-medium tracking-wide text-muted-foreground">
-                      {label}
-                    </p>
-                    <p className="font-display mt-3 text-4xl text-foreground md:text-5xl">
-                      {amount}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
+            <Reveal className="min-w-0 lg:col-span-7">
+              <img
+                src={oplatyInfografika}
+                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł/dzień, koszt diety indywidualnej 27 zł/dzień"
+                className="h-auto w-full"
+              />
+            </Reveal>
+            <Reveal
+              className="flex min-w-0 flex-col gap-4 lg:col-span-5 lg:row-start-1 lg:self-start"
+              delay={80}
+            >
+              <Photo
+                src={wyzywienieGrupa}
+                alt="Dzieci przy wspólnym posiłku w żłobku"
+                fit="contain"
+                className="aspect-[2/1] w-full"
+              />
+            </Reveal>
+            <Reveal className="min-w-0 lg:col-span-12">
+              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Czesne wynosi 0 zł miesięcznie w przypadku skorzystania przez
                 rodziców z obydwóch przysługujących dofinansowań.
               </p>
@@ -236,16 +186,9 @@ export function ParentsPageSections() {
                 Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
               </p>
             </Reveal>
-            <Reveal className="min-w-0 lg:col-span-5" delay={80}>
-              <Photo
-                src={galeria3}
-                alt="Dzieci przy stole podczas posiłku w żłobku"
-                className="aspect-[4/5] max-w-full lg:ml-auto lg:max-w-md"
-              />
-            </Reveal>
           </div>
 
-          <div className="mt-20 space-y-16 md:mt-24 md:space-y-20">
+          <div className="mt-10 space-y-16 md:mt-12 md:space-y-20">
             <Reveal>
               <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
                 <div className="min-w-0 lg:col-span-6">
@@ -310,10 +253,10 @@ export function ParentsPageSections() {
 
       <section
         id="plan-dnia"
-        className="scroll-mt-[7.75rem] bg-[oklch(0.97_0.014_88)] py-20 md:py-28"
+        className="scroll-mt-24 bg-[oklch(0.97_0.014_88)] py-20 md:py-28"
       >
         <div className="container-site min-w-0">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
             <Reveal className="lg:col-span-4">
               <Eyebrow>Plan dnia</Eyebrow>
               <h2 className="font-display text-4xl md:text-5xl">
@@ -321,63 +264,46 @@ export function ParentsPageSections() {
               </h2>
               <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
                 Przewidywalny plan pomaga dzieciom czuć się bezpiecznie, a
-                rodzicom — wiedzieć, czego można się spodziewać.
+                rodzice zawsze wiedzą co aktualnie robi ich pociecha.
               </p>
-            </Reveal>
-            <ol className="relative min-w-0 lg:col-span-7 lg:col-start-6">
-              <div
-                className="absolute top-2 bottom-2 left-[4.5rem] hidden w-px bg-border md:left-[5.5rem] md:block"
-                aria-hidden="true"
+              <Photo
+                src={rytmDniaMisiePrzytulenie}
+                alt="Przytulone misie — ilustracja do sekcji o rytmie dnia"
+                fit="contain"
+                className="mt-8 w-full max-w-xs"
               />
-              {DAY_PLAN.map(([time, title], i) => (
-                <Reveal key={time} delay={i * 40}>
-                  <li className="grid grid-cols-[5.5rem_1fr] gap-4 border-t border-border/70 py-6 md:grid-cols-[7rem_1fr] md:gap-8 md:py-7">
-                    <time
-                      dateTime={time.replace(/\s/g, "")}
-                      className="font-display text-lg leading-tight text-[oklch(0.58_0.07_48)] md:text-xl"
-                    >
-                      {time}
-                    </time>
-                    <p className="text-base leading-relaxed text-foreground md:text-lg">
-                      {title}
-                    </p>
-                  </li>
-                </Reveal>
-              ))}
-            </ol>
+            </Reveal>
+            <Reveal className="min-w-0 lg:col-span-7 lg:col-start-6" delay={80}>
+              <Photo
+                src={planDniaMisie}
+                alt="Plan dnia w żłobku Misie Tulisie — godziny zajęć, posiłków i odpoczynku"
+                fit="contain"
+                className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-xl"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section
         id="wyprawka"
-        className="scroll-mt-[7.75rem] border-t border-border/60 py-20 md:py-28"
+        className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
       >
         <div className="container-site min-w-0">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="min-w-0 lg:col-span-7">
-              <Reveal>
-                <Eyebrow>Wyprawka</Eyebrow>
-                <h2 className="font-display text-4xl md:text-5xl">
-                  Lista rzeczy do żłobka
-                </h2>
-              </Reveal>
-              <Reveal delay={60}>
-                <WyprawkaList />
-                <p className="mt-8 text-base leading-relaxed md:text-lg">
-                  <strong className="font-semibold text-foreground">
-                    Prosimy aby wszystkie rzeczy były podpisane na specjalnych
-                    naklejanych etykietkach bądź markerem.
-                  </strong>
-                </p>
-                <WyprawkaPdfDownload className="mt-8" />
-              </Reveal>
-            </div>
-            <div
-              className="min-w-0 aspect-[4/5] max-w-full rounded-md border border-dashed border-border/70 bg-cream/35 lg:col-span-5 lg:sticky lg:top-36 lg:max-w-md lg:justify-self-end"
-              aria-hidden="true"
-            />
-          </div>
+          <Reveal className="max-w-none">
+            <Eyebrow>Wyprawka</Eyebrow>
+            <h2 className="font-display max-w-3xl text-4xl md:text-5xl">
+              Lista rzeczy do żłobka
+            </h2>
+            <WyprawkaList />
+            <p className="mt-8 max-w-3xl text-base leading-relaxed md:text-lg">
+              <strong className="font-semibold text-foreground">
+                Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
+                naklejanych etykietkach bądź markerem.
+              </strong>
+            </p>
+            <WyprawkaPdfDownload className="mt-8" />
+          </Reveal>
         </div>
       </section>
     </>
@@ -388,9 +314,9 @@ export function ParentsPageIntro() {
   return (
     <section className="container-site pt-40 pb-10 md:pt-52 md:pb-14">
       <Reveal>
-        <Eyebrow>Dla rodziców</Eyebrow>
         <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">
-          Wszystko, co warto wiedzieć
+          Wszystko,{" "}
+          <span className="whitespace-nowrap">co warto wiedzieć</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
           Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy informacje,

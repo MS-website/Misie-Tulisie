@@ -22,20 +22,20 @@ FONT_CANDIDATES = (
 )
 
 ITEMS = [
-    "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59.",
-    "Pampersy (podpisane opakowanie).",
-    "Mokre chusteczki (podpisane opakowanie).",
-    "Śliniaczek gumowy lub plastikowy z korytkiem.",
-    "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie(najlepiej dresowe lub leginsy).",
-    "Kubeczek (jeżeli dziecko nie pije jeszcze ze standardowego kubka).",
-    "Krem na odparzenia dla niemowląt(może być też sudocrem).",
-    "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana.",
-    "Rolka ręczników papierowych (raz na 3 miesiące).",
-    "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka).",
+    "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59",
+    "Pampersy (podpisane opakowanie)",
+    "Mokre chusteczki (podpisane opakowanie)",
+    "Śliniaczek gumowy lub plastikowy z korytkiem",
+    "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub leginsy)",
+    "Kubeczek (jeśli dziecko nie pije jeszcze ze standardowego kubka)",
+    "Krem na odparzenia dla niemowląt (może być też Sudocrem)",
+    "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana",
+    "Rolka ręczników papierowych (raz na 3 miesiące)",
+    "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka)",
 ]
 
 NOTE = (
-    "Prosimy aby wszystkie rzeczy były podpisane na specjalnych naklejanych "
+    "Prosimy, aby wszystkie rzeczy były podpisane na specjalnych naklejanych "
     "etykietkach bądź markerem."
 )
 

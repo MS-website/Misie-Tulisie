@@ -1,1156 +1,200 @@
 {
-  "/formularz-rekrutacyjny": {
-    "sm": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -131,
-        "z": 0
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": 36,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 0,
-        "y": -4,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(1)": {
-        "x": 0,
-        "y": -4,
-        "z": 0
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 48
-      }
-    },
-    "md": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 2,
-        "y": -128,
-        "z": 2
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": -2,
-        "y": 12,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 0,
-        "y": -32,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(1)": {
-        "x": 0,
-        "y": -16,
-        "z": 0
-      }
-    },
-    "lg": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 19,
-        "y": -133,
-        "z": 2
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 11,
-        "y": 31,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": -1,
-        "y": -55,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(2) > button:nth-of-type(1)": {
-        "x": 0,
-        "y": -48,
-        "z": 0
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 24,
-        "paddingBottom": 144,
-        "marginBottom": -96
-      },
-      "section:nth-of-type(1)": {
-        "x": -11,
-        "y": -3,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 0,
-        "y": -28,
-        "z": 0,
-        "paddingBottom": 40
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 586
-      }
-    },
-    "text": {
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "Otrzymaliśmy Twoje zgłoszenie rekrutacyjne. Skontaktujemy się&nbsp;<span style=\"font-size: var(--text-base); font-family: var(--font-sans);\">z Tobą najszybciej jak to możliwe.</span>",
-        "originalHtml": "Otrzymaliśmy zgłoszenie rekrutacyjne. Wkrótce skontaktujemy się z Tobą."
-      }
-    }
-  },
-  "/rekrutacja": {
-    "lg": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -96,
-        "z": 0
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -72,
-        "z": 0,
-        "width": 1039
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -104,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 2,
-        "y": -34,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": -12,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -88,
-        "z": 0,
-        "width": 413
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 80
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": -28,
-        "z": 0,
-        "paddingTop": 56
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 448
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -68,
-        "z": 0
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -48,
-        "z": 0
-      },
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 4,
-        "z": 0,
-        "paddingTop": 136
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      }
-    },
-    "text": {
-      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Podczas spotkania oprowadzimy Państwa po naszej placówce, przedstawimy szczegóły oferty oraz odpowiemy&nbsp;<span style=\"font-family: var(--font-sans);\">na pytania dotyczące opieki, adaptacji&nbsp;</span><div><div>i organizacji dnia.</div></div>",
-        "originalHtml": "Podczas spotkania oprowadzimy Państwa po naszej placówce, przedstawimy szczegóły oferty oraz odpowiemy na pytania dotyczące opieki, adaptacji i organizacji dnia."
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "Po kliknięciu w powyższy link zostaną Państwo przekierowani do formularza,&nbsp;<div>w którym należy podać podstawowe informacje o dziecku oraz preferencjach dotyczących opieki.</div>",
-        "originalHtml": "Po kliknięciu w powyższy link zostaną Państwo przekierowani do formularza, w którym należy podać podstawowe informacje o dziecku oraz preferencjach dotyczących opieki."
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane&nbsp;<div>i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja,&nbsp;</div><div>która pozwala maluchowi zaakceptować rozstanie z rodzicami.</div>",
-        "originalHtml": "Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja, która pozwala maluchowi zaakceptować rozstanie z rodzicami."
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w naszym żłobku</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">.</span><br></div></div>",
-        "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Przez cały rok,&nbsp;<div>od 6. miesiąca do 3 lat</div>",
-        "originalHtml": "Przez cały rok, od 6. miesiąca do 3 lat."
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Rekrutacja"
-      }
-    }
-  },
   "/dla-rodzicow": {
-    "lg": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -88,
-        "z": 0
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -56,
-        "z": 0,
-        "width": 1072
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": -224,
-        "z": 0,
-        "paddingBottom": 72
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -20,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -48,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": -28,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "x": 0,
-        "y": -20,
-        "z": 0
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 0,
-        "marginTop": -192
-      }
-    },
-    "text": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Wszystko, co warto wiedzieć",
-        "originalHtml": "Wszystko, co warto wiedzieć."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Dla rodzica"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "<strong class=\"font-semibold text-foreground\">Prosimy, aby wszystkie rzeczy były podpisane na specjalnych naklejanych etykietkach bądź markerem.</strong>",
-        "originalHtml": "<strong class=\"font-semibold text-foreground\">Prosimy aby wszystkie rzeczy były podpisane na specjalnych naklejanych etykietkach bądź markerem.</strong>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
-        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub leginsy).</span>",
-        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie(najlepiej dresowe lub leginsy).</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59</span>",
-        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59.</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pampersy (podpisane opakowanie)</span>",
-        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Pampersy (podpisane opakowanie).</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Mokre chusteczki (podpisane opakowanie)</span>",
-        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Mokre chusteczki (podpisane opakowanie).</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
-        "html": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Śliniaczek gumowy lub plastikowy z korytkiem</span>",
-        "originalHtml": "<span class=\"mt-2.5 h-2 w-2 shrink-0 rounded-full bg-honey/75\" aria-hidden=\"true\"></span><span class=\"min-w-0 text-base leading-relaxed text-foreground md:text-lg\">Śliniaczek gumowy lub plastikowy z korytkiem.</span>"
-      }
-    }
-  },
-  "/": {
-    "lg": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 86,
-        "y": 1081,
-        "z": 2,
-        "width": 502
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -6,
-        "y": -13,
-        "z": 2
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -25,
-        "z": 2,
-        "fontSize": 92,
-        "width": 648
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 1,
-        "y": -36,
-        "z": 2,
-        "fontSize": 20,
-        "width": 583
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "x": 0,
-        "y": -47,
-        "z": 2
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(2)": {
-        "x": 16,
-        "y": -44,
-        "z": 0
-      },
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 128,
-        "marginBottom": -96
-      },
+    "sm": {
       "section:nth-of-type(2)": {
         "x": 0,
         "y": 0,
         "z": 0,
         "paddingTop": 0,
-        "paddingBottom": 96,
-        "marginTop": -216,
-        "marginBottom": -96
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -80
+      },
+      "section:nth-of-type(4)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 40,
+        "paddingBottom": 0,
+        "marginTop": 0,
+        "marginBottom": -8
       },
       "section:nth-of-type(3)": {
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 48,
-        "paddingBottom": 0
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": -8,
+        "marginBottom": 0
+      }
+    },
+    "md": {
+      "section:nth-of-type(2)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -80
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -14,
-        "y": -533,
+      "section:nth-of-type(4)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 40,
+        "paddingBottom": 0,
+        "marginTop": 0,
+        "marginBottom": -8
+      },
+      "section:nth-of-type(3)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": -8,
+        "marginBottom": 0
+      }
+    },
+    "lg": {
+      "section:nth-of-type(2)": {
+        "x": -4,
+        "y": 32,
         "z": 2,
-        "width": 491
+        "paddingTop": 0,
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -80
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 687,
-        "y": 28,
-        "z": 2,
-        "fontSize": 20,
-        "width": 523
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 686,
-        "y": 31,
+      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
+        "x": 22,
+        "y": -55,
         "z": 2
       },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -755,
-        "y": -525,
+      "section:nth-of-type(1)": {
+        "x": -27,
+        "y": -27,
+        "z": 2
+      },
+      "section:nth-of-type(3)": {
+        "x": -2,
+        "y": -11,
+        "z": 3,
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": -8,
+        "marginBottom": 0
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
+        "x": 892,
+        "y": -57,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)": {
+        "x": 0,
+        "y": 8,
+        "z": 0
+      },
+      "section:nth-of-type(4)": {
+        "x": -2,
+        "y": -1,
         "z": 2,
+        "paddingTop": 40,
         "paddingBottom": 0,
-        "marginBottom": -72,
-        "width": 600
+        "marginTop": 0,
+        "marginBottom": -8
       },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 1,
-        "y": -67,
+      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 24,
+        "y": -62,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 42,
+        "y": -213,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)": {
+        "x": 604,
+        "y": -252,
         "z": 2,
-        "width": 744
+        "width": 616
       },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -50,
-        "y": 3,
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(2)": {
+        "x": 599,
+        "y": -247,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 4,
+        "y": -30,
+        "z": 2,
+        "width": 529,
+        "height": 265
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)": {
+        "x": -13,
+        "y": -208,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
+        "x": 29,
+        "y": -179,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": -10,
+        "y": -198,
         "z": 2,
         "width": 570
       },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 1,
-        "y": -52,
-        "z": 2
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": -2,
-        "y": -41,
-        "z": 2
-      },
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 16
-      },
-      "section:nth-of-type(6)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 80,
-        "paddingBottom": 80
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
-        "x": -45,
-        "y": 10,
-        "z": 2
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 6,
-        "y": -58,
-        "z": 2,
-        "width": 682,
-        "height": 377
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "fontSize": 20,
-        "width": 636
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 1,
-        "y": 4,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 1,
-        "y": -40,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "x": 1,
-        "y": -41,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 2,
-        "y": -32,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -33,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 1,
-        "y": -15,
-        "z": 2
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 2,
-        "y": -19,
-        "z": 2
-      }
-    },
-    "text": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Miejsce,&nbsp;<div><span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">w którym małe kroki mają </span><em class=\"text-honey\" style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\">wielkie</em><span style=\"font-family: var(--font-serif); font-size: 6.5rem; letter-spacing: -0.015em;\"> znaczenie</span></div>",
-        "originalHtml": "Miejsce, w którym małe kroki mają <em class=\"text-honey\">wielkie</em> znaczenie."
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "html": "Poznaj Misie Tulisie →",
-        "originalHtml": "Poznaj Misie Tulisie →"
-      },
-      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Wierzymy, że żłobek to coś więcej&nbsp;<div>niż dobra opieka – to miejsce, które daje dzieciom radość, a rodzicom spokój&nbsp;</div><div>i poczucie zaufania.</div>",
-        "originalHtml": "Wierzymy, że żłobek to coś więcej niż dobra opieka – to miejsce, które daje dzieciom radość, a rodzicom spokój i poczucie zaufania."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy,&nbsp;<span style=\"font-family: var(--font-sans);\">aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni.</span>",
-        "originalHtml": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy, aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni."
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
-        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-sage-soft/80\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"3\" class=\"stroke-honey\" stroke-width=\"1.25\"></circle><circle cx=\"21\" cy=\"11\" r=\"3\" class=\"stroke-sage\" stroke-width=\"1.25\"></circle><path d=\"M6 26c0-4 3-7 7-7M19 19c4 0 7 3 7 7\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Budowanie relacji &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style=\"font-size: var(--text-sm); font-family: var(--font-sans);\">z rówieśnikami</span></span>",
-        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-sage-soft/80\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"3\" class=\"stroke-honey\" stroke-width=\"1.25\"></circle><circle cx=\"21\" cy=\"11\" r=\"3\" class=\"stroke-sage\" stroke-width=\"1.25\"></circle><path d=\"M6 26c0-4 3-7 7-7M19 19c4 0 7 3 7 7\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Budowanie relacji z rówieśnikami</span>"
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(6)": {
-        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M10 18c0-3 2-5 6-5s6 2 6 5M8 22h16\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path><path d=\"M12 14l4-4 4 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Nauka współpracy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i wyrażania emocji</span>",
-        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M10 18c0-3 2-5 6-5s6 2 6 5M8 22h16\" class=\"stroke-honey\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path><path d=\"M12 14l4-4 4 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Nauka współpracy i wyrażania emocji</span>"
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
-        "html": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i komunikacji</span>",
-        "originalHtml": "<span class=\"flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border/60 bg-blush/70\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" class=\"h-7 w-7\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 12a8 8 0 0116 0v4a8 8 0 01-16 0v-4z\" class=\"stroke-honey\" stroke-width=\"1.25\"></path><path d=\"M12 24h4l2 4\" class=\"stroke-sage\" stroke-width=\"1.25\" stroke-linecap=\"round\"></path></svg></span><span class=\"text-sm leading-snug text-foreground\">Rozwijanie mowy i komunikacji</span>"
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Wiemy, jak dużym wydarzeniem zarówno dla rodziców,&nbsp;<div>jak i dla dziecka jest rozpoczęcie przygody ze żłobkiem. Dlatego szczególną uwagę przykładamy do poczucia bezpieczeństwa dziecka, łagodnej adaptacji&nbsp;<span style=\"font-size: var(--text-lg); font-family: var(--font-sans);\">oraz indywidualnego podejścia do jego potrzeb.&nbsp;</span><span style=\"font-family: var(--font-sans); font-size: var(--text-lg);\">Każde dziecko jest inne – ma swój temperament, rytm dnia, zainteresowania i sposób poznawania świata. Chcemy je poznać, zrozumieć&nbsp;</span></div><div><span style=\"font-family: var(--font-sans); font-size: var(--text-lg);\">i towarzyszyć mu w rozwoju z uważnością oraz szacunkiem.</span></div>",
-        "originalHtml": "Wiemy, jak dużym wydarzeniem zarówno dla rodziców, jak i dla dziecka jest rozpoczęcie przygody ze żłobkiem. Dlatego szczególną uwagę przykładamy do poczucia bezpieczeństwa dziecka, łagodnej adaptacji oraz indywidualnego podejścia do jego potrzeb. Każde dziecko jest inne – ma swój temperament, rytm dnia, zainteresowania i sposób poznawania świata. Chcemy je poznać, zrozumieć i towarzyszyć mu w rozwoju z uważnością oraz szacunkiem."
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji&nbsp;<div>z innymi.</div>",
-        "originalHtml": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji z innymi."
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Dysponujemy kolorowymi, nowoczesnymi salami dostosowanymi&nbsp;<div>do potrzeb najmłodszych. Wyposażyliśmy je w zabawki i pomoce edukacyjne, wspierające rozwój ruchowy, sensoryczny i poznawczy maluchów.</div>",
-        "originalHtml": "Dysponujemy kolorowymi, nowoczesnymi salami dostosowanymi do potrzeb najmłodszych. Wyposażyliśmy je w zabawki i pomoce edukacyjne, wspierające rozwój ruchowy, sensoryczny i poznawczy maluchów."
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę,&nbsp;<div>w której dzieci mogą rozwijać się we własnym tempie.&nbsp;<span style=\"font-family: var(--font-sans);\">Pod czujnym okiem troskliwych opiekunek maluchy każdego dnia uczą się poprzez zabawę, rozwijają samodzielność, poznają otaczający je świat, zdobywają nowe umiejętności i budują relacje&nbsp;</span></div><div>z rówieśnikami.</div>",
-        "originalHtml": "W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę, w której dzieci mogą rozwijać się we własnym tempie. Pod czujnym okiem troskliwych opiekunek maluchy każdego dnia uczą się poprzez zabawę, rozwijają samodzielność, poznają otaczający je świat, zdobywają nowe umiejętności i budują relacje z rówieśnikami."
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Przestrzeń dla najmłodszych",
-        "originalHtml": "Przestrzeń dla najmłodszych"
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Adaptacja"
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Każde dziecko"
-      },
-      "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "html": "Małe kroki ku nowemu",
-        "originalHtml": "Bezpieczna adaptacja"
-      }
-    },
-    "theme": {
-      "cardL": 0.88,
-      "cardC": 0.064,
-      "cardH": 139.46084825851653,
-      "cardAlpha": 24,
-      "spaceL": 0.859,
-      "spaceC": 0.119,
-      "spaceH": 254.23991126387995,
-      "spaceAlpha": 16,
-      "discoverL": 0.719,
-      "discoverC": 0.06,
-      "discoverH": 94.93187451023095,
-      "discoverAlpha": 6
-    }
-  },
-  "/aktywny-maluch": {
-    "lg": {
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": -112,
-        "z": 0,
-        "paddingTop": 160
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 615
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": -148,
-        "z": 0,
-        "paddingTop": 24,
-        "paddingBottom": 48,
-        "marginTop": -24,
-        "marginBottom": -192
-      },
-      "section:nth-of-type(3)": {
-        "x": -1,
-        "y": -210,
-        "z": 2,
-        "paddingTop": 96,
-        "paddingBottom": 24,
-        "marginTop": -96,
-        "marginBottom": -216
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 2
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": 16,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > ol:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 0,
-        "y": -20,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > ol:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 0,
-        "y": -12,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 0,
-        "y": 40,
-        "z": 0
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 0,
-        "y": 40,
-        "z": 0
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "x": 0,
-        "y": 40,
-        "z": 0
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 44,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": -3,
-        "y": 3,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 591
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 27,
-        "y": -92,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > ol:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 22,
-        "y": -101,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > ol:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 22,
-        "y": -116,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "x": -2,
-        "y": -37,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
         "x": 16,
-        "y": -60,
-        "z": 0
-      }
-    },
-    "text": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Aktywny Maluch"
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "Strona przedstawia informacje o realizowanym zadaniu i dofinansowaniu",
-        "originalHtml": "Strona przedstawia informacje o realizowanym zadaniu i dofinansowaniu."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > ol:nth-of-type(1) > li:nth-of-type(2)": {
-        "html": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich (BP) –141 002,42 zł (17,48 % dofinansowania)",
-        "originalHtml": "Środki dofinansowania w formie współfinansowania krajowego środków europejskich ( BP) –141 002,42 zł (17,48 % dofinansowania)"
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > article:nth-of-type(4) > p:nth-of-type(3)": {
-        "html": "Wartość dofinansowania – środki z FERS: <span class=\"mt-3 block font-display text-4xl leading-none text-foreground md:text-5xl\">826 650,00 zł,</span><span class=\"mt-3 block font-display text-4xl leading-none text-foreground md:text-5xl\"><br></span> pochodzące z następujących źródeł:",
-        "originalHtml": "Wartość dofinansowania – środki z FERS: <span class=\"mt-3 block font-display text-4xl leading-none text-foreground md:text-5xl\">826 650,00 zł,</span> pochodzące z następujących źródeł:"
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Adaptacja tj. dokumentacja projektowa, dostosowanie pomieszczeń do potrzeb dzieci, zakup i montaż wyposażenia,&nbsp;<div>zakup pomocy dydaktycznych, wyposażenie placu zabaw.</div>",
-        "originalHtml": "Adaptacja tj. dokumentacja projektowa, dostosowanie pomieszczeń do potrzeb dzieci, zakup i montaż wyposażenia, zakup pomocy dydaktycznych, wyposażenie placu zabaw."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Dzieci do ukończenia roku szkolnego, w którym dziecko&nbsp;<div>ukończy 3 rok życia lub dłużej zgodnie z ustawą&nbsp;</div><div>z dnia&nbsp;<span style=\"font-size: var(--text-xl); font-family: var(--font-sans);\">4 lutego 2011 r. o opiece nad dziećmi w wieku do lat 3;&nbsp;</span><div><div>rodzice; opiekunowie</div></div></div>",
-        "originalHtml": "Dzieci do ukończenia roku szkolnego, w którym dziecko ukończy 3 rok życia lub dłużej zgodnie z ustawą z dnia 4 lutego 2011 r. o opiece nad dziećmi w wieku do lat 3; rodzice; opiekunowie"
-      }
-    }
-  },
-  "/o-nas": {
-    "lg": {
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": -108,
-        "z": 0,
-        "paddingTop": 72,
-        "paddingBottom": 72
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": -120,
-        "z": 0,
-        "paddingTop": 48,
-        "paddingBottom": 24
-      },
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 136,
-        "paddingBottom": 48
-      },
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": -100,
-        "z": 0,
-        "paddingTop": 72,
-        "paddingBottom": 96
-      },
-      "section:nth-of-type(7)": {
-        "x": 0,
-        "y": -128,
-        "z": 0,
-        "paddingTop": 96,
-        "paddingBottom": 96
-      },
-      "section:nth-of-type(6)": {
-        "x": 0,
-        "y": -152,
-        "z": 0,
-        "paddingTop": 96,
-        "paddingBottom": 96
-      },
-      "section:nth-of-type(5)": {
-        "x": 0,
-        "y": -108,
-        "z": 0,
-        "paddingTop": 48,
-        "paddingBottom": 96
-      },
-      "section:nth-of-type(8)": {
-        "x": 2,
-        "y": -98,
-        "z": 2,
-        "paddingTop": 72,
-        "paddingBottom": 48
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 602
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -72,
-        "z": 0,
-        "paddingBottom": 24,
-        "fontSize": 68,
-        "width": 1094
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 32,
-        "y": -12,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -52,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -48,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -56,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": -44,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": -24,
-        "y": -1,
+        "y": -199,
         "z": 2
       },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -32,
-        "y": 28,
-        "z": 0,
-        "width": 629
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": 32,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
-        "x": 0,
-        "y": 8,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
-        "x": 0,
-        "y": 8,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "x": 0,
-        "y": 8,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 0,
-        "y": 8,
-        "z": 0
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 0,
-        "y": 8,
-        "z": 0
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -150,
-        "y": -222,
-        "z": 2
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 155,
-        "y": 92,
-        "z": 2
-      },
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 91,
-        "y": -1,
-        "z": 2
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -32,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 454
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(2) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 465
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(3) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 474
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(4) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "width": 499
-      },
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "x": 32,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 32,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
-        "x": 32,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -16,
-        "z": 0
-      },
-      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -8,
-        "y": -5,
-        "z": 2
-      }
-    },
-    "text": {
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "html": "Zajrzyj do nas!",
-        "originalHtml": "Zajrzyj do nas."
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(3) > p:nth-of-type(1)": {
-        "html": "Wszystkie pomieszczenia naszego żłobka spełniają wszelkie normy wymagane przez sanepid. Sale zabaw wyposażone w najwyższej jakości zabawki oraz pomoce dydaktyczne pozwalają na bezpieczną zabawę i naukę. Wszystkie meble oraz akcesoria Misiów Tulisiów posiadają niezbędne atesty oraz certyfikaty,&nbsp;<div>aby móc bezpiecznie służyć potrzebom najmłodszych.</div>",
-        "originalHtml": "Wszystkie pomieszczenia naszego żłobka spełniają wszelkie normy wymagane przez sanepid. Sale zabaw wyposażone w najwyższej jakości zabawki oraz pomoce dydaktyczne pozwalają na bezpieczną zabawę i naukę. Wszystkie meble oraz akcesoria Misiów Tulisiów posiadają niezbędne atesty oraz certyfikaty, aby móc bezpiecznie służyć potrzebom najmłodszych."
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(2) > h2:nth-of-type(1)": {
-        "html": "Różnorodne zajęcia rozwojowe",
-        "originalHtml": "Różnorodne zajęcia rozwojowe."
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Zdrowe posiłki każdego dnia",
-        "originalHtml": "Zdrowe posiłki każdego dnia."
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(3) > h2:nth-of-type(1)": {
-        "html": "Odpowiednio wyposażone sale",
-        "originalHtml": "Odpowiednio wyposażone sale."
-      },
-      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(4) > h2:nth-of-type(1)": {
-        "html": "Zaufane i doświadczone opiekunki",
-        "originalHtml": "Zaufane i doświadczone opiekunki."
-      },
-      "section:nth-of-type(7) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Misie Tulisie to przestrzeń, w której zdajemy sobie sprawę,&nbsp;<div>że<!-- --> <strong class=\"font-semibold text-foreground\">dzieciństwo jest naprawdę ważne</strong>, a rodzice mogą mieć pewność, że ich dziecko jest w dobrych rękach.</div>",
-        "originalHtml": "Misie Tulisie to przestrzeń, w której zdajemy sobie sprawę, że<!-- --> <strong class=\"font-semibold text-foreground\">dzieciństwo jest naprawdę ważne</strong>, a rodzice mogą mieć pewność, że ich dziecko jest w dobrych rękach."
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Misie Tulisie działają w oparciu o aktualne podstawy programowe&nbsp;<div>oraz wartości zawarte w <strong class=\"font-semibold text-foreground\">Konwencji o prawach dziecka</strong>,&nbsp;</div><div>w szczególności prawo dziecka do:</div>",
-        "originalHtml": "Misie Tulisie działają w oparciu o aktualne podstawy programowe oraz wartości zawarte w <strong class=\"font-semibold text-foreground\">Konwencji o prawach dziecka</strong>, w szczególności prawo dziecka do:"
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Misie Tulisie to wyjątkowe miejsce stworzone z myślą o najmłodszych&nbsp;<div>i ich naturalnej potrzebie poznawania świata. Dbamy o to, aby każde dziecko czuło się u nas<!-- --> <strong class=\"font-semibold text-foreground\">bezpiecznie i swobodnie</strong>, a każdy dzień był pełen radości, nowych doświadczeń i małych odkryć. Tworzymy ciepłą, przyjazną atmosferę, w której dzieci mogą rozwijać się we własnym tempie, budować pierwsze relacje z rówieśnikami i stopniowo zdobywać nowe umiejętności.</div>",
-        "originalHtml": "Misie Tulisie to wyjątkowe miejsce stworzone z myślą o najmłodszych i ich naturalnej potrzebie poznawania świata. Dbamy o to, aby każde dziecko czuło się u nas<!-- --> <strong class=\"font-semibold text-foreground\">bezpiecznie i swobodnie</strong>, a każdy dzień był pełen radości, nowych doświadczeń i małych odkryć. Tworzymy ciepłą, przyjazną atmosferę, w której dzieci mogą rozwijać się we własnym tempie, budować pierwsze relacje z rówieśnikami i stopniowo zdobywać nowe umiejętności."
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
-        "html": "Nasze opiekunki z troską i uważnością wspierają maluchy&nbsp;<div>w codziennym rozwoju, wykorzystując ich naturalną ciekawość i chęć poznawania otaczającego świata.</div>",
-        "originalHtml": "Nasze opiekunki z troską i uważnością wspierają maluchy w codziennym rozwoju, wykorzystując ich naturalną ciekawość i chęć poznawania otaczającego świata."
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Ciepło, spokój i uważność ...",
-        "originalHtml": "Ciepło, spokój i uważność."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Żłobek to coś więcej niż opieka",
-        "originalHtml": "Żłobek to coś więcej niż opieka."
-      },
-      "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Najważniejsi są ludzie",
-        "originalHtml": "Najważniejsi są ludzie."
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "O nas"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "html": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">1</span><span>bezpieczeństwa i ochrony,</span>",
-        "originalHtml": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">01</span><span>bezpieczeństwa i ochrony,</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "html": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">2</span><span>szacunku i poszanowania godności,</span>",
-        "originalHtml": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">02</span><span>szacunku i poszanowania godności,</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "html": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">3</span><span>wyrażania emocji i własnego zdania,</span>",
-        "originalHtml": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">03</span><span>wyrażania emocji i własnego zdania,</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(4)": {
-        "html": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">4</span><span>nauki poprzez zabawę i doświadczenie,</span>",
-        "originalHtml": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">04</span><span>nauki poprzez zabawę i doświadczenie,</span>"
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > ul:nth-of-type(1) > li:nth-of-type(5)": {
-        "html": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">5</span><span>indywidualnego tempa rozwoju.</span>",
-        "originalHtml": "<span class=\"font-display w-10 shrink-0 text-2xl text-honey\" aria-hidden=\"true\">05</span><span>indywidualnego tempa rozwoju.</span>"
-      },
-      "section:nth-of-type(8) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Zapraszamy do obejrzenia galerii",
-        "originalHtml": "Zapraszamy do obejrzenia galerii."
-      }
-    }
-  },
-  "/galeria": {
-    "lg": {
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 88,
-        "paddingBottom": 0,
-        "marginBottom": -168
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -9,
-        "y": 105,
-        "z": 2
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 24,
-        "paddingBottom": 144,
-        "marginTop": -72
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -8,
-        "z": 0,
-        "paddingBottom": 72,
-        "width": 813
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -212,
-        "y": 1,
-        "z": 2,
-        "fontSize": 20,
-        "width": 704
-      }
-    },
-    "text": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Nasza przestrzeń."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Przestrzeń"
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Każdy szczegół ma znaczenie",
-        "originalHtml": "Każdy szczegół ma znaczenie."
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Tworzymy przestrzeń bezpieczną, funkcjonalną&nbsp;<span style=\"font-size: var(--text-lg); font-family: var(--font-sans);\">i przyjazną najmłodszym</span>",
-        "originalHtml": "Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym."
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Galeria"
-      }
-    }
-  },
-  "/kontakt": {
-    "lg": {
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 112,
-        "paddingBottom": 48
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -4,
-        "z": 0
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -32,
-        "z": 0
-      },
-      "section:nth-of-type(2)": {
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
         "x": 15,
-        "y": -6,
-        "z": 2,
-        "paddingBottom": 48
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -23,
-        "y": -18,
-        "z": 2,
-        "paddingTop": 48,
-        "paddingBottom": 48
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 64,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 64,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "x": 64,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": 64,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > p:nth-of-type(1)": {
-        "x": 64,
-        "y": 0,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > a:nth-of-type(1)": {
-        "x": 64,
-        "y": -49,
-        "z": 2,
-        "paddingTop": 48,
-        "paddingBottom": 24,
-        "fontSize": 16
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(1)": {
-        "x": 64,
-        "y": -80,
+        "y": -198,
         "z": 2
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > p:nth-of-type(2)": {
-        "x": 64,
-        "y": -84,
-        "z": 0
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
-        "x": 64,
-        "y": 0,
-        "z": 0,
-        "fontSize": 26
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -5,
-        "y": -22,
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
+        "x": 14,
+        "y": -198,
         "z": 2
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 0,
-        "y": -12,
-        "z": 0
-      }
-    },
-    "text": {
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Zapraszamy do kontaktu",
-        "originalHtml": "Zapraszamy do nas."
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": -4,
+        "y": -173,
+        "z": 2
       },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "<br>",
-        "originalHtml": "Kontakt"
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)": {
+        "x": -33,
+        "y": -185,
+        "z": 2
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin",
-        "originalHtml": "Zostaw kontakt — oddzwonimy i ustalimy dogodny termin."
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": -33,
+        "y": -182,
+        "z": 2,
+        "width": 820
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "Otrzymaliśmy Twoje zapytanie. Skontaktujemy się z Tobą w ciągu 24h.",
-        "originalHtml": "Otrzymaliśmy Twoje zapytanie o wizytę. Wkrótce skontaktujemy się z Tobą, aby ustalić dogodny termin."
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)": {
+        "x": 24,
+        "y": -206,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 6,
+        "y": 34,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 25,
+        "y": 32,
+        "z": 2
       }
     }
   }

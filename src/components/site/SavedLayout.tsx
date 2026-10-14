@@ -20,10 +20,19 @@ export function SavedLayout() {
     run();
     const later = window.setTimeout(run, 80);
     const main = document.querySelector("main");
-    const observer = new MutationObserver(() => {
-      if (!isApplying()) run();
-    });
-    if (main) observer.observe(main, { childList: true, subtree: true });
+    let frame = 0;
+    let observer: MutationObserver | null = null;
+    if (main) {
+      const schedule = () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(() => {
+          frame = 0;
+          if (!isApplying()) run();
+        });
+      };
+      observer = new MutationObserver(() => schedule());
+      observer.observe(main, { childList: true, subtree: true, attributes: false });
+    }
     const queries = [
       window.matchMedia("(max-width: 767px)"),
       window.matchMedia("(min-width: 1024px)"),
@@ -31,7 +40,7 @@ export function SavedLayout() {
     for (const query of queries) query.addEventListener("change", run);
     return () => {
       window.clearTimeout(later);
-      observer.disconnect();
+      observer?.disconnect();
       for (const query of queries) query.removeEventListener("change", run);
     };
   }, [pathname]);

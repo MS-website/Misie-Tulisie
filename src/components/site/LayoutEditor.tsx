@@ -20,10 +20,12 @@ import {
   visualBreaks,
   wordRanges,
 } from "@/lib/uklad-dom";
+import savedFile from "@/uklad.json";
 import {
   cardFillFor,
   discoverFillFor,
   mergeBox,
+  mergeStores,
   normalizeLayout,
   sizeForWidth,
   stableLayout,
@@ -43,11 +45,12 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
+const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v4";
 const BLOCK =
   "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md";
 const OUTLINE_STYLE = `
   [data-layout-hover="1"] { outline: 1px dashed #b08954; outline-offset: 4px; }
-  [data-layout-selected="1"] { outline: 2px solid #b08954; outline-offset: 4px; }
+  [data-layout-selected="1"] { outline: 2px solid #b08954; outline-offset: 4px; position: relative; z-index: 40 !important; }
   [contenteditable="true"] { outline: 2px solid #8c6a3d; outline-offset: 4px; cursor: text; }
   body[data-layout-editing="1"] main a,
   body[data-layout-editing="1"] main button {
@@ -59,6 +62,8 @@ const OUTLINE_STYLE = `
 
 let stepRecorded = false;
 
+const publishedLayout = normalizeLayout(savedFile);
+
 function loadStore(): Store {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -66,6 +71,10 @@ function loadStore(): Store {
   } catch {
     return {};
   }
+}
+
+function layoutStore(): Store {
+  return mergeStores(publishedLayout, loadStore());
 }
 
 function saveStore(store: Store) {
@@ -133,7 +142,21 @@ function stripLegacyHidden(store: Store) {
   }
 }
 
+function resetParentsPageLayoutOnce() {
+  if (localStorage.getItem(PARENTS_LAYOUT_RESET_KEY)) return false;
+  localStorage.setItem(PARENTS_LAYOUT_RESET_KEY, "1");
+  const store = loadStore();
+  delete store["/dla-rodzicow"];
+  saveStore(store);
+  if (window.location.pathname === "/dla-rodzicow") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
 function migrateAboutSections() {
+  if (resetParentsPageLayoutOnce()) return;
   const store = loadStore();
   const before = stableLayout(store);
   moveAboutSections(store);
@@ -180,6 +203,28 @@ function finishStep() {
   stepRecorded = false;
 }
 
+function sectionForSpacing(el: HTMLElement, main: Element) {
+  if (el.tagName === "SECTION") return el;
+  const section = el.closest("section");
+  if (section && main.contains(section) && isHtmlElement(section)) return section;
+  return el;
+}
+
+function readVerticalSpacing(el: HTMLElement, edge: "top" | "bottom") {
+  const paddingProp = edge === "bottom" ? "paddingBottom" : "paddingTop";
+  const marginProp = edge === "bottom" ? "marginBottom" : "marginTop";
+  const style = getComputedStyle(el);
+  return {
+    paddingProp,
+    marginProp,
+    padding:
+      parseFloat(edge === "bottom" ? style.paddingBottom : style.paddingTop) ||
+      0,
+    margin:
+      parseFloat(edge === "bottom" ? style.marginBottom : style.marginTop) || 0,
+  };
+}
+
 function selectorFor(el: Element, root: Element) {
   if (!root.contains(el) || el === root) return null;
   const parts: string[] = [];
@@ -203,6 +248,19 @@ function eventTargetElement(target: EventTarget | null) {
   if ((target as Node).nodeType === 1) return target as Element;
   if ((target as Node).nodeType === 3) return (target as Node).parentElement;
   return null;
+}
+
+function blocksUnderPoint(doc: Document, main: Element, x: number, y: number) {
+  const blocks: HTMLElement[] = [];
+  const seen = new Set<HTMLElement>();
+  for (const node of doc.elementsFromPoint(x, y)) {
+    if (node.closest("[data-layout-editor], [data-layout-resize]")) continue;
+    const block = findBlock(node, doc);
+    if (!block || !main.contains(block) || seen.has(block)) continue;
+    seen.add(block);
+    blocks.push(block);
+  }
+  return blocks;
 }
 
 function findBlock(start: Element | null, doc: Document) {
@@ -444,12 +502,13 @@ function writeText(
 }
 
 function boxFor(pathname: string, size: SizeId, selector: string) {
-  return loadStore()[pathname]?.[size]?.[selector] ?? { x: 0, y: 0, z: 0 };
+  return layoutStore()[pathname]?.[size]?.[selector] ?? { x: 0, y: 0, z: 0 };
 }
 
 function paint(doc: Document, pathname: string, size: SizeId) {
-  const store = loadStore();
-  if (applyLayout(doc, pathname, size, store)) saveStore(store);
+  const store = layoutStore();
+  const local = loadStore();
+  if (applyLayout(doc, pathname, size, store)) saveStore(local);
   applyTheme(doc, pathname, store);
 }
 
@@ -685,7 +744,7 @@ export function LayoutEditor() {
         el.removeAttribute("data-layout-selected");
         el.removeAttribute("data-layout-hover");
       });
-  }, [editPath, activeSize, previewSize]);
+  }, [editPath, previewSize]);
 
   useEffect(() => {
     if (previewSize === "okno") return;
@@ -701,6 +760,7 @@ export function LayoutEditor() {
 
   useEffect(() => {
     let observer: MutationObserver | null = null;
+    let paintFrame = 0;
     let timer = 0;
     let attempts = 0;
     const run = () => {
@@ -711,12 +771,21 @@ export function LayoutEditor() {
       const main = doc.querySelector("main");
       if (!main) return false;
       paint(doc, editPathRef.current, activeSizeRef.current);
-      if (!observer) {
-        observer = new MutationObserver(() => {
+      const schedulePaint = () => {
+        if (paintFrame) return;
+        paintFrame = window.requestAnimationFrame(() => {
+          paintFrame = 0;
           if (!isApplying())
             paint(doc, editPathRef.current, activeSizeRef.current);
         });
-        observer.observe(main, { childList: true, subtree: true });
+      };
+      if (!observer) {
+        observer = new MutationObserver(() => schedulePaint());
+        observer.observe(main, {
+          childList: true,
+          subtree: true,
+          attributes: false,
+        });
       }
       return true;
     };
@@ -770,6 +839,7 @@ export function LayoutEditor() {
       startHeight: number;
       originX: number;
       originY: number;
+      photo: boolean;
     } | null = null;
     let suppressClick = false;
 
@@ -851,10 +921,25 @@ export function LayoutEditor() {
           startHeight: Math.round(rect.height),
           originX: box.x,
           originY: box.y,
+          photo: isPhotoFrame(target),
         };
         return;
       }
-      const el = findBlock(pointed, doc);
+      const stacked = blocksUnderPoint(doc, main, event.clientX, event.clientY);
+      const photosAtPoint = stacked.filter(isPhotoFrame);
+      let el = stacked[0] ?? findBlock(pointed, doc);
+      if (photosAtPoint.length > 1) {
+        const currentEl = selectedSelectorRef.current
+          ? main.querySelector(selectedSelectorRef.current)
+          : null;
+        const currentIndex =
+          isHtmlElement(currentEl) && photosAtPoint.includes(currentEl)
+            ? photosAtPoint.indexOf(currentEl)
+            : -1;
+        el = photosAtPoint[(currentIndex + 1) % photosAtPoint.length] ?? el;
+      } else if (photosAtPoint.length === 1) {
+        el = photosAtPoint[0] ?? el;
+      }
       if (!el || el.isContentEditable) return;
       const selector = select(el);
       if (!selector) return;
@@ -904,7 +989,33 @@ export function LayoutEditor() {
         hovered = next;
       }
       if (stretch) {
-        if (stretch.edge === "e" || stretch.edge === "w") {
+        const ratio =
+          stretch.startHeight / Math.max(stretch.startWidth, 1);
+        if (stretch.photo) {
+          const horizontal = stretch.edge === "e" || stretch.edge === "w";
+          const delta = horizontal
+            ? event.clientX - stretch.startX
+            : event.clientY - stretch.startY;
+          const grow =
+            stretch.edge === "e" || stretch.edge === "s" ? delta : -delta;
+          const width = clamp(
+            Math.round(stretch.startWidth + (horizontal ? grow : grow / ratio)),
+            80,
+            1600,
+          );
+          const height = clamp(Math.round(width * ratio), 40, 1600);
+          writeBox(editPathRef.current, activeSizeRef.current, stretch.selector, {
+            width,
+            height,
+            breaks: null,
+            ...(stretch.edge === "w"
+              ? { x: Math.round(stretch.originX + (stretch.startWidth - width)) }
+              : {}),
+            ...(stretch.edge === "n"
+              ? { y: Math.round(stretch.originY + (stretch.startHeight - height)) }
+              : {}),
+          });
+        } else if (stretch.edge === "e" || stretch.edge === "w") {
           const dx = event.clientX - stretch.startX;
           const raw =
             stretch.edge === "e"
@@ -1068,32 +1179,101 @@ export function LayoutEditor() {
     applyCurrent();
   };
 
+  const spacingCssProp = (prop: "paddingTop" | "paddingBottom" | "marginTop" | "marginBottom") => {
+    const map = {
+      paddingTop: "padding-top",
+      paddingBottom: "padding-bottom",
+      marginTop: "margin-top",
+      marginBottom: "margin-bottom",
+    } as const;
+    return map[prop];
+  };
+
+  const applySectionSpacingStyle = (
+    target: HTMLElement,
+    paddingProp: "paddingTop" | "paddingBottom",
+    marginProp: "marginTop" | "marginBottom",
+    padding: number,
+    margin: number,
+  ) => {
+    target.style.setProperty(
+      spacingCssProp(paddingProp),
+      `${padding}px`,
+      "important",
+    );
+    target.style.setProperty(
+      spacingCssProp(marginProp),
+      `${margin}px`,
+      "important",
+    );
+  };
+
   const adjustSpace = (edge: "top" | "bottom", delta: number) => {
-    const selector = selectedSelectorRef.current;
-    if (!selector) return;
     const main = currentDoc()?.querySelector("main");
-    const el = main?.querySelector(selector);
+    if (!main) return;
+    let selector = selectedSelectorRef.current;
+    if (!selector) {
+      const marked = main.querySelector("[data-layout-selected='1']");
+      if (isHtmlElement(marked)) selector = selectorFor(marked, main);
+    }
+    if (!selector) return;
+    const el = main.querySelector(selector);
     if (!isHtmlElement(el)) return;
+    const target = sectionForSpacing(el, main);
+    const targetSelector = selectorFor(target, main);
+    if (!targetSelector) return;
     const paddingProp = edge === "bottom" ? "paddingBottom" : "paddingTop";
     const marginProp = edge === "bottom" ? "marginBottom" : "marginTop";
-    const style = getComputedStyle(el);
-    const padding =
-      parseFloat(edge === "bottom" ? style.paddingBottom : style.paddingTop) ||
-      0;
-    if (delta < 0 && padding <= 0) {
-      const margin =
-        parseFloat(edge === "bottom" ? style.marginBottom : style.marginTop) ||
-        0;
-      writeBox(editPath, activeSize, selector, {
-        [marginProp]: Math.round(margin + delta),
-      });
-    } else {
-      writeBox(editPath, activeSize, selector, {
-        [paddingProp]: Math.max(0, Math.round(padding + delta)),
-      });
+    const { padding: startPadding, margin: startMargin } = readVerticalSpacing(
+      target,
+      edge,
+    );
+    let padding = startPadding;
+    let margin = startMargin;
+    let remaining = delta;
+
+    if (remaining > 0 && margin < 0) {
+      const absorbed = Math.min(remaining, -margin);
+      margin += absorbed;
+      remaining -= absorbed;
+    }
+    if (remaining > 0) {
+      padding += remaining;
+    } else if (remaining < 0) {
+      const fromPadding = Math.min(padding, -remaining);
+      padding -= fromPadding;
+      remaining += fromPadding;
+      if (remaining < 0) margin += remaining;
+    }
+
+    padding = Math.round(padding);
+    margin = Math.round(margin);
+
+    const spacingPatch = {
+      [paddingProp]: padding,
+      [marginProp]: margin,
+    } as BoxPatch;
+    rememberHistory();
+    const path = editPathRef.current;
+    const store = loadStore();
+    const page: PageLayout = store[path] ?? {};
+    for (const size of SIZE_ORDER) {
+      const sizeMap = page[size] ?? {};
+      const current = sizeMap[targetSelector] ?? { x: 0, y: 0, z: 0 };
+      sizeMap[targetSelector] = mergeBox(current, spacingPatch);
+      page[size] = sizeMap;
+    }
+    store[path] = page;
+    saveStore(store);
+    applySectionSpacingStyle(target, paddingProp, marginProp, padding, margin);
+    if (targetSelector !== selector) {
+      selectedSelectorRef.current = targetSelector;
+      setSelectedSelector(targetSelector);
+      setSelectedLabel(labelFor(target));
     }
     finishStep();
     applyCurrent();
+    refreshText(targetSelector);
   };
 
   const fold = (next: boolean) => {
@@ -1312,6 +1492,10 @@ export function LayoutEditor() {
   };
 
   const save = async () => {
+    if (!import.meta.env.DEV) {
+      setSaveState("error");
+      return;
+    }
     setSaveState("saving");
     try {
       const layout = loadStore();
@@ -1324,6 +1508,7 @@ export function LayoutEditor() {
       savedSnapshot.current = stableLayout(layout);
       setDirty(false);
       setSaveState("saved");
+      applyCurrent();
     } catch {
       setSaveState("error");
     }
@@ -1563,8 +1748,9 @@ export function LayoutEditor() {
         </button>
         {saveState === "error" && (
           <p className="mt-2 text-xs text-muted-foreground">
-            Zapis nie doszedł. Zostaw włączoną stronę developerską i spróbuj
-            jeszcze raz.
+            {import.meta.env.DEV
+              ? "Zapis nie doszedł. Uruchom npm run dev (nie preview) i spróbuj ponownie."
+              : "Zapis działa tylko w trybie developerskim (npm run dev)."}
           </p>
         )}
         <button
@@ -1613,30 +1799,24 @@ export function LayoutEditor() {
                 W prawo
               </ToolButton>
             </div>
+            {!selectedSelector && (
+              <p className="text-xs leading-snug text-muted-foreground">
+                Kliknij blok w sekcji (tekst, nagłówek), potem zmieniaj odstęp
+                sekcji.
+              </p>
+            )}
             <div className="grid grid-cols-2 gap-2">
-              <ToolButton
-                disabled={!selectedSelector}
-                onClick={() => adjustSpace("bottom", -24)}
-              >
-                Mniej pod
+              <ToolButton onClick={() => adjustSpace("bottom", -24)}>
+                Mniej pod sekcją
               </ToolButton>
-              <ToolButton
-                disabled={!selectedSelector}
-                onClick={() => adjustSpace("bottom", 24)}
-              >
-                Więcej pod
+              <ToolButton onClick={() => adjustSpace("bottom", 24)}>
+                Więcej pod sekcją
               </ToolButton>
-              <ToolButton
-                disabled={!selectedSelector}
-                onClick={() => adjustSpace("top", -24)}
-              >
-                Mniej nad
+              <ToolButton onClick={() => adjustSpace("top", -24)}>
+                Mniej nad sekcją
               </ToolButton>
-              <ToolButton
-                disabled={!selectedSelector}
-                onClick={() => adjustSpace("top", 24)}
-              >
-                Więcej nad
+              <ToolButton onClick={() => adjustSpace("top", 24)}>
+                Więcej nad sekcją
               </ToolButton>
             </div>
             <ToolButton disabled={!selectedSelector} onClick={lift}>

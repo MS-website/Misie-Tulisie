@@ -452,3 +452,30 @@ export function mergeBox(current: Box, patch: Partial<Box>): Box {
     next.breaks = current.breaks;
   return next;
 }
+
+export function mergeStores(base: Store, override: Store): Store {
+  const out: Store = structuredClone(base);
+  for (const [path, pageOver] of Object.entries(override)) {
+    const page: PageLayout = out[path] ?? {};
+    for (const size of SIZE_ORDER) {
+      const patchMap = pageOver[size];
+      if (!patchMap) continue;
+      const sizeMap = page[size] ?? {};
+      for (const [selector, patch] of Object.entries(patchMap)) {
+        sizeMap[selector] = mergeBox(
+          sizeMap[selector] ?? { x: 0, y: 0, z: 0 },
+          patch,
+        );
+      }
+      page[size] = sizeMap;
+    }
+    if (pageOver.text) {
+      page.text = { ...(page.text ?? {}), ...pageOver.text };
+    }
+    if (pageOver.theme) {
+      page.theme = { ...(page.theme ?? {}), ...pageOver.theme };
+    }
+    out[path] = page;
+  }
+  return out;
+}
