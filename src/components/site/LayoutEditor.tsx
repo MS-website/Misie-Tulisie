@@ -45,6 +45,11 @@ const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
+const HERO_HONEY_UNDO_KEY = "misie-uklad-hero-honey-undo-v1";
+const HERO_H1 =
+  "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)";
+const HERO_HTML =
+  'Miejsce,<br>w którym małe<br>kroki mają<br><em class="text-honey">wielkie znaczenie</em>';
 const KROKI_PARAGRAPH =
   "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)";
 const BLOCK =
@@ -236,15 +241,45 @@ function resetKrokiLinesOnce() {
   return false;
 }
 
+function undoHeroHoney(page: PageLayout | undefined) {
+  const text = page?.text?.[HERO_H1];
+  if (!text?.html.includes(">wielkie</em> znaczenie")) return false;
+  text.html = HERO_HTML;
+  text.originalHtml = HERO_HTML;
+  return true;
+}
+
+function undoHeroHoneyOnce() {
+  if (localStorage.getItem(HERO_HONEY_UNDO_KEY)) return false;
+  localStorage.setItem(HERO_HONEY_UNDO_KEY, "1");
+  const store = loadStore();
+  const changed = undoHeroHoney(store["/"]);
+  if (changed) saveStore(store);
+  const history = loadHistory();
+  let historyChanged = false;
+  for (const entry of history) {
+    if (undoHeroHoney(entry["/"])) historyChanged = true;
+  }
+  if (historyChanged)
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  if (changed && window.location.pathname === "/") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
 if (typeof window !== "undefined") {
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
+  undoHeroHoneyOnce();
 }
 
 function migrateAboutSections() {
   if (resetParentsPageLayoutOnce()) return;
   if (resetHomeLayoutOnce()) return;
   if (resetKrokiLinesOnce()) return;
+  if (undoHeroHoneyOnce()) return;
   resetHomeCardFillOnce();
   const store = loadStore();
   const before = stableLayout(store);
@@ -941,6 +976,7 @@ export function LayoutEditor() {
         };
         return;
       }
+      if (pointed.closest("[data-layout-editor]")) return;
       const stacked = blocksUnderPoint(doc, main, event.clientX, event.clientY);
       const photosAtPoint = stacked.filter(isPhotoFrame);
       let el = stacked[0] ?? findBlock(pointed, doc);
@@ -1606,7 +1642,7 @@ export function LayoutEditor() {
         {preview}
         <div
           data-layout-editor
-          className="fixed bottom-4 left-4 z-[80] flex items-center gap-2"
+          className="fixed bottom-4 left-4 z-[80] flex items-center gap-2 rounded-full border border-border bg-card p-1.5 shadow-lg"
         >
           <button
             type="button"
@@ -1650,7 +1686,7 @@ export function LayoutEditor() {
       <div
         ref={panelRef}
         data-layout-editor
-        className="fixed bottom-4 left-4 z-[80] overflow-y-auto rounded-md border border-border bg-background/95 p-4 text-sm shadow-lg backdrop-blur"
+        className="fixed bottom-4 left-4 z-[80] overflow-y-auto rounded-md border border-border bg-card p-4 text-sm shadow-lg"
         style={{
           width: panelBox.w,
           height: panelBox.h ?? undefined,

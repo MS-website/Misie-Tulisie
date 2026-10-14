@@ -423,11 +423,11 @@
     },
     "lg": {
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 75,
-        "y": 26,
+        "x": 45,
+        "y": -33,
         "z": 2,
-        "width": 489,
-        "height": 611
+        "width": 541,
+        "height": 675
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": -6,
@@ -467,8 +467,8 @@
         "marginBottom": 0
       },
       "section:nth-of-type(2)": {
-        "x": 11,
-        "y": -113,
+        "x": 8,
+        "y": -104,
         "z": 2,
         "paddingTop": 0,
         "paddingBottom": 96,
@@ -503,17 +503,17 @@
         "z": 2
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -30,
-        "y": -27,
+        "x": -40,
+        "y": -28,
         "z": 2,
         "paddingBottom": 0,
         "marginBottom": -72,
-        "width": 524,
-        "height": 655
+        "width": 543,
+        "height": 679
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -18,
-        "y": -36,
+        "x": -22,
+        "y": -28,
         "z": 2,
         "width": 722
       },
@@ -525,14 +525,14 @@
         "height": 332
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -16,
-        "y": -39,
+        "x": -20,
+        "y": -40,
         "z": 2,
         "width": 645
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": -16,
-        "y": -34,
+        "x": -19,
+        "y": -36,
         "z": 2,
         "width": 663
       },
@@ -617,19 +617,21 @@
         "marginBottom": 0
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 12,
-        "y": -22,
-        "z": 2
+        "x": -8,
+        "y": -9,
+        "z": 2,
+        "fontSize": 60
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 10,
-        "y": -21,
+        "x": -6,
+        "y": -9,
         "z": 2,
-        "width": 621
+        "fontSize": 20,
+        "width": 650
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": -46,
-        "y": 7,
+        "x": -73,
+        "y": 2,
         "z": 2,
         "width": 687,
         "height": 330
@@ -637,34 +639,64 @@
       "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > h2:nth-of-type(1)": {
         "x": 3,
         "y": -5,
-        "z": 2
+        "z": 2,
+        "fontSize": 38
       },
       "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 0,
         "y": 0,
-        "z": 2
+        "z": 2,
+        "fontSize": 38
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
         "x": -20,
         "y": 47,
         "z": 2,
-        "width": 543,
-        "height": 407
+        "width": 523,
+        "height": 392
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "x": -123,
-        "y": 44,
-        "z": 2
+        "x": -178,
+        "y": 49,
+        "z": 2,
+        "fontSize": 22,
+        "width": 562
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 3,
-        "y": 20,
+        "x": -5,
+        "y": -9,
         "z": 2,
-        "width": 599
+        "fontSize": 95,
+        "width": 652
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
-        "x": -126,
-        "y": 45,
+        "x": -183,
+        "y": 61,
+        "z": 2,
+        "fontSize": 60
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 0,
+        "y": 1,
+        "z": 2,
+        "fontSize": 20,
+        "width": 586
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
+        "x": -2,
+        "y": 5,
+        "z": 2
+      },
+      "section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 6,
+        "y": -13,
+        "z": 2,
+        "fontSize": 52,
+        "width": 839
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 3,
+        "y": -15,
         "z": 2
       }
     },
@@ -740,6 +772,18 @@
       "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(2)": {
         "html": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji&nbsp;<div>z innymi.</div>",
         "originalHtml": "Wspieramy dzieci również w codziennych wyzwaniach – pierwszych rozstaniach z rodzicem, nauce samodzielności, komunikowaniu swoich potrzeb czy budowaniu relacji z innymi."
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "html": "Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we własnym tempie, a rodzice zyskują spokój i pewność, że ich dziecko jest pod dobrą opieką.",
+        "originalHtml": "Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we własnym tempie, a rodzice zyskują spokój i pewność, że ich dziecko jest pod dobrą opieką."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
+        "html": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy, aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni.",
+        "originalHtml": "Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się<!-- --> <span class=\"font-medium text-foreground\">bezpieczne, ważne i otoczone troską</span>. Chcemy, aby pobyt w żłobku był dla maluchów czasem pełnym radości, odkrywania świata i pierwszych dziecięcych przyjaźni."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
+        "html": "Nasza misja",
+        "originalHtml": "Nasza misja"
       }
     },
     "theme": {
