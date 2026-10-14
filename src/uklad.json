@@ -340,7 +340,7 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 96,
+        "paddingTop": 120,
         "paddingBottom": 24,
         "marginTop": 0,
         "marginBottom": 0
@@ -390,7 +390,7 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 96,
+        "paddingTop": 120,
         "paddingBottom": 24,
         "marginTop": 0,
         "marginBottom": 0
@@ -526,35 +526,37 @@
         "height": 679
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -22,
-        "y": -28,
+        "x": -13,
+        "y": -46,
         "z": 2,
         "width": 722
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": -38,
-        "y": -29,
+        "x": -14,
+        "y": -43,
         "z": 2,
-        "width": 529,
-        "height": 332
+        "width": 548,
+        "height": 344
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -20,
-        "y": -40,
+        "x": -8,
+        "y": -55,
         "z": 2,
-        "width": 645
+        "fontSize": 20,
+        "width": 717
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": -19,
-        "y": -36,
+        "x": -8,
+        "y": -55,
         "z": 2,
-        "width": 663
+        "fontSize": 20,
+        "width": 685
       },
       "section:nth-of-type(4)": {
-        "x": 4,
-        "y": 0,
+        "x": -4,
+        "y": -1,
         "z": 2,
-        "paddingTop": 96,
+        "paddingTop": 120,
         "paddingBottom": 24,
         "marginTop": 0,
         "marginBottom": 0
@@ -663,11 +665,11 @@
         "fontSize": 38
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": -21,
-        "y": 11,
+        "x": -17,
+        "y": 16,
         "z": 2,
-        "width": 531,
-        "height": 398
+        "width": 539,
+        "height": 404
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "x": -173,
@@ -690,8 +692,8 @@
         "fontSize": 60
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": 1,
+        "x": 1,
+        "y": -10,
         "z": 2,
         "fontSize": 20,
         "width": 586
@@ -702,8 +704,8 @@
         "z": 2
       },
       "section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 6,
-        "y": -13,
+        "x": 10,
+        "y": -10,
         "z": 2,
         "fontSize": 52,
         "width": 839
@@ -712,6 +714,13 @@
         "x": 3,
         "y": -15,
         "z": 2
+      },
+      "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "fontSize": 18,
+        "width": 526
       }
     },
     "text": {
@@ -798,6 +807,14 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > h2:nth-of-type(1)": {
         "html": "Nasza misja",
         "originalHtml": "Nasza misja"
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "html": "Dbamy o każdy szczegół przestrzeni, w której dzieci spędzają swój dzień. Wykorzystane przez nas wyposażenie, zabawki i materiały posiadają wymagane atesty oraz certyfikaty, a sam żłobek został przygotowany&nbsp;<div>z uwzględnieniem obowiązujących wymogów bezpieczeństwa.</div>",
+        "originalHtml": "Dbamy o każdy szczegół przestrzeni, w której dzieci spędzają swój dzień. Wykorzystane przez nas wyposażenie, zabawki i materiały posiadają wymagane atesty oraz certyfikaty, a sam żłobek został przygotowany z uwzględnieniem obowiązujących wymogów bezpieczeństwa."
+      },
+      "section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Wierzymy, że żłobek to coś więcej<br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje<br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój<br class=\"hidden md:block\">i poczucie zaufania.",
+        "originalHtml": "Wierzymy, że żłobek to coś więcej<br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje<br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój<br class=\"hidden md:block\">i poczucie zaufania."
       }
     },
     "theme": {
