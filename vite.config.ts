@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig, type Plugin } from "vite";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -99,6 +100,7 @@ export default defineConfig({
     tanstackStart({
       server: { entry: "server" },
     }),
+    netlify(),
     viteReact(),
   ],
 });
