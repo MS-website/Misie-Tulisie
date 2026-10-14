@@ -3,6 +3,10 @@ import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
 import planDniaMisie from "@/assets/plan-dnia-misie-tulisie.png";
 import rytmDniaMisiePrzytulenie from "@/assets/rytm-dnia-misie-przytulenie.png";
+import wyprawkaKubeczek from "@/assets/wyprawka-kubeczek.jpg";
+import wyprawkaLezakowanie from "@/assets/wyprawka-lezakowanie.jpg";
+import wyprawkaMyjeZabki from "@/assets/wyprawka-myje-zabki.png";
+import wyprawkaPosilekMaluch from "@/assets/wyprawka-posilek-maluch.png";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
 import { Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
@@ -118,7 +122,7 @@ function WyprawkaPdfDownload({ className }: { className?: string }) {
 
 function WyprawkaList() {
   return (
-    <ul className="mt-10 divide-y divide-border/70 border-y border-border/70">
+    <ul className="mt-10 w-[calc(100%+1cm)] divide-y divide-border/70 border-y border-border/70">
       {WYPRAWKA_ITEMS.map((item) => (
         <li key={item} className="flex gap-4 py-5 md:gap-5">
           <span
@@ -131,6 +135,53 @@ function WyprawkaList() {
         </li>
       ))}
     </ul>
+  );
+}
+
+function WyprawkaPhotos({ className }: { className?: string }) {
+  const photos = [
+    {
+      src: wyprawkaLezakowanie,
+      alt: "Leżakowanie w żłobku",
+      className: "max-h-28 sm:max-h-32",
+    },
+    {
+      src: wyprawkaPosilekMaluch,
+      alt: "Maluch przy posiłku w śliniaku",
+      className: "max-h-32 sm:max-h-36",
+    },
+    {
+      src: wyprawkaKubeczek,
+      alt: "Dziecko pijące z kubeczka",
+      className: "max-h-36 sm:max-h-40",
+    },
+    {
+      src: wyprawkaMyjeZabki,
+      alt: "Mycie ząbków",
+      className: "max-h-32 sm:max-h-36",
+    },
+  ] as const;
+
+  return (
+    <div
+      className={cn(
+        "mx-auto flex w-full max-w-[15rem] flex-col gap-3 sm:max-w-[16.5rem] lg:mx-0",
+        className,
+      )}
+    >
+      {photos.map((photo) => (
+        <Photo
+          key={photo.alt}
+          src={photo.src}
+          alt={photo.alt}
+          fit="contain"
+          className={cn(
+            "w-full [&_img]:mx-auto [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:max-h-[inherit] [&_img]:object-contain [&_img]:object-center",
+            photo.className,
+          )}
+        />
+      ))}
+    </div>
   );
 }
 
@@ -290,20 +341,31 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
       >
         <div className="container-site min-w-0">
-          <Reveal className="max-w-none">
+          <Reveal>
             <Eyebrow>Wyprawka</Eyebrow>
             <h2 className="font-display max-w-3xl text-4xl md:text-5xl">
               Lista rzeczy do żłobka
             </h2>
-            <WyprawkaList />
-            <p className="mt-8 max-w-3xl text-base leading-relaxed md:text-lg">
-              <strong className="font-semibold text-foreground">
-                Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
-                naklejanych etykietkach bądź markerem.
-              </strong>
-            </p>
-            <WyprawkaPdfDownload className="mt-8" />
           </Reveal>
+          <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-12 lg:items-start lg:gap-12">
+            <div className="min-w-0 overflow-visible lg:col-span-6 xl:col-span-5">
+              <Reveal>
+                <WyprawkaList />
+                <p className="mt-8 max-w-3xl text-base leading-relaxed md:text-lg">
+                  <strong className="font-semibold text-foreground">
+                    Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
+                    naklejanych etykietkach bądź markerem.
+                  </strong>
+                </p>
+                <WyprawkaPdfDownload className="mt-8" />
+              </Reveal>
+            </div>
+            <div className="min-w-0 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
+              <Reveal delay={80}>
+                <WyprawkaPhotos />
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
     </>

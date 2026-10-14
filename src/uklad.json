@@ -1,200 +1,53 @@
 {
   "/dla-rodzicow": {
-    "sm": {
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 0,
-        "paddingBottom": 0,
-        "marginTop": -128,
-        "marginBottom": -80
-      },
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 40,
-        "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 0,
-        "paddingBottom": 64,
-        "marginTop": -8,
-        "marginBottom": 0
-      }
-    },
-    "md": {
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 0,
-        "paddingBottom": 0,
-        "marginTop": -128,
-        "marginBottom": -80
-      },
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 40,
-        "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 0,
-        "paddingBottom": 64,
-        "marginTop": -8,
-        "marginBottom": 0
-      }
-    },
     "lg": {
-      "section:nth-of-type(2)": {
-        "x": -4,
-        "y": 32,
-        "z": 2,
-        "paddingTop": 0,
-        "paddingBottom": 0,
-        "marginTop": -128,
-        "marginBottom": -80
-      },
-      "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 22,
-        "y": -55,
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
+        "x": 200,
+        "y": 2,
         "z": 2
       },
-      "section:nth-of-type(1)": {
-        "x": -27,
-        "y": -27,
-        "z": 2
-      },
-      "section:nth-of-type(3)": {
-        "x": -2,
-        "y": -11,
-        "z": 3,
-        "paddingTop": 0,
-        "paddingBottom": 64,
-        "marginTop": -8,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "x": 892,
-        "y": -57,
-        "z": 2
-      },
-      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(4)": {
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 0,
-        "y": 8,
-        "z": 0
+        "y": 62,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 2,
+        "y": 28,
+        "z": 2
       },
       "section:nth-of-type(4)": {
-        "x": -2,
-        "y": -1,
+        "x": 2,
+        "y": -24,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
+        "x": 275,
+        "y": -333,
         "z": 2,
-        "paddingTop": 40,
-        "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
+        "width": 373,
+        "height": 204
       },
-      "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 24,
-        "y": -62,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 42,
-        "y": -213,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)": {
-        "x": 604,
-        "y": -252,
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
+        "x": -26,
+        "y": 760,
         "z": 2,
-        "width": 616
+        "width": 648,
+        "height": 236
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(2)": {
-        "x": 599,
-        "y": -247,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 4,
-        "y": -30,
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3)": {
+        "x": 10,
+        "y": -303,
         "z": 2,
-        "width": 529,
-        "height": 265
+        "width": 378,
+        "height": 229
       },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)": {
-        "x": -13,
-        "y": -208,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
-        "x": 29,
-        "y": -179,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -10,
-        "y": -198,
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4)": {
+        "x": 104,
+        "y": -266,
         "z": 2,
-        "width": 570
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 16,
-        "y": -199,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 15,
-        "y": -198,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "x": 14,
-        "y": -198,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": -4,
-        "y": -173,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)": {
-        "x": -33,
-        "y": -185,
-        "z": 2
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": -33,
-        "y": -182,
-        "z": 2,
-        "width": 820
-      },
-      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)": {
-        "x": 24,
-        "y": -206,
-        "z": 2
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 6,
-        "y": 34,
-        "z": 2
-      },
-      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "x": 25,
-        "y": 32,
-        "z": 2
+        "width": 541,
+        "height": 250
       }
     }
   }

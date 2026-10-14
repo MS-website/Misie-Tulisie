@@ -45,7 +45,7 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
-const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v4";
+const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
 const BLOCK =
   "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md";
 const OUTLINE_STYLE = `
