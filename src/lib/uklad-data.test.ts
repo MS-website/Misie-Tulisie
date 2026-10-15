@@ -66,4 +66,19 @@ describe("normalizeLayout", () => {
     expect(store["/o-nas"]?.sm).toBeUndefined();
   });
 
+  it("drops a saved copy of a block that contains buttons", () => {
+    const store = normalizeLayout({
+      "/dla-rodzicow": {
+        text: {
+          "div:nth-of-type(1)": {
+            html: "<button type=\"button\">Pytanie</button>",
+            originalHtml: "<button type=\"button\">Pytanie</button>",
+          },
+        },
+      },
+    });
+
+    expect(store["/dla-rodzicow"]?.text).toBeUndefined();
+  });
+
 });

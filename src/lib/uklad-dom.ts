@@ -316,6 +316,7 @@ export function applyLayout(
     for (const [selector, text] of Object.entries(texts)) {
       const el = main.querySelector(selector);
       if (!isHtmlElement(el) || el.isContentEditable) continue;
+      if (el.querySelector("button, input, textarea, select")) continue;
       if (el.innerHTML !== text.html) {
         el.innerHTML = text.html;
         if (el.innerHTML !== text.html) {

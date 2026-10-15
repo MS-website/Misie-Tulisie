@@ -267,6 +267,8 @@ function readText(value: unknown): TextChange | null {
   const originalHtml = value["originalHtml"];
   if (typeof html !== "string" || typeof originalHtml !== "string") return null;
   if (html.length > MAX_HTML || originalHtml.length > MAX_HTML) return null;
+  if (/<\s*button\b/i.test(html) || /<\s*button\b/i.test(originalHtml))
+    return null;
   return { html, originalHtml };
 }
 

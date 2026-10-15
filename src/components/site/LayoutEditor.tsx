@@ -1009,7 +1009,6 @@ export function LayoutEditor() {
       };
       if (
         el.tagName === "A" ||
-        el.tagName === "BUTTON" ||
         el.querySelector("img") ||
         el.tagName === "IMG"
       ) {
@@ -1021,7 +1020,7 @@ export function LayoutEditor() {
       if (event.button !== 0) return;
       const el = blockLayoutTarget(event);
       if (!el) return;
-      if (el.tagName === "A" || el.tagName === "BUTTON") event.preventDefault();
+      if (el.tagName === "A") event.preventDefault();
     };
 
     const onDragStart = (event: DragEvent) => {
@@ -1133,11 +1132,13 @@ export function LayoutEditor() {
       const target = event.target;
       const pointed = eventTargetElement(target);
       if (!pointed || !main.contains(pointed)) return;
-      if (suppressClick || pointed.closest("a, button")) {
+      if (suppressClick) {
         event.preventDefault();
         event.stopPropagation();
         suppressClick = false;
+        return;
       }
+      if (pointed.closest("a")) event.preventDefault();
     };
 
     const onDoubleClick = (event: MouseEvent) => {
@@ -1145,7 +1146,7 @@ export function LayoutEditor() {
       const pointed = eventTargetElement(target);
       if (!pointed) return;
       const el = findBlock(pointed, doc);
-      if (!el || el.querySelector("img")) return;
+      if (!el || el.querySelector("img, button, input, textarea, select")) return;
       event.preventDefault();
       event.stopPropagation();
       const selector = select(el);

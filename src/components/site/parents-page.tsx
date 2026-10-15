@@ -52,48 +52,81 @@ function Accordion({
   className?: string;
   itemBorderClassName?: string;
 }) {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState(0);
+  const choose = (index: number) => {
+    setOpen((current) => (current === index ? 0 : index));
+  };
   return (
-    <div className={className}>
-      {items.map(([q, a], i) => {
-        const isOpen = open === i;
-        return (
+    <div className={cn("grid items-start", className)}>
+      <div className="col-start-1 row-start-1">
+        {items.map(([q, a], i) => {
+          const isOpen = open === i;
+          return (
+            <div
+              key={q}
+              className={cn("border-t last:border-b", itemBorderClassName)}
+            >
+              <button
+                type="button"
+                onClick={() => choose(i)}
+                aria-expanded={isOpen}
+                className="flex w-full items-start justify-between gap-4 py-5 text-left"
+              >
+                <span className="text-base leading-snug md:text-lg">{q}</span>
+                <span className="relative mt-1.5 h-3.5 w-3.5 shrink-0">
+                  <span className="absolute top-1/2 left-0 h-px w-3.5 bg-foreground" />
+                  <span
+                    className={cn(
+                      "absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500",
+                      isOpen ? "rotate-0" : "rotate-90",
+                    )}
+                  />
+                </span>
+              </button>
+              <div
+                className={cn(
+                  "grid transition-all duration-700 ease-[var(--ease-calm)]",
+                  isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0",
+                )}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <p className="pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {a}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div
+        className="invisible col-start-1 row-start-1"
+        aria-hidden="true"
+      >
+        {items.map(([q]) => (
           <div
             key={q}
             className={cn("border-t last:border-b", itemBorderClassName)}
           >
-            <button
-              type="button"
-              onClick={() => setOpen(isOpen ? null : i)}
-              aria-expanded={isOpen}
-              className="flex w-full items-start justify-between gap-4 py-5 text-left"
-            >
+            <div className="flex w-full items-start justify-between gap-4 py-5 text-left">
               <span className="text-base leading-snug md:text-lg">{q}</span>
-              <span className="relative mt-1.5 h-3.5 w-3.5 shrink-0">
-                <span className="absolute top-1/2 left-0 h-px w-3.5 bg-foreground" />
-                <span
-                  className={cn(
-                    "absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500",
-                    isOpen ? "rotate-0" : "rotate-90",
-                  )}
-                />
-              </span>
-            </button>
-            <div
-              className={cn(
-                "grid transition-all duration-700 ease-[var(--ease-calm)]",
-                isOpen
-                  ? "grid-rows-[1fr] opacity-100"
-                  : "grid-rows-[0fr] opacity-0",
-              )}
-            >
-              <p className="overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base">
-                {a}
-              </p>
+              <span className="mt-1.5 h-3.5 w-3.5 shrink-0" />
             </div>
           </div>
-        );
-      })}
+        ))}
+        <div className="grid">
+          {items.map(([, a]) => (
+            <p
+              key={a}
+              className="col-start-1 row-start-1 pr-6 pb-5 text-sm leading-relaxed md:text-base"
+            >
+              {a}
+            </p>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -600,7 +633,6 @@ export function ParentsPageSections() {
               </p>
             </Reveal>
             <Reveal delay={80} className="lg:col-span-6">
-              <HoneyRule className="mb-8 ml-auto" />
               <WyprawkaPhoto />
               <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit" />
             </Reveal>

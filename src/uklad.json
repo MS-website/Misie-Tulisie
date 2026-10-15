@@ -1378,6 +1378,15 @@
         "z": 0,
         "paddingTop": 88,
         "marginTop": 0
+      },
+      "section:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": 0,
+        "marginBottom": 0
       }
     },
     "md": {
@@ -1396,12 +1405,21 @@
         "z": 0,
         "paddingTop": 88,
         "marginTop": 0
+      },
+      "section:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": 0,
+        "marginBottom": 0
       }
     },
     "lg": {
       "section:nth-of-type(2)": {
         "x": -3,
-        "y": 6,
+        "y": 0,
         "z": 2,
         "paddingTop": 48,
         "paddingBottom": 48,
@@ -1441,19 +1459,22 @@
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": -8,
-        "y": -258,
+        "y": -256,
         "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -14,
-        "y": -255,
-        "z": 2
+        "x": -15,
+        "y": -253,
+        "z": 2,
+        "fontSize": 56,
+        "width": 479
       },
       "section:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
         "x": -12,
-        "y": -266,
+        "y": -262,
         "z": 2,
-        "width": 444
+        "fontSize": 22,
+        "width": 439
       },
       "section:nth-of-type(3)": {
         "x": 0,
@@ -1503,33 +1524,33 @@
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)": {
         "x": 2,
-        "y": 20,
+        "y": 24,
         "z": 2,
         "width": 483
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 2,
-        "y": 28,
+        "y": 32,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
         "x": 27,
-        "y": 24,
+        "y": 28,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
         "x": 27,
-        "y": 26,
+        "y": 30,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
         "x": 27,
-        "y": 29,
+        "y": 33,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
         "x": 3,
-        "y": 50,
+        "y": 54,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)": {
@@ -1539,13 +1560,13 @@
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "x": 4,
-        "y": 61,
+        "y": 97,
         "z": 2,
         "width": 552
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h3:nth-of-type(1)": {
         "x": 2,
-        "y": 66,
+        "y": 106,
         "z": 2,
         "width": 524
       },
@@ -1572,14 +1593,39 @@
         "width": 545
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 84,
-        "y": -118,
+        "x": -14,
+        "y": -112,
         "z": 2,
-        "width": 442
+        "width": 624
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 95,
-        "y": -118,
+        "x": -3,
+        "y": -111,
+        "z": 2
+      },
+      "section:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 64,
+        "marginTop": 0,
+        "marginBottom": 0
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": -4,
+        "z": 0,
+        "fontSize": 22
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > a:nth-of-type(1)": {
+        "x": -95,
+        "y": 59,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 17,
+        "y": 80,
         "z": 2
       }
     },
@@ -1588,10 +1634,6 @@
         "html": "<span class=\"plan-dnia-timeline-time\">7:00–8:00</span><span class=\"plan-dnia-timeline-rail\" aria-hidden=\"true\"><span class=\"plan-dnia-timeline-dot\"></span></span><span class=\"plan-dnia-icon-slot\" data-plan-day-icon=\"start\" title=\"Miejsce na ikonę\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"h-[1.35rem] w-[1.35rem] opacity-35 md:h-6 md:w-6\" aria-hidden=\"true\"><path d=\"M6 22h20\"></path><path d=\"M9 22a7 7 0 0 1 14 0\"></path><path d=\"M16 7v3\"></path></svg></span><span class=\"plan-dnia-timeline-label\">Zaczynamy dzień w Misiach Tulisiach</span>",
         "originalHtml": "<span class=\"plan-dnia-timeline-time\">7:00–8:00</span><span class=\"plan-dnia-timeline-rail\" aria-hidden=\"true\"><span class=\"plan-dnia-timeline-dot\"></span></span><span class=\"plan-dnia-icon-slot\" data-plan-day-icon=\"start\" title=\"Miejsce na ikonę\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"h-[1.35rem] w-[1.35rem] opacity-35 md:h-6 md:w-6\" aria-hidden=\"true\"><path d=\"M6 22h20\"></path><path d=\"M9 22a7 7 0 0 1 14 0\"></path><path d=\"M16 7v3\"></path></svg></span><span class=\"plan-dnia-timeline-label\">Zaczynamy dzień w Misiach Tulisiach</span>"
       },
-      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
-        "html": "<p class=\"text-sm font-semibold tracking-wide text-foreground\">„Aktywnie w żłobku” — pytania i odpowiedzi</p><div class=\"mt-4\"><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"true\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\" style=\"\"><span class=\"text-base leading-snug md:text-lg\">Kto może skorzystać ze świadczenia „Aktywnie w żłobku”?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-0\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[1fr] opacity-100\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Rodzice i opiekunowie dzieci uczęszczających do żłobka, klubu dziecięcego lub objętych opieką dziennego opiekuna. Świadczenie przysługuje niezależnie od dochodu rodziny.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Komu nie przysługuje świadczenie?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Świadczenie nie przysługuje osobom korzystającym ze świadczenia „Aktywnie w domu” lub „Aktywni rodzice w pracy” na to samo dziecko w tym samym miesiącu.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Jaka jest wysokość świadczenia „Aktywnie w żłobku”?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Do 1500 zł miesięcznie na dziecko lub do 1900 zł w przypadku dziecka z odpowiednim orzeczeniem o niepełnosprawności. Świadczenie nie obejmuje kosztów wyżywienia.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Jak wypłacane jest świadczenie?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">ZUS przekazuje pieniądze bezpośrednio na rachunek podmiotu prowadzącego żłobek lub zapewniającego opiekę. Rodzic pokrywa ewentualną różnicę w opłacie oraz koszt wyżywienia.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Gdzie złożyć wniosek?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Wniosek można złożyć elektronicznie przez PUE ZUS (eZUS), aplikację mZUS, bankowość elektroniczną lub portal Emp@tia. Warto zrobić to w ciągu 2 miesięcy od rozpoczęcia opieki, aby uzyskać świadczenie od pierwszego dnia pobytu dziecka.</p></div></div></div>",
-        "originalHtml": "<p class=\"text-sm font-semibold tracking-wide text-foreground\">„Aktywnie w żłobku” — pytania i odpowiedzi</p><div class=\"mt-4\"><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"true\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\" style=\"\"><span class=\"text-base leading-snug md:text-lg\">Kto może skorzystać ze świadczenia „Aktywnie w żłobku”?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-0\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[1fr] opacity-100\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Rodzice i opiekunowie dzieci uczęszczających do żłobka, klubu dziecięcego lub objętych opieką dziennego opiekuna. Świadczenie przysługuje niezależnie od dochodu rodziny.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Komu nie przysługuje świadczenie?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Świadczenie nie przysługuje osobom korzystającym ze świadczenia „Aktywnie w domu” lub „Aktywni rodzice w pracy” na to samo dziecko w tym samym miesiącu.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Jaka jest wysokość świadczenia „Aktywnie w żłobku”?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Do 1500 zł miesięcznie na dziecko lub do 1900 zł w przypadku dziecka z odpowiednim orzeczeniem o niepełnosprawności. Świadczenie nie obejmuje kosztów wyżywienia.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Jak wypłacane jest świadczenie?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">ZUS przekazuje pieniądze bezpośrednio na rachunek podmiotu prowadzącego żłobek lub zapewniającego opiekę. Rodzic pokrywa ewentualną różnicę w opłacie oraz koszt wyżywienia.</p></div></div><div class=\"border-t last:border-b border-[oklch(0.62_0.14_248_/_20%)]\"><button type=\"button\" aria-expanded=\"false\" class=\"flex w-full items-start justify-between gap-4 py-5 text-left\"><span class=\"text-base leading-snug md:text-lg\">Gdzie złożyć wniosek?</span><span class=\"relative mt-1.5 h-3.5 w-3.5 shrink-0\"><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground\"></span><span class=\"absolute top-1/2 left-0 h-px w-3.5 bg-foreground transition-transform duration-500 rotate-90\"></span></span></button><div class=\"grid transition-all duration-700 ease-[var(--ease-calm)] grid-rows-[0fr] opacity-0\"><p class=\"overflow-hidden pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base\">Wniosek można złożyć elektronicznie przez PUE ZUS (eZUS), aplikację mZUS, bankowość elektroniczną lub portal Emp@tia. Warto zrobić to w ciągu 2 miesięcy od rozpoczęcia opieki, aby uzyskać świadczenie od pierwszego dnia pobytu dziecka.</p></div></div></div>"
-      },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > h3:nth-of-type(1)": {
         "html": "Program „Aktywny Maluch 2022-2029”",
         "originalHtml": "Program „Aktywny Maluch 2022-2029”"
@@ -1599,6 +1641,10 @@
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
         "html": "„Aktywnie w żłobku”,",
         "originalHtml": "„Aktywnie w żłobku”,"
+      },
+      "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "html": "Korzystając z obu przysługujących świadczeń, czesne w Misiach Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.",
+        "originalHtml": "Korzystając z obu przysługujących świadczeń, czesne w Misiach Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do żłobka."
       }
     }
   }
