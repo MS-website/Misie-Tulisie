@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
-import planDniaHarmonogram from "@/assets/plan-dnia-harmonogram.png";
-import planDniaMisie from "@/assets/plan-dnia-misie.png";
-import planDniaTlo from "@/assets/plan-dnia-tlo.jpg";
+import planDniaPokoj from "@/assets/plan-dnia-pokoj.jpg";
 import wyprawkaMisTorba from "@/assets/wyprawka-mis-torba.jpg";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
 import { Eyebrow, Photo, Reveal } from "./ui";
@@ -164,8 +162,261 @@ function HoneyRule({ className }: { className?: string }) {
   );
 }
 
-const PLAN_DNIA_HARMONOGRAM_ALT =
-  "Harmonogram dnia: 7:00–8:00 zaczynamy dzień, 8:00–8:30 śniadanko, 8:30–9:00 mycie rączek i ząbków, 9:00–10:00 zajęcia grupowe, 10:00–10:30 zupka, 10:30–11:00 mycie rączek i ząbków, 11:00–12:30 plac zabaw, 12:30–13:00 obiadek, 13:00–13:30 mycie rączek i ząbków, 13:30–15:00 leżakowanie, 15:00–15:30 podwieczorek, 15:30–17:00 wspólne zabawy i oczekiwanie na rodziców.";
+function ParentsGreenRule({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "parents-green-rule-hit rounded-md flex shrink-0 items-stretch justify-center px-1.5",
+        className,
+      )}
+      data-parents-accent-line="czesne-0"
+      aria-hidden="true"
+    >
+      <span className="parents-green-rule-bar" />
+    </div>
+  );
+}
+
+type PlanDayIconId =
+  | "start"
+  | "bowl"
+  | "wash"
+  | "blocks"
+  | "soup"
+  | "play"
+  | "plate"
+  | "sleep"
+  | "apple"
+  | "book";
+
+type PlanDayItem = {
+  id: string;
+  time: string;
+  label: string;
+  icon: PlanDayIconId;
+  iconSrc?: string;
+};
+
+const DAY_PLAN: PlanDayItem[] = [
+  {
+    id: "start",
+    time: "7:00–8:00",
+    icon: "start",
+    label: "Zaczynamy dzień w Misiach Tulisiach",
+  },
+  { id: "breakfast", time: "8:00–8:30", icon: "bowl", label: "Śniadanko" },
+  {
+    id: "wash-1",
+    time: "8:30–9:00",
+    icon: "wash",
+    label: "Mycie rączek i ząbków",
+  },
+  {
+    id: "group",
+    time: "9:00–10:00",
+    icon: "blocks",
+    label: "Zajęcia grupowe",
+  },
+  { id: "soup", time: "10:00–10:30", icon: "soup", label: "Zupka" },
+  {
+    id: "wash-2",
+    time: "10:30–11:00",
+    icon: "wash",
+    label: "Mycie rączek i ząbków",
+  },
+  {
+    id: "playground",
+    time: "11:00–12:30",
+    icon: "play",
+    label: "Wyjście na plac zabaw (w okresie zimowym uzależnione od pogody)",
+  },
+  { id: "lunch", time: "12:30–13:00", icon: "plate", label: "Obiadek" },
+  {
+    id: "wash-3",
+    time: "13:00–13:30",
+    icon: "wash",
+    label: "Mycie rączek i ząbków",
+  },
+  { id: "nap", time: "13:30–15:00", icon: "sleep", label: "Leżakowanie" },
+  {
+    id: "snack",
+    time: "15:00–15:30",
+    icon: "apple",
+    label: "Podwieczorek",
+  },
+  {
+    id: "free",
+    time: "15:30–17:00",
+    icon: "book",
+    label: "Wspólne zabawy, czytanki, oczekiwanie na rodziców",
+  },
+];
+
+function PlanDayIconGlyph({ icon }: { icon: PlanDayIconId }) {
+  const props = {
+    viewBox: "0 0 32 32",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.5,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-[1.35rem] w-[1.35rem] opacity-35 md:h-6 md:w-6",
+    "aria-hidden": true as const,
+  };
+  if (icon === "start") {
+    return (
+      <svg {...props}>
+        <path d="M6 22h20" />
+        <path d="M9 22a7 7 0 0 1 14 0" />
+        <path d="M16 7v3" />
+      </svg>
+    );
+  }
+  if (icon === "bowl") {
+    return (
+      <svg {...props}>
+        <path d="M7 14h18" />
+        <path d="M8.5 14c.6 6 3 9 7.5 9s6.9-3 7.5-9" />
+      </svg>
+    );
+  }
+  if (icon === "wash") {
+    return (
+      <svg {...props}>
+        <path d="M9 8c1.6 2 1.6 3.8 0 6" />
+        <path d="M14 22 22 13" />
+        <path d="M21 11h4" />
+      </svg>
+    );
+  }
+  if (icon === "blocks") {
+    return (
+      <svg {...props}>
+        <path d="M6.5 15.5h9v9h-9z" />
+        <path d="M16.5 8.5h9v9h-9z" />
+      </svg>
+    );
+  }
+  if (icon === "soup") {
+    return (
+      <svg {...props}>
+        <path d="M7 16h18" />
+        <path d="M9 16c.5 5.5 2.6 8.5 7 8.5s6.5-3 7-8.5" />
+      </svg>
+    );
+  }
+  if (icon === "play") {
+    return (
+      <svg {...props}>
+        <path d="M8 24V14" />
+        <path d="M20 24V11" />
+        <path d="M5 24h22" />
+      </svg>
+    );
+  }
+  if (icon === "plate") {
+    return (
+      <svg {...props}>
+        <circle cx="15" cy="17" r="7" />
+        <path d="M24 11v8" />
+      </svg>
+    );
+  }
+  if (icon === "sleep") {
+    return (
+      <svg {...props}>
+        <path d="M23 9h3" />
+        <path d="M15.5 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Z" />
+      </svg>
+    );
+  }
+  if (icon === "apple") {
+    return (
+      <svg {...props}>
+        <path d="M16 12.5c-3.8.2-6.5 3.2-6.5 7 0 3.4 2.4 5.8 6.5 5.8s6.5-2.4 6.5-5.8c0-3.8-2.7-6.8-6.5-7Z" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...props}>
+      <path d="M6.5 9.5h19v13H6.5z" />
+      <path d="M16 9.5v13" />
+    </svg>
+  );
+}
+
+function PlanDayIconSlot({ item }: { item: PlanDayItem }) {
+  if (item.iconSrc) {
+    return (
+      <img
+        src={item.iconSrc}
+        alt=""
+        width={48}
+        height={48}
+        className="h-full w-full object-contain"
+        decoding="async"
+        data-plan-day-icon={item.id}
+      />
+    );
+  }
+  return (
+    <span
+      className="plan-dnia-icon-slot"
+      data-plan-day-icon={item.id}
+      title="Miejsce na ikonę"
+    >
+      <PlanDayIconGlyph icon={item.icon} />
+    </span>
+  );
+}
+
+function PlanDayTimeline({ className }: { className?: string }) {
+  const ref = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("is-visible");
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0]?.isIntersecting) return;
+        el.classList.add("is-visible");
+        io.disconnect();
+      },
+      { threshold: 0.12 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <ol
+      ref={ref}
+      className={cn("plan-dnia-timeline", className)}
+      aria-label="Plan dnia"
+    >
+      {DAY_PLAN.map((item, index) => (
+        <li
+          key={item.id}
+          className={cn(
+            "plan-dnia-timeline-row",
+            index % 2 === 0 && "plan-dnia-timeline-row-alt",
+          )}
+          style={{ "--plan-i": index } as CSSProperties}
+        >
+          <span className="plan-dnia-timeline-time">{item.time}</span>
+          <span className="plan-dnia-timeline-rail" aria-hidden="true">
+            <span className="plan-dnia-timeline-dot" />
+          </span>
+          <PlanDayIconSlot item={item} />
+          <span className="plan-dnia-timeline-label">{item.label}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 export function ParentsPageSections() {
   return (
@@ -241,23 +492,11 @@ export function ParentsPageSections() {
                 <h3 className="font-display text-3xl md:text-4xl">
                   Program „Aktywny Maluch 2022-2029”
                 </h3>
-                <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                   Ponadto, w Misiach Tulisiach każdemu z rodziców przysługuje
                   dofinansowanie w ramach programu Aktywny Maluch 2022-2029,
                   które finansuje każde obsadzone miejsce w placówce w wysokości
                   836 zł miesięcznie.
-                </p>
-              </div>
-              <div className="flex items-start gap-5">
-                <span
-                  className="mt-1 w-px shrink-0 bg-[oklch(0.72_0.11_15)]"
-                  style={{ height: "2.5cm" }}
-                  aria-hidden="true"
-                />
-                <p className="max-w-xl text-base leading-relaxed text-foreground md:text-lg">
-                  Korzystając z obu przysługujących świadczeń, czesne w Misiach
-                  Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha
-                  do żłobka.
                 </p>
               </div>
             </Reveal>
@@ -289,6 +528,16 @@ export function ParentsPageSections() {
                 />
               </div>
             </Reveal>
+            <Reveal delay={80}>
+              <div className="parents-czesne-callout">
+                <ParentsGreenRule />
+                <p className="parents-czesne-callout-text min-w-0 max-w-md flex-1 text-base leading-relaxed text-foreground md:text-lg">
+                  Korzystając z obu przysługujących świadczeń, czesne w Misiach
+                  Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do
+                  żłobka.
+                </p>
+              </div>
+            </Reveal>
             </div>
           </div>
           </div>
@@ -297,16 +546,16 @@ export function ParentsPageSections() {
 
       <section
         id="plan-dnia"
-        data-parents-plan-dnia="assets-v1"
+        data-parents-plan-dnia="built-v1"
         className="plan-dnia-section scroll-mt-24 py-14 md:py-20 lg:py-24"
       >
         <div className="plan-dnia-section-bg" aria-hidden="true">
           <img
-            src={planDniaTlo}
+            src={planDniaPokoj}
             alt=""
             width={1024}
-            height={539}
-            className="h-full w-full object-cover"
+            height={576}
+            className="h-full w-full object-cover object-center"
             decoding="async"
           />
         </div>
@@ -321,27 +570,10 @@ export function ParentsPageSections() {
                 Przewidywalny plan pomaga dzieciom czuć się bezpiecznie, a
                 rodzice zawsze wiedzą, co aktualnie robi ich pociecha.
               </p>
-              <div className="plan-dnia-misie-stage mx-auto mt-8 max-w-md lg:mx-0 lg:mt-10">
-                <img
-                  src={planDniaMisie}
-                  alt="Przytulone misie z zabawkami — ilustracja do planu dnia"
-                  width={1024}
-                  height={682}
-                  className="h-full w-full object-contain object-bottom"
-                  decoding="async"
-                />
-              </div>
             </Reveal>
             <Reveal delay={80} className="min-w-0 lg:col-span-7">
               <div className="plan-dnia-schedule-card">
-                <img
-                  src={planDniaHarmonogram}
-                  alt={PLAN_DNIA_HARMONOGRAM_ALT}
-                  width={819}
-                  height={672}
-                  className="h-auto w-full"
-                  decoding="async"
-                />
+                <PlanDayTimeline />
               </div>
             </Reveal>
           </div>

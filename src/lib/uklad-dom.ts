@@ -298,18 +298,6 @@ export function applyLayout(
   const main = doc.querySelector("main");
   if (!main) return false;
   const previous = applied.get(doc) ?? new Set<string>();
-  if (pathname === "/dla-rodzicow") {
-    applying = true;
-    try {
-      for (const node of main.querySelectorAll("*")) {
-        if (isHtmlElement(node)) clearBox(node);
-      }
-      applied.set(doc, new Set());
-      return false;
-    } finally {
-      applying = false;
-    }
-  }
   const page = store[pathname];
   const boxes = page?.[size] ?? {};
   const texts = page?.text ?? {};

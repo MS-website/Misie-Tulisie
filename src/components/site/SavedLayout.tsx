@@ -13,20 +13,20 @@ export function SavedLayout() {
   });
 
   useEffect(() => {
-    if (!import.meta.env.DEV || pathname === "/dla-rodzicow") return;
+    if (!import.meta.env.DEV) return;
     void fetch("/__uklad")
       .then(async (response) => {
         if (!response.ok) return;
         setStore(normalizeLayout(await response.json()));
       })
       .catch(() => {});
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     const run = () => {
       const size = sizeForWidth(window.innerWidth);
       applyLayout(document, pathname, size, store);
-      if (pathname !== "/dla-rodzicow") applyTheme(document, pathname, store);
+      applyTheme(document, pathname, store);
     };
     run();
     const later = window.setTimeout(run, 80);

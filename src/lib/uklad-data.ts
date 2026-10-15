@@ -420,7 +420,6 @@ export function normalizeLayout(input: unknown): Store {
     const next = isOldPage(page) ? convertOld(page) : convertNew(page);
     if (next) store[path] = next;
   }
-  delete store["/dla-rodzicow"];
   return store;
 }
 

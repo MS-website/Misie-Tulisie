@@ -41,9 +41,6 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
-const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v9";
-const PARENTS_LAYOUT_ZERO_KEY = "misie-uklad-zero-dla-rodzicow-v2";
-const PARENTS_LAYOUT_BLOCKED = "/dla-rodzicow";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
@@ -56,7 +53,7 @@ const HERO_NEW_EM =
 const KROKI_PARAGRAPH =
   "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)";
 const BLOCK =
-  "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md";
+  "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md, [data-parents-accent-line], div.parents-green-rule-hit";
 const OUTLINE_STYLE = `
   [data-layout-hover="1"] { outline: 1px dashed #b08954; outline-offset: 4px; }
   [data-layout-selected="1"] { outline: 2px solid #b08954; outline-offset: 4px; position: relative; z-index: 40 !important; }
@@ -83,17 +80,7 @@ function loadStore(): Store {
 }
 
 function layoutStore(): Store {
-  const store = mergeStores(publishedLayout, loadStore());
-  delete store[PARENTS_LAYOUT_BLOCKED];
-  return store;
-}
-
-function purgeParentsFromLocalStore() {
-  const store = loadStore();
-  if (!store[PARENTS_LAYOUT_BLOCKED]) return false;
-  delete store[PARENTS_LAYOUT_BLOCKED];
-  saveStore(store);
-  return true;
+  return mergeStores(publishedLayout, loadStore());
 }
 
 function saveStore(store: Store) {
@@ -161,19 +148,6 @@ function stripLegacyHidden(store: Store) {
   }
 }
 
-function resetParentsPageLayoutOnce() {
-  if (localStorage.getItem(PARENTS_LAYOUT_RESET_KEY)) return false;
-  localStorage.setItem(PARENTS_LAYOUT_RESET_KEY, "1");
-  const store = loadStore();
-  delete store["/dla-rodzicow"];
-  saveStore(store);
-  if (window.location.pathname === "/dla-rodzicow") {
-    window.location.reload();
-    return true;
-  }
-  return false;
-}
-
 function resetHomeCardFillOnce() {
   if (localStorage.getItem(HOME_CARD_FILL_RESET_KEY)) return;
   localStorage.setItem(HOME_CARD_FILL_RESET_KEY, "1");
@@ -188,31 +162,6 @@ function resetHomeCardFillOnce() {
   };
   store["/"] = page;
   saveStore(store);
-}
-
-function resetParentsLayoutZeroOnce() {
-  const hadOffsets = purgeParentsFromLocalStore();
-  const history = loadHistory();
-  let historyChanged = false;
-  for (const entry of history) {
-    if (!entry["/dla-rodzicow"]) continue;
-    delete entry["/dla-rodzicow"];
-    historyChanged = true;
-  }
-  if (historyChanged) {
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-  }
-  if (
-    hadOffsets &&
-    !localStorage.getItem(PARENTS_LAYOUT_ZERO_KEY) &&
-    window.location.pathname === "/dla-rodzicow"
-  ) {
-    localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
-    window.location.reload();
-    return true;
-  }
-  localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
-  return false;
 }
 
 function stripHomeOffsets(page: PageLayout | undefined) {
@@ -310,15 +259,12 @@ function colorHeroWordOnce() {
 }
 
 if (typeof window !== "undefined") {
-  purgeParentsFromLocalStore();
-  resetParentsLayoutZeroOnce();
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
   colorHeroWordOnce();
 }
 
 function migrateAboutSections() {
-  if (resetParentsPageLayoutOnce()) return;
   if (resetHomeLayoutOnce()) return;
   if (resetKrokiLinesOnce()) return;
   if (colorHeroWordOnce()) return;
@@ -434,6 +380,14 @@ function findBlock(start: Element | null, doc: Document) {
   if (start.closest("input, textarea, select, option")) return null;
   const main = doc.querySelector("main");
   if (!main) return null;
+  const accent = start.closest("[data-parents-accent-line]");
+  if (
+    isHtmlElement(accent) &&
+    main.contains(accent) &&
+    accent.matches(BLOCK)
+  ) {
+    return accent;
+  }
   let node: Element | null = start;
   while (node && node !== main) {
     if (isHtmlElement(node) && main.contains(node)) {
@@ -461,6 +415,7 @@ function labelFor(el: HTMLElement) {
     SECTION: "Sekcja",
     FIGURE: "Zdjęcie",
   };
+  if (el.dataset["parentsAccentLine"]) return "Kreska";
   return labels[el.tagName] ?? "Blok";
 }
 
@@ -484,7 +439,6 @@ function writeBox(
   selector: string,
   patch: BoxPatch,
 ) {
-  if (pathname === PARENTS_LAYOUT_BLOCKED) return;
   rememberHistory();
   const store = loadStore();
   const page: PageLayout = store[pathname] ?? {};
@@ -654,7 +608,6 @@ function writeText(
   html: string,
   originalHtml: string,
 ) {
-  if (pathname === PARENTS_LAYOUT_BLOCKED) return;
   rememberHistory();
   const store = loadStore();
   const page: PageLayout = store[pathname] ?? {};
@@ -674,10 +627,6 @@ function boxFor(pathname: string, size: SizeId, selector: string) {
 }
 
 function paint(doc: Document, pathname: string, size: SizeId) {
-  if (pathname === PARENTS_LAYOUT_BLOCKED) {
-    applyLayout(doc, pathname, size, {});
-    return;
-  }
   const store = layoutStore();
   const local = loadStore();
   if (applyLayout(doc, pathname, size, store)) saveStore(local);
@@ -1027,7 +976,8 @@ export function LayoutEditor() {
       if (pointed.closest("[data-layout-editor]")) return;
       const stacked = blocksUnderPoint(doc, main, event.clientX, event.clientY);
       const photosAtPoint = stacked.filter(isPhotoFrame);
-      let el = stacked[0] ?? findBlock(pointed, doc);
+      const accentAtPoint = stacked.find((node) => node.dataset["parentsAccentLine"]);
+      let el = accentAtPoint ?? stacked[0] ?? findBlock(pointed, doc);
       if (photosAtPoint.length > 1) {
         const currentEl = selectedSelectorRef.current
           ? main.querySelector(selectedSelectorRef.current)
