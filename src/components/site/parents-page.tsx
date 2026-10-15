@@ -2,6 +2,16 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
 import planDniaPokoj from "@/assets/plan-dnia-pokoj.jpg";
+import planDniaSlonko from "@/assets/plan-dnia-slonko.png";
+import planDniaSniadanko from "@/assets/plan-dnia-sniadanko.png";
+import planDniaMycie from "@/assets/plan-dnia-mycie.png";
+import planDniaZupka from "@/assets/plan-dnia-zupka.png";
+import planDniaPlacZabaw from "@/assets/plan-dnia-plac-zabaw.png";
+import planDniaKlocki from "@/assets/plan-dnia-klocki.png";
+import planDniaObiadek from "@/assets/plan-dnia-obiadek.png";
+import planDniaKsiazka from "@/assets/plan-dnia-ksiazka.png";
+import planDniaLezakowanie from "@/assets/plan-dnia-lezakowanie.png";
+import planDniaPodwieczorek from "@/assets/plan-dnia-podwieczorek.png";
 import wyprawkaMisTorba from "@/assets/wyprawka-mis-torba.jpg";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
 import { Eyebrow, Photo, Reveal } from "./ui";
@@ -235,52 +245,84 @@ const DAY_PLAN: PlanDayItem[] = [
     id: "start",
     time: "7:00–8:00",
     icon: "start",
+    iconSrc: planDniaSlonko,
     label: "Zaczynamy dzień w Misiach Tulisiach",
   },
-  { id: "breakfast", time: "8:00–8:30", icon: "bowl", label: "Śniadanko" },
+  {
+    id: "breakfast",
+    time: "8:00–8:30",
+    icon: "bowl",
+    iconSrc: planDniaSniadanko,
+    label: "Śniadanko",
+  },
   {
     id: "wash-1",
     time: "8:30–9:00",
     icon: "wash",
+    iconSrc: planDniaMycie,
     label: "Mycie rączek i ząbków",
   },
   {
     id: "group",
     time: "9:00–10:00",
     icon: "blocks",
+    iconSrc: planDniaKlocki,
     label: "Zajęcia grupowe",
   },
-  { id: "soup", time: "10:00–10:30", icon: "soup", label: "Zupka" },
+  {
+    id: "soup",
+    time: "10:00–10:30",
+    icon: "soup",
+    iconSrc: planDniaZupka,
+    label: "Zupka",
+  },
   {
     id: "wash-2",
     time: "10:30–11:00",
     icon: "wash",
+    iconSrc: planDniaMycie,
     label: "Mycie rączek i ząbków",
   },
   {
     id: "playground",
     time: "11:00–12:30",
     icon: "play",
+    iconSrc: planDniaPlacZabaw,
     label: "Wyjście na plac zabaw (w okresie zimowym uzależnione od pogody)",
   },
-  { id: "lunch", time: "12:30–13:00", icon: "plate", label: "Obiadek" },
+  {
+    id: "lunch",
+    time: "12:30–13:00",
+    icon: "plate",
+    iconSrc: planDniaObiadek,
+    label: "Obiadek",
+  },
   {
     id: "wash-3",
     time: "13:00–13:30",
     icon: "wash",
+    iconSrc: planDniaMycie,
     label: "Mycie rączek i ząbków",
   },
-  { id: "nap", time: "13:30–15:00", icon: "sleep", label: "Leżakowanie" },
+  {
+    id: "nap",
+    time: "13:30–15:00",
+    icon: "sleep",
+    iconSrc: planDniaLezakowanie,
+    label: "Leżakowanie",
+  },
   {
     id: "snack",
     time: "15:00–15:30",
     icon: "apple",
+    iconSrc: planDniaPodwieczorek,
     label: "Podwieczorek",
   },
   {
     id: "free",
     time: "15:30–17:00",
     icon: "book",
+    iconSrc: planDniaKsiazka,
     label: "Wspólne zabawy, czytanki, oczekiwanie na rodziców",
   },
 ];
@@ -386,7 +428,7 @@ function PlanDayIconSlot({ item }: { item: PlanDayItem }) {
         alt=""
         width={48}
         height={48}
-        className="h-full w-full object-contain"
+        className="plan-dnia-icon-image"
         decoding="async"
         data-plan-day-icon={item.id}
       />

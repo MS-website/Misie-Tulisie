@@ -448,6 +448,11 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   background: oklch(0.98 0.015 18);
   color: oklch(0.58 0.1 18);
 }
+.plan-dnia-icon-image {
+  height: 2.75rem;
+  width: 2.75rem;
+  object-fit: contain;
+}
 .plan-dnia-timeline-label {
   min-width: 0;
   font-size: 0.94rem;
@@ -468,7 +473,8 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   .plan-dnia-timeline-label {
     font-size: 0.86rem;
   }
-  .plan-dnia-icon-slot {
+  .plan-dnia-icon-slot,
+  .plan-dnia-icon-image {
     height: 2.35rem;
     width: 2.35rem;
   }
