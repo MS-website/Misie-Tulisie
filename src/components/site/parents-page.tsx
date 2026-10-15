@@ -2,10 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
 import rytmDniaMisiePrzytulenie from "@/assets/rytm-dnia-misie-przytulenie.png";
-import wyprawkaKubeczek from "@/assets/wyprawka-kubeczek.jpg";
-import wyprawkaLezakowanie from "@/assets/wyprawka-lezakowanie.jpg";
-import wyprawkaMyjeZabki from "@/assets/wyprawka-myje-zabki.png";
-import wyprawkaPosilekMaluch from "@/assets/wyprawka-posilek-maluch.png";
+import wyprawkaMisTorba from "@/assets/wyprawka-mis-torba.jpg";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
 import { Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
@@ -142,50 +139,17 @@ function WyprawkaList() {
   );
 }
 
-function WyprawkaPhotos({ className }: { className?: string }) {
-  const photos = [
-    {
-      src: wyprawkaLezakowanie,
-      alt: "Leżakowanie w żłobku",
-      className: "max-h-28 sm:max-h-32",
-    },
-    {
-      src: wyprawkaPosilekMaluch,
-      alt: "Maluch przy posiłku w śliniaku",
-      className: "max-h-32 sm:max-h-36",
-    },
-    {
-      src: wyprawkaKubeczek,
-      alt: "Dziecko pijące z kubeczka",
-      className: "max-h-36 sm:max-h-40",
-    },
-    {
-      src: wyprawkaMyjeZabki,
-      alt: "Mycie ząbków",
-      className: "max-h-32 sm:max-h-36",
-    },
-  ] as const;
-
+function WyprawkaPhoto({ className }: { className?: string }) {
   return (
-    <div
+    <Photo
+      src={wyprawkaMisTorba}
+      alt="Wyprawka do żłobka w torbie: ubranka, pościel, kubeczek, pieluchy i akcesoria higieniczne"
+      fit="cover"
       className={cn(
-        "mx-auto flex w-full max-w-[15rem] flex-col gap-3 sm:max-w-[16.5rem] lg:mx-0",
+        "mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-md lg:mx-0 lg:max-w-none",
         className,
       )}
-    >
-      {photos.map((photo) => (
-        <Photo
-          key={photo.alt}
-          src={photo.src}
-          alt={photo.alt}
-          fit="contain"
-          className={cn(
-            "w-full [&_img]:mx-auto [&_img]:block [&_img]:h-auto [&_img]:w-full [&_img]:max-h-[inherit] [&_img]:object-contain [&_img]:object-center",
-            photo.className,
-          )}
-        />
-      ))}
-    </div>
+    />
   );
 }
 
@@ -557,7 +521,7 @@ export function ParentsPageSections() {
             </div>
             <div className="min-w-0 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
               <Reveal delay={80}>
-                <WyprawkaPhotos />
+                <WyprawkaPhoto />
               </Reveal>
             </div>
           </div>

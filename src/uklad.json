@@ -229,10 +229,10 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 40,
+        "paddingTop": 0,
         "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
+        "marginTop": -8,
+        "marginBottom": -176
       }
     },
     "md": {
@@ -258,36 +258,36 @@
         "x": 0,
         "y": 0,
         "z": 0,
-        "paddingTop": 40,
+        "paddingTop": 0,
         "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
+        "marginTop": -8,
+        "marginBottom": -176
       }
     },
     "lg": {
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
-        "x": 200,
-        "y": 2,
+        "x": 529,
+        "y": -151,
         "z": 2
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": -6,
-        "y": 67,
+        "x": -11,
+        "y": 70,
         "z": 2
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 2,
-        "y": 28,
+        "x": -9,
+        "y": 57,
         "z": 2
       },
       "section:nth-of-type(4)": {
         "x": 5,
         "y": -71,
         "z": 2,
-        "paddingTop": 40,
+        "paddingTop": 0,
         "paddingBottom": 0,
-        "marginTop": 0,
-        "marginBottom": -8
+        "marginTop": -8,
+        "marginBottom": -176
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
         "x": 275,
@@ -438,6 +438,16 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)": {
         "x": -13,
         "y": -378,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)": {
+        "x": -31,
+        "y": 61,
+        "z": 2
+      },
+      "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
+        "x": 20,
+        "y": 5,
         "z": 2
       }
     },
