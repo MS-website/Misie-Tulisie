@@ -361,9 +361,24 @@ export function ParentsPageSections() {
     <>
       <section
         id="oplaty"
+        data-parents-layout="static-v2"
         className="scroll-mt-24 border-b border-border/60 bg-background pb-20 md:pb-28"
       >
-        <div className="container-site min-w-0 pt-6 md:pt-8">
+        <div className="container-site min-w-0 pt-24 md:pt-28">
+          <Reveal>
+            <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">
+              Wszystko,{" "}
+              <span className="whitespace-nowrap">co warto wiedzieć</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mt-8 md:text-xl">
+              Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy
+              informacje, które pomagają spokojnie zaplanować pierwsze tygodnie
+              w żłobku.
+            </p>
+            <HoneyRule className="mt-6 md:mt-8" />
+          </Reveal>
+
+          <div className="mt-10 md:mt-12">
           <Reveal>
             <h2 className="font-display max-w-3xl text-4xl md:text-5xl lg:text-6xl">
               Przejrzyste informacje o kosztach
@@ -465,6 +480,7 @@ export function ParentsPageSections() {
             </Reveal>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
@@ -523,23 +539,5 @@ export function ParentsPageSections() {
         </div>
       </section>
     </>
-  );
-}
-
-export function ParentsPageIntro() {
-  return (
-    <section className="container-site pt-24 pb-4 md:pt-28 md:pb-6">
-      <Reveal>
-        <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">
-          Wszystko,{" "}
-          <span className="whitespace-nowrap">co warto wiedzieć</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy informacje,
-          które pomagają spokojnie zaplanować pierwsze tygodnie w żłobku.
-        </p>
-        <HoneyRule className="mt-8" />
-      </Reveal>
-    </section>
   );
 }

@@ -40,10 +40,14 @@ function ensureLayoutInlineBox(el: HTMLElement) {
 export function clearBox(el: HTMLElement) {
   el.style.translate = "";
   el.style.zIndex = "";
-  el.style.paddingTop = "";
-  el.style.paddingBottom = "";
-  el.style.marginTop = "";
-  el.style.marginBottom = "";
+  for (const prop of [
+    "padding-top",
+    "padding-bottom",
+    "margin-top",
+    "margin-bottom",
+  ] as const) {
+    el.style.removeProperty(prop);
+  }
   el.style.fontSize = "";
   el.style.width = "";
   el.style.maxWidth = "";
@@ -297,20 +301,8 @@ export function applyLayout(
   if (pathname === "/dla-rodzicow") {
     applying = true;
     try {
-      for (const selector of previous) {
-        const el = main.querySelector(selector);
-        if (isHtmlElement(el)) clearBox(el);
-      }
       for (const node of main.querySelectorAll("*")) {
-        if (!isHtmlElement(node)) continue;
-        if (
-          node.style.translate ||
-          node.dataset["layoutPosition"] ||
-          node.dataset["layoutDisplay"] ||
-          node.dataset["layoutHidden"]
-        ) {
-          clearBox(node);
-        }
+        if (isHtmlElement(node)) clearBox(node);
       }
       applied.set(doc, new Set());
       return false;

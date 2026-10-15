@@ -41,7 +41,7 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
-const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v8";
+const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v9";
 const PARENTS_LAYOUT_ZERO_KEY = "misie-uklad-zero-dla-rodzicow-v2";
 const PARENTS_LAYOUT_BLOCKED = "/dla-rodzicow";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
@@ -674,6 +674,10 @@ function boxFor(pathname: string, size: SizeId, selector: string) {
 }
 
 function paint(doc: Document, pathname: string, size: SizeId) {
+  if (pathname === PARENTS_LAYOUT_BLOCKED) {
+    applyLayout(doc, pathname, size, {});
+    return;
+  }
   const store = layoutStore();
   const local = loadStore();
   if (applyLayout(doc, pathname, size, store)) saveStore(local);

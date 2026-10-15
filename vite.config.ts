@@ -23,9 +23,17 @@ function layoutSavePlugin(): Plugin {
         if (pathname === "/__uklad" && req.method === "GET") {
           const raw = fs.existsSync(layoutFile)
             ? fs.readFileSync(layoutFile, "utf8")
-            : "{}\n";
+            : "{}";
+          let payload = raw;
+          try {
+            const layout = normalizeLayout(JSON.parse(raw));
+            delete layout["/dla-rodzicow"];
+            payload = JSON.stringify(layout);
+          } catch {
+            payload = raw;
+          }
           res.setHeader("Content-Type", "application/json");
-          res.end(raw);
+          res.end(payload);
           return;
         }
         if (pathname !== "/__uklad" || req.method !== "POST") {

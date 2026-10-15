@@ -13,14 +13,14 @@ export function SavedLayout() {
   });
 
   useEffect(() => {
-    if (!import.meta.env.DEV) return;
+    if (!import.meta.env.DEV || pathname === "/dla-rodzicow") return;
     void fetch("/__uklad")
       .then(async (response) => {
         if (!response.ok) return;
         setStore(normalizeLayout(await response.json()));
       })
       .catch(() => {});
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const run = () => {
