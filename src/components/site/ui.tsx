@@ -40,6 +40,7 @@ export function RevealStaggerList({
   stagger = 480,
   innerStagger = 560,
   motion = "up",
+  whenVisible = "list",
   children,
 }: {
   className?: string;
@@ -48,12 +49,29 @@ export function RevealStaggerList({
   /** Przy `text-then-arrow`: opóźnienie strzałki względem tekstu w wierszu (ms). */
   innerStagger?: number;
   motion?: "up" | "text-then-arrow";
+  /** `arrived` — sekwencja startuje dopiero, gdy lista dojedzie w pole widzenia. */
+  whenVisible?: "list" | "arrived";
   children: ReactNode;
 }) {
   const ref = useRef<HTMLUListElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (whenVisible === "arrived") {
+      const start = () => {
+        if (el.getBoundingClientRect().top > window.innerHeight * 0.72) return;
+        el.classList.add("is-visible");
+        window.removeEventListener("scroll", start);
+        window.removeEventListener("resize", start);
+      };
+      start();
+      window.addEventListener("scroll", start, { passive: true });
+      window.addEventListener("resize", start);
+      return () => {
+        window.removeEventListener("scroll", start);
+        window.removeEventListener("resize", start);
+      };
+    }
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting) {
@@ -65,12 +83,13 @@ export function RevealStaggerList({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [whenVisible]);
   return (
     <ul
       ref={ref}
       className={cn(
         "reveal-stagger",
+        whenVisible === "arrived" && "reveal-stagger-arrived",
         motion === "text-then-arrow" && "reveal-stagger-text-then-arrow",
         className,
       )}
@@ -108,15 +127,30 @@ export function ButtonLink({
   className,
 }: BtnProps & { to: string; hash?: string }) {
   return (
-    <Link to={to} {...(hash ? { hash } : {})} className={cn(base, variants[variant], className)}>
+    <Link
+      to={to}
+      resetScroll={!hash}
+      {...(hash ? { hash } : {})}
+      className={cn(base, variants[variant], className)}
+    >
       {children}
     </Link>
   );
 }
 
-export function ButtonA({ href, children, variant = "primary", className }: BtnProps & { href: string }) {
+export function ButtonA({
+  href,
+  children,
+  variant = "primary",
+  className,
+  download,
+}: BtnProps & { href: string; download?: string }) {
   return (
-    <a href={href} className={cn(base, variants[variant], className)}>
+    <a
+      href={href}
+      {...(download ? { download } : {})}
+      className={cn(base, variants[variant], className)}
+    >
       {children}
     </a>
   );

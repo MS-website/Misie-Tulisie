@@ -116,7 +116,7 @@ export function Foundations() {
               dziecka do:
             </p>
           </Reveal>
-          <RevealStaggerList className="mt-10" stagger={820}>
+          <RevealStaggerList className="mt-10" stagger={820} whenVisible="arrived">
             {rights.map((item, i) => (
               <li
                 key={item}
@@ -170,6 +170,7 @@ export function WhyMisie() {
             className="mt-12 border-b border-border"
             innerStagger={800}
             motion="text-then-arrow"
+            whenVisible="arrived"
           >
             {reasons.map((item) => (
               <li

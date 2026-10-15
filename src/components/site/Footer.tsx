@@ -27,7 +27,7 @@ export function Footer() {
           <ul className="space-y-3 text-sm">
             {nav.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="link-underline">
+                <Link to={n.to} resetScroll className="link-underline">
                   {n.label}
                 </Link>
               </li>

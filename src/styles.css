@@ -95,6 +95,7 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-anchor: none;
   }
   body {
     background-color: var(--color-background);
@@ -218,6 +219,28 @@ body[data-frame="formularz"] .container-site {
   opacity: 1;
   transform: none;
 }
+.reveal-stagger.reveal-stagger-by-item > li.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li {
+  opacity: 1;
+  transform: none;
+}
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li > span,
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li > img {
+  transition-delay: 0ms;
+}
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li.is-visible > span {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0ms;
+}
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li.is-visible > img {
+  opacity: 1;
+  margin-left: 0;
+  transition-delay: var(--reveal-stagger-inner);
+}
 .reveal-stagger.reveal-stagger-text-then-arrow > li {
   opacity: 1;
   transform: none;
@@ -296,6 +319,11 @@ body[data-frame="formularz"] .container-site {
 .reveal-stagger.reveal-stagger-text-then-arrow.is-visible > li > img {
   opacity: 1;
   margin-left: 0;
+}
+.reveal-stagger.reveal-stagger-by-item > li,
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li > span,
+.reveal-stagger.reveal-stagger-by-item.reveal-stagger-text-then-arrow > li > img {
+  transition-delay: 0ms;
 }
 .gallery-frame {
   position: relative;
@@ -479,12 +507,21 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
     width: 2.35rem;
   }
 }
+/* Adres w kroku rekrutacji zostaje w linii z „ją na adres e-mail:”, gdy kolumna jest dość szeroka. */
+@container (min-width: 18.75rem) {
+  .mail-same-line {
+    white-space: nowrap;
+    letter-spacing: -0.06em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
   }
-  .reveal-stagger > li {
+  .reveal-stagger > li,
+  .reveal-stagger.reveal-stagger-by-item > li.is-visible {
     opacity: 1;
     transform: none;
     transition: none;

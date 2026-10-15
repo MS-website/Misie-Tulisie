@@ -1,8 +1,7 @@
 import { useLayoutEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { seo } from "@/lib/site";
-import { Reveal } from "@/components/site/ui";
-import { RecruitmentForm } from "@/components/site/RecruitmentForm";
+import { ButtonA, Reveal } from "@/components/site/ui";
 
 function FormularzPage() {
   useLayoutEffect(() => {
@@ -24,7 +23,16 @@ function FormularzPage() {
       </section>
       <section className="container-site pb-6 md:pb-8">
         <Reveal>
-          <RecruitmentForm />
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
+            Kartę zgłoszenia dziecka pobierzecie Państwo w pliku PDF.
+          </p>
+          <ButtonA
+            href="/karta-zgloszenia-dziecka.pdf"
+            download="karta-zgloszenia-dziecka.pdf"
+            className="mt-8"
+          >
+            Pobierz kartę zgłoszenia
+          </ButtonA>
         </Reveal>
       </section>
     </>
@@ -35,7 +43,7 @@ export const Route = createFileRoute("/formularz-rekrutacyjny")({
   head: () => ({
     meta: seo(
       "Formularz rekrutacyjny | Żłobek Misie Tulisie Gniezno",
-      "Formularz rekrutacyjny do żłobka Misie Tulisie w Gnieźnie.",
+      "Karta zgłoszenia dziecka do żłobka Misie Tulisie w Gnieźnie — plik PDF do pobrania.",
     ),
   }),
   component: FormularzPage,

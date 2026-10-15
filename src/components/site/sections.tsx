@@ -452,22 +452,33 @@ export function RecruitmentRules() {
 /* ---------- RECRUITMENT STEPS ---------- */
 const recruitmentSteps = [
   {
-    title: "Wypełnienie formularza rekrutacyjnego",
+    title: "Pobranie karty zgłoszenia",
     body: (
       <>
         <p>
-          Pierwszym etapem rekrutacji jest wypełnienie{" "}
-          <Link
-            to="/formularz-rekrutacyjny"
+          Pierwszym etapem rekrutacji jest pobranie{" "}
+          <a
+            href="/karta-zgloszenia-dziecka.pdf"
+            download="karta-zgloszenia-dziecka.pdf"
             className="font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey"
           >
-            formularza rekrutacyjnego
-          </Link>
+            karty zgłoszenia dziecka
+          </a>
           .
         </p>
-        <p>
-          Po kliknięciu w powyższy link zostaną Państwo przekierowani do formularza, w którym należy
-          podać podstawowe informacje o dziecku oraz preferencjach dotyczących opieki.
+        <p className="@container">
+          W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje
+          dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną
+          powyżej i prześlij{" "}
+          <span className="mail-same-line">
+            ją na adres e-mail:{" "}
+            <a
+              href="mailto:zlobekmisietulisie@onet.pl"
+              className="font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey"
+            >
+              zlobekmisietulisie@onet.pl
+            </a>
+          </span>
         </p>
       </>
     ),
@@ -476,7 +487,7 @@ const recruitmentSteps = [
     title: "Kontakt ze strony placówki",
     body: (
       <p>
-        Po otrzymaniu zgłoszenia, placówka zapozna się z formularzem i skontaktuje się
+        Po otrzymaniu uzupełnionej karty placówka zapozna się z nią i skontaktuje się
         z Państwem, aby omówić dalsze kroki rekrutacji.
       </p>
     ),

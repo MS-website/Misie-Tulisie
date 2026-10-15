@@ -13,6 +13,24 @@ const layoutFile = path.resolve(
   "src/uklad.json",
 );
 
+function enrollmentCardDownload(): Plugin {
+  return {
+    name: "enrollment-card-download",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathname = req.url?.split("?")[0];
+        if (pathname === "/karta-zgloszenia-dziecka.pdf") {
+          res.setHeader(
+            "Content-Disposition",
+            'attachment; filename="karta-zgloszenia-dziecka.pdf"',
+          );
+        }
+        next();
+      });
+    },
+  };
+}
+
 function layoutSavePlugin(): Plugin {
   return {
     name: "uklad-save",
@@ -94,6 +112,7 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   plugins: [
+    enrollmentCardDownload(),
     layoutSavePlugin(),
     devFaviconCacheReset(),
     tailwindcss(),

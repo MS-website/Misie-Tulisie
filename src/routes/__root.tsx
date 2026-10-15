@@ -12,6 +12,7 @@ import { useEffect, useState, type ComponentType, type ReactNode } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { RouteScrollReset } from "@/components/site/RouteScrollReset";
 import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import appCss from "../styles.css?url";
 
@@ -231,6 +232,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <RouteScrollReset />
       <FaviconProbe />
       <Header />
       <main className="min-w-0">

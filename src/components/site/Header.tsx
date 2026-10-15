@@ -9,6 +9,7 @@ export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
   return (
     <Link
       to="/"
+      resetScroll
       className="flex items-center gap-3"
       aria-label="Misie Tulisie — strona główna"
     >
@@ -61,6 +62,7 @@ export function Header() {
             <Link
               key={n.to}
               to={n.to}
+              resetScroll
               className="link-underline text-[0.9375rem] text-foreground/80 hover:text-foreground md:text-base"
               activeProps={{ className: "text-foreground" }}
             >
@@ -108,6 +110,7 @@ export function Header() {
               <Link
                 key={n.to}
                 to={n.to}
+                resetScroll
                 onClick={() => setOpen(false)}
                 className="font-display border-b border-border py-4 text-4xl transition-all duration-700"
                 style={{
