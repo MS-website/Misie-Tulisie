@@ -41,8 +41,9 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
-const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
-const PARENTS_LAYOUT_ZERO_KEY = "misie-uklad-zero-dla-rodzicow-v1";
+const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v8";
+const PARENTS_LAYOUT_ZERO_KEY = "misie-uklad-zero-dla-rodzicow-v2";
+const PARENTS_LAYOUT_BLOCKED = "/dla-rodzicow";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
@@ -82,7 +83,17 @@ function loadStore(): Store {
 }
 
 function layoutStore(): Store {
-  return mergeStores(publishedLayout, loadStore());
+  const store = mergeStores(publishedLayout, loadStore());
+  delete store[PARENTS_LAYOUT_BLOCKED];
+  return store;
+}
+
+function purgeParentsFromLocalStore() {
+  const store = loadStore();
+  if (!store[PARENTS_LAYOUT_BLOCKED]) return false;
+  delete store[PARENTS_LAYOUT_BLOCKED];
+  saveStore(store);
+  return true;
 }
 
 function saveStore(store: Store) {
@@ -179,34 +190,28 @@ function resetHomeCardFillOnce() {
   saveStore(store);
 }
 
-function stripParentsOffsets(page: PageLayout | undefined) {
-  if (!page) return;
-  delete page.sm;
-  delete page.md;
-  delete page.lg;
-  delete page.text;
-}
-
 function resetParentsLayoutZeroOnce() {
-  if (localStorage.getItem(PARENTS_LAYOUT_ZERO_KEY)) return false;
-  const store = loadStore();
-  const page = store["/dla-rodzicow"];
-  const hadOffsets = Boolean(page?.sm || page?.md || page?.lg || page?.text);
-  localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
-  stripParentsOffsets(page);
-  if (page && Object.keys(page).length === 0) delete store["/dla-rodzicow"];
-  saveStore(store);
+  const hadOffsets = purgeParentsFromLocalStore();
   const history = loadHistory();
+  let historyChanged = false;
   for (const entry of history) {
-    stripParentsOffsets(entry["/dla-rodzicow"]);
-    const cleared = entry["/dla-rodzicow"];
-    if (cleared && Object.keys(cleared).length === 0) delete entry["/dla-rodzicow"];
+    if (!entry["/dla-rodzicow"]) continue;
+    delete entry["/dla-rodzicow"];
+    historyChanged = true;
   }
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-  if (hadOffsets && window.location.pathname === "/dla-rodzicow") {
+  if (historyChanged) {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  }
+  if (
+    hadOffsets &&
+    !localStorage.getItem(PARENTS_LAYOUT_ZERO_KEY) &&
+    window.location.pathname === "/dla-rodzicow"
+  ) {
+    localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
     window.location.reload();
     return true;
   }
+  localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
   return false;
 }
 
@@ -305,6 +310,7 @@ function colorHeroWordOnce() {
 }
 
 if (typeof window !== "undefined") {
+  purgeParentsFromLocalStore();
   resetParentsLayoutZeroOnce();
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
@@ -478,6 +484,7 @@ function writeBox(
   selector: string,
   patch: BoxPatch,
 ) {
+  if (pathname === PARENTS_LAYOUT_BLOCKED) return;
   rememberHistory();
   const store = loadStore();
   const page: PageLayout = store[pathname] ?? {};
@@ -647,6 +654,7 @@ function writeText(
   html: string,
   originalHtml: string,
 ) {
+  if (pathname === PARENTS_LAYOUT_BLOCKED) return;
   rememberHistory();
   const store = loadStore();
   const page: PageLayout = store[pathname] ?? {};

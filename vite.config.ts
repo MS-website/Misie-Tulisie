@@ -49,6 +49,7 @@ function layoutSavePlugin(): Plugin {
             const layout = normalizeLayout(
               JSON.parse(Buffer.concat(chunks).toString("utf8")),
             );
+            delete layout["/dla-rodzicow"];
             fs.writeFileSync(
               layoutFile,
               `${JSON.stringify(layout, null, 2)}\n`,

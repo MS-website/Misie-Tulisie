@@ -26,7 +26,7 @@ export function SavedLayout() {
     const run = () => {
       const size = sizeForWidth(window.innerWidth);
       applyLayout(document, pathname, size, store);
-      applyTheme(document, pathname, store);
+      if (pathname !== "/dla-rodzicow") applyTheme(document, pathname, store);
     };
     run();
     const later = window.setTimeout(run, 80);

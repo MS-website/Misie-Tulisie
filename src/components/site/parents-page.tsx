@@ -361,9 +361,9 @@ export function ParentsPageSections() {
     <>
       <section
         id="oplaty"
-        className="scroll-mt-24 border-b border-border/60 bg-background pt-8 pb-20 md:pt-12 md:pb-28"
+        className="scroll-mt-24 border-b border-border/60 bg-background pb-20 md:pb-28"
       >
-        <div className="container-site min-w-0">
+        <div className="container-site min-w-0 pt-6 md:pt-8">
           <Reveal>
             <h2 className="font-display max-w-3xl text-4xl md:text-5xl lg:text-6xl">
               Przejrzyste informacje o kosztach
@@ -375,31 +375,17 @@ export function ParentsPageSections() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid items-start gap-x-10 gap-y-12 lg:grid-cols-12 lg:gap-x-14">
-            <Reveal className="lg:col-span-5">
-              <p className="eyebrow mb-5">Wyżywienie</p>
-              <Photo
-                src={wyzywienieGrupa}
-                alt="Dzieci przy wspólnym posiłku w żłobku"
-                className="aspect-[3/2] w-full"
-              />
-            </Reveal>
-            <Reveal className="lg:col-span-7" delay={80}>
-              <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
-                podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
-                obecności malucha w placówce. Misie Tulisie korzystają z
-                cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
-                Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
-              </p>
-              <img
-                src={oplatyInfografika}
-                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
-                className="mt-8 h-auto w-full"
-              />
-            </Reveal>
-
-            <Reveal className="space-y-14 lg:col-span-6">
+          <div className="mt-8 grid items-start gap-x-10 gap-y-10 lg:grid-cols-12 lg:gap-x-14">
+            <div className="space-y-10 lg:col-span-5">
+              <Reveal>
+                <p className="eyebrow mb-5">Wyżywienie</p>
+                <Photo
+                  src={wyzywienieGrupa}
+                  alt="Dzieci przy wspólnym posiłku w żłobku"
+                  className="aspect-[3/2] w-full"
+                />
+              </Reveal>
+              <Reveal className="space-y-10">
               <div>
                 <h3 className="font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
@@ -449,7 +435,23 @@ export function ParentsPageSections() {
                 </p>
               </div>
             </Reveal>
-            <Reveal className="lg:col-span-6" delay={80}>
+            </div>
+            <div className="space-y-10 lg:col-span-7">
+            <Reveal delay={80}>
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
+                podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
+                obecności malucha w placówce. Misie Tulisie korzystają z
+                cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
+                Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
+              </p>
+              <img
+                src={oplatyInfografika}
+                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
+                className="mt-6 h-auto w-full"
+              />
+            </Reveal>
+            <Reveal delay={80}>
               <div className="rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8">
                 <p className="text-sm font-semibold tracking-wide text-foreground">
                   „Aktywnie w żłobku” — pytania i odpowiedzi
@@ -461,6 +463,7 @@ export function ParentsPageSections() {
                 />
               </div>
             </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -525,7 +528,7 @@ export function ParentsPageSections() {
 
 export function ParentsPageIntro() {
   return (
-    <section className="container-site pt-40 pb-10 md:pt-52 md:pb-14">
+    <section className="container-site pt-24 pb-4 md:pt-28 md:pb-6">
       <Reveal>
         <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">
           Wszystko,{" "}
@@ -535,7 +538,7 @@ export function ParentsPageIntro() {
           Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy informacje,
           które pomagają spokojnie zaplanować pierwsze tygodnie w żłobku.
         </p>
-        <HoneyRule className="mt-12" />
+        <HoneyRule className="mt-8" />
       </Reveal>
     </section>
   );

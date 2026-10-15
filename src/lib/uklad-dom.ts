@@ -293,10 +293,34 @@ export function applyLayout(
   if (applying) return false;
   const main = doc.querySelector("main");
   if (!main) return false;
+  const previous = applied.get(doc) ?? new Set<string>();
+  if (pathname === "/dla-rodzicow") {
+    applying = true;
+    try {
+      for (const selector of previous) {
+        const el = main.querySelector(selector);
+        if (isHtmlElement(el)) clearBox(el);
+      }
+      for (const node of main.querySelectorAll("*")) {
+        if (!isHtmlElement(node)) continue;
+        if (
+          node.style.translate ||
+          node.dataset["layoutPosition"] ||
+          node.dataset["layoutDisplay"] ||
+          node.dataset["layoutHidden"]
+        ) {
+          clearBox(node);
+        }
+      }
+      applied.set(doc, new Set());
+      return false;
+    } finally {
+      applying = false;
+    }
+  }
   const page = store[pathname];
   const boxes = page?.[size] ?? {};
   const texts = page?.text ?? {};
-  const previous = applied.get(doc) ?? new Set<string>();
   let normalized = false;
   applying = true;
   try {
