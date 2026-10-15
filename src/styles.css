@@ -326,8 +326,6 @@ body[data-frame="formularz"] .container-site {
 }
 body[data-layout-editing="1"] .parents-green-rule-hit {
   cursor: grab;
-  outline: 1px dashed oklch(0.52 0.12 145 / 40%);
-  outline-offset: 2px;
 }
 .parents-green-rule-bar {
   display: block;
