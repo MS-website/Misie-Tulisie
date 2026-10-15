@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useState } from "react";
 import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
-import rytmDniaMisiePrzytulenie from "@/assets/rytm-dnia-misie-przytulenie.png";
+import planDniaHarmonogram from "@/assets/plan-dnia-harmonogram.png";
+import planDniaMisie from "@/assets/plan-dnia-misie.png";
+import planDniaTlo from "@/assets/plan-dnia-tlo.jpg";
 import wyprawkaMisTorba from "@/assets/wyprawka-mis-torba.jpg";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
 import { Eyebrow, Photo, Reveal } from "./ui";
@@ -162,199 +164,8 @@ function HoneyRule({ className }: { className?: string }) {
   );
 }
 
-type DayIconName =
-  | "sunrise"
-  | "bowl"
-  | "wash"
-  | "blocks"
-  | "soup"
-  | "play"
-  | "plate"
-  | "sleep"
-  | "apple"
-  | "book";
-
-const DAY_PLAN: { time: string; icon: DayIconName; label: string }[] = [
-  { time: "7:00–8:00", icon: "sunrise", label: "Zaczynamy dzień w Misiach Tulisiach" },
-  { time: "8:00–8:30", icon: "bowl", label: "Śniadanko" },
-  { time: "8:30–9:00", icon: "wash", label: "Mycie rączek i ząbków" },
-  { time: "9:00–10:00", icon: "blocks", label: "Zajęcia grupowe" },
-  { time: "10:00–10:30", icon: "soup", label: "Zupka" },
-  { time: "10:30–11:00", icon: "wash", label: "Mycie rączek i ząbków" },
-  {
-    time: "11:00–12:30",
-    icon: "play",
-    label: "Wyjście na plac zabaw (w okresie zimowym uzależnione od pogody)",
-  },
-  { time: "12:30–13:00", icon: "plate", label: "Obiadek" },
-  { time: "13:00–13:30", icon: "wash", label: "Mycie rączek i ząbków" },
-  { time: "13:30–15:00", icon: "sleep", label: "Leżakowanie" },
-  { time: "15:00–15:30", icon: "apple", label: "Podwieczorek" },
-  {
-    time: "15:30–17:00",
-    icon: "book",
-    label: "Wspólne zabawy, czytanki, oczekiwanie na rodziców",
-  },
-];
-
-function DayIcon({ name }: { name: DayIconName }) {
-  const props = {
-    viewBox: "0 0 32 32",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.6,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true as const,
-    className: "h-7 w-7 shrink-0",
-  };
-  if (name === "sunrise") {
-    return (
-      <svg {...props}>
-        <path d="M6 22h20" />
-        <path d="M9 22a7 7 0 0 1 14 0" />
-        <path d="M16 7v3.5" />
-        <path d="M8.5 11.5 11 14" />
-        <path d="M23.5 11.5 21 14" />
-      </svg>
-    );
-  }
-  if (name === "bowl") {
-    return (
-      <svg {...props}>
-        <path d="M7 14h18" />
-        <path d="M8.5 14c.6 6 3 9 7.5 9s6.9-3 7.5-9" />
-        <path d="M21 11c2.2.4 3.8 2 4.2 4.2" />
-      </svg>
-    );
-  }
-  if (name === "wash") {
-    return (
-      <svg {...props}>
-        <path d="M9 7.5c1.8 2.4 1.8 4.2 0 6.4-1.8-2.2-1.8-4 0-6.4Z" />
-        <path d="M14 22.5 23 12" />
-        <path d="M21.2 10.2h4.2" />
-        <path d="M21.6 12.2h3.4" />
-        <path d="M22 14.2h2.6" />
-      </svg>
-    );
-  }
-  if (name === "blocks") {
-    return (
-      <svg {...props}>
-        <path d="M6.5 15.5h9v9h-9z" />
-        <path d="M16.5 8.5h9v9h-9z" />
-        <path d="M16.5 13h9" />
-        <path d="M21 8.5v9" />
-      </svg>
-    );
-  }
-  if (name === "soup") {
-    return (
-      <svg {...props}>
-        <path d="M7 16h18" />
-        <path d="M9 16c.5 5.5 2.6 8.5 7 8.5s6.5-3 7-8.5" />
-        <path d="M12.5 12c.7-1.4-.2-2.6.4-4" />
-        <path d="M18 12c.7-1.4-.2-2.6.4-4" />
-      </svg>
-    );
-  }
-  if (name === "play") {
-    return (
-      <svg {...props}>
-        <path d="M8 24V15" />
-        <path d="M8 15c-2.4.2-4 2-3.2 4.2h6.4C12.2 17 10.4 15.2 8 15Z" />
-        <path d="M20 24V11" />
-        <path d="M20 11c-3.2.2-5.4 2.6-4.2 5.6h8.4C24.8 13.6 23.2 11.2 20 11Z" />
-        <path d="M5 24h22" />
-      </svg>
-    );
-  }
-  if (name === "plate") {
-    return (
-      <svg {...props}>
-        <circle cx="15" cy="17" r="7.5" />
-        <path d="M11.5 17.5c1.2-2.2 5.8-2.2 7 0" />
-        <path d="M24 11v8" />
-        <path d="M24 11c1.4 0 2.4 1 2.4 2.2S25.4 15.4 24 15.4" />
-      </svg>
-    );
-  }
-  if (name === "sleep") {
-    return (
-      <svg {...props}>
-        <circle cx="11" cy="12.5" r="2" />
-        <circle cx="19.5" cy="11.5" r="2.3" />
-        <circle cx="15.5" cy="18" r="6.2" />
-        <path d="M13 18.2c.7.7 1.5.7 2.1 0" />
-        <path d="M17.2 18c.6.7 1.4.7 2 0" />
-        <path d="M23 8h3.2" />
-        <path d="M24.6 8 23 10.4h3.2" />
-      </svg>
-    );
-  }
-  if (name === "apple") {
-    return (
-      <svg {...props}>
-        <path d="M16 12.5c-3.8.2-6.5 3.2-6.5 7 0 3.4 2.4 5.8 6.5 5.8s6.5-2.4 6.5-5.8c0-3.8-2.7-6.8-6.5-7Z" />
-        <path d="M16 12.5c.2-2.4 1.4-4 3.6-4.6" />
-        <path d="M16.4 12.2c1.2-1.6 2.8-2 4-1.6" />
-      </svg>
-    );
-  }
-  return (
-    <svg {...props}>
-      <path d="M6.5 9.5h8.2c1.3 0 2.3.6 2.8 1.6.5-1 1.5-1.6 2.8-1.6H27v13.2h-6.7c-1.2 0-2.2.5-2.8 1.3-.6-.8-1.6-1.3-2.8-1.3H6.5V9.5Z" />
-      <path d="M17.5 11.1v13" />
-    </svg>
-  );
-}
-
-function DayRhythm({ className }: { className?: string }) {
-  const ref = useRef<HTMLOListElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      el.classList.add("is-visible");
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0]?.isIntersecting) return;
-        el.classList.add("is-visible");
-        io.disconnect();
-      },
-      { threshold: 0.18 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return (
-    <ol ref={ref} className={cn("day-rhythm", className)} aria-label="Plan dnia">
-      {DAY_PLAN.map((item, index) => {
-        const tone = index % 2 === 0 ? "day-rhythm-olive" : "day-rhythm-clay";
-        return (
-          <li
-            key={item.time}
-            className="day-rhythm-row"
-            style={{ "--day-i": index } as CSSProperties}
-          >
-            <span className="day-rhythm-time">{item.time}</span>
-            <span className="day-rhythm-rail" aria-hidden="true">
-              <span className={cn("day-rhythm-dot", tone)} />
-            </span>
-            <span className={cn("day-rhythm-icon", tone)} aria-hidden="true">
-              <DayIcon name={item.icon} />
-            </span>
-            <span className="day-rhythm-label">{item.label}</span>
-          </li>
-        );
-      })}
-    </ol>
-  );
-}
+const PLAN_DNIA_HARMONOGRAM_ALT =
+  "Harmonogram dnia: 7:00–8:00 zaczynamy dzień, 8:00–8:30 śniadanko, 8:30–9:00 mycie rączek i ząbków, 9:00–10:00 zajęcia grupowe, 10:00–10:30 zupka, 10:30–11:00 mycie rączek i ząbków, 11:00–12:30 plac zabaw, 12:30–13:00 obiadek, 13:00–13:30 mycie rączek i ząbków, 13:30–15:00 leżakowanie, 15:00–15:30 podwieczorek, 15:30–17:00 wspólne zabawy i oczekiwanie na rodziców.";
 
 export function ParentsPageSections() {
   return (
@@ -486,27 +297,53 @@ export function ParentsPageSections() {
 
       <section
         id="plan-dnia"
-        className="scroll-mt-24 bg-[oklch(0.97_0.014_88)] py-20 md:py-28"
+        data-parents-plan-dnia="assets-v1"
+        className="plan-dnia-section scroll-mt-24 py-14 md:py-20 lg:py-24"
       >
-        <div className="container-site min-w-0">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-            <Reveal className="lg:col-span-4">
-              <Eyebrow>Plan dnia</Eyebrow>
-              <h2 className="font-display text-4xl md:text-5xl">
+        <div className="plan-dnia-section-bg" aria-hidden="true">
+          <img
+            src={planDniaTlo}
+            alt=""
+            width={1024}
+            height={539}
+            className="h-full w-full object-cover"
+            decoding="async"
+          />
+        </div>
+        <div className="container-site relative min-w-0">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
+            <Reveal className="lg:col-span-5">
+              <p className="eyebrow mb-6 text-[oklch(0.58_0.14_18)]">Plan dnia</p>
+              <h2 className="font-display max-w-md text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
                 Rytm dnia w Misiach Tulisiach
               </h2>
-              <p className="mt-6 max-w-sm leading-relaxed text-muted-foreground">
+              <p className="mt-6 max-w-sm text-base leading-relaxed text-muted-foreground md:text-lg">
                 Przewidywalny plan pomaga dzieciom czuć się bezpiecznie, a
                 rodzice zawsze wiedzą, co aktualnie robi ich pociecha.
               </p>
-              <Photo
-                src={rytmDniaMisiePrzytulenie}
-                alt="Przytulone misie — ilustracja do sekcji o rytmie dnia"
-                fit="contain"
-                className="mt-8 w-full max-w-xs"
-              />
+              <div className="plan-dnia-misie-stage mx-auto mt-8 max-w-md lg:mx-0 lg:mt-10">
+                <img
+                  src={planDniaMisie}
+                  alt="Przytulone misie z zabawkami — ilustracja do planu dnia"
+                  width={1024}
+                  height={682}
+                  className="h-full w-full object-contain object-bottom"
+                  decoding="async"
+                />
+              </div>
             </Reveal>
-            <DayRhythm className="min-w-0 lg:col-span-7 lg:col-start-6" />
+            <Reveal delay={80} className="min-w-0 lg:col-span-7">
+              <div className="plan-dnia-schedule-card">
+                <img
+                  src={planDniaHarmonogram}
+                  alt={PLAN_DNIA_HARMONOGRAM_ALT}
+                  width={819}
+                  height={672}
+                  className="h-auto w-full"
+                  decoding="async"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
