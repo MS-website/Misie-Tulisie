@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
-import story from "@/assets/story.jpg";
+import storyZabawaKlockami from "@/assets/story-zabawa-klockami.jpg";
 import play from "@/assets/play.jpg";
 import int1 from "@/assets/interior-1.jpg";
 import int2 from "@/assets/interior-2.jpg";
@@ -90,7 +90,11 @@ export function Story({ cta = true }: { cta?: boolean }) {
     <section className="bg-secondary/70 py-24 md:py-36">
       <div className="container-site grid items-center gap-14 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
-          <Photo src={story} alt="Dziecko stawia pierwsze kroki trzymając dorosłego za rękę" className="aspect-[4/5]" />
+          <Photo
+            src={storyZabawaKlockami}
+            alt="Maluch bawi się drewnianymi klockami w jasnej sali żłobkowej"
+            className="aspect-[4/5]"
+          />
         </Reveal>
         <div className="lg:col-span-6 lg:col-start-7">
           <Reveal>
