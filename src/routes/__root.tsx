@@ -12,6 +12,7 @@ import { useEffect, useState, type ComponentType, type ReactNode } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import appCss from "../styles.css?url";
 
 const FAVICON_PNG = "/brand-icon.png?v=2";
@@ -210,13 +211,18 @@ function DevLayoutEditor() {
     typeof window !== "undefined" && window.name === "podglad";
 
   useEffect(() => {
-    if (!import.meta.env.DEV || previewFrame) return;
+    if (
+      !UKLAD_MANUAL_EDITOR_ENABLED ||
+      !import.meta.env.DEV ||
+      previewFrame
+    )
+      return;
     void import("@/components/site/LayoutEditor").then((mod) => {
       setTool(() => mod.LayoutEditor);
     });
   }, [previewFrame]);
 
-  if (previewFrame || !Tool) return null;
+  if (!UKLAD_MANUAL_EDITOR_ENABLED || previewFrame || !Tool) return null;
   return <Tool />;
 }
 
