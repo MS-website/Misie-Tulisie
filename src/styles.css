@@ -349,17 +349,6 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   z-index: 0;
   pointer-events: none;
 }
-.plan-dnia-section-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    oklch(0.99 0.012 18 / 88%) 0%,
-    oklch(0.99 0.01 18 / 52%) 42%,
-    oklch(0.99 0.008 18 / 28%) 100%
-  );
-}
 .plan-dnia-section > .container-site {
   position: relative;
   z-index: 1;
