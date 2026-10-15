@@ -206,6 +206,64 @@
     }
   },
   "/dla-rodzicow": {
+    "sm": {
+      "section:nth-of-type(2)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -168
+      },
+      "section:nth-of-type(3)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 64,
+        "paddingBottom": 96,
+        "marginTop": -192,
+        "marginBottom": 0
+      },
+      "section:nth-of-type(4)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 40,
+        "paddingBottom": 0,
+        "marginTop": 0,
+        "marginBottom": -8
+      }
+    },
+    "md": {
+      "section:nth-of-type(2)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 0,
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -168
+      },
+      "section:nth-of-type(3)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 64,
+        "paddingBottom": 96,
+        "marginTop": -192,
+        "marginBottom": 0
+      },
+      "section:nth-of-type(4)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "paddingTop": 40,
+        "paddingBottom": 0,
+        "marginTop": 0,
+        "marginBottom": -8
+      }
+    },
     "lg": {
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
         "x": 200,
@@ -213,8 +271,8 @@
         "z": 2
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": 62,
+        "x": -6,
+        "y": 67,
         "z": 2
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
@@ -223,9 +281,13 @@
         "z": 2
       },
       "section:nth-of-type(4)": {
-        "x": 2,
-        "y": -24,
-        "z": 2
+        "x": 5,
+        "y": -71,
+        "z": 2,
+        "paddingTop": 40,
+        "paddingBottom": 0,
+        "marginTop": 0,
+        "marginBottom": -8
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
         "x": 275,
@@ -258,18 +320,23 @@
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
         "y": -88,
-        "z": 0
+        "z": 0,
+        "width": 650
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "x": 0,
-        "y": -56,
-        "z": 0
+        "x": -3,
+        "y": -83,
+        "z": 2,
+        "width": 1108
       },
       "section:nth-of-type(2)": {
-        "x": 0,
-        "y": -224,
-        "z": 0,
-        "paddingBottom": 72
+        "x": -5,
+        "y": 64,
+        "z": 2,
+        "paddingTop": 0,
+        "paddingBottom": 0,
+        "marginTop": -128,
+        "marginBottom": -168
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 0,
@@ -277,14 +344,15 @@
         "z": 0
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "x": 0,
-        "y": -48,
-        "z": 0
+        "x": 1,
+        "y": -93,
+        "z": 2,
+        "width": 880
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 0,
-        "y": -28,
-        "z": 0
+        "x": 6,
+        "y": -94,
+        "z": 2
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)": {
         "x": 0,
@@ -292,11 +360,85 @@
         "z": 0
       },
       "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 0,
-        "marginTop": -192
+        "x": 4,
+        "y": -72,
+        "z": 2,
+        "paddingTop": 64,
+        "paddingBottom": 96,
+        "marginTop": -192,
+        "marginBottom": 0
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 27,
+        "y": -328,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1)": {
+        "x": 6,
+        "y": -126,
+        "z": 2,
+        "width": 536,
+        "height": 269
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(1)": {
+        "x": 585,
+        "y": -361,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > p:nth-of-type(2)": {
+        "x": 582,
+        "y": -353,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)": {
+        "x": -8,
+        "y": -320,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)": {
+        "x": 3,
+        "y": -298,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 4,
+        "y": -292,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
+        "x": 26,
+        "y": -293,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
+        "x": 27,
+        "y": -293,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
+        "x": 26,
+        "y": -292,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": -6,
+        "y": -278,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1)": {
+        "x": -43,
+        "y": -353,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": -44,
+        "y": -351,
+        "z": 2
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(3) > p:nth-of-type(1)": {
+        "x": -13,
+        "y": -378,
+        "z": 2
       }
     },
     "text": {
@@ -1277,8 +1419,8 @@
         "originalHtml": "Nasze opiekunki z troską i uważnością wspierają maluchy w codziennym rozwoju, wykorzystując ich naturalną ciekawość i chęć poznawania otaczającego świata."
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)": {
-        "html": "Ciepło, spokój i uważność ...",
-        "originalHtml": "Ciepło, spokój i uważność."
+        "html": "Ciepło, spokój i uważność",
+        "originalHtml": "Ciepło, spokój i uważność ..."
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "html": "Żłobek to coś więcej niż opieka",

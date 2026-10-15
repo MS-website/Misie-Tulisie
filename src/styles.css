@@ -311,6 +311,124 @@ body[data-frame="formularz"] .container-site {
   position: relative;
   z-index: 3;
 }
+.day-rhythm {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.day-rhythm-row {
+  display: grid;
+  grid-template-columns: 6.9rem 0.85rem 1.75rem minmax(0, 1fr);
+  column-gap: 0.7rem;
+  align-items: center;
+  min-width: 0;
+  border-radius: 0.85rem;
+  padding: 0.4rem 0.15rem;
+  opacity: 0;
+  transform: translateX(12px);
+  transition:
+    opacity 0.6s var(--ease-calm),
+    transform 0.6s var(--ease-calm);
+  transition-delay: calc(var(--day-i) * 70ms);
+}
+.day-rhythm.is-visible .day-rhythm-row {
+  opacity: 1;
+  transform: none;
+}
+.day-rhythm-time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--foreground);
+}
+.day-rhythm-rail {
+  position: relative;
+  align-self: stretch;
+  min-height: 2.4rem;
+}
+.day-rhythm-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: calc(100% + 0.2rem);
+  border-left: 1px dashed oklch(0.55 0.03 70 / 55%);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.55s var(--ease-calm);
+  transition-delay: calc(var(--day-i) * 70ms);
+}
+.day-rhythm li:last-child .day-rhythm-rail::before {
+  content: none;
+}
+.day-rhythm.is-visible .day-rhythm-rail::before {
+  transform: scaleY(1);
+}
+.day-rhythm-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition:
+    opacity 0.45s var(--ease-calm),
+    transform 0.45s var(--ease-calm);
+  transition-delay: calc(var(--day-i) * 70ms);
+}
+.day-rhythm.is-visible .day-rhythm-dot {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.day-rhythm-olive {
+  color: oklch(0.48 0.06 145);
+}
+.day-rhythm-dot.day-rhythm-olive {
+  background: oklch(0.48 0.06 145);
+}
+.day-rhythm-clay {
+  color: oklch(0.58 0.09 52);
+}
+.day-rhythm-dot.day-rhythm-clay {
+  background: oklch(0.58 0.09 52);
+}
+.day-rhythm-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+.day-rhythm-label {
+  min-width: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--foreground);
+}
+@media (max-width: 30rem) {
+  .day-rhythm-row {
+    grid-template-columns: 6.15rem 0.7rem 1.55rem minmax(0, 1fr);
+    column-gap: 0.45rem;
+  }
+  .day-rhythm-time {
+    font-size: 0.82rem;
+  }
+  .day-rhythm-label {
+    font-size: 0.92rem;
+  }
+  .day-rhythm-icon svg {
+    height: 1.45rem;
+    width: 1.45rem;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -330,6 +448,19 @@ body[data-frame="formularz"] .container-site {
   }
   .gallery-frame,
   .gallery-frame:hover {
+    transform: none;
+  }
+  .day-rhythm-row,
+  .day-rhythm-dot,
+  .day-rhythm-rail::before {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .day-rhythm-dot {
+    transform: translate(-50%, -50%);
+  }
+  .day-rhythm-rail::before {
     transform: none;
   }
 }
