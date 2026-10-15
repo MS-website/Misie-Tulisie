@@ -42,6 +42,7 @@ const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
 const PARENTS_LAYOUT_RESET_KEY = "misie-uklad-reset-dla-rodzicow-v6";
+const PARENTS_LAYOUT_ZERO_KEY = "misie-uklad-zero-dla-rodzicow-v1";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
@@ -178,6 +179,37 @@ function resetHomeCardFillOnce() {
   saveStore(store);
 }
 
+function stripParentsOffsets(page: PageLayout | undefined) {
+  if (!page) return;
+  delete page.sm;
+  delete page.md;
+  delete page.lg;
+  delete page.text;
+}
+
+function resetParentsLayoutZeroOnce() {
+  if (localStorage.getItem(PARENTS_LAYOUT_ZERO_KEY)) return false;
+  const store = loadStore();
+  const page = store["/dla-rodzicow"];
+  const hadOffsets = Boolean(page?.sm || page?.md || page?.lg || page?.text);
+  localStorage.setItem(PARENTS_LAYOUT_ZERO_KEY, "1");
+  stripParentsOffsets(page);
+  if (page && Object.keys(page).length === 0) delete store["/dla-rodzicow"];
+  saveStore(store);
+  const history = loadHistory();
+  for (const entry of history) {
+    stripParentsOffsets(entry["/dla-rodzicow"]);
+    const cleared = entry["/dla-rodzicow"];
+    if (cleared && Object.keys(cleared).length === 0) delete entry["/dla-rodzicow"];
+  }
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  if (hadOffsets && window.location.pathname === "/dla-rodzicow") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
 function stripHomeOffsets(page: PageLayout | undefined) {
   if (!page) return;
   delete page.sm;
@@ -273,6 +305,7 @@ function colorHeroWordOnce() {
 }
 
 if (typeof window !== "undefined") {
+  resetParentsLayoutZeroOnce();
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
   colorHeroWordOnce();

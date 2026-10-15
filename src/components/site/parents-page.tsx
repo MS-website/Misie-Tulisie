@@ -123,7 +123,7 @@ function WyprawkaPdfDownload({ className }: { className?: string }) {
 
 function WyprawkaList() {
   return (
-    <ul className="mt-10 w-[calc(100%+1cm)] divide-y divide-border/70 border-y border-border/70">
+    <ul className="mt-8 divide-y divide-border/70 border-y border-border/70">
       {WYPRAWKA_ITEMS.map((item) => (
         <li key={item} className="flex gap-4 py-5 md:gap-5">
           <span
@@ -149,6 +149,15 @@ function WyprawkaPhoto({ className }: { className?: string }) {
         "mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-md lg:mx-0 lg:max-w-none",
         className,
       )}
+    />
+  );
+}
+
+function HoneyRule({ className }: { className?: string }) {
+  return (
+    <span
+      className={cn("block h-px w-[3cm] bg-honey", className)}
+      aria-hidden="true"
     />
   );
 }
@@ -352,99 +361,71 @@ export function ParentsPageSections() {
     <>
       <section
         id="oplaty"
-        className="scroll-mt-24 border-b border-border/60 bg-background py-20 md:py-28"
+        className="scroll-mt-24 border-b border-border/60 bg-background pt-8 pb-20 md:pt-12 md:pb-28"
       >
         <div className="container-site min-w-0">
           <Reveal>
-            <Eyebrow>Opłaty i dofinansowania</Eyebrow>
             <h2 className="font-display max-w-3xl text-4xl md:text-5xl lg:text-6xl">
               Przejrzyste informacje o kosztach
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
               Tu znajdziesz najważniejsze informacje o opłatach oraz
               świadczeniach, które przysługują rodzicom chcącym zapisać dziecko
               do naszego żłobka.
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">
-            <Reveal className="min-w-0 lg:col-span-7">
-              <img
-                src={oplatyInfografika}
-                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 22 zł za dzień stawki, kosmetyki i artykuły higieniczne 0 zł miesięcznie"
-                className="h-auto w-full"
-              />
-            </Reveal>
-            <Reveal
-              className="flex min-w-0 flex-col gap-4 lg:col-span-5 lg:row-start-1 lg:self-start"
-              delay={80}
-            >
+          <div className="mt-14 grid items-start gap-x-10 gap-y-12 lg:grid-cols-12 lg:gap-x-14">
+            <Reveal className="lg:col-span-5">
+              <p className="eyebrow mb-5">Wyżywienie</p>
               <Photo
                 src={wyzywienieGrupa}
                 alt="Dzieci przy wspólnym posiłku w żłobku"
-                fit="contain"
-                className="aspect-[2/1] w-full"
+                className="aspect-[3/2] w-full"
               />
             </Reveal>
-            <Reveal className="min-w-0 lg:col-span-12">
-              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Korzystając z obu przysługujących świadczeń, czesne w Misiach
-                Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do
-                żłobka.
-              </p>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <Reveal className="lg:col-span-7" delay={80}>
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
                 podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
                 obecności malucha w placówce. Misie Tulisie korzystają z
                 cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
                 Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
               </p>
+              <img
+                src={oplatyInfografika}
+                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
+                className="mt-8 h-auto w-full"
+              />
             </Reveal>
-          </div>
 
-          <div className="mt-10 space-y-16 md:mt-12 md:space-y-20">
-            <Reveal>
-              <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
-                <div className="min-w-0 lg:col-span-6">
-                  <h3 className="font-display text-3xl md:text-4xl">
-                    Rządowy program „Aktywny Rodzic”
-                  </h3>
-                  <div className="mt-4 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-                    <p>
-                      To rządowy program, który jest elementem reformy systemu
-                      wspierania opieki nad dziećmi do lat 3, wprowadzający trzy
-                      nowe świadczenia dla rodziców:
-                    </p>
-                    <ul className="list-disc space-y-2 pl-5">
-                      <li>„Aktywnie w żłobku”,</li>
-                      <li>„Aktywnie w domu”,</li>
-                      <li>„Aktywni rodzice w pracy” (tzw. babciowe).</li>
-                    </ul>
-                    <p>
-                      W Misiach Tulisiach istnieje możliwość skorzystania ze
-                      świadczenia „Aktywnie w żłobku” w wysokości 1500 zł
-                      miesięcznie, które wspiera rodziców w finansowaniu opieki
-                      nad maluchami. Celem programu jest ułatwienie rodzicom
-                      powrotu do pracy przy równoczesnym zatroszczeniu się o
-                      najlepszą opiekę dla dziecka.
-                    </p>
-                  </div>
-                </div>
-                <div className="min-w-0 rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:col-span-6">
-                  <p className="text-sm font-semibold tracking-wide text-foreground">
-                    „Aktywnie w żłobku” — pytania i odpowiedzi
+            <Reveal className="space-y-14 lg:col-span-6">
+              <div>
+                <h3 className="font-display text-3xl md:text-4xl">
+                  Rządowy program „Aktywny Rodzic”
+                </h3>
+                <div className="mt-4 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <p>
+                    To rządowy program, który jest elementem reformy systemu
+                    wspierania opieki nad dziećmi do lat 3, wprowadzający trzy
+                    nowe świadczenia dla rodziców:
                   </p>
-                  <Accordion
-                    items={AKTYWNIE_FAQ}
-                    className="mt-4"
-                    itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
-                  />
+                  <ul className="list-disc space-y-2 pl-5">
+                    <li>„Aktywnie w żłobku”,</li>
+                    <li>„Aktywnie w domu”,</li>
+                    <li>„Aktywni rodzice w pracy” (tzw. babciowe).</li>
+                  </ul>
+                  <p>
+                    W Misiach Tulisiach istnieje możliwość skorzystania ze
+                    świadczenia „Aktywnie w żłobku” w wysokości 1500 zł
+                    miesięcznie, które wspiera rodziców w finansowaniu opieki
+                    nad maluchami. Celem programu jest ułatwienie rodzicom
+                    powrotu do pracy przy równoczesnym zatroszczeniu się o
+                    najlepszą opiekę dla dziecka.
+                  </p>
                 </div>
               </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="max-w-3xl border-l-2 border-[oklch(0.72_0.06_145)] pl-6 md:pl-8">
+              <div>
                 <h3 className="font-display text-3xl md:text-4xl">
                   Program „Aktywny Maluch 2022-2029”
                 </h3>
@@ -455,14 +436,30 @@ export function ParentsPageSections() {
                   836 zł miesięcznie.
                 </p>
               </div>
+              <div className="flex items-start gap-5">
+                <span
+                  className="mt-1 w-px shrink-0 bg-[oklch(0.72_0.11_15)]"
+                  style={{ height: "2.5cm" }}
+                  aria-hidden="true"
+                />
+                <p className="max-w-xl text-base leading-relaxed text-foreground md:text-lg">
+                  Korzystając z obu przysługujących świadczeń, czesne w Misiach
+                  Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha
+                  do żłobka.
+                </p>
+              </div>
             </Reveal>
-
-            <Reveal>
-              <p className="max-w-3xl text-lg leading-relaxed text-foreground md:text-xl">
-                Rodzice mogą korzystać z obu form dofinansowania jednocześnie.
-                Dzięki temu ich maluch może uczęszczać do prywatnego żłobka bez
-                ponoszenia żadnych kosztów.
-              </p>
+            <Reveal className="lg:col-span-6" delay={80}>
+              <div className="rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8">
+                <p className="text-sm font-semibold tracking-wide text-foreground">
+                  „Aktywnie w żłobku” — pytania i odpowiedzi
+                </p>
+                <Accordion
+                  items={AKTYWNIE_FAQ}
+                  className="mt-4"
+                  itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
+                />
+              </div>
             </Reveal>
           </div>
         </div>
@@ -500,30 +497,25 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
       >
         <div className="container-site min-w-0">
-          <Reveal>
-            <Eyebrow>Wyprawka</Eyebrow>
-            <h2 className="font-display max-w-3xl text-4xl md:text-5xl">
-              Lista rzeczy do żłobka
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-12 lg:items-start lg:gap-12">
-            <div className="min-w-0 overflow-visible lg:col-span-6 xl:col-span-5">
-              <Reveal>
-                <WyprawkaList />
-                <p className="mt-8 max-w-3xl text-base leading-relaxed md:text-lg">
-                  <strong className="font-semibold text-foreground">
-                    Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
-                    naklejanych etykietkach bądź markerem.
-                  </strong>
-                </p>
-                <WyprawkaPdfDownload className="mt-8" />
-              </Reveal>
-            </div>
-            <div className="min-w-0 lg:col-span-6 lg:col-start-7 xl:col-span-6 xl:col-start-7">
-              <Reveal delay={80}>
-                <WyprawkaPhoto />
-              </Reveal>
-            </div>
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-16">
+            <Reveal className="lg:col-span-6">
+              <Eyebrow>Wyprawka</Eyebrow>
+              <h2 className="font-display max-w-xl text-4xl md:text-5xl">
+                Lista rzeczy do żłobka
+              </h2>
+              <WyprawkaList />
+              <p className="mt-8 max-w-xl text-base leading-relaxed md:text-lg">
+                <strong className="font-semibold text-foreground">
+                  Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
+                  naklejanych etykietkach bądź markerem.
+                </strong>
+              </p>
+            </Reveal>
+            <Reveal delay={80} className="lg:col-span-6">
+              <HoneyRule className="mb-8 ml-auto" />
+              <WyprawkaPhoto />
+              <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit" />
+            </Reveal>
           </div>
         </div>
       </section>
@@ -543,6 +535,7 @@ export function ParentsPageIntro() {
           Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy informacje,
           które pomagają spokojnie zaplanować pierwsze tygodnie w żłobku.
         </p>
+        <HoneyRule className="mt-12" />
       </Reveal>
     </section>
   );
