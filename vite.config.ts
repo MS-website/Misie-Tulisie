@@ -116,6 +116,41 @@ function layoutSavePlugin(): Plugin {
           res.end(raw);
           return;
         }
+        if (pathname === "/__uklad-sync" && req.method === "GET") {
+          res.setHeader("Content-Type", "text/html; charset=utf-8");
+          res.end(`<!DOCTYPE html>
+<html lang="pl">
+<head><meta charset="utf-8"/><title>Synchronizacja układu</title></head>
+<body>
+<pre id="status">Synchronizacja z localStorage do src/uklad.json…</pre>
+<script>
+(async () => {
+  const status = document.getElementById("status");
+  const raw = localStorage.getItem("misie-uklad-v1");
+  if (!raw) {
+    status.textContent =
+      "Brak misie-uklad-v1 w tej przeglądarce. Otwórz tę stronę w oknie, w którym edytowałeś układ (localhost).";
+    return;
+  }
+  try {
+    const response = await fetch("/__uklad", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: raw,
+    });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    await response.json();
+    status.textContent =
+      "Zapisano src/uklad.json (" + raw.length + " znaków). Możesz zamknąć kartę.";
+  } catch (error) {
+    status.textContent = "Błąd zapisu: " + error;
+  }
+})();
+</script>
+</body>
+</html>`);
+          return;
+        }
         if (pathname !== "/__uklad" || req.method !== "POST") {
           next();
           return;
