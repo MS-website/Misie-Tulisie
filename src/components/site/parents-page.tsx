@@ -521,7 +521,7 @@ export function ParentsPageSections() {
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
-              <p className="text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-[38rem] text-lg leading-relaxed text-muted-foreground">
                 Tu znajdziesz najważniejsze informacje o opłatach oraz
                 świadczeniach, które przysługują rodzicom chcącym zapisać dziecko
                 do naszego żłobka.
@@ -547,7 +547,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-8 flex flex-col gap-6 lg:col-span-7 lg:mt-0 lg:gap-7 lg:pt-11"
+              className="parents-wyzywienie-copy mt-8 flex w-full max-w-[36rem] flex-col gap-5 lg:col-span-7 lg:mt-0 lg:gap-6 lg:pt-8"
             >
               <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
                 <UkladText
@@ -567,14 +567,14 @@ export function ParentsPageSections() {
                 <img
                   src={oplatyInfografika}
                   alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
-                  className="h-auto w-full"
+                  className="h-auto w-full max-w-[34rem] lg:-mt-2"
                 />
               </ParentsTuneSurface>
             </Reveal>
           </div>
 
-          <div className="mt-10 grid items-start gap-x-10 gap-y-10 lg:mt-14 lg:grid-cols-12 lg:gap-x-14">
-            <Reveal className="space-y-10 lg:col-span-5">
+          <div className="mt-8 grid items-start gap-x-10 gap-y-12 lg:mt-10 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-12">
+            <Reveal className="space-y-8 lg:col-span-5">
               <ParentsTuneSurface id="oplaty-aktywny-rodzic-tytul">
                 <h3 className="font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
@@ -604,6 +604,22 @@ export function ParentsPageSections() {
                   najlepszą opiekę dla dziecka.
                 </p>
               </ParentsTuneSurface>
+            </Reveal>
+            <Reveal delay={80} className="lg:col-span-7">
+              <ParentsTuneSurface id="oplaty-faq">
+                <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
+                  <p className="text-2xl font-semibold tracking-wide text-foreground">
+                    „Aktywnie w żłobku” — pytania i odpowiedzi
+                  </p>
+                  <Accordion
+                    items={AKTYWNIE_FAQ}
+                    className="mt-4"
+                    itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
+                  />
+                </div>
+              </ParentsTuneSurface>
+            </Reveal>
+            <Reveal className="space-y-8 lg:col-span-5">
               <ParentsTuneSurface id="oplaty-maluch-tytul">
                 <UkladText
                   as="h3"
@@ -611,7 +627,8 @@ export function ParentsPageSections() {
                   data-uklad-text="oplaty-maluch-tytul"
                   className="font-display text-3xl md:text-4xl"
                 >
-                  Program „Aktywny Maluch 2022-2029”
+                  Program „Aktywny Maluch{" "}
+                  <span className="whitespace-nowrap">2022-2029</span>”
                 </UkladText>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-maluch-tekst">
@@ -621,40 +638,24 @@ export function ParentsPageSections() {
                   data-uklad-text="oplaty-maluch-tekst"
                   className="text-base leading-relaxed text-muted-foreground md:text-lg"
                 >
-                  Ponadto, w Misiach Tulisiach każdemu z rodziców przysługuje
+                  Ponadto, w naszym żłobku każdemu z rodziców przysługuje
                   dofinansowanie w ramach programu Aktywny Maluch 2022-2029,
                   które finansuje każde obsadzone miejsce w placówce w wysokości
                   836 zł miesięcznie.
                 </UkladText>
               </ParentsTuneSurface>
             </Reveal>
-            <div className="space-y-10 lg:col-span-7">
-              <Reveal delay={80}>
-                <ParentsTuneSurface id="oplaty-faq">
-                  <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
-                    <p className="text-2xl font-semibold tracking-wide text-foreground">
-                      „Aktywnie w żłobku” — pytania i odpowiedzi
-                    </p>
-                    <Accordion
-                      items={AKTYWNIE_FAQ}
-                      className="mt-4"
-                      itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
-                    />
-                  </div>
-                </ParentsTuneSurface>
-              </Reveal>
-              <Reveal delay={80}>
-                <ParentsTuneSurface id="oplaty-czesne">
-                  <div className="parents-czesne-callout">
-                    <ParentsGreenRule />
-                    <p className="parents-czesne-callout-text min-w-0 max-w-md flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                      Korzystając z obu przysługujących świadczeń, czesne w naszej
-                      placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
-                    </p>
-                  </div>
-                </ParentsTuneSurface>
-              </Reveal>
-            </div>
+            <Reveal delay={80} className="lg:col-span-7 lg:pt-2">
+              <ParentsTuneSurface id="oplaty-czesne">
+                <div className="parents-czesne-callout">
+                  <ParentsGreenRule />
+                  <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
+                    Korzystając z obu przysługujących świadczeń, czesne w naszej
+                    placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
+                  </p>
+                </div>
+              </ParentsTuneSurface>
+            </Reveal>
           </div>
         </div>
       </section>

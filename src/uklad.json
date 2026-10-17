@@ -1432,15 +1432,15 @@
         "originalHtml": "Korzystając z obu przysługujących świadczeń, czesne w Misiach Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do żłobka."
       },
       "[data-uklad-text=\"oplaty-wyzywienie\"]": {
-        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy&nbsp;<div>otrzymują świeże i zdrowe posiłki każdego dnia.</div>",
+        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.",
         "originalHtml": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia."
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {
-        "html": "Ponadto, w naszym żłobku każdemu z rodziców przysługuje dofinansowanie w ramach programu Aktywny Maluch 2022-2029, które finansuje każde obsadzone miejsce w placówce w<br>wysokości 836 zł miesięcznie.",
+        "html": "Ponadto, w naszym żłobku każdemu z rodziców przysługuje dofinansowanie w ramach programu Aktywny Maluch 2022-2029, które finansuje każde obsadzone miejsce w placówce w wysokości 836 zł miesięcznie.",
         "originalHtml": "Ponadto, w naszym żłobku każdemu z rodziców przysługuje dofinansowanie w ramach programu Aktywny Maluch 2022-2029, które finansuje każde obsadzone miejsce w placówce w wysokości 836 zł miesięcznie."
       },
       "[data-uklad-text=\"oplaty-maluch-tytul\"]": {
-        "html": "Program „Aktywny Maluch 2022-2029”",
+        "html": "Program „Aktywny Maluch <span class=\"whitespace-nowrap\">2022-2029</span>”",
         "originalHtml": "Program „Aktywny Maluch 2022-2029”"
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
