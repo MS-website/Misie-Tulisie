@@ -11,31 +11,31 @@ export function SavedLayout() {
 
   useLayoutEffect(() => {
     const run = () => {
-      applyTheme(document, pathname, store);
-      if (UKLAD_MANUAL_EDITOR_ENABLED) return;
       const size = sizeForWidth(window.innerWidth);
-      applyLayout(document, pathname, size, store, { text: false });
+      applyLayout(document, pathname, size, store, {
+        text: UKLAD_MANUAL_EDITOR_ENABLED,
+        boxes: false,
+      });
+      applyTheme(document, pathname, store);
     };
     run();
     let observer: MutationObserver | null = null;
-    if (!UKLAD_MANUAL_EDITOR_ENABLED) {
-      const main = document.querySelector("main");
-      let frame = 0;
-      if (main) {
-        const schedule = () => {
-          if (frame) return;
-          frame = window.requestAnimationFrame(() => {
-            frame = 0;
-            if (!isApplying()) run();
-          });
-        };
-        observer = new MutationObserver(() => schedule());
-        observer.observe(main, {
-          childList: true,
-          subtree: true,
-          attributes: false,
+    const main = document.querySelector("main");
+    let frame = 0;
+    if (main) {
+      const schedule = () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(() => {
+          frame = 0;
+          if (!isApplying()) run();
         });
-      }
+      };
+      observer = new MutationObserver(() => schedule());
+      observer.observe(main, {
+        childList: true,
+        subtree: true,
+        attributes: false,
+      });
     }
     const queries = [
       window.matchMedia("(max-width: 767px)"),

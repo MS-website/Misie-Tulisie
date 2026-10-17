@@ -4,11 +4,13 @@ import {
   createElement,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
 import savedFile from "@/uklad.json";
+import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import { UKLAD_TEXT_CONTINUE } from "@/lib/uklad-dom";
 import {
   continuationBlocksArePhrasingOnly,
@@ -51,13 +53,20 @@ export function UkladPaintStyles() {
 }
 
 export function UkladStoreProvider({ children }: { children: ReactNode }) {
-  const [store, setStore] = useState(bundledStore);
+  const [store, setStore] = useState(() =>
+    import.meta.env.DEV ? readDevLayoutStore() : bundledStore,
+  );
+
+  useLayoutEffect(() => {
+    if (!import.meta.env.DEV) return;
+    const sync = () => setStore(readDevLayoutStore());
+    window.addEventListener(UKLAD_CHANGE_EVENT, sync);
+    return () => window.removeEventListener(UKLAD_CHANGE_EVENT, sync);
+  }, []);
 
   useEffect(() => {
     if (!import.meta.env.DEV) return;
     let cancel = false;
-    const sync = () => setStore(readDevLayoutStore());
-    window.addEventListener(UKLAD_CHANGE_EVENT, sync);
     void fetch("/__uklad")
       .then(async (response) => {
         if (!response.ok || cancel) return;
@@ -66,7 +75,6 @@ export function UkladStoreProvider({ children }: { children: ReactNode }) {
       .catch(() => {});
     return () => {
       cancel = true;
-      window.removeEventListener(UKLAD_CHANGE_EVENT, sync);
     };
   }, []);
 
@@ -98,7 +106,11 @@ export function UkladText({
   const elementProps = { ...rest, className };
   const pathname = useLayoutPathname();
   const store = useUkladStore();
-  const html = savedFragment(store, pathname, selector);
+  const deferSavedTextToEditor =
+    UKLAD_MANUAL_EDITOR_ENABLED && !import.meta.env.VITEST;
+  const html = deferSavedTextToEditor
+    ? null
+    : savedFragment(store, pathname, selector);
   if (html == null) return createElement(as, elementProps, children);
   const parts = as === "p" ? splitParagraphHtml(html) : null;
   if (!parts) {

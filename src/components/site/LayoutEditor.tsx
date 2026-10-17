@@ -21,6 +21,7 @@ import {
   wordRanges,
 } from "@/lib/uklad-dom";
 import savedFile from "@/uklad.json";
+import { useLayoutPathname } from "@/lib/uklad-pathname";
 import {
   mergeBox,
   mergeStores,
@@ -686,10 +687,13 @@ function boxFor(pathname: string, size: SizeId, selector: string) {
   return layoutStore()[pathname]?.[size]?.[selector] ?? { x: 0, y: 0, z: 0 };
 }
 
+const LAYOUT_PAINT_OPTIONS = { boxes: false as const };
+
 function paint(doc: Document, pathname: string, size: SizeId) {
   const store = layoutStore();
   const local = loadStore();
-  if (applyLayout(doc, pathname, size, store)) saveStore(local);
+  if (applyLayout(doc, pathname, size, store, LAYOUT_PAINT_OPTIONS))
+    saveStore(local);
   applyTheme(doc, pathname, store);
 }
 
@@ -722,9 +726,10 @@ function ensureOutline(doc: Document) {
 }
 
 export function LayoutEditor() {
-  const pathname = useRouterState({
+  const locationPathname = useRouterState({
     select: (state) => state.location.pathname,
   });
+  const layoutPathname = useLayoutPathname();
   const [enabled, setEnabled] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [panelBox, setPanelBox] = useState(readPanelBox);
@@ -739,7 +744,7 @@ export function LayoutEditor() {
   const [photoInfo, setPhotoInfo] = useState<PhotoView | null>(null);
   const [previewSize, setPreviewSize] = useState<SizeId | "okno">("okno");
   const [previewSrc, setPreviewSrc] = useState<string | null>(null);
-  const [framePath, setFramePath] = useState(pathname);
+  const [framePath, setFramePath] = useState(locationPathname);
   const [frameTick, setFrameTick] = useState(0);
   const [viewport, setViewport] = useState({ w: 1280, h: 800 });
   const [fileReady, setFileReady] = useState(0);
@@ -757,7 +762,7 @@ export function LayoutEditor() {
   } | null>(null);
   panelBoxRef.current = panelBox;
   const savedSnapshot = useRef("{}");
-  const editPath = previewSize === "okno" ? pathname : framePath;
+  const editPath = previewSize === "okno" ? layoutPathname : framePath;
   const activeSize: SizeId =
     previewSize === "okno" ? sizeForWidth(viewport.w) : previewSize;
   const editPathRef = useRef(editPath);
@@ -1620,7 +1625,8 @@ export function LayoutEditor() {
     if (!previous) return;
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
     saveStore(previous);
-    if (applyLayout(doc, editPath, activeSize, previous)) saveStore(previous);
+    if (applyLayout(doc, editPath, activeSize, previous, LAYOUT_PAINT_OPTIONS))
+      saveStore(previous);
     refreshText(selectedSelectorRef.current);
     window.dispatchEvent(new Event(HISTORY_EVENT));
   };
@@ -1652,15 +1658,16 @@ export function LayoutEditor() {
 
   const openSize = (size: SizeId) => {
     if (previewSize === "okno") {
-      setPreviewSrc(pathname);
-      setFramePath(pathname);
+      setPreviewSrc(locationPathname);
+      setFramePath(locationPathname);
     }
     setPreviewSize(size);
     frameRef.current?.contentWindow?.scrollTo(0, 0);
   };
 
   const closePreview = () => {
-    const path = frameRef.current?.contentWindow?.location.pathname ?? pathname;
+    const path =
+      frameRef.current?.contentWindow?.location.pathname ?? locationPathname;
     setPreviewSize("okno");
     if (path !== window.location.pathname) window.location.assign(path);
   };
@@ -1706,7 +1713,7 @@ export function LayoutEditor() {
           ref={frameRef}
           name="podglad"
           title="Podgląd strony"
-          src={previewSrc ?? pathname}
+          src={previewSrc ?? locationPathname}
           onLoad={() => setFrameTick((value) => value + 1)}
           className="origin-top-left rounded-2xl border border-border bg-background shadow-xl"
           style={{

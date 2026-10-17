@@ -420,12 +420,13 @@ export function applyLayout(
   pathname: string,
   size: SizeId,
   store: Store,
-  options?: { text?: boolean },
+  options?: { text?: boolean; boxes?: boolean },
 ) {
   if (applying) return false;
   const main = doc.querySelector("main");
   if (!main) return false;
   const writeText = options?.text !== false;
+  const writeBoxes = options?.boxes !== false;
   const previous = applied.get(doc) ?? new Set<string>();
   const page = store[pathname];
   const boxes = page?.[size] ?? {};
@@ -463,7 +464,9 @@ export function applyLayout(
     }
     for (const [selector, box] of Object.entries(boxes)) {
       const el = main.querySelector(selector);
-      if (isHtmlElement(el)) applyBox(el, box);
+      if (!isHtmlElement(el)) continue;
+      if (writeBoxes) applyBox(el, box);
+      else if ((box.breaks?.length ?? 0) > 0) applyBreaks(el, box.breaks ?? []);
     }
     applied.set(doc, next);
     return normalized;
