@@ -203,7 +203,7 @@
         "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Przez cały rok, od 6. miesiąca do 3 lat.",
+        "html": "Przez cały rok,<br>w wieku od 1 do 3 lat",
         "originalHtml": "Przez cały rok, od 6. miesiąca do 3 lat."
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {

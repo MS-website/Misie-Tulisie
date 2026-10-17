@@ -427,7 +427,11 @@ export function RecruitmentRules() {
       <div className="grid gap-10 lg:grid-cols-12">
         <Reveal className="lg:col-span-4">
           <Eyebrow>Zasady rekrutacji</Eyebrow>
-          <h2 className="font-display text-4xl md:text-5xl">Przez cały rok, od 6. miesiąca do 3 lat.</h2>
+          <h2 className="font-display text-4xl md:text-5xl">
+            Przez cały rok,
+            <br />
+            w wieku od 1 do 3 lat
+          </h2>
         </Reveal>
         <Reveal className="space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
           <p>
