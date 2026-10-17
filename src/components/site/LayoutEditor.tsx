@@ -359,18 +359,23 @@ function sectionForSpacing(el: HTMLElement, main: Element) {
   return el;
 }
 
-function readVerticalSpacing(el: HTMLElement, edge: "top" | "bottom") {
+function readVerticalSpacing(
+  el: HTMLElement,
+  edge: "top" | "bottom",
+  stored?: Partial<Box>,
+) {
   const paddingProp = edge === "bottom" ? "paddingBottom" : "paddingTop";
   const marginProp = edge === "bottom" ? "marginBottom" : "marginTop";
   const style = getComputedStyle(el);
+  const computedPadding =
+    parseFloat(edge === "bottom" ? style.paddingBottom : style.paddingTop) || 0;
+  const computedMargin =
+    parseFloat(edge === "bottom" ? style.marginBottom : style.marginTop) || 0;
   return {
     paddingProp,
     marginProp,
-    padding:
-      parseFloat(edge === "bottom" ? style.paddingBottom : style.paddingTop) ||
-      0,
-    margin:
-      parseFloat(edge === "bottom" ? style.marginBottom : style.marginTop) || 0,
+    padding: stored?.[paddingProp] ?? computedPadding,
+    margin: stored?.[marginProp] ?? computedMargin,
   };
 }
 
@@ -378,6 +383,9 @@ function selectorFor(el: Element, root: Element) {
   if (!root.contains(el) || el === root) return null;
   if (el instanceof HTMLElement && el.dataset.ukladText) {
     return `[data-uklad-text="${el.dataset.ukladText}"]`;
+  }
+  if (el instanceof HTMLElement && el.dataset.ukladSection) {
+    return `[data-uklad-section="${el.dataset.ukladSection}"]`;
   }
   const parts: string[] = [];
   let node: Element | null = el;
@@ -465,6 +473,9 @@ function labelFor(el: HTMLElement) {
     return "Tekst: Aktywny Maluch";
   if (el.dataset["ukladText"] === "oplaty-maluch-tytul")
     return "Nagłówek: Aktywny Maluch";
+  if (el.dataset["ukladSection"] === "oplaty") return "Sekcja: Opłaty";
+  if (el.dataset["ukladSection"] === "plan-dnia") return "Sekcja: Plan dnia";
+  if (el.dataset["ukladSection"] === "wyprawka") return "Sekcja: Wyprawka";
   return labels[el.tagName] ?? "Blok";
 }
 
@@ -1331,22 +1342,38 @@ export function LayoutEditor() {
     if (!targetSelector) return;
     const paddingProp = edge === "bottom" ? "paddingBottom" : "paddingTop";
     const marginProp = edge === "bottom" ? "marginBottom" : "marginTop";
+    const size = activeSizeRef.current;
+    const storedBox = loadStore()[editPathRef.current]?.[size]?.[targetSelector];
     const { padding: startPadding, margin: startMargin } = readVerticalSpacing(
       target,
       edge,
+      storedBox,
     );
     let padding = startPadding;
     let margin = startMargin;
     let remaining = delta;
+    const externalSection = target.tagName === "SECTION";
 
-    if (remaining > 0 && margin < 0) {
+    if (externalSection) {
+      if (remaining > 0) {
+        margin += remaining;
+        remaining = 0;
+      } else if (remaining < 0) {
+        const fromMargin = Math.min(margin, -remaining);
+        margin -= fromMargin;
+        remaining += fromMargin;
+        const fromPadding = Math.min(padding, -remaining);
+        padding -= fromPadding;
+        remaining += fromPadding;
+      }
+    } else if (remaining > 0 && margin < 0) {
       const absorbed = Math.min(remaining, -margin);
       margin += absorbed;
       remaining -= absorbed;
     }
-    if (remaining > 0) {
+    if (!externalSection && remaining > 0) {
       padding += remaining;
-    } else if (remaining < 0) {
+    } else if (!externalSection && remaining < 0) {
       const fromPadding = Math.min(padding, -remaining);
       padding -= fromPadding;
       remaining += fromPadding;

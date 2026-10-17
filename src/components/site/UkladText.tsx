@@ -22,6 +22,18 @@ import { normalizeLayout, type Store } from "@/lib/uklad-data";
 import { cn } from "@/lib/utils";
 
 const bundledStore = normalizeLayout(savedFile);
+const UKLAD_STORAGE_KEY = "misie-uklad-v1";
+const UKLAD_CHANGE_EVENT = "misie-uklad-changed";
+
+function readDevLayoutStore(): Store {
+  try {
+    const raw = localStorage.getItem(UKLAD_STORAGE_KEY);
+    if (raw) return normalizeLayout(JSON.parse(raw));
+  } catch {
+    /* ignore */
+  }
+  return bundledStore;
+}
 
 const UkladStoreContext = createContext<Store>(bundledStore);
 
@@ -44,6 +56,8 @@ export function UkladStoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!import.meta.env.DEV) return;
     let cancel = false;
+    const sync = () => setStore(readDevLayoutStore());
+    window.addEventListener(UKLAD_CHANGE_EVENT, sync);
     void fetch("/__uklad")
       .then(async (response) => {
         if (!response.ok || cancel) return;
@@ -52,6 +66,7 @@ export function UkladStoreProvider({ children }: { children: ReactNode }) {
       .catch(() => {});
     return () => {
       cancel = true;
+      window.removeEventListener(UKLAD_CHANGE_EVENT, sync);
     };
   }, []);
 

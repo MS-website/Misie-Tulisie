@@ -466,12 +466,12 @@ const recruitmentSteps = [
           </a>
           .
         </p>
-        <p className="@container">
+        <p className="@container recruitment-mail-paragraph">
           W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje
           dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną
-          powyżej i prześlij{" "}
+          powyżej i prześlij{"\u00a0"}ją{"\u00a0"}na{" "}
           <span className="mail-same-line">
-            ją na adres e-mail:{" "}
+            adres e-mail:{"\u00a0"}
             <a
               href="mailto:zlobekmisietulisie@onet.pl"
               className="font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey"

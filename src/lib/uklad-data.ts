@@ -183,9 +183,14 @@ export type Store = Record<string, PageLayout>;
 const PATH_OK = /^\/[a-z0-9\-/]*$/;
 const SELECTOR_OK = /^[a-z0-9:()\->. ]+$/i;
 const UKLAD_TEXT_SELECTOR = /^[data-uklad-text="[a-z0-9-]+"\]$/;
+const UKLAD_SECTION_SELECTOR = /^[data-uklad-section="[a-z0-9-]+"\]$/;
 
 function layoutSelectorOk(selector: string) {
-  return SELECTOR_OK.test(selector) || UKLAD_TEXT_SELECTOR.test(selector);
+  return (
+    SELECTOR_OK.test(selector) ||
+    UKLAD_TEXT_SELECTOR.test(selector) ||
+    UKLAD_SECTION_SELECTOR.test(selector)
+  );
 }
 const MAX_HTML = 20_000;
 

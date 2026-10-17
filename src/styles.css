@@ -392,12 +392,45 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background-color: oklch(0.96 0.02 18);
+  margin-top: -2.75rem;
+  background-color: oklch(0.93 0.038 18);
+}
+@media (min-width: 48rem) {
+  .plan-dnia-section {
+    margin-top: -4.25rem;
+  }
 }
 .plan-dnia-section-bg {
   position: absolute;
-  inset: 0;
+  top: -3.25rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(100% + 3.25rem);
   z-index: 0;
+  pointer-events: none;
+}
+@media (min-width: 48rem) {
+  .plan-dnia-section-bg {
+    top: -4.75rem;
+    height: calc(100% + 4.75rem);
+  }
+}
+.plan-dnia-section-bg img {
+  object-position: 50% 78%;
+  transform: scale(1.14);
+  transform-origin: 50% 100%;
+}
+.plan-dnia-section-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    oklch(0.9 0.052 18 / 90%) 0%,
+    oklch(0.92 0.045 18 / 55%) 20%,
+    transparent 46%
+  );
   pointer-events: none;
 }
 .plan-dnia-section > .container-site {
@@ -530,12 +563,14 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
     width: 2.35rem;
   }
 }
-/* Adres w kroku rekrutacji zostaje w linii z „ją na adres e-mail:”, gdy kolumna jest dość szeroka. */
-@container (min-width: 18.75rem) {
-  .mail-same-line {
-    white-space: nowrap;
-    letter-spacing: -0.06em;
-  }
+.recruitment-mail-paragraph {
+  width: auto !important;
+  max-width: none !important;
+}
+/* „adres e-mail:” i sam adres zawsze w jednej linii (rekrutacja). */
+.recruitment-mail-paragraph .mail-same-line {
+  white-space: nowrap;
+  letter-spacing: -0.03em;
 }
 
 @media (prefers-reduced-motion: reduce) {

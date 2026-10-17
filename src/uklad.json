@@ -124,7 +124,8 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
         "x": 1,
         "y": -4,
-        "z": 2
+        "z": 2,
+        "width": 734
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 1,
@@ -170,6 +171,18 @@
         "x": 0,
         "y": 0,
         "z": 0
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 328
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 323
       }
     },
     "text": {
@@ -178,8 +191,8 @@
         "originalHtml": "Podczas spotkania oprowadzimy Państwa po naszej placówce, przedstawimy szczegóły oferty oraz odpowiemy na pytania dotyczące opieki, adaptacji i organizacji dnia."
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij <span class=\"mail-same-line\">ją na adres e-mail: <a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>",
-        "originalHtml": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij <span class=\"mail-same-line\">ją na adres e-mail: <a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>"
+        "html": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij&nbsp;ją&nbsp;na <span class=\"mail-same-line\">adres e-mail:&nbsp;<a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>",
+        "originalHtml": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij&nbsp;ją&nbsp;na <span class=\"mail-same-line\">adres e-mail:&nbsp;<a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>"
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "html": "Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane&nbsp;<div>i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja,&nbsp;</div><div>która pozwala maluchowi zaakceptować rozstanie z rodzicami.</div>",
@@ -190,12 +203,20 @@
         "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Przez cały rok,&nbsp;<div>od 6. miesiąca do 3 lat</div>",
+        "html": "Przez cały rok,&nbsp;<div>w wieku od 1 do 3 lat</div>",
         "originalHtml": "Przez cały rok, od 6. miesiąca do 3 lat."
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "html": "<br>",
         "originalHtml": "Rekrutacja"
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
+        "html": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. <br>Jeśli w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki.",
+        "originalHtml": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 12. miesiąca życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
+        "html": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka <br>i rodzica, warunki rozwiązania umowy i inne niezbędne informacje.",
+        "originalHtml": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;aby zaakceptowali Państwo nasz regulamin i podpisali umowę. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka <br>i rodzica, warunki rozwiązania umowy i inne niezbędne informacje."
       }
     }
   },
@@ -1048,7 +1069,9 @@
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
         "x": -32,
         "y": 0,
-        "z": 0
+        "z": 0,
+        "width": 468,
+        "height": 702
       },
       "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 0,
@@ -1097,6 +1120,23 @@
       "section:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": -8,
         "y": -5,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 3,
+        "y": -41,
+        "z": 2,
+        "width": 577
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 2,
+        "y": -24,
+        "z": 2,
+        "width": 601
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)": {
+        "x": 1,
+        "y": -11,
         "z": 2
       }
     },
@@ -1494,8 +1534,8 @@
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 5,
-        "y": 6,
+        "x": 9,
+        "y": 2,
         "z": 2,
         "width": 618
       },
@@ -1599,8 +1639,8 @@
         "z": 2
       },
       "section:nth-of-type(1)": {
-        "x": 4,
-        "y": 12,
+        "x": 0,
+        "y": 9,
         "z": 2,
         "paddingTop": 0,
         "paddingBottom": 0,
@@ -1621,7 +1661,9 @@
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
         "x": 17,
         "y": 80,
-        "z": 2
+        "z": 2,
+        "width": 595,
+        "height": 744
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)": {
         "x": 4,
@@ -1636,25 +1678,25 @@
         "height": 328
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2)": {
-        "x": 41,
-        "y": -132,
+        "x": 42,
+        "y": -143,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 41,
-        "y": -162,
+        "x": 40,
+        "y": -177,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 27,
-        "y": -157,
+        "x": 63,
+        "y": -155,
         "z": 2,
         "fontSize": 20,
         "width": 465
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 35,
-        "y": -150,
+        "x": 71,
+        "y": -149,
         "z": 2
       },
       "[data-uklad-text=\"oplaty-wyzywienie\"]": {
@@ -1664,14 +1706,14 @@
         "width": 574
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {
-        "x": 14,
-        "y": -169,
+        "x": 4,
+        "y": 0,
         "z": 2,
         "width": 564
       },
       "[data-uklad-text=\"oplaty-maluch-tytul\"]": {
-        "x": 13,
-        "y": -141,
+        "x": 6,
+        "y": 0,
         "z": 2,
         "width": 587
       },
@@ -1706,6 +1748,21 @@
         "y": -208,
         "z": 2,
         "width": 524
+      },
+      "[data-uklad-section=\"plan-dnia\"]": {
+        "x": 1,
+        "y": -38,
+        "z": 2
+      },
+      "[data-uklad-section=\"wyprawka\"]": {
+        "x": 2,
+        "y": -38,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 1,
+        "y": 24,
+        "z": 2
       }
     },
     "text": {

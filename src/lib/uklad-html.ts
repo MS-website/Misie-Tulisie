@@ -2,10 +2,15 @@ import type { Store } from "./uklad-data";
 
 const SELECTOR_OK = /^[a-z0-9:()\->. ]+$/i;
 const UKLAD_TEXT_SELECTOR = /^[data-uklad-text="[a-z0-9-]+"\]$/;
+const UKLAD_SECTION_SELECTOR = /^[data-uklad-section="[a-z0-9-]+"\]$/;
 
 export function isUkladTextSelector(selector: string) {
   if (selector.length > 500) return false;
-  return SELECTOR_OK.test(selector) || UKLAD_TEXT_SELECTOR.test(selector);
+  return (
+    SELECTOR_OK.test(selector) ||
+    UKLAD_TEXT_SELECTOR.test(selector) ||
+    UKLAD_SECTION_SELECTOR.test(selector)
+  );
 }
 const MAX_HTML = 20_000;
 

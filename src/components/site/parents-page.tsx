@@ -506,8 +506,9 @@ export function ParentsPageSections() {
     <>
       <section
         id="oplaty"
+        data-uklad-section="oplaty"
         data-parents-layout="static-v2"
-        className="scroll-mt-24 border-b border-border/60 bg-background pb-20 md:pb-28"
+        className="scroll-mt-24 border-b border-border/60 bg-background pb-12 md:pb-16"
       >
         <div className="container-site min-w-0 pt-24 md:pt-28">
           <Reveal className="space-y-0">
@@ -660,8 +661,9 @@ export function ParentsPageSections() {
 
       <section
         id="plan-dnia"
+        data-uklad-section="plan-dnia"
         data-parents-plan-dnia="built-v1"
-        className="plan-dnia-section scroll-mt-24 py-14 md:py-20 lg:py-24"
+        className="plan-dnia-section scroll-mt-24 pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-14 lg:pb-20"
       >
         <div className="plan-dnia-section-bg" aria-hidden="true">
           <img
@@ -696,6 +698,7 @@ export function ParentsPageSections() {
 
       <section
         id="wyprawka"
+        data-uklad-section="wyprawka"
         className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
       >
         <div className="container-site min-w-0">
