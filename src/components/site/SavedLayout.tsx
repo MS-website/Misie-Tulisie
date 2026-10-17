@@ -1,5 +1,4 @@
 import { useLayoutEffect } from "react";
-import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import { applyLayout, applyTheme, isApplying } from "@/lib/uklad-dom";
 import { sizeForWidth } from "@/lib/uklad-data";
 import { useLayoutPathname } from "@/lib/uklad-pathname";
@@ -13,7 +12,7 @@ export function SavedLayout() {
     const run = () => {
       const size = sizeForWidth(window.innerWidth);
       applyLayout(document, pathname, size, store, {
-        text: UKLAD_MANUAL_EDITOR_ENABLED,
+        text: true,
         boxes: false,
       });
       applyTheme(document, pathname, store);

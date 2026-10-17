@@ -66,6 +66,7 @@ export function UkladStoreProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!import.meta.env.DEV) return;
+    if (localStorage.getItem(UKLAD_STORAGE_KEY) != null) return;
     let cancel = false;
     void fetch("/__uklad")
       .then(async (response) => {

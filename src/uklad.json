@@ -124,7 +124,8 @@
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
         "x": 1,
         "y": -4,
-        "z": 2
+        "z": 2,
+        "width": 734
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 1,
@@ -170,6 +171,18 @@
         "x": 0,
         "y": 0,
         "z": 0
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 328
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 323
       }
     },
     "text": {
@@ -190,12 +203,20 @@
         "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
-        "html": "Przez cały rok,&nbsp;<div>od 6. miesiąca do 3 lat</div>",
+        "html": "Przez cały rok,&nbsp;<div>w wieku od 1 do 3 lat</div>",
         "originalHtml": "Przez cały rok, od 6. miesiąca do 3 lat."
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "html": "<br>",
         "originalHtml": "Rekrutacja"
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
+        "html": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. <br>Jeśli w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki.",
+        "originalHtml": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 12. miesiąca życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki."
+      },
+      "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
+        "html": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka <br>i rodzica, warunki rozwiązania umowy i inne niezbędne informacje.",
+        "originalHtml": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;aby zaakceptowali Państwo nasz regulamin i podpisali umowę. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka <br>i rodzica, warunki rozwiązania umowy i inne niezbędne informacje."
       }
     }
   },
@@ -1048,7 +1069,9 @@
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
         "x": -32,
         "y": 0,
-        "z": 0
+        "z": 0,
+        "width": 468,
+        "height": 702
       },
       "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(1) > h2:nth-of-type(1)": {
         "x": 0,
@@ -1098,6 +1121,41 @@
         "x": -8,
         "y": -5,
         "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)": {
+        "x": 3,
+        "y": -41,
+        "z": 2,
+        "width": 577
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 2,
+        "y": -24,
+        "z": 2,
+        "width": 601
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(3)": {
+        "x": 1,
+        "y": -11,
+        "z": 2
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(6) > h2:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 478
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(6) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 480
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(5) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 559
       }
     },
     "text": {
@@ -1621,7 +1679,9 @@
       "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
         "x": 17,
         "y": 80,
-        "z": 2
+        "z": 2,
+        "width": 595,
+        "height": 744
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)": {
         "x": 4,
@@ -1636,25 +1696,25 @@
         "height": 328
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2)": {
-        "x": 55,
-        "y": -147,
+        "x": 56,
+        "y": -148,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 40,
+        "x": 49,
         "y": -177,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)": {
         "x": 63,
-        "y": -117,
+        "y": -155,
         "z": 2,
         "fontSize": 20,
         "width": 465
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 74,
-        "y": -112,
+        "x": 71,
+        "y": -149,
         "z": 2
       },
       "[data-uklad-text=\"oplaty-wyzywienie\"]": {
@@ -1664,45 +1724,62 @@
         "width": 574
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {
-        "x": 16,
+        "x": 7,
         "y": -175,
         "z": 2,
-        "width": 564
+        "width": 549
       },
       "[data-uklad-text=\"oplaty-maluch-tytul\"]": {
-        "x": 16,
-        "y": -145,
+        "x": 5,
+        "y": -147,
         "z": 2,
         "width": 587
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > h3:nth-of-type(1)": {
-        "x": 9,
-        "y": -176,
-        "z": 2
+        "x": 2,
+        "y": -168,
+        "z": 2,
+        "width": 551
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "x": 12,
-        "y": -201,
+        "x": 4,
+        "y": -187,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1)": {
-        "x": 45,
-        "y": -210,
+        "x": 58,
+        "y": -186,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(2)": {
-        "x": 45,
-        "y": -210,
+        "x": 58,
+        "y": -195,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3)": {
-        "x": 45,
-        "y": -210,
+        "x": 58,
+        "y": -201,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "x": 20,
-        "y": -217,
+        "x": 8,
+        "y": -208,
+        "z": 2,
+        "width": 524
+      },
+      "[data-uklad-section=\"plan-dnia\"]": {
+        "x": 1,
+        "y": -38,
+        "z": 2
+      },
+      "[data-uklad-section=\"wyprawka\"]": {
+        "x": 2,
+        "y": -38,
+        "z": 2
+      },
+      "section:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
+        "x": 1,
+        "y": 24,
         "z": 2
       }
     },
@@ -1724,7 +1801,7 @@
         "originalHtml": "Korzystając z obu przysługujących świadczeń, czesne w Misiach Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do żłobka."
       },
       "[data-uklad-text=\"oplaty-wyzywienie\"]": {
-        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz <br>podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie <br>obecności malucha w placówce. Misie Tulisie korzystają z cateringu <br>dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy&nbsp;<div>otrzymują świeże i zdrowe posiłki każdego dnia.</div>",
+        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy&nbsp;<div>otrzymują świeże i zdrowe posiłki każdego dnia.</div>",
         "originalHtml": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia."
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {
