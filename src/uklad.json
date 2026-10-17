@@ -191,8 +191,8 @@
         "originalHtml": "Podczas spotkania oprowadzimy Państwa po naszej placówce, przedstawimy szczegóły oferty oraz odpowiemy na pytania dotyczące opieki, adaptacji i organizacji dnia."
       },
       "section:nth-of-type(3) > div:nth-of-type(1) > ol:nth-of-type(1) > li:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij&nbsp;ją&nbsp;na <span class=\"mail-same-line\">adres e-mail:&nbsp;<a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>",
-        "originalHtml": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij&nbsp;ją&nbsp;na <span class=\"mail-same-line\">adres e-mail:&nbsp;<a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>"
+        "html": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij <span class=\"mail-same-line\">ją na adres e-mail: <a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>",
+        "originalHtml": "W Misiach Tulisiach rekrutację prowadzimy przez cały rok. Jeżeli chcesz zapisać swoje dziecko do naszego żłobka, skontaktuj się z nami lub wypełnij kartę zgłoszeniową dostępną powyżej i prześlij <span class=\"mail-same-line\">ją na adres e-mail: <a href=\"mailto:zlobekmisietulisie@onet.pl\" class=\"font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey\">zlobekmisietulisie@onet.pl</a></span>"
       },
       "section:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
         "html": "Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane&nbsp;<div>i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja,&nbsp;</div><div>która pozwala maluchowi zaakceptować rozstanie z rodzicami.</div>",
@@ -1696,12 +1696,12 @@
         "height": 328
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2)": {
-        "x": 42,
-        "y": -143,
+        "x": 56,
+        "y": -148,
         "z": 2
       },
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)": {
-        "x": 40,
+        "x": 49,
         "y": -177,
         "z": 2
       },
@@ -1724,14 +1724,14 @@
         "width": 574
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {
-        "x": 4,
-        "y": 0,
+        "x": 7,
+        "y": -175,
         "z": 2,
-        "width": 564
+        "width": 549
       },
       "[data-uklad-text=\"oplaty-maluch-tytul\"]": {
-        "x": 6,
-        "y": 0,
+        "x": 5,
+        "y": -147,
         "z": 2,
         "width": 587
       },
