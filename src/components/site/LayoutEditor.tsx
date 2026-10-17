@@ -42,6 +42,7 @@ const PANEL_KEY = "misie-uklad-panel";
 const HISTORY_KEY = "misie-uklad-historia";
 const HISTORY_EVENT = "misie-uklad-history";
 const CHANGE_EVENT = "misie-uklad-changed";
+const FILE_SAVED_EVENT = "misie-uklad-file-saved";
 const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
@@ -86,9 +87,43 @@ function layoutStore(): Store {
   return mergeStores(publishedLayout, loadStore());
 }
 
-function saveStore(store: Store) {
+let persistFileTimer = 0;
+let persistFileInFlight = false;
+
+async function persistLayoutFile(store: Store) {
+  if (!import.meta.env.DEV || persistFileInFlight) return false;
+  persistFileInFlight = true;
+  try {
+    const response = await fetch("/__uklad", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(store),
+    });
+    if (!response.ok) return false;
+    publishedLayout = normalizeLayout(store);
+    window.dispatchEvent(
+      new CustomEvent(FILE_SAVED_EVENT, {
+        detail: stableLayout(store),
+      }),
+    );
+    return true;
+  } finally {
+    persistFileInFlight = false;
+  }
+}
+
+function schedulePersistLayoutFile(store: Store) {
+  if (!import.meta.env.DEV) return;
+  window.clearTimeout(persistFileTimer);
+  persistFileTimer = window.setTimeout(() => {
+    void persistLayoutFile(store);
+  }, 1200);
+}
+
+function saveStore(store: Store, options?: { skipFile?: boolean }) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
   window.dispatchEvent(new Event(CHANGE_EVENT));
+  if (!options?.skipFile) schedulePersistLayoutFile(store);
 }
 
 function remapSection57<T>(record: Record<string, T> | undefined) {
@@ -816,11 +851,19 @@ export function LayoutEditor() {
         setFileReady((value) => value + 1);
       })
       .catch(() => {});
+    const onFileSaved = (event: Event) => {
+      const detail = (event as CustomEvent<string>).detail;
+      if (typeof detail === "string") savedSnapshot.current = detail;
+      setDirty(false);
+      setSaveState("saved");
+    };
     window.addEventListener(CHANGE_EVENT, sync);
     window.addEventListener(HISTORY_EVENT, sync);
+    window.addEventListener(FILE_SAVED_EVENT, onFileSaved);
     return () => {
       window.removeEventListener(CHANGE_EVENT, sync);
       window.removeEventListener(HISTORY_EVENT, sync);
+      window.removeEventListener(FILE_SAVED_EVENT, onFileSaved);
     };
   }, []);
 
@@ -1637,17 +1680,12 @@ export function LayoutEditor() {
       return;
     }
     setSaveState("saving");
+    window.clearTimeout(persistFileTimer);
     try {
       const layout = layoutStore();
-      const response = await fetch("/__uklad", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(layout),
-      });
-      if (!response.ok) throw new Error("save");
-      publishedLayout = layout;
-      saveStore(layout);
+      if (!(await persistLayoutFile(layout))) throw new Error("save");
       savedSnapshot.current = stableLayout(layout);
+      saveStore(layout, { skipFile: true });
       setDirty(false);
       setSaveState("saved");
       applyCurrent();
@@ -1840,9 +1878,17 @@ export function LayoutEditor() {
             </div>
           </div>
         </div>
+        {dirty ? (
+          <p className="mt-2 rounded-md border border-amber-600/35 bg-amber-500/10 px-3 py-2 text-xs leading-relaxed text-foreground">
+            Zmiany czekają na zapis do pliku (dev zapisuje automatycznie) lub na{" "}
+            <strong>push na GitHub</strong> — hosting nie widzi samego
+            localStorage.
+          </p>
+        ) : null}
         <p className="mt-2 leading-relaxed text-muted-foreground">
-          Telefon, tablet i komputer mają osobne układy. Zapisz wpisuje je w kod
-          strony.
+          Telefon, tablet i komputer mają osobne układy. W dev układ trafia do{" "}
+          <code className="text-[0.7rem]">src/uklad.json</code> (auto lub Zapisz);
+          na Vercel widać go po commit + push.
         </p>
         <div className="mt-3 grid grid-cols-3 gap-2">
           {SIZE_ORDER.map((size) => (
