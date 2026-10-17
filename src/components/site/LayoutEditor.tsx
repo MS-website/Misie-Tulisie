@@ -830,11 +830,6 @@ export function LayoutEditor() {
   refreshTextRef.current = refreshText;
 
   useEffect(() => {
-    if (!import.meta.env.DEV) return;
-    void persistLayoutFile(layoutStore());
-  }, []);
-
-  useEffect(() => {
     migrateAboutSections();
     setCollapsed(localStorage.getItem(COLLAPSE_KEY) === "1");
     const sync = () => {
