@@ -92,7 +92,9 @@ function boxCssLines(box: Box, selector: string, continuation = false) {
   const lines: string[] = [];
   const hasOffset = !!(box.x || box.y);
   if (!continuation && hasOffset && anchorSelector(selector)) {
-    lines.push("display:inline-block");
+    lines.push("display:inline-flex");
+    lines.push("align-items:center");
+    lines.push("justify-content:center");
   }
   if (!continuation && (hasOffset || box.z > 0)) {
     lines.push("position:relative");
