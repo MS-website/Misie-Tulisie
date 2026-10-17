@@ -436,13 +436,13 @@ export function RecruitmentRules() {
         <Reveal className="space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
           <p>
             Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci
-            w wieku od 6. miesiąca życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli
+            w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli
             w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do
             placówki.
           </p>
           <p>
-            Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy, aby zaakceptowali
-            Państwo nasz regulamin i podpisali umowę. Umowa na świadczenie usług
+            Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez
+            Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług
             opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony,
             z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka i rodzica,
             warunki rozwiązania umowy i inne niezbędne informacje.
