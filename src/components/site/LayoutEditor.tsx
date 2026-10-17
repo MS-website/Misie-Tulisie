@@ -45,15 +45,17 @@ const HOME_CARD_FILL_RESET_KEY = "misie-uklad-reset-home-card-sage-v1";
 const HOME_LAYOUT_ZERO_KEY = "misie-uklad-zero-home-v1";
 const HOME_KROKI_LINES_KEY = "misie-uklad-home-kroki-lines-v2";
 const HERO_COLOR_KEY = "misie-uklad-hero-wielkie-color-v1";
+const HERO_ROMAN_KEY = "misie-uklad-hero-znaczenie-roman-v1";
 const HERO_H1 =
   "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > h1:nth-of-type(1)";
 const HERO_OLD_EM = '<em class="text-honey">wielkie znaczenie</em>';
-const HERO_NEW_EM =
+const HERO_ITALIC_EM =
   '<em><span class="text-honey">wielkie</span> znaczenie</em>';
+const HERO_NEW_EM = '<em class="text-honey">wielkie</em> znaczenie';
 const KROKI_PARAGRAPH =
   "section:nth-of-type(5) > div:nth-of-type(1) > article:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)";
 const BLOCK =
-  "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md, [data-parents-accent-line], div.parents-green-rule-hit";
+  "section, h1, h2, h3, h4, p, li, figure, a, button, img, div.rounded-2xl, div.rounded-md, [data-parents-accent-line], div.parents-green-rule-hit, span.parents-honey-rule-hit, [data-uklad-text]";
 const OUTLINE_STYLE = `
   [data-layout-hover="1"] { outline: 1px dashed #b08954; outline-offset: 4px; }
   [data-layout-selected="1"] { outline: 2px solid #b08954; outline-offset: 4px; position: relative; z-index: 40 !important; }
@@ -238,6 +240,19 @@ function colorHeroWord(page: PageLayout | undefined) {
   return true;
 }
 
+function romanHeroWord(page: PageLayout | undefined) {
+  const text = page?.text?.[HERO_H1];
+  if (!text?.html.includes(HERO_ITALIC_EM)) return false;
+  text.html = text.html.replaceAll(HERO_ITALIC_EM, HERO_NEW_EM);
+  if (text.originalHtml.includes(HERO_ITALIC_EM)) {
+    text.originalHtml = text.originalHtml.replaceAll(
+      HERO_ITALIC_EM,
+      HERO_NEW_EM,
+    );
+  }
+  return true;
+}
+
 function colorHeroWordOnce() {
   if (localStorage.getItem(HERO_COLOR_KEY)) return false;
   localStorage.setItem(HERO_COLOR_KEY, "1");
@@ -258,16 +273,38 @@ function colorHeroWordOnce() {
   return false;
 }
 
+function romanHeroWordOnce() {
+  if (localStorage.getItem(HERO_ROMAN_KEY)) return false;
+  localStorage.setItem(HERO_ROMAN_KEY, "1");
+  const store = loadStore();
+  const changed = romanHeroWord(store["/"]);
+  if (changed) saveStore(store);
+  const history = loadHistory();
+  let historyChanged = false;
+  for (const entry of history) {
+    if (romanHeroWord(entry["/"])) historyChanged = true;
+  }
+  if (historyChanged)
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  if (changed && window.location.pathname === "/") {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
 if (typeof window !== "undefined") {
   resetHomeLayoutOnce();
   resetKrokiLinesOnce();
   colorHeroWordOnce();
+  romanHeroWordOnce();
 }
 
 function migrateAboutSections() {
   if (resetHomeLayoutOnce()) return;
   if (resetKrokiLinesOnce()) return;
   if (colorHeroWordOnce()) return;
+  if (romanHeroWordOnce()) return;
   resetHomeCardFillOnce();
   const store = loadStore();
   const before = stableLayout(store);
@@ -339,6 +376,9 @@ function readVerticalSpacing(el: HTMLElement, edge: "top" | "bottom") {
 
 function selectorFor(el: Element, root: Element) {
   if (!root.contains(el) || el === root) return null;
+  if (el instanceof HTMLElement && el.dataset.ukladText) {
+    return `[data-uklad-text="${el.dataset.ukladText}"]`;
+  }
   const parts: string[] = [];
   let node: Element | null = el;
   while (node && node !== root) {
@@ -388,6 +428,10 @@ function findBlock(start: Element | null, doc: Document) {
   ) {
     return accent;
   }
+  const tagged = start.closest("[data-uklad-text]");
+  if (isHtmlElement(tagged) && main.contains(tagged)) {
+    return tagged;
+  }
   let node: Element | null = start;
   while (node && node !== main) {
     if (isHtmlElement(node) && main.contains(node)) {
@@ -416,6 +460,11 @@ function labelFor(el: HTMLElement) {
     FIGURE: "Zdjęcie",
   };
   if (el.dataset["parentsAccentLine"]) return "Kreska";
+  if (el.dataset["ukladText"] === "oplaty-wyzywienie") return "Tekst: wyżywienie";
+  if (el.dataset["ukladText"] === "oplaty-maluch-tekst")
+    return "Tekst: Aktywny Maluch";
+  if (el.dataset["ukladText"] === "oplaty-maluch-tytul")
+    return "Nagłówek: Aktywny Maluch";
   return labels[el.tagName] ?? "Blok";
 }
 
@@ -977,7 +1026,9 @@ export function LayoutEditor() {
       const stacked = blocksUnderPoint(doc, main, event.clientX, event.clientY);
       const photosAtPoint = stacked.filter(isPhotoFrame);
       const accentAtPoint = stacked.find((node) => node.dataset["parentsAccentLine"]);
-      let el = accentAtPoint ?? stacked[0] ?? findBlock(pointed, doc);
+      const ukladTextAtPoint = stacked.find((node) => node.dataset["ukladText"]);
+      let el =
+        accentAtPoint ?? ukladTextAtPoint ?? stacked[0] ?? findBlock(pointed, doc);
       if (photosAtPoint.length > 1) {
         const currentEl = selectedSelectorRef.current
           ? main.querySelector(selectedSelectorRef.current)
@@ -1172,6 +1223,11 @@ export function LayoutEditor() {
       };
       const onKey = (keyEvent: KeyboardEvent) => {
         if (keyEvent.key === "Enter" && !keyEvent.shiftKey) {
+          if (el.tagName === "P") {
+            keyEvent.preventDefault();
+            doc.execCommand("insertLineBreak");
+            return;
+          }
           keyEvent.preventDefault();
           el.blur();
         }
@@ -1556,6 +1612,8 @@ export function LayoutEditor() {
         body: JSON.stringify(layout),
       });
       if (!response.ok) throw new Error("save");
+      publishedLayout = layout;
+      saveStore(layout);
       savedSnapshot.current = stableLayout(layout);
       setDirty(false);
       setSaveState("saved");
@@ -1800,10 +1858,9 @@ export function LayoutEditor() {
         {enabled && (
           <div className="mt-4 space-y-3">
             <p className="leading-relaxed text-muted-foreground">
-              Przeciągnij blok, żeby go przenieść. Złap krawędź ramki tekstu i
-              rozciągnij — słowa same przejdą między linijkami. Zdjęcie możesz
-              powiększać i pomniejszać za krawędzie z boku i z góry/dołu. Dwuklik
-              zmienia treść.
+              Najpierw włącz edycję. Przeciągnij blok albo użyj Wyżej/Niżej. Teksty
+              „wyżywienie” i „Aktywny Maluch” mają własne ramki — dwuklik zmienia
+              treść (Enter = nowa linia). Na końcu Zapisz.
             </p>
             <p className="text-muted-foreground">
               {selectedLabel

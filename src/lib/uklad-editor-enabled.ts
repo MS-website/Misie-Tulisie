@@ -1,2 +1,2 @@
-/** Ręczny edytor układu (panel „Układ” / „Zapisz” w dev). Wyłączony — włączyć przy dopracowaniu mobile. */
-export const UKLAD_MANUAL_EDITOR_ENABLED = false;
+/** Panel „Układ” (LayoutEditor) — tylko `vite dev`. Produkcja: tekst z uklad.json + CSS paint. */
+export const UKLAD_MANUAL_EDITOR_ENABLED = import.meta.env.DEV;

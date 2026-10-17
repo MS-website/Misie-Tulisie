@@ -36,7 +36,6 @@ export function AboutIntro() {
     <section className="container-site py-24 md:py-36">
       <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-6">
-          <div className="mb-10 h-px w-16 bg-honey" aria-hidden="true" />
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
               Misie Tulisie to wyjątkowe miejsce stworzone z myślą o
@@ -62,13 +61,6 @@ export function AboutIntro() {
                 </Em>,
                 ". Dlatego przygotowujemy różnorodne aktywności wspierające rozwój poznawczy, ruchowy, sensoryczny i emocjonalny dzieci.",
               ]}
-            </p>
-            <p>
-              Codzienność organizujemy w <Em>trzech grupach wiekowych</Em>,
-              dzięki czemu możemy dopasować zabawy, zajęcia i rytm dnia do
-              możliwości oraz etapu rozwoju każdego malucha. Nie przyspieszamy
-              dziecięcego rozwoju - uważnie mu towarzyszymy, wspierając
-              samodzielność, pewność siebie i radość z odkrywania nowych rzeczy.
             </p>
           </div>
         </Reveal>

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { seo } from "@/lib/site";
+import { ParentsLayoutTuneRoot } from "@/components/site/ParentsLayoutTune";
 import { ParentsPageSections } from "@/components/site/parents-page";
 
 export const Route = createFileRoute("/dla-rodzicow")({
@@ -9,5 +10,9 @@ export const Route = createFileRoute("/dla-rodzicow")({
       "Opłaty, dofinansowania, plan dnia i wyprawka — praktyczne informacje dla rodziców.",
     ),
   }),
-  component: () => <ParentsPageSections />,
+  component: () => (
+    <ParentsLayoutTuneRoot>
+      <ParentsPageSections />
+    </ParentsLayoutTuneRoot>
+  ),
 });

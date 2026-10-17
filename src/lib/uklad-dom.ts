@@ -1,4 +1,5 @@
 import {
+  SIZE_ORDER,
   cardFillCss,
   cardFillFor,
   discoverFillFor,
@@ -6,6 +7,7 @@ import {
   type SizeId,
   type Store,
 } from "./uklad-data";
+import { UKLAD_MANUAL_EDITOR_ENABLED } from "./uklad-editor-enabled";
 
 const applied = new WeakMap<Document, Set<string>>();
 let applying = false;
@@ -23,21 +25,28 @@ export function isApplying() {
 }
 
 const LINE_MARK = "data-uklad-line";
+export const UKLAD_TEXT_CONTINUE = "data-uklad-text-continue";
 
-export type WordRange = { node: Text; start: number; end: number };
+const SIZE_MEDIA: Record<SizeId, string> = {
+  sm: "@media (max-width: 767px)",
+  md: "@media (min-width: 768px) and (max-width: 1023px)",
+  lg: "@media (min-width: 1024px)",
+};
 
-function ensureLayoutInlineBox(el: HTMLElement) {
-  const display = getComputedStyle(el).display;
-  const inlineTag = el.tagName === "A" || el.tagName === "BUTTON";
-  if (!inlineTag && display !== "inline" && display !== "contents") return;
-  const flexButton =
-    inlineTag &&
-    (display.includes("flex") || el.classList.contains("inline-flex"));
-  el.style.display = flexButton ? "inline-flex" : "inline-block";
-  el.dataset["layoutDisplay"] = "1";
+function textContinuations(el: HTMLElement) {
+  const nodes: HTMLElement[] = [];
+  let next = el.nextElementSibling;
+  while (
+    next instanceof HTMLElement &&
+    next.getAttribute(UKLAD_TEXT_CONTINUE) === "true"
+  ) {
+    nodes.push(next);
+    next = next.nextElementSibling;
+  }
+  return nodes;
 }
 
-export function clearBox(el: HTMLElement) {
+function resetBoxStyles(el: HTMLElement) {
   el.style.translate = "";
   el.style.zIndex = "";
   for (const prop of [
@@ -69,6 +78,123 @@ export function clearBox(el: HTMLElement) {
     el.style.display = "";
     delete el.dataset["layoutDisplay"];
   }
+}
+
+function clearContinuations(el: HTMLElement) {
+  for (const node of textContinuations(el)) resetBoxStyles(node);
+}
+
+function anchorSelector(selector: string) {
+  return />\s*a:nth-of-type\(\d+\)$/.test(selector);
+}
+
+function boxCssLines(box: Box, selector: string, continuation = false) {
+  const lines: string[] = [];
+  const hasOffset = !!(box.x || box.y);
+  if (!continuation && hasOffset && anchorSelector(selector)) {
+    lines.push("display:inline-block");
+  }
+  if (!continuation && (hasOffset || box.z > 0)) {
+    lines.push("position:relative");
+  }
+  if (continuation) {
+    lines.push("display:block");
+    lines.push("margin-top:0!important");
+    if (box.x) lines.push(`translate:${box.x}px 0px`);
+  } else if (hasOffset) {
+    lines.push(`translate:${box.x}px ${box.y}px`);
+  }
+  if (!continuation && box.z > 0) lines.push(`z-index:${box.z}`);
+  if (!continuation && box.paddingTop != null) {
+    lines.push(`padding-top:${box.paddingTop}px !important`);
+  }
+  if (!continuation && box.paddingBottom != null) {
+    lines.push(`padding-bottom:${box.paddingBottom}px !important`);
+  }
+  if (!continuation && box.marginTop != null) {
+    lines.push(`margin-top:${box.marginTop}px !important`);
+  }
+  if (!continuation && box.marginBottom != null) {
+    lines.push(`margin-bottom:${box.marginBottom}px !important`);
+  }
+  if (box.fontSize != null) lines.push(`font-size:${box.fontSize}px`);
+  if (box.width != null) {
+    lines.push(`width:${box.width}px`);
+    lines.push(`max-width:${box.width}px`);
+  }
+  if (!continuation && box.height != null) {
+    lines.push(`height:${box.height}px`);
+    lines.push(`max-height:${box.height}px`);
+    if (box.width != null) lines.push("aspect-ratio:auto");
+  }
+  return lines;
+}
+
+function continuationSelectorRules(selector: string, box: Box) {
+  const cont = boxCssLines(box, selector, true);
+  if (cont.length === 0) return [];
+  const base = `main ${selector}`;
+  const body = cont.join(";");
+  const contSel = `[${UKLAD_TEXT_CONTINUE}="true"]`;
+  return [
+    `${base} + ${contSel}{${body}}`,
+    `${base} + ${contSel} + ${contSel}{${body}}`,
+  ];
+}
+
+export function buildLayoutStylesheet(pathname: string, store: Store) {
+  const page = store[pathname];
+  if (!page) return "";
+  const chunks: string[] = [];
+  if (pathname === "/") {
+    chunks.push(
+      `:root{--home-card-fill:${cardFillCss(cardFillFor(store, pathname))};--home-discover-fill:${cardFillCss(discoverFillFor(store, pathname))};}`,
+    );
+  }
+  for (const size of SIZE_ORDER) {
+    const boxes = page[size];
+    if (!boxes || Object.keys(boxes).length === 0) continue;
+    const rules: string[] = [];
+    for (const [selector, box] of Object.entries(boxes)) {
+      const main = boxCssLines(box, selector, false);
+      if (main.length > 0) {
+        rules.push(`main ${selector}{${main.join(";")}}`);
+      }
+      rules.push(...continuationSelectorRules(selector, box));
+    }
+    if (rules.length > 0) {
+      chunks.push(`${SIZE_MEDIA[size]}{${rules.join("")}}`);
+    }
+  }
+  return chunks.join("");
+}
+
+export type WordRange = { node: Text; start: number; end: number };
+
+function ensureLayoutInlineBox(el: HTMLElement) {
+  const display = getComputedStyle(el).display;
+  const inlineTag = el.tagName === "A" || el.tagName === "BUTTON";
+  if (!inlineTag && display !== "inline" && display !== "contents") return;
+  const flexButton =
+    inlineTag &&
+    (display.includes("flex") || el.classList.contains("inline-flex"));
+  el.style.display = flexButton ? "inline-flex" : "inline-block";
+  el.dataset["layoutDisplay"] = "1";
+}
+
+export function clearBox(el: HTMLElement) {
+  clearContinuations(el);
+  resetBoxStyles(el);
+}
+
+function applyContinuationStyles(el: HTMLElement, box: Box) {
+  if (box.fontSize != null) el.style.fontSize = `${box.fontSize}px`;
+  if (box.width != null) {
+    el.style.width = `${box.width}px`;
+    el.style.maxWidth = `${box.width}px`;
+  }
+  if (box.x) el.style.translate = `${box.x}px 0px`;
+  else if (!box.y) el.style.translate = "";
 }
 
 export function wordRanges(el: HTMLElement): WordRange[] {
@@ -274,6 +400,7 @@ function applyBox(el: HTMLElement, box: Box) {
   el.style.height = box.height != null ? `${box.height}px` : "";
   el.style.maxHeight = box.height != null ? `${box.height}px` : "";
   applyBreaks(el, box.breaks ?? []);
+  for (const node of textContinuations(el)) applyContinuationStyles(node, box);
 }
 
 export function applyTheme(doc: Document, pathname: string, store: Store) {
@@ -293,10 +420,12 @@ export function applyLayout(
   pathname: string,
   size: SizeId,
   store: Store,
+  options?: { text?: boolean },
 ) {
   if (applying) return false;
   const main = doc.querySelector("main");
   if (!main) return false;
+  const writeText = options?.text !== false;
   const previous = applied.get(doc) ?? new Set<string>();
   const page = store[pathname];
   const boxes = page?.[size] ?? {};
@@ -313,15 +442,17 @@ export function applyLayout(
       const el = main.querySelector(selector);
       if (isHtmlElement(el)) clearBox(el);
     }
-    for (const [selector, text] of Object.entries(texts)) {
-      const el = main.querySelector(selector);
-      if (!isHtmlElement(el) || el.isContentEditable) continue;
-      if (el.querySelector("button, input, textarea, select")) continue;
-      if (el.innerHTML !== text.html) {
-        el.innerHTML = text.html;
+    if (writeText) {
+      for (const [selector, text] of Object.entries(texts)) {
+        const el = main.querySelector(selector);
+        if (!isHtmlElement(el) || el.isContentEditable) continue;
+        if (el.querySelector("button, input, textarea, select")) continue;
         if (el.innerHTML !== text.html) {
-          text.html = el.innerHTML;
-          normalized = true;
+          el.innerHTML = text.html;
+          if (el.innerHTML !== text.html) {
+            text.html = el.innerHTML;
+            normalized = true;
+          }
         }
       }
     }

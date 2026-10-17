@@ -14,19 +14,24 @@ import planDniaLezakowanie from "@/assets/plan-dnia-lezakowanie.png";
 import planDniaPodwieczorek from "@/assets/plan-dnia-podwieczorek.png";
 import wyprawkaMisTorba from "@/assets/wyprawka-mis-torba.jpg";
 import wyprawkaPdfPrzycisk from "@/assets/wyprawka-pdf-przycisk.png";
+import { ParentsTuneSurface } from "@/components/site/ParentsLayoutTune";
+import { UkladText } from "@/components/site/UkladText";
 import { Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
+
+const UKLAD_OPLATY_WYZYWIENIE = '[data-uklad-text="oplaty-wyzywienie"]';
+const UKLAD_OPLATY_MALUCH_TEKST = '[data-uklad-text="oplaty-maluch-tekst"]';
+const UKLAD_OPLATY_MALUCH_TYTUL = '[data-uklad-text="oplaty-maluch-tytul"]';
 
 const WYPRAWKA_ITEMS = [
   "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59",
   "Pampersy (podpisane opakowanie)",
   "Mokre chusteczki (podpisane opakowanie)",
   "Śliniaczek gumowy lub plastikowy z korytkiem",
-  "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub leginsy)",
+  "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub legginsy)",
   "Kubeczek (jeśli dziecko nie pije jeszcze ze standardowego kubka)",
   "Krem na odparzenia dla niemowląt (może być też Sudocrem)",
   "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana",
-  "Rolka ręczników papierowych (raz na 3 miesiące)",
   "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka)",
 ];
 
@@ -37,19 +42,19 @@ const AKTYWNIE_FAQ: [string, string][] = [
   ],
   [
     "Komu nie przysługuje świadczenie?",
-    "Świadczenie nie przysługuje osobom korzystającym ze świadczenia „Aktywnie w domu” lub „Aktywni rodzice w pracy” na to samo dziecko w tym samym miesiącu.",
+    "Świadczenie nie przysługuje osobom korzystającym ze świadczenia „Aktywnie w\u00a0domu” lub „Aktywni rodzice w pracy” na to samo dziecko w tym samym miesiącu.",
   ],
   [
     "Jaka jest wysokość świadczenia „Aktywnie w żłobku”?",
-    "Do 1500 zł miesięcznie na dziecko lub do 1900 zł w przypadku dziecka z odpowiednim orzeczeniem o niepełnosprawności. Świadczenie nie obejmuje kosztów wyżywienia.",
+    "Do 1500 zł miesięcznie na dziecko lub do 1900 zł w przypadku dziecka z\u00a0odpowiednim orzeczeniem o niepełnosprawności. Świadczenie nie obejmuje kosztów wyżywienia.",
   ],
   [
     "Jak wypłacane jest świadczenie?",
-    "ZUS przekazuje pieniądze bezpośrednio na rachunek podmiotu prowadzącego żłobek lub zapewniającego opiekę. Rodzic pokrywa ewentualną różnicę w opłacie oraz koszt wyżywienia.",
+    "ZUS przekazuje świadczenie bezpośrednio na rachunek podmiotu zapewniającego opiekę, po uprzednim złożeniu przez rodzica wniosku „Aktywnie w żłobku”.",
   ],
   [
     "Gdzie złożyć wniosek?",
-    "Wniosek można złożyć elektronicznie przez PUE ZUS (eZUS), aplikację mZUS, bankowość elektroniczną lub portal Emp@tia. Warto zrobić to w ciągu 2 miesięcy od rozpoczęcia opieki, aby uzyskać świadczenie od pierwszego dnia pobytu dziecka.",
+    "Wniosek można złożyć elektronicznie przez PUE ZUS (eZUS), aplikację mZUS, bankowość elektroniczną lub portal Emp@tia. W razie problemów z wypełnieniem wniosku chętnie pomożemy.",
   ],
 ];
 
@@ -199,9 +204,12 @@ function WyprawkaPhoto({ className }: { className?: string }) {
 function HoneyRule({ className }: { className?: string }) {
   return (
     <span
-      className={cn("block h-px w-[3cm] bg-honey", className)}
+      className={cn("parents-honey-rule-hit block w-max", className)}
+      data-parents-accent-line="oplaty-intro"
       aria-hidden="true"
-    />
+    >
+      <span className="block h-px w-[3cm] bg-honey" />
+    </span>
   );
 }
 
@@ -502,119 +510,150 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-b border-border/60 bg-background pb-20 md:pb-28"
       >
         <div className="container-site min-w-0 pt-24 md:pt-28">
-          <Reveal>
-            <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">
-              Wszystko,{" "}
-              <span className="whitespace-nowrap">co warto wiedzieć</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:mt-8 md:text-xl">
-              Opłaty, dofinansowania, plan dnia i wyprawka — zebraliśmy
-              informacje, które pomagają spokojnie zaplanować pierwsze tygodnie
-              w żłobku.
-            </p>
-            <HoneyRule className="mt-6 md:mt-8" />
+          <Reveal className="space-y-0">
+            <ParentsTuneSurface id="oplaty-naglowek">
+              <h1 className="font-display text-xl md:text-3xl lg:text-4xl">
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy{"\u00a0"}
+                informacje, <br />
+                które{"\u00a0"}pomagają spokojnie zaplanować pierwsze tygodnie w
+                żłobku
+              </h1>
+            </ParentsTuneSurface>
+            <ParentsTuneSurface id="oplaty-wstep">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                Tu znajdziesz najważniejsze informacje o opłatach oraz
+                świadczeniach, które przysługują rodzicom chcącym zapisać dziecko
+                do naszego żłobka.
+              </p>
+            </ParentsTuneSurface>
+            <ParentsTuneSurface id="oplaty-kreska">
+              <HoneyRule />
+            </ParentsTuneSurface>
           </Reveal>
 
-          <div className="mt-10 md:mt-12">
-          <Reveal>
-            <h2 className="font-display max-w-3xl text-4xl md:text-5xl lg:text-6xl">
-              Przejrzyste informacje o kosztach
-            </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              Tu znajdziesz najważniejsze informacje o opłatach oraz
-              świadczeniach, które przysługują rodzicom chcącym zapisać dziecko
-              do naszego żłobka.
-            </p>
-          </Reveal>
-
-          <div className="mt-8 grid items-start gap-x-10 gap-y-10 lg:grid-cols-12 lg:gap-x-14">
-            <div className="space-y-10 lg:col-span-5">
-              <Reveal>
+          <div className="parents-wyzywienie-band mt-10 md:mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
+            <Reveal className="lg:col-span-5">
+              <ParentsTuneSurface id="oplaty-wyzywienie-eyebrow">
                 <p className="eyebrow mb-5">Wyżywienie</p>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-wyzywienie-foto">
                 <Photo
                   src={wyzywienieGrupa}
                   alt="Dzieci przy wspólnym posiłku w żłobku"
                   className="aspect-[3/2] w-full"
                 />
-              </Reveal>
-              <Reveal className="space-y-10">
-              <div>
+              </ParentsTuneSurface>
+            </Reveal>
+            <Reveal
+              delay={80}
+              className="parents-wyzywienie-copy mt-8 flex flex-col gap-6 lg:col-span-7 lg:mt-0 lg:gap-7 lg:pt-11"
+            >
+              <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
+                <UkladText
+                  as="p"
+                  selector={UKLAD_OPLATY_WYZYWIENIE}
+                  data-uklad-text="oplaty-wyzywienie"
+                  className="w-full text-base leading-[1.65] text-muted-foreground md:text-lg md:leading-[1.7]"
+                >
+                  Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
+                  podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
+                  obecności malucha w placówce. Misie Tulisie korzystają z
+                  cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
+                  Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
+                </UkladText>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-infografika" className="w-full">
+                <img
+                  src={oplatyInfografika}
+                  alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
+                  className="h-auto w-full"
+                />
+              </ParentsTuneSurface>
+            </Reveal>
+          </div>
+
+          <div className="mt-10 grid items-start gap-x-10 gap-y-10 lg:mt-14 lg:grid-cols-12 lg:gap-x-14">
+            <Reveal className="space-y-10 lg:col-span-5">
+              <ParentsTuneSurface id="oplaty-aktywny-rodzic-tytul">
                 <h3 className="font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
                 </h3>
-                <div className="mt-4 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-                  <p>
-                    To rządowy program, który jest elementem reformy systemu
-                    wspierania opieki nad dziećmi do lat 3, wprowadzający trzy
-                    nowe świadczenia dla rodziców:
-                  </p>
-                  <ul className="list-disc space-y-2 pl-5">
-                    <li>„Aktywnie w żłobku”,</li>
-                    <li>„Aktywnie w domu”,</li>
-                    <li>„Aktywni rodzice w pracy” (tzw. babciowe).</li>
-                  </ul>
-                  <p>
-                    W Misiach Tulisiach istnieje możliwość skorzystania ze
-                    świadczenia „Aktywnie w żłobku” w wysokości 1500 zł
-                    miesięcznie, które wspiera rodziców w finansowaniu opieki
-                    nad maluchami. Celem programu jest ułatwienie rodzicom
-                    powrotu do pracy przy równoczesnym zatroszczeniu się o
-                    najlepszą opiekę dla dziecka.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <h3 className="font-display text-3xl md:text-4xl">
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-aktywny-rodzic-wstep">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                  To rządowy program, który jest elementem reformy systemu
+                  wspierania opieki nad dziećmi do lat 3, wprowadzający trzy
+                  nowe świadczenia dla rodziców:
+                </p>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-aktywny-rodzic-lista">
+                <ul className="list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <li>„Aktywnie w żłobku”,</li>
+                  <li>„Aktywnie w domu”,</li>
+                  <li>„Aktywni rodzice w pracy” (tzw. babciowe).</li>
+                </ul>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-aktywny-rodzic-akapit">
+                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                  W Misiach Tulisiach istnieje możliwość skorzystania ze
+                  świadczenia „Aktywnie w żłobku” w wysokości 1500 zł
+                  miesięcznie, które wspiera rodziców w finansowaniu opieki
+                  nad maluchami. Celem programu jest ułatwienie rodzicom
+                  powrotu do pracy przy równoczesnym zatroszczeniu się o
+                  najlepszą opiekę dla dziecka.
+                </p>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-maluch-tytul">
+                <UkladText
+                  as="h3"
+                  selector={UKLAD_OPLATY_MALUCH_TYTUL}
+                  data-uklad-text="oplaty-maluch-tytul"
+                  className="font-display text-3xl md:text-4xl"
+                >
                   Program „Aktywny Maluch 2022-2029”
-                </h3>
-                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                </UkladText>
+              </ParentsTuneSurface>
+              <ParentsTuneSurface id="oplaty-maluch-tekst">
+                <UkladText
+                  as="p"
+                  selector={UKLAD_OPLATY_MALUCH_TEKST}
+                  data-uklad-text="oplaty-maluch-tekst"
+                  className="text-base leading-relaxed text-muted-foreground md:text-lg"
+                >
                   Ponadto, w Misiach Tulisiach każdemu z rodziców przysługuje
                   dofinansowanie w ramach programu Aktywny Maluch 2022-2029,
                   które finansuje każde obsadzone miejsce w placówce w wysokości
                   836 zł miesięcznie.
-                </p>
-              </div>
+                </UkladText>
+              </ParentsTuneSurface>
             </Reveal>
-            </div>
             <div className="space-y-10 lg:col-span-7">
-            <Reveal delay={80}>
-              <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
-                podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
-                obecności malucha w placówce. Misie Tulisie korzystają z
-                cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
-                Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
-              </p>
-              <img
-                src={oplatyInfografika}
-                alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
-                className="mt-6 h-auto w-full"
-              />
-            </Reveal>
-            <Reveal delay={80}>
-              <div className="rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8">
-                <p className="text-sm font-semibold tracking-wide text-foreground">
-                  „Aktywnie w żłobku” — pytania i odpowiedzi
-                </p>
-                <Accordion
-                  items={AKTYWNIE_FAQ}
-                  className="mt-4"
-                  itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
-                />
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <div className="parents-czesne-callout">
-                <ParentsGreenRule />
-                <p className="parents-czesne-callout-text min-w-0 max-w-md flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                  Korzystając z obu przysługujących świadczeń, czesne w Misiach
-                  Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do
-                  żłobka.
-                </p>
-              </div>
-            </Reveal>
+              <Reveal delay={80}>
+                <ParentsTuneSurface id="oplaty-faq">
+                  <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
+                    <p className="text-2xl font-semibold tracking-wide text-foreground">
+                      „Aktywnie w żłobku” — pytania i odpowiedzi
+                    </p>
+                    <Accordion
+                      items={AKTYWNIE_FAQ}
+                      className="mt-4"
+                      itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
+                    />
+                  </div>
+                </ParentsTuneSurface>
+              </Reveal>
+              <Reveal delay={80}>
+                <ParentsTuneSurface id="oplaty-czesne">
+                  <div className="parents-czesne-callout">
+                    <ParentsGreenRule />
+                    <p className="parents-czesne-callout-text min-w-0 max-w-md flex-1 text-base leading-relaxed text-foreground md:text-lg">
+                      Korzystając z obu przysługujących świadczeń, czesne w naszej
+                      placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
+                    </p>
+                  </div>
+                </ParentsTuneSurface>
+              </Reveal>
             </div>
-          </div>
           </div>
         </div>
       </section>

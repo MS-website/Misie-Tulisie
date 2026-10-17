@@ -133,6 +133,22 @@
   }
 }
 
+/* Dla rodziców — pas wyżywienia (zdjęcie | tekst + tabelka), jak w makiecie. */
+.parents-wyzywienie-band .parents-wyzywienie-copy,
+.parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune],
+.parents-wyzywienie-band .parents-wyzywienie-copy p {
+  max-width: none;
+  width: 100%;
+}
+
+/* Dla rodziców: tekst wyżywienia na pełną szerokość kolumny (jak w makiecie). */
+.parents-wyzywienie-band .parents-wyzywienie-copy,
+.parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune],
+.parents-wyzywienie-band .parents-wyzywienie-copy p {
+  max-width: none;
+  width: 100%;
+}
+
 /* Formularz trzyma kolumnę z trzech ustawionych szerokości: 390, 820 i 1280. */
 body[data-frame="formularz"] .container-site {
   max-width: 24.375rem;
@@ -349,6 +365,13 @@ body[data-frame="formularz"] .container-site {
   margin-left: auto;
   margin-right: 0;
 }
+.parents-honey-rule-hit {
+  padding-block: 0.625rem;
+}
+body[data-layout-editing="1"] .parents-honey-rule-hit {
+  cursor: grab;
+}
+
 .parents-green-rule-hit {
   min-height: 2.25cm;
 }

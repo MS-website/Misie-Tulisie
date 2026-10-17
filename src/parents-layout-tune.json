@@ -1,0 +1,53 @@
+{
+  "offsets": {
+    "oplaty-tekst-wyzywienie": {
+      "lg": {
+        "x": -40.1640625,
+        "y": 34.23828125
+      }
+    },
+    "oplaty-wyzywienie-foto": {
+      "lg": {
+        "x": 0.73046875,
+        "y": 24.44140625
+      }
+    },
+    "oplaty-infografika": {
+      "lg": {
+        "x": 55.2421875,
+        "y": -33
+      }
+    },
+    "oplaty-faq": {
+      "lg": {
+        "x": -60,
+        "y": -44
+      }
+    },
+    "oplaty-czesne": {
+      "lg": {
+        "x": 0,
+        "y": -136
+      }
+    },
+    "oplaty-naglowek": {
+      "lg": {
+        "x": -2.11328125,
+        "y": -15.703125
+      }
+    },
+    "oplaty-wstep": {
+      "lg": {
+        "x": -0.00390625,
+        "y": -1.5625
+      }
+    },
+    "oplaty-kreska": {
+      "lg": {
+        "x": 0.5,
+        "y": 6.13671875
+      }
+    }
+  },
+  "text": {}
+}

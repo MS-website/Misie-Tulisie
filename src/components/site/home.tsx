@@ -21,7 +21,7 @@ export function HomeHero() {
             <br />
             kroki mają
             <br />
-            <em><span className="text-honey">wielkie</span> znaczenie</em>
+            <em className="text-honey">wielkie</em> znaczenie
           </h1>
           <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
             Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we
@@ -81,8 +81,8 @@ export function HomePlayGrowth() {
           <div className="min-w-0 lg:col-span-6">
             <h2 className="font-display text-4xl md:text-5xl">Rozwój przez zabawę</h2>
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
-              W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę, w której dzieci mogą
-              rozwijać się we własnym tempie. Pod czujnym okiem troskliwych opiekunek maluchy
+              W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę, gdzie pod czujnym okiem
+              troskliwych opiekunek maluchy
               każdego dnia uczą się poprzez zabawę, rozwijają samodzielność, poznają otaczający
               je świat, zdobywają nowe umiejętności i budują relacje z rówieśnikami.
             </p>
@@ -154,8 +154,8 @@ export function HomeIndividualApproach() {
           <div className="mt-6 min-w-0 space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             <p>
               Codzienność naszych podopiecznych organizujemy w trzech grupach wiekowych, dzięki
-              czemu możemy dostosować zajęcia, rytm dnia oraz poziom aktywności do wieku i etapu
-              rozwoju dzieci.
+              czemu dostosowujemy zajęcia oraz rytm dnia do wieku i etapu rozwoju każdego z
+              dzieci.
             </p>
             <p>
               Nie oczekujemy od wszystkich maluchów tego samego. Obserwujemy ich potrzeby,

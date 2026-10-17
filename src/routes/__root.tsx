@@ -13,6 +13,8 @@ import { useEffect, useState, type ComponentType, type ReactNode } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RouteScrollReset } from "@/components/site/RouteScrollReset";
+import { SavedLayout } from "@/components/site/SavedLayout";
+import { UkladStoreProvider } from "@/components/site/UkladText";
 import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import appCss from "../styles.css?url";
 
@@ -193,19 +195,6 @@ function FaviconProbe() {
   return null;
 }
 
-function PublishedLayout() {
-  const [Node, setNode] = useState<ComponentType | null>(null);
-
-  useEffect(() => {
-    void import("@/components/site/SavedLayout").then((mod) => {
-      setNode(() => mod.SavedLayout);
-    });
-  }, []);
-
-  if (!Node) return null;
-  return <Node />;
-}
-
 function DevLayoutEditor() {
   const [Tool, setTool] = useState<ComponentType | null>(null);
   const previewFrame =
@@ -232,15 +221,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <RouteScrollReset />
-      <FaviconProbe />
-      <Header />
-      <main className="min-w-0">
-        <Outlet />
-      </main>
-      <Footer />
-      <PublishedLayout />
-      <DevLayoutEditor />
+      <UkladStoreProvider>
+        <RouteScrollReset />
+        <FaviconProbe />
+        <Header />
+        <main className="min-w-0">
+          <Outlet />
+        </main>
+        <Footer />
+        <SavedLayout />
+        <DevLayoutEditor />
+      </UkladStoreProvider>
     </QueryClientProvider>
   );
 }
