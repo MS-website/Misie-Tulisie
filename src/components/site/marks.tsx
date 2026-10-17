@@ -1,4 +1,5 @@
 import type { ReactNode, SVGProps } from "react";
+import { cn } from "@/lib/utils";
 
 const line = {
   fill: "none",
@@ -108,10 +109,19 @@ export function RainbowMark(props: MarkProps) {
   );
 }
 
-export function MarkBadge({ children }: { children: ReactNode }) {
+export function MarkBadge({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <span
-      className="inline-flex size-[4.5rem] items-center justify-center overflow-hidden rounded-full bg-sand text-honey"
+      className={cn(
+        "inline-flex size-[4.5rem] items-center justify-center overflow-hidden rounded-full bg-sand text-honey",
+        className,
+      )}
       aria-hidden="true"
     >
       {children}

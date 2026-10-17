@@ -1138,6 +1138,24 @@
         "x": 1,
         "y": -11,
         "z": 2
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(6) > h2:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 478
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(6) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 480
+      },
+      "section:nth-of-type(5) > ul:nth-of-type(1) > li:nth-of-type(5) > p:nth-of-type(1)": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "width": 559
       }
     },
     "text": {

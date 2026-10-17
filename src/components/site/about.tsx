@@ -5,6 +5,8 @@ import lessons from "@/assets/zajecia-rozwojowe.png";
 import carers from "@/assets/opiekunki.png";
 import rainbow from "@/assets/zajrzyj-tecza.png";
 import rooms from "@/assets/sale.png";
+import playground from "@/assets/plac-zabaw.png";
+import english from "@/assets/jezyk-angielski.png";
 import meals from "@/assets/zdrowe-posilki.png";
 import arrowMark from "@/assets/strzalka-dlaczego.png";
 import shapes from "@/assets/zabawa-ksztalty.jpg";
@@ -25,6 +27,14 @@ function CarersMark({ className }: { className?: string }) {
 
 function RoomsMark({ className }: { className?: string }) {
   return <img src={rooms} alt="" className={className} />;
+}
+
+function PlaygroundMarkIcon({ className }: { className?: string }) {
+  return <img src={playground} alt="" className={className} />;
+}
+
+function EnglishMarkIcon({ className }: { className?: string }) {
+  return <img src={english} alt="" className={className} />;
 }
 
 function Em({ children }: { children: string }) {
@@ -196,6 +206,7 @@ const care: {
   title: string;
   body: ReactNode;
   iconClass: string;
+  badgeClass?: string;
   Icon: ComponentType<{ className?: string }>;
 }[] = [
   {
@@ -229,13 +240,27 @@ const care: {
       ", który daje im poczucie bezpieczeństwa i sprzyja zdrowemu rozwojowi.",
     ],
   },
+  {
+    title: "Prywatny plac zabaw.",
+    Icon: PlaygroundMarkIcon,
+    iconClass: "h-[3.55rem] w-[4.15rem] object-contain object-center",
+    body:
+      "Dysponujemy własnym placem zabaw, wyposażonym w bezpieczne atrakcje dostosowane do potrzeb i możliwości najmłodszych. Każdego dnia, jeśli pozwala nam na to pogoda, organizujemy maluchom czas na świeżym powietrzu pod troskliwą opieką naszych opiekunek.",
+  },
+  {
+    title: "Język angielski w codzienności.",
+    Icon: EnglishMarkIcon,
+    iconClass: "size-[3.6rem] object-contain object-center",
+    body:
+      "Wiemy jak ważna dziś jest umiejętność porozumienia się na całym świecie, dlatego od najmłodszych lat oswajamy maluchy z językiem angielskim, organizując codzienne zajęcia tematyczne po angielsku.",
+  },
 ];
 
 export function CareAreas() {
   return (
     <section className="container-site py-24 md:py-36">
       <ul className="grid border-b border-border md:grid-cols-2">
-        {care.map(({ title, body, Icon, iconClass }, i) => (
+        {care.map(({ title, body, Icon, iconClass, badgeClass }, i) => (
           <li
             key={title}
             className={
@@ -244,7 +269,7 @@ export function CareAreas() {
                 : "border-t border-border py-12 md:py-16 md:pr-12 lg:pr-16"
             }
           >
-            <MarkBadge>
+            <MarkBadge className={badgeClass}>
               <Icon className={iconClass} />
             </MarkBadge>
             <h2 className="mt-8 max-w-sm font-display text-3xl leading-tight md:text-4xl">
