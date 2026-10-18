@@ -20,6 +20,7 @@ export const PARENTS_TUNE_STORAGE_KEY = "misie-parents-tune-v3";
 /** Bez zapisywanego HTML z tunera (React / szerokość ramki zamiast &nbsp; w tekście). */
 export const PARENTS_TUNE_REACT_ONLY_BLOCKS = new Set([
   "oplaty-naglowek",
+  "oplaty-wstep",
   "oplaty-faq",
   "oplaty-tekst-wyzywienie",
   "oplaty-maluch-tekst",

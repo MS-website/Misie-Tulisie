@@ -511,20 +511,20 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-b border-border/60 bg-background pb-12 md:pb-16"
       >
         <div className="container-site min-w-0 pt-24 md:pt-28">
-          <Reveal className="space-y-0">
+          <Reveal className="max-w-4xl space-y-6 md:space-y-8">
             <ParentsTuneSurface id="oplaty-naglowek">
-              <h1 className="font-display text-xl md:text-3xl lg:text-4xl">
-                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy{"\u00a0"}
-                informacje, <br />
-                które{"\u00a0"}pomagają spokojnie zaplanować pierwsze tygodnie w
-                żłobku
+              <h1 className="font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje,
+                <br />
+                które pomagają spokojnie zaplanować pierwsze tygodnie{" "}
+                <span className="whitespace-nowrap">w żłobku</span>
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
               <p className="max-w-[38rem] text-lg leading-relaxed text-muted-foreground">
-                Tu znajdziesz najważniejsze informacje o opłatach oraz
-                świadczeniach, które przysługują rodzicom chcącym zapisać dziecko
-                do naszego żłobka.
+                Tu znajdziesz najważniejsze informacje o opłatach oraz świadczeniach,
+                <br />
+                które przysługują rodzicom chcącym zapisać dziecko do naszego żłobka.
               </p>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-kreska">
