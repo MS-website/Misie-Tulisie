@@ -526,7 +526,7 @@ export function ParentsPageSections() {
                 które przysługują rodzicom chcącym zapisać dziecko do naszego żłobka.
               </p>
             </ParentsTuneSurface>
-            <ParentsTuneSurface id="oplaty-kreska" className="!mt-0">
+            <ParentsTuneSurface id="oplaty-kreska" className="parents-oplaty-kreska-wrap">
               <HoneyRule />
             </ParentsTuneSurface>
           </Reveal>
@@ -617,10 +617,9 @@ export function ParentsPageSections() {
                   as="h3"
                   selector={UKLAD_OPLATY_MALUCH_TYTUL}
                   data-uklad-text="oplaty-maluch-tytul"
-                  className="font-display text-3xl md:text-4xl"
+                  className="parents-aktywny-maluch-tytul font-display text-3xl md:text-4xl"
                 >
-                  Program „Aktywny Maluch{" "}
-                  <span className="whitespace-nowrap">2022-2029</span>”
+                  Program „Aktywny Maluch 2022-2029”
                 </UkladText>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-maluch-tekst">
@@ -726,7 +725,7 @@ export function ParentsPageSections() {
               </p>
             </Reveal>
             <Reveal delay={80} className="lg:col-span-6">
-              <WyprawkaPhoto />
+              <WyprawkaPhoto className="parents-wyprawka-foto" />
               <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit" />
             </Reveal>
           </div>

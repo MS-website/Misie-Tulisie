@@ -148,15 +148,22 @@
 
 .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] {
   margin-top: -0.125rem;
-  margin-bottom: -0.35rem;
+  margin-bottom: 0;
 }
 
 .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] p {
   margin-bottom: 0;
 }
 
+/* Odstęp od drugiego akapitu do kreski — bez klas Tailwind !mt-* na wrapie (nadpisywały margin). */
+.parents-oplaty-intro .parents-oplaty-kreska-wrap,
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 8mm !important;
+  margin-top: 8mm;
+}
+
+.parents-oplaty-intro .parents-honey-rule-hit {
+  padding-top: 0;
+  padding-bottom: 0.375rem;
 }
 
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
@@ -183,7 +190,27 @@
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-  margin-top: -4px;
+  margin-top: calc(1cm - 4px);
+}
+
+.parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {
+  margin-left: 0.5cm;
+}
+
+#wyprawka .parents-wyprawka-foto {
+  margin-top: 0.5cm;
+}
+
+#wyprawka {
+  padding-top: calc(5rem - 1cm) !important;
+  padding-bottom: 5rem !important;
+}
+
+@media (min-width: 48rem) {
+  #wyprawka {
+    padding-top: calc(7rem - 1cm) !important;
+    padding-bottom: 7rem !important;
+  }
 }
 
 @media (min-width: 64rem) {
@@ -196,7 +223,7 @@
 
   .parents-wyzywienie-stack {
     gap: 0;
-    margin-left: calc(-0.35rem - 1.1cm);
+    margin-left: calc(-0.35rem - 1.1cm - 2mm);
   }
 
   .parents-wyzywienie-prose br {
@@ -249,6 +276,19 @@
     width: 100%;
     max-width: 42rem;
     font-size: clamp(1.6875rem, 2.35vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
+    max-width: none;
+    width: calc(100% + 12rem);
+  }
+
+  .parents-aktywny-maluch-tytul {
+    white-space: nowrap;
+    width: 100%;
+    max-width: 44rem;
+    font-size: clamp(1.625rem, 2.25vw, 2.25rem);
     line-height: 1.15;
   }
 }
