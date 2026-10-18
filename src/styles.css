@@ -140,19 +140,46 @@
   object-fit: contain;
 }
 
-/* Dla rodziców — pas wyżywienia: tekst węższy niż grafika, żeby miś z cennika
-   został po prawej, a niebieska karta pod akapitem. */
+/* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
 .parents-wyzywienie-band .parents-wyzywienie-copy,
 .parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune] {
   max-width: none;
   width: 100%;
 }
+
+.parents-wyzywienie-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+.parents-wyzywienie-prose br {
+  display: none;
+}
+
 @media (min-width: 64rem) {
-  .parents-wyzywienie-band .parents-wyzywienie-copy p {
-    max-width: 31rem;
+  .parents-wyzywienie-stack {
+    gap: 0;
   }
-  .parents-oplaty-card {
-    margin-top: -5.5rem;
+
+  .parents-wyzywienie-prose br {
+    display: inline;
+  }
+
+  .parents-wyzywienie-prose {
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .parents-wyzywienie-infografika {
+    width: 100%;
+    max-width: 40.625rem;
+  }
+
+  .parents-wyzywienie-stack .parents-oplaty-card {
+    margin-top: -1.375rem;
   }
 }
 

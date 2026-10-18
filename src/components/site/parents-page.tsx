@@ -514,10 +514,10 @@ export function ParentsPageSections() {
           <Reveal className="max-w-4xl space-y-6 md:space-y-8">
             <ParentsTuneSurface id="oplaty-naglowek">
               <h1 className="font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
-                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje,
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje, które
+                pomagają spokojnie zaplanować
                 <br />
-                które pomagają spokojnie zaplanować pierwsze tygodnie{" "}
-                <span className="whitespace-nowrap">w żłobku</span>
+                pierwsze tygodnie <span className="whitespace-nowrap">w żłobku</span>
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
@@ -547,29 +547,35 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-8 flex w-full flex-col gap-6 lg:col-span-7 lg:mt-0 lg:gap-7 lg:pt-11"
+              className="parents-wyzywienie-copy mt-8 w-full lg:col-span-7 lg:mt-0 lg:pt-11"
             >
-              <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
-                <UkladText
-                  as="p"
-                  selector={UKLAD_OPLATY_WYZYWIENIE}
-                  data-uklad-text="oplaty-wyzywienie"
-                  className="w-full text-base leading-[1.65] text-muted-foreground md:text-lg md:leading-[1.7]"
-                >
-                  Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
-                  podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
-                  obecności malucha w placówce. Misie Tulisie korzystają z
-                  cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że
-                  Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia.
-                </UkladText>
-              </ParentsTuneSurface>
-              <ParentsTuneSurface id="oplaty-infografika" className="w-full">
-                <img
-                  src={oplatyInfografika}
-                  alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
-                  className="parents-oplaty-card h-auto w-full"
-                />
-              </ParentsTuneSurface>
+              <div className="parents-wyzywienie-stack">
+                <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
+                  <UkladText
+                    as="p"
+                    selector={UKLAD_OPLATY_WYZYWIENIE}
+                    data-uklad-text="oplaty-wyzywienie"
+                    className="parents-wyzywienie-prose w-full text-base leading-[1.65] text-muted-foreground md:text-lg md:leading-[1.7]"
+                  >
+                    Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
+                    <br />
+                    podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
+                    <br />
+                    obecności malucha w placówce. Misie Tulisie korzystają z cateringu
+                    <br />
+                    dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy
+                    <br />
+                    otrzymują świeże i zdrowe posiłki każdego dnia.
+                  </UkladText>
+                </ParentsTuneSurface>
+                <ParentsTuneSurface id="oplaty-infografika" className="parents-wyzywienie-infografika">
+                  <img
+                    src={oplatyInfografika}
+                    alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 24 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
+                    className="parents-oplaty-card h-auto w-full"
+                  />
+                </ParentsTuneSurface>
+              </div>
             </Reveal>
           </div>
 
