@@ -547,7 +547,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-8 flex w-full max-w-[36rem] flex-col gap-5 lg:col-span-7 lg:mt-0 lg:gap-6 lg:pt-8"
+              className="parents-wyzywienie-copy mt-8 flex w-full flex-col gap-6 lg:col-span-7 lg:mt-0 lg:gap-7 lg:pt-11"
             >
               <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
                 <UkladText
@@ -567,14 +567,14 @@ export function ParentsPageSections() {
                 <img
                   src={oplatyInfografika}
                   alt="Czesne w żłobku 0 zł, wpisowe 0 zł, wyżywienie 25 zł za dzień, koszt diety indywidualnej 27 zł za dzień"
-                  className="h-auto w-full max-w-[34rem] lg:-mt-2"
+                  className="parents-oplaty-card h-auto w-full"
                 />
               </ParentsTuneSurface>
             </Reveal>
           </div>
 
-          <div className="mt-8 grid items-start gap-x-10 gap-y-12 lg:mt-10 lg:grid-cols-12 lg:gap-x-14 lg:gap-y-12">
-            <Reveal className="space-y-8 lg:col-span-5">
+          <div className="parents-programy mt-14 grid items-start gap-x-10 gap-y-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-14">
+            <Reveal className="space-y-10 lg:col-span-5">
               <ParentsTuneSurface id="oplaty-aktywny-rodzic-tytul">
                 <h3 className="font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
@@ -604,22 +604,6 @@ export function ParentsPageSections() {
                   najlepszą opiekę dla dziecka.
                 </p>
               </ParentsTuneSurface>
-            </Reveal>
-            <Reveal delay={80} className="lg:col-span-7">
-              <ParentsTuneSurface id="oplaty-faq">
-                <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
-                  <p className="text-2xl font-semibold tracking-wide text-foreground">
-                    „Aktywnie w żłobku” — pytania i odpowiedzi
-                  </p>
-                  <Accordion
-                    items={AKTYWNIE_FAQ}
-                    className="mt-4"
-                    itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
-                  />
-                </div>
-              </ParentsTuneSurface>
-            </Reveal>
-            <Reveal className="space-y-8 lg:col-span-5">
               <ParentsTuneSurface id="oplaty-maluch-tytul">
                 <UkladText
                   as="h3"
@@ -645,17 +629,33 @@ export function ParentsPageSections() {
                 </UkladText>
               </ParentsTuneSurface>
             </Reveal>
-            <Reveal delay={80} className="lg:col-span-7 lg:pt-2">
-              <ParentsTuneSurface id="oplaty-czesne">
-                <div className="parents-czesne-callout">
-                  <ParentsGreenRule />
-                  <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                    Korzystając z obu przysługujących świadczeń, czesne w naszej
-                    placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
-                  </p>
-                </div>
-              </ParentsTuneSurface>
-            </Reveal>
+            <div className="space-y-10 lg:col-span-7">
+              <Reveal delay={80}>
+                <ParentsTuneSurface id="oplaty-faq">
+                  <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
+                    <p className="text-2xl font-semibold tracking-wide text-foreground">
+                      „Aktywnie w żłobku” — pytania i odpowiedzi
+                    </p>
+                    <Accordion
+                      items={AKTYWNIE_FAQ}
+                      className="mt-4"
+                      itemBorderClassName="border-[oklch(0.62_0.14_248_/_20%)]"
+                    />
+                  </div>
+                </ParentsTuneSurface>
+              </Reveal>
+              <Reveal delay={80} className="lg:pt-4">
+                <ParentsTuneSurface id="oplaty-czesne">
+                  <div className="parents-czesne-callout">
+                    <ParentsGreenRule />
+                    <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
+                      Korzystając z obu przysługujących świadczeń, czesne w naszej
+                      placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
+                    </p>
+                  </div>
+                </ParentsTuneSurface>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -664,7 +664,7 @@ export function ParentsPageSections() {
         id="plan-dnia"
         data-uklad-section="plan-dnia"
         data-parents-plan-dnia="built-v1"
-        className="plan-dnia-section scroll-mt-24 pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-14 lg:pb-20"
+        className="plan-dnia-section scroll-mt-24 mt-6 pt-8 pb-12 md:mt-8 md:pt-12 md:pb-16 lg:mt-10 lg:pt-14 lg:pb-20"
       >
         <div className="plan-dnia-section-bg" aria-hidden="true">
           <img
@@ -677,7 +677,7 @@ export function ParentsPageSections() {
           />
         </div>
         <div className="container-site relative min-w-0">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
             <Reveal className="lg:col-span-5">
               <p className="eyebrow mb-6 text-[oklch(0.58_0.14_18)]">Plan dnia</p>
               <h2 className="font-display max-w-md text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">

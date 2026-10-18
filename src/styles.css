@@ -133,20 +133,27 @@
   }
 }
 
-/* Dla rodziców — pas wyżywienia (zdjęcie | tekst + tabelka), jak w makiecie. */
+.parents-oplaty-card {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Dla rodziców — pas wyżywienia: tekst węższy niż grafika, żeby miś z cennika
+   został po prawej, a niebieska karta pod akapitem. */
 .parents-wyzywienie-band .parents-wyzywienie-copy,
-.parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune],
-.parents-wyzywienie-band .parents-wyzywienie-copy p {
+.parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune] {
   max-width: none;
   width: 100%;
 }
-
-/* Dla rodziców: tekst wyżywienia na pełną szerokość kolumny (jak w makiecie). */
-.parents-wyzywienie-band .parents-wyzywienie-copy,
-.parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune],
-.parents-wyzywienie-band .parents-wyzywienie-copy p {
-  max-width: none;
-  width: 100%;
+@media (min-width: 64rem) {
+  .parents-wyzywienie-band .parents-wyzywienie-copy p {
+    max-width: 31rem;
+  }
+  .parents-oplaty-card {
+    margin-top: -5.5rem;
+  }
 }
 
 /* Formularz trzyma kolumnę z trzech ustawionych szerokości: 390, 820 i 1280. */
@@ -392,29 +399,18 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  margin-top: -2.75rem;
+  margin-top: 0;
   background-color: oklch(0.93 0.038 18);
-}
-@media (min-width: 48rem) {
-  .plan-dnia-section {
-    margin-top: -4.25rem;
-  }
 }
 .plan-dnia-section-bg {
   position: absolute;
-  top: -3.25rem;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  height: calc(100% + 3.25rem);
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-}
-@media (min-width: 48rem) {
-  .plan-dnia-section-bg {
-    top: -4.75rem;
-    height: calc(100% + 4.75rem);
-  }
 }
 .plan-dnia-section-bg img {
   object-position: 50% 78%;
