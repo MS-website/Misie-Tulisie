@@ -51,7 +51,13 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-700",
         scrolled || open
-          ? "border-b border-border/70 bg-background/85 backdrop-blur-xl"
+          ? cn(
+              "border-b border-border/70",
+              open
+                ? "max-lg:bg-background max-lg:backdrop-blur-none"
+                : "max-lg:bg-background/85 max-lg:backdrop-blur-xl",
+              "lg:bg-background/85 lg:backdrop-blur-xl",
+            )
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -100,7 +106,7 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed inset-x-0 top-20 bottom-0 bg-background transition-all duration-700 lg:hidden",
+          "fixed inset-x-0 top-20 bottom-0 isolate z-50 bg-background max-lg:backdrop-blur-none transition-all duration-700 lg:hidden",
           open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
