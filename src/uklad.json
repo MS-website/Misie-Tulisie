@@ -199,7 +199,7 @@
         "originalHtml": "Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja, która pozwala maluchowi zaakceptować rozstanie z rodzicami."
       },
       "section:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(2)": {
-        "html": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w naszym żłobku</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">.</span><br></div></div>",
+        "html": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie, </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz, </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda </span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><div><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w naszym żłobku</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">.</span><br></div></div>",
         "originalHtml": "<span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Zapraszamy&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">na&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">spotkanie,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">podczas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">którego&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">poznasz&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">nas&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">bliżej&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">i&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">zobaczysz,&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">jak&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">wygląda&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">codzienność&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">w&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Misiach&nbsp;</span><span style=\"caret-color: rgb(0, 0, 0); color: rgb(0, 0, 0);\">Tulisiach.</span><br>"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h2:nth-of-type(1)": {
@@ -211,116 +211,16 @@
         "originalHtml": "Rekrutacja"
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)": {
-        "html": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli<br>w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki.",
-        "originalHtml": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli<br>w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki."
+        "html": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli <br>w&nbsp;naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki.",
+        "originalHtml": "Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli <br>w&nbsp;naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do placówki."
       },
       "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2)": {
-        "html": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony,<br>z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka i rodzica, warunki rozwiązania umowy i inne niezbędne informacje.",
+        "html": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, <br>z&nbsp;1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka i rodzica, warunki rozwiązania umowy i inne niezbędne informacje.",
         "originalHtml": "Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;aby zaakceptowali Państwo nasz regulamin i podpisali umowę. Umowa na świadczenie usług opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony, z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka <br>i rodzica, warunki rozwiązania umowy i inne niezbędne informacje."
       }
     }
   },
   "/": {
-    "sm": {
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 120,
-        "paddingBottom": 24,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(5)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 72,
-        "paddingBottom": 96,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(6)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 88,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 120,
-        "paddingBottom": 120,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 360,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 24,
-        "marginBottom": -96
-      }
-    },
-    "md": {
-      "section:nth-of-type(4)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 120,
-        "paddingBottom": 24,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(5)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 72,
-        "paddingBottom": 96,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(6)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 88,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(3)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingTop": 120,
-        "paddingBottom": 120,
-        "marginTop": 0,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(1)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 360,
-        "marginBottom": 0
-      },
-      "section:nth-of-type(2)": {
-        "x": 0,
-        "y": 0,
-        "z": 0,
-        "paddingBottom": 24,
-        "marginBottom": -96
-      }
-    },
     "lg": {
       "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)": {
         "x": 50,
@@ -699,8 +599,8 @@
         "originalHtml": "Dbamy o każdy szczegół przestrzeni, w której dzieci spędzają swój dzień. Wykorzystane przez nas wyposażenie, zabawki i materiały posiadają wymagane atesty oraz certyfikaty, a sam żłobek został przygotowany z uwzględnieniem obowiązujących wymogów bezpieczeństwa."
       },
       "section:nth-of-type(6) > div:nth-of-type(1) > p:nth-of-type(1)": {
-        "html": "Wierzymy, że żłobek to coś więcej<br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje<br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój<br class=\"hidden md:block\">i poczucie zaufania.",
-        "originalHtml": "Wierzymy, że żłobek to coś więcej<br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje<br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój<br class=\"hidden md:block\">i poczucie zaufania."
+        "html": "Wierzymy, że żłobek to coś więcej <br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje <br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój <br class=\"hidden md:block\">i poczucie zaufania.",
+        "originalHtml": "Wierzymy, że żłobek to coś więcej <br class=\"hidden md:block\">niż dobra opieka – to miejsce, które daje <br class=\"hidden md:block\">dzieciom radość, a rodzicom spokój <br class=\"hidden md:block\">i poczucie zaufania."
       }
     },
     "theme": {
@@ -1432,7 +1332,7 @@
         "originalHtml": "Korzystając z obu przysługujących świadczeń, czesne w Misiach Tulisiach wynosi 0 zł przez cały okres uczęszczania malucha do żłobka."
       },
       "[data-uklad-text=\"oplaty-wyzywienie\"]": {
-        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz<br>podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie<br>obecności malucha w placówce. Misie Tulisie korzystają z cateringu<br>dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy<br>otrzymują świeże i zdrowe posiłki każdego dnia.",
+        "html": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz <br>podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie <br>obecności malucha w placówce. Misie Tulisie korzystają z cateringu <br>dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy <br>otrzymują świeże i zdrowe posiłki każdego dnia.",
         "originalHtml": "Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie obecności malucha w placówce. Misie Tulisie korzystają z cateringu dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy otrzymują świeże i zdrowe posiłki każdego dnia."
       },
       "[data-uklad-text=\"oplaty-maluch-tekst\"]": {

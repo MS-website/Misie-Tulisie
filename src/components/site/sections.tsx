@@ -433,19 +433,19 @@ export function RecruitmentRules() {
             w wieku od 1 do 3 lat
           </h2>
         </Reveal>
-        <Reveal className="space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
+        <Reveal className="recruitment-rules-copy space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
           <p>
             Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci
-            w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli
+            w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli{" "}
             <br />
-            w naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć uczęszczanie do
-            placówki.
+            w{"\u00a0"}naszym żłobku pojawi się wolne miejsce, maluch będzie mógł rozpocząć
+            uczęszczanie do placówki.
           </p>
           <p>
             Abyśmy mogli przyjąć dziecko do grona naszych pociech, potrzebujemy zaakceptowania przez
             Państwa naszego regulaminu i podpisania umowy. Umowa na świadczenie usług
-            opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony,
-            <br />z 1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka i rodzica,
+            opiekuńczo-wychowawczych i edukacyjnych zawierana jest na czas nieokreślony,{" "}
+            <br />z{"\u00a0"}1-miesięcznym okresem wypowiedzenia. Umowa określa opłaty, obowiązki żłobka i rodzica,
             warunki rozwiązania umowy i inne niezbędne informacje.
           </p>
         </Reveal>
@@ -522,7 +522,7 @@ export function RecruitmentSteps() {
           <Eyebrow>Krok po kroku</Eyebrow>
           <h2 className="font-display max-w-3xl text-5xl md:text-7xl">Jak przebiega rekrutacja?</h2>
         </Reveal>
-        <ol className="mt-16 grid gap-6 md:grid-cols-3">
+        <ol className="mt-16 grid gap-6 lg:grid-cols-3">
           {recruitmentSteps.map((step, i) => (
             <li key={step.title} className="flex">
               <Reveal delay={i * 100} className="flex w-full">

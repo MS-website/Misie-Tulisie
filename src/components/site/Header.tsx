@@ -55,7 +55,7 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-site grid h-20 grid-cols-[1fr_auto_1fr] items-center">
+      <div className="container-site grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center lg:grid-cols-[1fr_auto_1fr]">
         <Logo />
         <nav className="hidden items-center justify-center gap-5 xl:gap-8 lg:flex">
           {nav.map((n) => (
@@ -70,7 +70,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="col-start-3 flex items-center justify-end gap-3">
+        <div className="flex items-center justify-end gap-3 lg:col-start-3">
           {showVisitButton && (
             <ButtonLink to="/kontakt" className="hidden h-11 lg:inline-flex">
               Umów wizytę

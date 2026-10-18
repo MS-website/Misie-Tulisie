@@ -133,6 +133,26 @@
   }
 }
 
+/* Ręczne łamania z edytora Układ (div w akapicie) są dobrane do szerokości 1280 px. */
+@media (max-width: 1279.98px) {
+  main p div {
+    display: inline;
+  }
+
+  /* Galeria ma pusty nagłówek strony; na desktopie zwija go zapisany układ. */
+  .galeria-intro {
+    padding-top: 5rem;
+    padding-bottom: 0;
+  }
+  .galeria-intro + section {
+    padding-top: 3rem;
+  }
+
+  .recruitment-rules-copy br {
+    display: none;
+  }
+}
+
 .parents-oplaty-card {
   display: block;
   width: 100%;
@@ -332,6 +352,17 @@
     max-width: 44rem;
     font-size: clamp(1.625rem, 2.25vw, 2.25rem);
     line-height: 1.15;
+  }
+}
+
+/* Węższa kolumna niż w podglądzie 1280 px: akapit ma więcej wierszy, więc infografika nie może na niego zachodzić. */
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  .parents-wyzywienie-prose br {
+    display: none;
+  }
+
+  .parents-wyzywienie-stack .parents-oplaty-card {
+    margin-top: 0;
   }
 }
 
@@ -753,10 +784,17 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   width: auto !important;
   max-width: none !important;
 }
-/* „adres e-mail:” i sam adres zawsze w jednej linii (rekrutacja). */
+/* Na desktopie „adres e-mail:” i sam adres w jednej linii; węższa karta łamie przed adresem. */
 .recruitment-mail-paragraph .mail-same-line {
-  white-space: nowrap;
   letter-spacing: -0.03em;
+}
+.recruitment-mail-paragraph .mail-same-line a {
+  white-space: nowrap;
+}
+@media (min-width: 80rem) {
+  .recruitment-mail-paragraph .mail-same-line {
+    white-space: nowrap;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

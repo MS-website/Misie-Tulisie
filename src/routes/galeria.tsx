@@ -6,7 +6,7 @@ export const Route = createFileRoute("/galeria")({
   head: () => ({ meta: seo("Galeria | Żłobek Misie Tulisie Gniezno", "Zobacz wnętrza żłobka Misie Tulisie w Gnieźnie.") }),
   component: () => (
     <>
-      <PageIntro eyebrow="Galeria" title="Nasza przestrzeń." />
+      <PageIntro className="galeria-intro" eyebrow="Galeria" title="Nasza przestrzeń." />
       <Space full />
     </>
   ),

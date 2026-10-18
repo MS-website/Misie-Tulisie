@@ -27,10 +27,12 @@ export function isApplying() {
 const LINE_MARK = "data-uklad-line";
 export const UKLAD_TEXT_CONTINUE = "data-uklad-text-continue";
 
+// Przesunięcia „lg” są ustawiane w podglądzie 1280 px i w węższym oknie
+// wychodzą poza kontener, dlatego 1024–1279 px zostaje przy układzie z kodu.
 const SIZE_MEDIA: Record<SizeId, string> = {
   sm: "@media (max-width: 767px)",
   md: "@media (min-width: 768px) and (max-width: 1023px)",
-  lg: "@media (min-width: 1024px)",
+  lg: "@media (min-width: 1280px)",
 };
 
 function textContinuations(el: HTMLElement) {

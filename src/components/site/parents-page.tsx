@@ -514,15 +514,15 @@ export function ParentsPageSections() {
           <Reveal className="parents-oplaty-intro space-y-3 md:space-y-3.5">
             <ParentsTuneSurface id="oplaty-naglowek">
               <h1 className="parents-oplaty-intro-title font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
-                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje,
-                <br />
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje,{" "}
+                <br className="hidden xl:inline" />
                 które pomagają spokojnie zaplanować pierwsze tygodnie w żłobku
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
               <p className="max-w-[38rem] text-lg leading-relaxed text-muted-foreground">
-                Tu znajdziesz najważniejsze informacje o opłatach oraz świadczeniach,
-                <br />
+                Tu znajdziesz najważniejsze informacje o opłatach oraz świadczeniach,{" "}
+                <br className="hidden md:inline" />
                 które przysługują rodzicom chcącym zapisać dziecko do naszego żłobka.
               </p>
             </ParentsTuneSurface>
@@ -559,13 +559,13 @@ export function ParentsPageSections() {
                     data-uklad-text="oplaty-wyzywienie"
                     className="parents-wyzywienie-prose w-full text-base leading-[1.65] text-muted-foreground md:text-lg md:leading-[1.7]"
                   >
-                    Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz
+                    Kwota za wyżywienie składa się na śniadanie, zupkę, obiad oraz{" "}
                     <br />
-                    podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie
+                    podwieczorek. Opłatę pobieramy z końcem miesiąca na podstawie{" "}
                     <br />
-                    obecności malucha w placówce. Misie Tulisie korzystają z cateringu
+                    obecności malucha w placówce. Misie Tulisie korzystają z cateringu{" "}
                     <br />
-                    dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy
+                    dla dzieci Jemyzielone.pl – stąd mamy pewność, że Nasze pociechy{" "}
                     <br />
                     otrzymują świeże i zdrowe posiłki każdego dnia.
                   </UkladText>
@@ -656,7 +656,7 @@ export function ParentsPageSections() {
                   <div className="parents-czesne-callout">
                     <ParentsGreenRule />
                     <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                      Korzystając z obu przysługujących świadczeń,
+                      Korzystając z obu przysługujących świadczeń,{" "}
                       <br className="parents-czesne-callout-br" />
                       czesne w naszej placówce wynosi 0 zł przez cały okres uczęszczania
                       malucha do żłobka.
@@ -722,7 +722,7 @@ export function ParentsPageSections() {
               <div className="parents-wyprawka-note mt-8 lg:flex lg:w-max lg:items-center lg:gap-3">
                 <p className="max-w-xl text-base leading-relaxed md:text-lg lg:max-w-none lg:shrink-0">
                   <strong className="font-semibold text-foreground">
-                    Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
+                    Prosimy, aby wszystkie rzeczy były podpisane na specjalnych{" "}
                     <br className="hidden lg:block" />
                     naklejanych etykietkach bądź markerem.
                   </strong>

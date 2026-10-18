@@ -201,11 +201,11 @@ export function HomeDiscover() {
     <section className="border-t border-border/70 bg-background py-20 md:py-28">
       <div className="container-site min-w-0 text-center">
         <p className="font-display mx-auto max-w-3xl text-3xl leading-snug md:text-4xl lg:text-5xl lg:leading-[1.2]">
-          Wierzymy, że żłobek to coś więcej
+          Wierzymy, że żłobek to coś więcej{" "}
           <br className="hidden md:block" />
-          niż dobra opieka – to miejsce, które daje
+          niż dobra opieka – to miejsce, które daje{" "}
           <br className="hidden md:block" />
-          dzieciom radość, a rodzicom spokój
+          dzieciom radość, a rodzicom spokój{" "}
           <br className="hidden md:block" />i poczucie zaufania.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -160,9 +160,19 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   return <p className="eyebrow mb-6">{children}</p>;
 }
 
-export function PageIntro({ eyebrow, title, lead }: { eyebrow: string; title: ReactNode; lead?: string }) {
+export function PageIntro({
+  eyebrow,
+  title,
+  lead,
+  className,
+}: {
+  eyebrow: string;
+  title: ReactNode;
+  lead?: string;
+  className?: string;
+}) {
   return (
-    <section className="container-site pt-40 pb-16 md:pt-52 md:pb-24">
+    <section className={cn("container-site pt-40 pb-16 md:pt-52 md:pb-24", className)}>
       <Reveal>
         <Eyebrow>{eyebrow}</Eyebrow>
         <h1 className="font-display max-w-4xl text-5xl md:text-7xl lg:text-8xl">{title}</h1>
