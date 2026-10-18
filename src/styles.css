@@ -190,11 +190,15 @@
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-  margin-top: calc(1.5cm - 4px);
+  margin-top: calc(2cm - 4px);
+}
+
+.parents-programy [data-parents-tune="oplaty-maluch-tekst"] {
+  margin-top: -3mm;
 }
 
 .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {
-  margin-left: 0.5cm;
+  margin-left: 1cm;
 }
 
 #wyprawka .eyebrow {
@@ -264,6 +268,11 @@
     width: 100%;
     max-width: 40.625rem;
     margin-left: 1.95cm;
+  }
+
+  .parents-oplaty-faq-panel {
+    margin-left: 0.5cm;
+    max-width: 40.625rem;
   }
 
   .parents-wyzywienie-stack .parents-oplaty-card {
@@ -535,6 +544,17 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
 }
 .parents-czesne-callout-text {
   position: relative;
+  margin-top: -1mm;
+}
+
+.parents-czesne-callout-br {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .parents-czesne-callout-br {
+    display: block;
+  }
 }
 .plan-dnia-section {
   position: relative;

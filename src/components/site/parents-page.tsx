@@ -639,7 +639,7 @@ export function ParentsPageSections() {
             <div className="space-y-10 lg:col-span-7">
               <Reveal delay={80}>
                 <ParentsTuneSurface id="oplaty-faq">
-                  <div className="w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8 lg:max-w-[40rem]">
+                  <div className="parents-oplaty-faq-panel w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8">
                     <p className="text-2xl font-semibold tracking-wide text-foreground">
                       „Aktywnie w żłobku” — pytania i odpowiedzi
                     </p>
@@ -656,8 +656,10 @@ export function ParentsPageSections() {
                   <div className="parents-czesne-callout">
                     <ParentsGreenRule />
                     <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                      Korzystając z obu przysługujących świadczeń, czesne w naszej
-                      placówce wynosi 0 zł przez cały okres uczęszczania malucha do żłobka.
+                      Korzystając z obu przysługujących świadczeń, czesne
+                      <br className="parents-czesne-callout-br" />
+                      w naszej placówce wynosi 0 zł przez cały okres uczęszczania
+                      malucha do żłobka.
                     </p>
                   </div>
                 </ParentsTuneSurface>
