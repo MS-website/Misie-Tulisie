@@ -156,7 +156,7 @@
 }
 
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 0 !important;
+  margin-top: 2mm !important;
 }
 
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
@@ -209,12 +209,12 @@
   }
 
   .parents-wyzywienie-foto-wrap {
-    margin-top: 0;
+    margin-top: 1.5cm;
     transform: none;
   }
 
   .parents-wyzywienie-copy {
-    padding-top: 0;
+    padding-top: 1.5cm;
   }
 
   .parents-wyzywienie-infografika {
