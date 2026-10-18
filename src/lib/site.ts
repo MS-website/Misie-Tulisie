@@ -5,7 +5,7 @@ export const contact = {
   phone: "+48 791 201 298",
   phoneHref: "tel:+48791201298",
   email: "zlobekmisietulisie@onet.pl",
-  hours: "7:00–17:00",
+  hours: "7:00–18:00",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Pozna%C5%84ska+99+62-200+Gniezno",
 };

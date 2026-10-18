@@ -205,8 +205,14 @@
   margin-top: -1mm;
 }
 
-.parents-programy .space-y-10 > [data-parents-tune="oplaty-aktywny-rodzic-wstep"] {
-  margin-top: calc(2.5rem - 4mm - 4px);
+.parents-programy .space-y-10 > .parents-aktywny-rodzic-tytul,
+.parents-programy .space-y-10 > [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+  margin-bottom: 1rem;
+}
+
+.parents-programy .space-y-10 > [data-parents-tune="oplaty-aktywny-rodzic-wstep"],
+.parents-programy .space-y-10 > .parents-aktywny-rodzic-tytul + * {
+  margin-top: 0;
 }
 
 .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {

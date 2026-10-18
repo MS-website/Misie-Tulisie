@@ -29,7 +29,7 @@ ITEMS = [
     "Ubranka na zmianę , w tym skarpetki, body, bluzeczki, spodnie (najlepiej dresowe lub legginsy)",
     "Kubeczek (jeśli dziecko nie pije jeszcze ze standardowego kubka)",
     "Krem na odparzenia dla niemowląt (może być też Sudocrem)",
-    "Ulubiona przytulanka do spania, jeżeli dziecku ułatwia zaśnięcie – bardzo mile widziana",
+    "Ulubiona przytulanka do spania – bardzo mile widziana",
     "Zestaw do mycia ząbków (kubeczek, pasta, szczoteczka)",
 ]
 
