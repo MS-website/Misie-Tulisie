@@ -713,22 +713,26 @@ export function ParentsPageSections() {
       >
         <div className="container-site min-w-0">
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-16">
-            <Reveal className="lg:col-span-6">
+            <Reveal className="min-w-0 lg:col-span-6">
               <Eyebrow>Wyprawka</Eyebrow>
               <h2 className="font-display max-w-xl text-4xl md:text-5xl">
                 Lista rzeczy do żłobka
               </h2>
               <WyprawkaList />
-              <p className="mt-8 max-w-xl text-base leading-relaxed md:text-lg">
-                <strong className="font-semibold text-foreground">
-                  Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
-                  naklejanych etykietkach bądź markerem.
-                </strong>
-              </p>
+              <div className="parents-wyprawka-note mt-8 lg:flex lg:w-max lg:items-center lg:gap-3">
+                <p className="max-w-xl text-base leading-relaxed md:text-lg lg:max-w-none lg:shrink-0">
+                  <strong className="font-semibold text-foreground">
+                    Prosimy, aby wszystkie rzeczy były podpisane na specjalnych
+                    <br className="hidden lg:block" />
+                    naklejanych etykietkach bądź markerem.
+                  </strong>
+                </p>
+                <WyprawkaPdfDownload className="parents-wyprawka-pdf hidden shrink-0 lg:block" />
+              </div>
             </Reveal>
             <Reveal delay={80} className="lg:col-span-6">
               <WyprawkaPhoto className="parents-wyprawka-foto" />
-              <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit lg:mx-0" />
+              <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit lg:hidden" />
             </Reveal>
           </div>
         </div>
