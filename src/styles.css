@@ -231,6 +231,13 @@
   margin-top: calc(0.5cm + 4mm);
 }
 
+@media (min-width: 64rem) {
+  #wyprawka .parents-wyprawka-pdf {
+    position: relative;
+    top: -1cm;
+  }
+}
+
 #wyprawka {
   padding-top: calc(5rem - 1cm) !important;
   padding-bottom: 5rem !important;
