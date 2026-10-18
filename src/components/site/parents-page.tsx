@@ -584,7 +584,7 @@ export function ParentsPageSections() {
           <div className="parents-programy mt-14 grid items-start gap-x-10 gap-y-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-14">
             <Reveal className="space-y-10 lg:col-span-5">
               <ParentsTuneSurface id="oplaty-aktywny-rodzic-tytul">
-                <h3 className="font-display text-3xl md:text-4xl">
+                <h3 className="parents-aktywny-rodzic-tytul font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
                 </h3>
               </ParentsTuneSurface>

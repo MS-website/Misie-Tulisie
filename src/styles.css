@@ -156,7 +156,7 @@
 }
 
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 4mm !important;
+  margin-top: 6mm !important;
 }
 
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
@@ -185,7 +185,7 @@
 
   .parents-wyzywienie-stack {
     gap: 0;
-    margin-left: calc(-0.35rem - 0.5cm);
+    margin-left: calc(-0.35rem - 1.1cm);
   }
 
   .parents-wyzywienie-prose br {
@@ -220,11 +220,24 @@
   .parents-wyzywienie-infografika {
     width: 100%;
     max-width: 40.625rem;
-    margin-left: 0.85cm;
+    margin-left: 0.45cm;
   }
 
   .parents-wyzywienie-stack .parents-oplaty-card {
     margin-top: calc(-1.375rem - 2.5cm);
+  }
+
+  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+    max-width: none;
+    width: calc(100% + 12rem);
+  }
+
+  .parents-aktywny-rodzic-tytul {
+    white-space: nowrap;
+    width: 100%;
+    max-width: 42rem;
+    font-size: clamp(1.6875rem, 2.35vw, 2.25rem);
+    line-height: 1.15;
   }
 }
 
