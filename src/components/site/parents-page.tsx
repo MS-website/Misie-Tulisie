@@ -656,9 +656,9 @@ export function ParentsPageSections() {
                   <div className="parents-czesne-callout">
                     <ParentsGreenRule />
                     <p className="parents-czesne-callout-text min-w-0 max-w-lg flex-1 text-base leading-relaxed text-foreground md:text-lg">
-                      Korzystając z obu przysługujących świadczeń, czesne
+                      Korzystając z obu przysługujących świadczeń,
                       <br className="parents-czesne-callout-br" />
-                      w naszej placówce wynosi 0 zł przez cały okres uczęszczania
+                      czesne w naszej placówce wynosi 0 zł przez cały okres uczęszczania
                       malucha do żłobka.
                     </p>
                   </div>

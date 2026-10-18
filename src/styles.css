@@ -190,11 +190,19 @@
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-  margin-top: calc(2cm - 4px);
+  margin-top: calc(2cm - 4px - 1mm);
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tekst"] {
-  margin-top: -3mm;
+  margin-top: calc(-0.5cm - 3mm);
+}
+
+.parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+  margin-top: -1mm;
+}
+
+.parents-programy .space-y-10 > [data-parents-tune="oplaty-aktywny-rodzic-wstep"] {
+  margin-top: calc(2.5rem - 4mm);
 }
 
 .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {
@@ -271,7 +279,7 @@
   }
 
   .parents-oplaty-faq-panel {
-    margin-left: 0.5cm;
+    margin-left: calc(0.5cm - 1mm);
     max-width: 40.625rem;
   }
 
