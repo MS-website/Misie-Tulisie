@@ -158,7 +158,7 @@
 /* Odstęp od drugiego akapitu do kreski — bez klas Tailwind !mt-* na wrapie (nadpisywały margin). */
 .parents-oplaty-intro .parents-oplaty-kreska-wrap,
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 8mm;
+  margin-top: 6.5mm;
 }
 
 .parents-oplaty-intro .parents-honey-rule-hit {
@@ -190,15 +190,19 @@
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-  margin-top: calc(1cm - 4px);
+  margin-top: calc(1.5cm - 4px);
 }
 
 .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {
   margin-left: 0.5cm;
 }
 
+#wyprawka .eyebrow {
+  margin-top: -2mm;
+}
+
 #wyprawka .parents-wyprawka-foto {
-  margin-top: 0.5cm;
+  margin-top: calc(0.5cm + 4mm);
 }
 
 #wyprawka {
@@ -253,7 +257,7 @@
   }
 
   .parents-wyzywienie-copy {
-    padding-top: 1.5cm;
+    padding-top: calc(1.5cm - 4mm);
   }
 
   .parents-wyzywienie-infografika {
