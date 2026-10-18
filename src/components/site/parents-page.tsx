@@ -107,7 +107,7 @@ function Accordion({
                 )}
               >
                 <div className="min-h-0 overflow-hidden">
-                  <p className="pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base">
+                  <p className="parents-oplaty-faq-answer pr-6 pb-5 text-sm leading-relaxed text-muted-foreground md:text-base">
                     {a}
                   </p>
                 </div>

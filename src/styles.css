@@ -190,7 +190,7 @@
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-  margin-top: calc(2cm - 4px - 1mm);
+  margin-top: calc(2cm - 4px - 3mm);
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tekst"] {
@@ -207,6 +207,14 @@
 
 .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-lista"] {
   margin-left: 1cm;
+}
+
+.parents-programy .space-y-10 > [data-parents-tune="oplaty-aktywny-rodzic-akapit"] {
+  margin-top: calc(2.5rem - 5px);
+}
+
+.parents-oplaty-faq-panel .parents-oplaty-faq-answer {
+  padding-top: 3mm;
 }
 
 #wyprawka .eyebrow {
@@ -528,7 +536,7 @@ body[data-frame="formularz"] .container-site {
   max-width: 36rem;
   margin-top: 0;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: -3mm;
 }
 .parents-honey-rule-hit {
   padding-block: 0.625rem;
