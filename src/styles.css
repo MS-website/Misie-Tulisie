@@ -156,7 +156,7 @@
 }
 
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 2mm !important;
+  margin-top: 4mm !important;
 }
 
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
@@ -185,7 +185,7 @@
 
   .parents-wyzywienie-stack {
     gap: 0;
-    margin-left: -0.35rem;
+    margin-left: calc(-0.35rem - 0.5cm);
   }
 
   .parents-wyzywienie-prose br {
@@ -204,7 +204,7 @@
   .parents-wyzywienie-eyebrow-wrap {
     position: absolute;
     left: 0;
-    top: calc(-2.05rem + 0.75cm);
+    top: calc(-2.05rem + 1.25cm);
     z-index: 1;
   }
 
