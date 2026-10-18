@@ -148,10 +148,15 @@
 
 .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] {
   margin-top: -0.125rem;
+  margin-bottom: -0.35rem;
+}
+
+.parents-oplaty-intro [data-parents-tune="oplaty-wstep"] p {
+  margin-bottom: 0;
 }
 
 .parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
-  margin-top: 4px !important;
+  margin-top: 0 !important;
 }
 
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
@@ -174,8 +179,13 @@
 }
 
 @media (min-width: 64rem) {
+  .parents-wyzywienie-band {
+    margin-top: 0.75cm !important;
+  }
+
   .parents-wyzywienie-stack {
     gap: 0;
+    margin-left: -0.35rem;
   }
 
   .parents-wyzywienie-prose br {
@@ -194,19 +204,23 @@
   .parents-wyzywienie-eyebrow-wrap {
     position: absolute;
     left: 0;
-    top: -2.05rem;
+    top: calc(-2.05rem + 0.75cm);
     z-index: 1;
   }
 
   .parents-wyzywienie-foto-wrap {
     margin-top: 0;
-    transform: translateY(-2px);
+    transform: none;
+  }
+
+  .parents-wyzywienie-copy {
+    padding-top: 0;
   }
 
   .parents-wyzywienie-infografika {
     width: 100%;
     max-width: 40.625rem;
-    margin-left: 1.5cm;
+    margin-left: 0.85cm;
   }
 
   .parents-wyzywienie-stack .parents-oplaty-card {

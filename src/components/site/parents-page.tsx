@@ -526,7 +526,7 @@ export function ParentsPageSections() {
                 które przysługują rodzicom chcącym zapisać dziecko do naszego żłobka.
               </p>
             </ParentsTuneSurface>
-            <ParentsTuneSurface id="oplaty-kreska" className="!mt-1">
+            <ParentsTuneSurface id="oplaty-kreska" className="!mt-0">
               <HoneyRule />
             </ParentsTuneSurface>
           </Reveal>
