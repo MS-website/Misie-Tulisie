@@ -511,13 +511,13 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-b border-border/60 bg-background pb-12 md:pb-16"
       >
         <div className="container-site min-w-0 pt-24 md:pt-28">
-          <Reveal className="max-w-4xl space-y-6 md:space-y-8">
+          <Reveal className="parents-oplaty-intro space-y-4 md:space-y-5">
             <ParentsTuneSurface id="oplaty-naglowek">
-              <h1 className="font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
-                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje, które
-                pomagają spokojnie zaplanować
+              <h1 className="parents-oplaty-intro-title font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy
                 <br />
-                pierwsze tygodnie <span className="whitespace-nowrap">w żłobku</span>
+                informacje, które pomagają spokojnie zaplanować pierwsze tygodnie w
+                żłobku
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
@@ -532,10 +532,10 @@ export function ParentsPageSections() {
             </ParentsTuneSurface>
           </Reveal>
 
-          <div className="parents-wyzywienie-band mt-10 md:mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
+          <div className="parents-wyzywienie-band mt-6 md:mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
             <Reveal className="lg:col-span-5">
               <ParentsTuneSurface id="oplaty-wyzywienie-eyebrow">
-                <p className="eyebrow mb-5">Wyżywienie</p>
+                <p className="eyebrow mb-3 md:mb-4">Wyżywienie</p>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-wyzywienie-foto">
                 <Photo
@@ -547,7 +547,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-8 w-full lg:col-span-7 lg:mt-0 lg:pt-11"
+              className="parents-wyzywienie-copy mt-6 w-full lg:col-span-7 lg:mt-0 lg:pt-2"
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">

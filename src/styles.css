@@ -140,6 +140,16 @@
   object-fit: contain;
 }
 
+@media (min-width: 64rem) {
+  .parents-oplaty-intro-title {
+    max-width: none;
+  }
+}
+
+.parents-oplaty-intro [data-parents-tune="oplaty-kreska"] {
+  margin-top: -0.25rem;
+}
+
 /* Dla rodziców — pas wyżywienia: akapit i tabelka w jednej kolumnie (jak na compie). */
 .parents-wyzywienie-band .parents-wyzywienie-copy,
 .parents-wyzywienie-band .parents-wyzywienie-copy [data-parents-tune] {
