@@ -8,14 +8,13 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, useState, type ComponentType, type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { RouteScrollReset } from "@/components/site/RouteScrollReset";
 import { SavedLayout } from "@/components/site/SavedLayout";
 import { UkladStoreProvider } from "@/components/site/UkladText";
-import { UKLAD_MANUAL_EDITOR_ENABLED } from "@/lib/uklad-editor-enabled";
 import appCss from "../styles.css?url";
 
 const FAVICON_PNG = "/brand-icon.png?v=2";
@@ -195,27 +194,6 @@ function FaviconProbe() {
   return null;
 }
 
-function DevLayoutEditor() {
-  const [Tool, setTool] = useState<ComponentType | null>(null);
-  const previewFrame =
-    typeof window !== "undefined" && window.name === "podglad";
-
-  useEffect(() => {
-    if (
-      !UKLAD_MANUAL_EDITOR_ENABLED ||
-      !import.meta.env.DEV ||
-      previewFrame
-    )
-      return;
-    void import("@/components/site/LayoutEditor").then((mod) => {
-      setTool(() => mod.LayoutEditor);
-    });
-  }, [previewFrame]);
-
-  if (!UKLAD_MANUAL_EDITOR_ENABLED || previewFrame || !Tool) return null;
-  return <Tool />;
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -230,7 +208,6 @@ function RootComponent() {
         </main>
         <Footer />
         <SavedLayout />
-        <DevLayoutEditor />
       </UkladStoreProvider>
     </QueryClientProvider>
   );
