@@ -511,13 +511,12 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-b border-border/60 bg-background pb-12 md:pb-16"
       >
         <div className="container-site min-w-0 pt-24 md:pt-28">
-          <Reveal className="parents-oplaty-intro space-y-4 md:space-y-5">
+          <Reveal className="parents-oplaty-intro space-y-3 md:space-y-3.5">
             <ParentsTuneSurface id="oplaty-naglowek">
               <h1 className="parents-oplaty-intro-title font-display text-xl leading-[1.2] md:text-3xl lg:text-4xl">
-                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy
+                Opłaty, dofinansowania, plan dnia i wyprawka – zebraliśmy informacje,
                 <br />
-                informacje, które pomagają spokojnie zaplanować pierwsze tygodnie w
-                żłobku
+                które pomagają spokojnie zaplanować pierwsze tygodnie w żłobku
               </h1>
             </ParentsTuneSurface>
             <ParentsTuneSurface id="oplaty-wstep">
@@ -527,17 +526,20 @@ export function ParentsPageSections() {
                 które przysługują rodzicom chcącym zapisać dziecko do naszego żłobka.
               </p>
             </ParentsTuneSurface>
-            <ParentsTuneSurface id="oplaty-kreska">
+            <ParentsTuneSurface id="oplaty-kreska" className="!mt-1">
               <HoneyRule />
             </ParentsTuneSurface>
           </Reveal>
 
-          <div className="parents-wyzywienie-band mt-6 md:mt-8 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
-            <Reveal className="lg:col-span-5">
-              <ParentsTuneSurface id="oplaty-wyzywienie-eyebrow">
-                <p className="eyebrow mb-3 md:mb-4">Wyżywienie</p>
+          <div className="parents-wyzywienie-band mt-5 md:mt-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
+            <Reveal className="parents-wyzywienie-media lg:col-span-5">
+              <ParentsTuneSurface
+                id="oplaty-wyzywienie-eyebrow"
+                className="parents-wyzywienie-eyebrow-wrap"
+              >
+                <p className="eyebrow mb-3 md:mb-4 lg:mb-0">Wyżywienie</p>
               </ParentsTuneSurface>
-              <ParentsTuneSurface id="oplaty-wyzywienie-foto">
+              <ParentsTuneSurface id="oplaty-wyzywienie-foto" className="parents-wyzywienie-foto-wrap">
                 <Photo
                   src={wyzywienieGrupa}
                   alt="Dzieci przy wspólnym posiłku w żłobku"
@@ -547,7 +549,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-6 w-full lg:col-span-7 lg:mt-0 lg:pt-2"
+              className="parents-wyzywienie-copy mt-6 w-full lg:col-span-7 lg:mt-0 lg:pt-0"
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
