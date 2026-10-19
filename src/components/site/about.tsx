@@ -103,10 +103,22 @@ export function Foundations() {
             src={foundations}
             alt=""
             aria-hidden="true"
-            className="mb-8 h-24 w-24 object-contain"
+            className="mb-8 hidden h-24 w-24 object-contain xl:block"
           />
           <h2 className="font-display text-4xl md:text-6xl">
-            Fundamenty naszej pracy
+            <span className="xl:hidden">
+              <span className="block">Fundamenty</span>
+              <div className="flex justify-end py-1">
+                <img
+                  src={foundations}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+                />
+              </div>
+              <span className="block">naszej pracy</span>
+            </span>
+            <span className="hidden xl:block">Fundamenty naszej pracy</span>
           </h2>
         </Reveal>
         <div className="lg:col-span-6 lg:col-start-7">
@@ -289,16 +301,21 @@ export function GalleryVisit() {
   return (
     <section className="bg-secondary/70 py-24 md:py-36">
       <div className="container-site grid items-center gap-12 lg:grid-cols-12">
-        <div className="text-honey/80 lg:col-span-4" aria-hidden="true">
+        <div
+          className="flex justify-center text-honey/80 lg:col-span-4 xl:justify-start"
+          aria-hidden="true"
+        >
           <img
             src={rainbow}
             alt=""
             className="h-32 w-auto max-w-full md:h-40"
           />
         </div>
-        <Reveal className="lg:col-span-7 lg:col-start-6">
+        <Reveal
+          className="flex flex-col items-center text-center lg:col-span-7 lg:col-start-6 xl:items-start xl:text-left"
+        >
           <h2 className="font-display text-5xl md:text-7xl">Zajrzyj do nas.</h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground xl:mx-0 mx-auto">
             Zapraszamy do obejrzenia galerii.
           </p>
           <ButtonLink to="/galeria" className="mt-10">

@@ -296,13 +296,17 @@ export function Space({ full = false }: { full?: boolean }) {
   return (
     <section className="py-24 md:py-36">
       <div className="container-site">
-        <Reveal className="grid gap-8 md:grid-cols-2 md:items-end">
+        <Reveal className="grid gap-8 xl:grid-cols-2 xl:items-end">
           <div>
             <Eyebrow>Przestrzeń</Eyebrow>
-            <h2 className="font-display text-5xl md:text-7xl">Każdy szczegół ma znaczenie.</h2>
+            <h2 className="font-display text-5xl md:text-7xl">
+              <span className="max-xl:block max-xl:whitespace-nowrap">Każdy</span>{" "}
+              <span className="max-xl:block max-xl:whitespace-nowrap">szczegół ma</span>{" "}
+              <span className="max-xl:block max-xl:whitespace-nowrap">znaczenie.</span>
+            </h2>
           </div>
-          <p className="max-w-md text-lg leading-relaxed text-muted-foreground md:justify-self-end">
-          Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym.
+          <p className="max-w-md text-lg leading-relaxed text-muted-foreground max-xl:max-w-none max-xl:whitespace-nowrap xl:justify-self-end">
+            Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym.
           </p>
         </Reveal>
         <div className="-mx-4 mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:-mx-6 md:-mx-10 md:gap-4 lg:grid-cols-3">
@@ -479,10 +483,10 @@ const recruitmentSteps = [
           <span className="mail-same-line">
             adres e-mail:{"\u00a0"}
             <a
-              href="mailto:zlobekmisietulisie@onet.pl"
+              href={`mailto:${contact.formsInboxEmail}`}
               className="font-medium text-foreground underline decoration-honey/60 underline-offset-4 transition-colors hover:text-honey"
             >
-              zlobekmisietulisie@onet.pl
+              {contact.formsInboxEmail}
             </a>
           </span>
         </p>
@@ -628,8 +632,8 @@ export function ContactBlock() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   return (
     <section className="container-site max-lg:pb-0 pb-24 md:pb-36">
-      <div className="grid gap-10 md:grid-cols-12 md:items-start lg:gap-16">
-        <Reveal className="min-w-0 space-y-10 md:col-span-6 lg:col-span-5">
+      <div className="grid gap-10 md:grid-cols-12 md:items-start md:gap-x-6 lg:gap-x-8 xl:gap-x-16">
+        <Reveal className="min-w-0 space-y-10 md:col-span-5 xl:col-span-5">
           <div>
             <p className="eyebrow mb-3">Adres</p>
             <p className="font-display text-3xl">
@@ -659,7 +663,7 @@ export function ContactBlock() {
             <p className="text-lg">{contact.hours}</p>
           </div>
         </Reveal>
-        <Reveal className="min-w-0 md:col-span-6 md:col-start-7 xl:col-span-7 xl:col-start-6" delay={100}>
+        <Reveal className="min-w-0 md:col-span-7 md:col-start-6 xl:col-span-7 xl:col-start-6" delay={100}>
           <div
             id="wizyta"
             className="scroll-mt-28 w-full rounded-md bg-secondary px-4 py-4 md:px-5 md:py-5 xl:px-8 xl:py-6"
