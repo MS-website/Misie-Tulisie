@@ -90,6 +90,11 @@
 }
 
 @media (max-width: 79.99rem) {
+  .home-story-copy {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+
   .home-hero-copy {
     container-type: inline-size;
   }
@@ -208,8 +213,8 @@
   }
 }
 
-/* 784–1279: zapisany układ lg jeszcze nie działa, a PageIntro ma md:pt-52. */
-@media (min-width: 784px) and (max-width: 1279.98px) {
+/* 768–1279: zapisany układ lg jeszcze nie działa, a PageIntro ma md:pt-52. */
+@media (min-width: 48rem) and (max-width: 1279.98px) {
   body:not([data-frame="formularz"]) main > section.container-site:first-of-type:not(.galeria-intro) {
     padding-top: 7rem;
     padding-bottom: 3rem;
@@ -230,6 +235,13 @@
     margin-top: 0;
     max-width: 100%;
     overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 776px) {
+  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro:first-of-type {
+    padding-top: 6.5rem;
+    padding-bottom: 2.5rem;
   }
 }
 
@@ -369,6 +381,31 @@
 
 .parents-wyzywienie-prose br {
   display: none;
+}
+
+/* 1024–1279: te same łamania i skala tabelki co na desktopie, bez owijania z tabletu. */
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  .parents-wyzywienie-stack {
+    gap: 0;
+  }
+
+  .parents-wyzywienie-prose br {
+    display: inline;
+  }
+
+  .parents-wyzywienie-prose {
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .parents-wyzywienie-infografika {
+    width: 100%;
+    max-width: 40.625rem;
+  }
+
+  .parents-wyzywienie-stack .parents-oplaty-card {
+    margin-top: calc(-1.375rem - 2.5cm);
+  }
 }
 
 .parents-wyzywienie-media {

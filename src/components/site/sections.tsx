@@ -88,8 +88,8 @@ export function TrustBar() {
 /* ---------- STORY ---------- */
 export function Story({ cta = true }: { cta?: boolean }) {
   return (
-    <section className="bg-secondary/70 py-24 md:py-36">
-      <div className="container-site grid items-center gap-14 lg:grid-cols-12">
+    <section className="home-story bg-secondary/70 py-24 md:py-36">
+      <div className="container-site grid items-center gap-8 lg:grid-cols-12 xl:gap-14">
         <Reveal className="lg:col-span-5">
           <Photo
             src={storyZabawaKlockami}
@@ -97,13 +97,13 @@ export function Story({ cta = true }: { cta?: boolean }) {
             className="aspect-[4/5]"
           />
         </Reveal>
-        <div className="lg:col-span-6 lg:col-start-7">
+        <div className="lg:col-span-6 lg:col-start-6 xl:col-start-7">
           <Reveal>
             <Eyebrow>Dlaczego Misie Tulisie</Eyebrow>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl">
               Żłobek to coś więcej niż opieka.
             </h2>
-            <div className="mt-10 space-y-5 text-lg leading-relaxed text-muted-foreground">
+            <div className="home-story-copy mt-10 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 To pierwsze miejsce, w którym dziecko zaczyna odkrywać świat poza domem. Pierwsze
                 relacje, pierwsze małe sukcesy, pierwsze samodzielne decyzje.
@@ -659,10 +659,10 @@ export function ContactBlock() {
             <p className="text-lg">{contact.hours}</p>
           </div>
         </Reveal>
-        <Reveal className="min-w-0 md:col-span-5 md:col-start-8 lg:col-span-7 lg:col-start-6" delay={100}>
+        <Reveal className="min-w-0 md:col-span-6 md:col-start-7 xl:col-span-7 xl:col-start-6" delay={100}>
           <div
             id="wizyta"
-            className="scroll-mt-28 w-full max-w-md rounded-md bg-secondary px-4 py-4 md:px-5 md:py-5 lg:max-w-none lg:px-8 lg:py-6"
+            className="scroll-mt-28 w-full rounded-md bg-secondary px-4 py-4 md:px-5 md:py-5 xl:px-8 xl:py-6"
           >
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl">Umów wizytę</h2>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">

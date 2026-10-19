@@ -597,13 +597,13 @@ export function ParentsPageSections() {
             </ParentsTuneSurface>
           </Reveal>
 
-          <div className="parents-wyzywienie-band mt-5 md:mt-6 xl:grid xl:grid-cols-12 xl:items-start xl:gap-x-14">
-            <Reveal className="parents-wyzywienie-media xl:col-span-5">
+          <div className="parents-wyzywienie-band mt-5 md:mt-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-10 xl:gap-x-14">
+            <Reveal className="parents-wyzywienie-media lg:col-span-5">
               <ParentsTuneSurface
                 id="oplaty-wyzywienie-eyebrow"
                 className="parents-wyzywienie-eyebrow-wrap"
               >
-                <p className="eyebrow mb-3 md:mb-4 xl:mb-0">Wyżywienie</p>
+                <p className="eyebrow mb-3 md:mb-4 lg:mb-0">Wyżywienie</p>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-wyzywienie-foto" className="parents-wyzywienie-foto-wrap">
                 <Photo
@@ -615,7 +615,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-6 w-full xl:col-span-7 xl:mt-0 xl:pt-0"
+              className="parents-wyzywienie-copy mt-6 w-full lg:col-span-7 lg:mt-0 lg:pt-0"
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">

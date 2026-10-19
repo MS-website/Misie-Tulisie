@@ -45,6 +45,7 @@ function AktywnyMaluch() {
   return (
     <>
       <PageIntro
+        className="subpage-intro"
         eyebrow="Aktywny Maluch"
         title="Aktywny Maluch"
         lead="Strona przedstawia informacje o realizowanym zadaniu i dofinansowaniu"
@@ -127,12 +128,12 @@ function AktywnyMaluch() {
       </section>
       <section>
         <div className="container-site pb-14 pt-2 md:pb-20 md:pt-2">
-          <p className="text-sm tracking-wide text-foreground">
+          <p className="text-center text-sm tracking-wide text-foreground xl:text-left">
             #FunduszeUE #FunduszeEuropejskie
           </p>
-          <ul className="mt-10 flex flex-wrap items-center gap-x-12 gap-y-10">
+          <ul className="mt-10 flex flex-col items-center gap-y-10 xl:flex-row xl:flex-wrap xl:items-center xl:justify-start xl:gap-x-12">
             {znaki.map((znak) => (
-              <li key={znak.alt}>
+              <li key={znak.alt} className="flex justify-center">
                 <img
                   src={znak.src}
                   alt={znak.alt}

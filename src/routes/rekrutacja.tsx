@@ -6,7 +6,7 @@ export const Route = createFileRoute("/rekrutacja")({
   head: () => ({ meta: seo("Rekrutacja | Żłobek Misie Tulisie Gniezno", "Zapytaj o wolne miejsce w żłobku Misie Tulisie w Gnieźnie.") }),
   component: () => (
     <>
-      <PageIntro eyebrow="Rekrutacja" title="Dołącz do Misiów Tulisiów" />
+      <PageIntro className="subpage-intro" eyebrow="Rekrutacja" title="Dołącz do Misiów Tulisiów" />
       <RecruitmentRules />
       <RecruitmentSteps />
       <Adaptation />
