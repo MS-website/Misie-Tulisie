@@ -307,7 +307,7 @@
 }
 
 /* Miś zajmuje prawe 32% grafiki, a ramka tabelki zaczyna się na 198/1024 jej szerokości. */
-@media (max-width: 79.99rem) {
+@media (max-width: 63.99rem) {
   .parents-wyzywienie-stack {
     gap: 0;
   }
