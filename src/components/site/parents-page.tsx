@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import oplatyInfografika from "@/assets/oplaty-infografika.png";
 import wyzywienieGrupa from "@/assets/wyzywienie-grupa.jpg";
 import planDniaPokoj from "@/assets/plan-dnia-pokoj.jpg";
@@ -22,6 +22,71 @@ import { cn } from "@/lib/utils";
 const UKLAD_OPLATY_WYZYWIENIE = '[data-uklad-text="oplaty-wyzywienie"]';
 const UKLAD_OPLATY_MALUCH_TEKST = '[data-uklad-text="oplaty-maluch-tekst"]';
 const UKLAD_OPLATY_MALUCH_TYTUL = '[data-uklad-text="oplaty-maluch-tytul"]';
+
+/** Wysokość misia nad ramką tabelki, jako ułamek szerokości grafiki (198−26 z 1024 px). */
+const MIS_NAD_TABELKA = 172 / 1024;
+
+/**
+ * Poniżej lg tabelka z misiem zachodzi na koniec akapitu o wyżywieniu. Pływający
+ * blok przy prawej krawędzi sięga od wysokości czubka misia do końca akapitu,
+ * więc wiersze obok misia zawsze łamią się wcześniej. Odstęp nad blokiem tylko
+ * maleje między iteracjami — inaczej przeniesienie wiersza potrafi go rozhuśtać.
+ */
+function WyzywienieMisMiejsce() {
+  const spacerRef = useRef<HTMLSpanElement>(null);
+
+  useLayoutEffect(() => {
+    const spacer = spacerRef.current;
+    const place = spacer?.nextElementSibling as HTMLElement | null;
+    const host = spacer?.parentElement;
+    const text = host?.querySelector("p");
+    if (!spacer || !place || !host || !text) return;
+    const mobile = window.matchMedia("(max-width: 63.99rem)");
+    let frame = 0;
+
+    const fit = () => {
+      frame = 0;
+      spacer.style.height = "";
+      place.style.height = "";
+      if (!mobile.matches) return;
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      const bear = host.clientWidth * MIS_NAD_TABELKA;
+      let top = Infinity;
+      for (let i = 0; i < 12; i++) {
+        const bottom = text.offsetHeight;
+        const needed = Math.max(0, Math.floor(bottom + 0.75 * rem - bear - 4));
+        if (needed >= top) {
+          place.style.height = `${Math.max(0, bottom - top)}px`;
+          break;
+        }
+        top = needed;
+        spacer.style.height = `${top}px`;
+        place.style.height = `${Math.max(0, bottom - top)}px`;
+      }
+    };
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(fit);
+    };
+
+    fit();
+    const observer = new ResizeObserver(schedule);
+    observer.observe(text);
+    observer.observe(spacer.parentElement!);
+    mobile.addEventListener("change", schedule);
+    return () => {
+      observer.disconnect();
+      mobile.removeEventListener("change", schedule);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <>
+      <span ref={spacerRef} aria-hidden className="parents-wyzywienie-mis-odstep" />
+      <span aria-hidden className="parents-wyzywienie-mis-miejsce" />
+    </>
+  );
+}
 
 const WYPRAWKA_ITEMS = [
   "Pościel + prześcieradło do leżaczka o wymiarach 132,5 x 59",
@@ -553,6 +618,7 @@ export function ParentsPageSections() {
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
+                  <WyzywienieMisMiejsce />
                   <UkladText
                     as="p"
                     selector={UKLAD_OPLATY_WYZYWIENIE}
