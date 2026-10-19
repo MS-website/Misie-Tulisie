@@ -201,6 +201,24 @@
   gap: 1.25rem;
 }
 
+@media (max-width: 63.99rem) {
+  .parents-wyzywienie-stack {
+    gap: 0.375rem;
+  }
+
+  .parents-wyzywienie-prose {
+    margin-bottom: 0;
+  }
+
+  .parents-wyzywienie-infografika {
+    margin-top: -1.25rem;
+  }
+
+  .parents-programy {
+    margin-top: calc(3.5rem - 1.5cm - 0.75rem) !important;
+  }
+}
+
 .parents-wyzywienie-prose br {
   display: none;
 }
