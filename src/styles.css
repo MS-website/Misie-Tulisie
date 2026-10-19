@@ -155,14 +155,17 @@
 
 /* 784–1279: zapisany układ lg jeszcze nie działa, a PageIntro ma md:pt-52. */
 @media (min-width: 784px) and (max-width: 1279.98px) {
-  main > section.container-site:first-of-type {
+  body:not([data-frame="formularz"]) main > section.container-site:first-of-type:not(.galeria-intro) {
     padding-top: 7rem;
     padding-bottom: 3rem;
   }
 
-  main > section.galeria-intro:first-of-type {
-    padding-top: 6.5rem;
-    padding-bottom: 0;
+  .galeria-intro h1 {
+    display: none;
+  }
+
+  .galeria-intro + section {
+    padding-top: 2rem;
   }
 }
 
@@ -197,6 +200,24 @@
 
 .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] p {
   margin-bottom: 0;
+}
+
+@media (max-width: 785px) {
+  .parents-oplaty-intro-title {
+    font-size: 1.75rem !important;
+    line-height: 1.18 !important;
+  }
+
+  .parents-oplaty-intro > p,
+  .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] {
+    margin-top: 1.35rem !important;
+  }
+
+  .parents-oplaty-intro > p,
+  .parents-oplaty-intro [data-parents-tune="oplaty-wstep"] p {
+    font-size: 1rem !important;
+    line-height: 1.5;
+  }
 }
 
 /* Odstęp od drugiego akapitu do kreski — bez klas Tailwind !mt-* na wrapie (nadpisywały margin). */
