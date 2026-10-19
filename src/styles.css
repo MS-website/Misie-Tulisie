@@ -104,6 +104,28 @@
   }
 }
 
+@media (min-width: 1041px) and (max-width: 1279.98px) {
+  .home-play-growth-photo,
+  .home-space-photo {
+    grid-column: 7 / -1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-play-growth-photo > *,
+  .home-space-photo > * {
+    width: 92%;
+  }
+
+  .home-mission-grid {
+    column-gap: 2.5rem;
+  }
+
+  .home-mission-copy {
+    grid-column: 7 / -1;
+  }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
