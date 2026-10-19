@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { defineConfig, type Plugin } from "vite";
+import { defineConfig, loadEnv, type Plugin } from "vite";
 import { nitro } from "nitro/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
@@ -207,11 +207,19 @@ function devFaviconCacheReset(): Plugin {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  const web3formsKey =
+    env.VITE_WEB3FORMS_ACCESS_KEY ?? process.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
+
+  return {
   server: {
     watch: {
       ignored: ["**/src/uklad.json", "**/src/parents-layout-tune.json"],
     },
+  },
+  define: {
+    "import.meta.env.VITE_WEB3FORMS_ACCESS_KEY": JSON.stringify(web3formsKey),
   },
   resolve: {
     tsconfigPaths: true,
@@ -237,4 +245,5 @@ export default defineConfig({
       },
     }),
   ],
+};
 });

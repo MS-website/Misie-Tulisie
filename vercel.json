@@ -1,7 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build",
-  "env": {
-    "VITE_WEB3FORMS_ACCESS_KEY": "754eca59-5088-41a1-90cc-697528c51c43"
-  }
+  "buildCommand": "npm run build"
 }
