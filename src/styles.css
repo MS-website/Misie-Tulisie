@@ -153,6 +153,19 @@
   }
 }
 
+/* 784–1279: zapisany układ lg jeszcze nie działa, a PageIntro ma md:pt-52. */
+@media (min-width: 784px) and (max-width: 1279.98px) {
+  main > section.container-site:first-of-type {
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+  }
+
+  main > section.galeria-intro:first-of-type {
+    padding-top: 6.5rem;
+    padding-bottom: 0;
+  }
+}
+
 @media (max-width: 767.98px) {
   .kontakt-intro {
     padding-top: 6.5rem;
@@ -261,7 +274,11 @@
   }
 
   .parents-programy {
-    margin-top: calc(3.5rem - 1.5cm + 1rem) !important;
+    margin-top: 1cm !important;
+  }
+
+  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+    margin-top: 0;
   }
 }
 

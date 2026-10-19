@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { MobileOrphans } from "@/components/site/MobileOrphans";
 import { RouteScrollReset } from "@/components/site/RouteScrollReset";
 import { SavedLayout } from "@/components/site/SavedLayout";
 import { UkladStoreProvider } from "@/components/site/UkladText";
@@ -208,6 +209,7 @@ function RootComponent() {
         </main>
         <Footer />
         <SavedLayout />
+        <MobileOrphans />
       </UkladStoreProvider>
     </QueryClientProvider>
   );
