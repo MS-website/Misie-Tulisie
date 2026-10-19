@@ -89,6 +89,21 @@
   background-color: var(--home-discover-fill);
 }
 
+@media (max-width: 1025px) {
+  .home-play-growth-photo {
+    display: none;
+  }
+
+  .home-play-growth-copy {
+    grid-column: 1 / -1;
+  }
+
+  .home-play-growth-map {
+    max-width: none !important;
+    width: 100%;
+  }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

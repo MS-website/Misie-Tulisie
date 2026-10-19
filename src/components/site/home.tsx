@@ -75,10 +75,10 @@ export function HomeMission() {
 
 export function HomePlayGrowth() {
   return (
-    <section className="border-y border-border/80 bg-white py-16 md:py-24">
+    <section className="home-play-growth border-y border-border/80 bg-white py-16 md:py-24">
       <div className="container-site min-w-0">
         <div className="grid min-w-0 items-start gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="min-w-0 lg:col-span-6">
+          <div className="home-play-growth-copy min-w-0 lg:col-span-6">
             <h2 className="font-display text-4xl md:text-5xl">Rozwój przez zabawę</h2>
             <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
               W Misiach Tulisiach dbamy o ciepłą, rodzinną atmosferę, gdzie pod czujnym okiem
@@ -91,10 +91,10 @@ export function HomePlayGrowth() {
               alt={developmentMapAlt}
               fit="contain"
               eager
-              className="mt-10 w-full max-w-xl"
+              className="home-play-growth-map mt-10 w-full max-w-xl"
             />
           </div>
-          <div className="min-w-0 lg:col-span-5 lg:col-start-8">
+          <div className="home-play-growth-photo min-w-0 lg:col-span-5 lg:col-start-8">
             <Photo
               src={playCare}
               alt="Opiekunka bawi się z dzieckiem drewnianymi klockami"
