@@ -29,8 +29,9 @@ const MIS_NAD_TABELKA = 172 / 1024;
 /**
  * Poniżej lg tabelka z misiem zachodzi na koniec akapitu o wyżywieniu. Pływający
  * blok przy prawej krawędzi sięga od wysokości czubka misia do końca akapitu,
- * więc wiersze obok misia zawsze łamią się wcześniej. Odstęp nad blokiem tylko
- * maleje między iteracjami — inaczej przeniesienie wiersza potrafi go rozhuśtać.
+ * a jego kształt (shape-outside w CSS) idzie po obrysie misia, więc wiersze
+ * łamią się tuż przed nim. Odstęp nad blokiem tylko maleje między iteracjami —
+ * inaczej przeniesienie wiersza potrafi go rozhuśtać.
  */
 function WyzywienieMisMiejsce() {
   const spacerRef = useRef<HTMLSpanElement>(null);
@@ -51,15 +52,15 @@ function WyzywienieMisMiejsce() {
       if (!mobile.matches) return;
       const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
       const bear = host.clientWidth * MIS_NAD_TABELKA;
+      host.style.setProperty("--mis-k", `${host.clientWidth / 1024}px`);
       let top = Infinity;
-      for (let i = 0; i < 12; i++) {
+      let placed = -1;
+      for (let i = 0; i < 16; i++) {
         const bottom = text.offsetHeight;
         const needed = Math.max(0, Math.floor(bottom + 0.75 * rem - bear - 4));
-        if (needed >= top) {
-          place.style.height = `${Math.max(0, bottom - top)}px`;
-          break;
-        }
-        top = needed;
+        if (needed >= top && bottom === placed) break;
+        top = Math.min(top, needed);
+        placed = bottom;
         spacer.style.height = `${top}px`;
         place.style.height = `${Math.max(0, bottom - top)}px`;
       }

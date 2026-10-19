@@ -153,6 +153,17 @@
   }
 }
 
+@media (max-width: 767.98px) {
+  .kontakt-intro {
+    padding-top: 6.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .kontakt-intro .eyebrow {
+    margin-bottom: 0;
+  }
+}
+
 .parents-oplaty-card {
   display: block;
   width: 100%;
@@ -219,12 +230,29 @@
     height: 0;
   }
 
+  /* Obrys lewej krawędzi misia: x od 680/1024 grafiki, y w pikselach grafiki nad ramką tabelki. */
   .parents-wyzywienie-mis-miejsce {
+    --mis-y: calc(100% + 0.75rem);
     display: block;
     float: right;
     clear: right;
-    width: 34%;
+    width: 33.6%;
     height: 0;
+    shape-margin: 0.375rem;
+    shape-outside: polygon(
+      35% calc(var(--mis-y) - 172 * var(--mis-k, 0px)),
+      28% calc(var(--mis-y) - 158 * var(--mis-k, 0px)),
+      23% calc(var(--mis-y) - 140 * var(--mis-k, 0px)),
+      22% calc(var(--mis-y) - 118 * var(--mis-k, 0px)),
+      22% calc(var(--mis-y) - 60 * var(--mis-k, 0px)),
+      19% calc(var(--mis-y) - 48 * var(--mis-k, 0px)),
+      11.5% calc(var(--mis-y) - 38 * var(--mis-k, 0px)),
+      6% calc(var(--mis-y) - 18 * var(--mis-k, 0px)),
+      4.5% calc(var(--mis-y) - 8 * var(--mis-k, 0px)),
+      4.5% 100%,
+      100% 100%,
+      100% calc(var(--mis-y) - 172 * var(--mis-k, 0px))
+    );
   }
 
   .parents-wyzywienie-infografika {
@@ -233,7 +261,7 @@
   }
 
   .parents-programy {
-    margin-top: calc(3.5rem - 1.5cm - 0.75rem) !important;
+    margin-top: calc(3.5rem - 1.5cm + 1rem) !important;
   }
 }
 

@@ -624,7 +624,7 @@ export function FinalCTA() {
 export function ContactBlock() {
   const [sent, setSent] = useState(false);
   return (
-    <section className="container-site pb-24 md:pb-36">
+    <section className="container-site max-lg:pb-0 pb-24 md:pb-36">
       <div className="grid gap-16 lg:grid-cols-12">
         <Reveal className="space-y-10 lg:col-span-5">
           <div>
@@ -769,7 +769,7 @@ export function ContactBlock() {
           </div>
         </Reveal>
       </div>
-      <div className="mt-5 md:mt-7">
+      <div className="max-lg:py-20 lg:mt-7">
         <iframe
           title="Mapa — Żłobek Misie Tulisie"
           src="https://www.google.com/maps?q=Pozna%C5%84ska+99,+62-200+Gniezno&output=embed"
