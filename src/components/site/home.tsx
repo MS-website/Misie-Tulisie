@@ -49,7 +49,7 @@ export function HomeMission() {
   return (
     <section className="container-site min-w-0 py-16 md:py-24">
       <div className="grid min-w-0 items-center gap-10 lg:grid-cols-12 lg:gap-16">
-        <div className="min-w-0 lg:col-span-6">
+        <div className="order-2 min-w-0 lg:order-none lg:col-span-6">
           <Photo
             src={missionKids}
             alt="Dwoje dzieci bawi się drewnianymi klockami w jasnej sali"
@@ -57,7 +57,7 @@ export function HomeMission() {
             className="aspect-[4/3] max-w-full"
           />
         </div>
-        <div className="min-w-0 lg:col-span-5 lg:col-start-8">
+        <div className="order-1 min-w-0 lg:order-none lg:col-span-5 lg:col-start-8">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">Nasza misja</h2>
           <p className="mt-8 text-lg leading-relaxed text-muted-foreground">
             Naszą misją jest stworzenie miejsca, w którym każde dziecko czuje się{" "}
