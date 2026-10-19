@@ -597,13 +597,13 @@ export function ParentsPageSections() {
             </ParentsTuneSurface>
           </Reveal>
 
-          <div className="parents-wyzywienie-band mt-5 md:mt-6 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-14">
-            <Reveal className="parents-wyzywienie-media lg:col-span-5">
+          <div className="parents-wyzywienie-band mt-5 md:mt-6 xl:grid xl:grid-cols-12 xl:items-start xl:gap-x-14">
+            <Reveal className="parents-wyzywienie-media xl:col-span-5">
               <ParentsTuneSurface
                 id="oplaty-wyzywienie-eyebrow"
                 className="parents-wyzywienie-eyebrow-wrap"
               >
-                <p className="eyebrow mb-3 md:mb-4 lg:mb-0">Wyżywienie</p>
+                <p className="eyebrow mb-3 md:mb-4 xl:mb-0">Wyżywienie</p>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-wyzywienie-foto" className="parents-wyzywienie-foto-wrap">
                 <Photo
@@ -615,7 +615,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-6 w-full lg:col-span-7 lg:mt-0 lg:pt-0"
+              className="parents-wyzywienie-copy mt-6 w-full xl:col-span-7 xl:mt-0 xl:pt-0"
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
@@ -648,8 +648,8 @@ export function ParentsPageSections() {
             </Reveal>
           </div>
 
-          <div className="parents-programy mt-14 grid items-start gap-x-10 gap-y-10 lg:mt-16 lg:grid-cols-12 lg:gap-x-14">
-            <Reveal className="space-y-10 lg:col-span-5">
+          <div className="parents-programy mt-14 grid items-start gap-x-10 gap-y-10 xl:mt-16 xl:grid-cols-12 xl:gap-x-14">
+            <Reveal className="space-y-10 xl:col-span-5">
               <ParentsTuneSurface id="oplaty-aktywny-rodzic-tytul">
                 <h3 className="parents-aktywny-rodzic-tytul font-display text-3xl md:text-4xl">
                   Rządowy program „Aktywny Rodzic”
@@ -703,7 +703,7 @@ export function ParentsPageSections() {
                 </UkladText>
               </ParentsTuneSurface>
             </Reveal>
-            <div className="space-y-10 lg:col-span-7">
+            <div className="space-y-10 xl:col-span-7">
               <Reveal delay={80}>
                 <ParentsTuneSurface id="oplaty-faq">
                   <div className="parents-oplaty-faq-panel w-full rounded-md border border-[oklch(0.62_0.14_248_/_26%)] bg-[oklch(0.68_0.13_248_/_9%)] p-6 md:p-8">
@@ -718,7 +718,7 @@ export function ParentsPageSections() {
                   </div>
                 </ParentsTuneSurface>
               </Reveal>
-              <Reveal delay={80} className="lg:pt-4">
+              <Reveal delay={80} className="xl:pt-4">
                 <ParentsTuneSurface id="oplaty-czesne">
                   <div className="parents-czesne-callout">
                     <ParentsGreenRule />
@@ -753,8 +753,8 @@ export function ParentsPageSections() {
           />
         </div>
         <div className="container-site relative min-w-0">
-          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
-            <Reveal className="lg:col-span-5">
+          <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-x-14">
+            <Reveal className="xl:col-span-5">
               <p className="eyebrow mb-6 text-[oklch(0.58_0.14_18)]">Plan dnia</p>
               <h2 className="font-display max-w-md text-4xl md:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
                 Rytm dnia w Misiach Tulisiach
@@ -764,7 +764,7 @@ export function ParentsPageSections() {
                 rodzice zawsze wiedzą, co aktualnie robi ich pociecha.
               </p>
             </Reveal>
-            <Reveal delay={80} className="min-w-0 lg:col-span-7">
+            <Reveal delay={80} className="min-w-0 xl:col-span-7">
               <div className="plan-dnia-schedule-card">
                 <PlanDayTimeline />
               </div>
@@ -779,27 +779,27 @@ export function ParentsPageSections() {
         className="scroll-mt-24 border-t border-border/60 py-20 md:py-28"
       >
         <div className="container-site min-w-0">
-          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-x-16">
-            <Reveal className="min-w-0 lg:col-span-6">
+          <div className="grid items-start gap-10 xl:grid-cols-12 xl:gap-x-16">
+            <Reveal className="min-w-0 xl:col-span-6">
               <Eyebrow>Wyprawka</Eyebrow>
               <h2 className="font-display max-w-xl text-4xl md:text-5xl">
                 Lista rzeczy do żłobka
               </h2>
               <WyprawkaList />
-              <div className="parents-wyprawka-note mt-8 lg:flex lg:w-max lg:items-center lg:gap-3">
-                <p className="max-w-xl text-base leading-relaxed md:text-lg lg:max-w-none lg:shrink-0">
+              <div className="parents-wyprawka-note mt-8 xl:flex xl:w-max xl:items-center xl:gap-3">
+                <p className="max-w-xl text-base leading-relaxed md:text-lg xl:max-w-none xl:shrink-0">
                   <strong className="font-semibold text-foreground">
                     Prosimy, aby wszystkie rzeczy były podpisane na specjalnych{" "}
-                    <br className="hidden lg:block" />
+                    <br className="hidden xl:block" />
                     naklejanych etykietkach bądź markerem.
                   </strong>
                 </p>
-                <WyprawkaPdfDownload className="parents-wyprawka-pdf hidden shrink-0 lg:block" />
+                <WyprawkaPdfDownload className="parents-wyprawka-pdf hidden shrink-0 xl:block" />
               </div>
             </Reveal>
-            <Reveal delay={80} className="lg:col-span-6">
+            <Reveal delay={80} className="xl:col-span-6">
               <WyprawkaPhoto className="parents-wyprawka-foto" />
-              <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit lg:hidden" />
+              <WyprawkaPdfDownload className="mx-auto mt-8 block w-fit xl:hidden" />
             </Reveal>
           </div>
         </div>

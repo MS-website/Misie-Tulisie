@@ -252,7 +252,7 @@
 }
 
 /* Miś zajmuje prawe 32% grafiki, a ramka tabelki zaczyna się na 198/1024 jej szerokości. */
-@media (max-width: 63.99rem) {
+@media (max-width: 79.99rem) {
   .parents-wyzywienie-stack {
     gap: 0;
   }
@@ -353,7 +353,7 @@
   margin-top: calc(0.5cm + 4mm);
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   #wyprawka .parents-wyprawka-pdf {
     position: relative;
     top: -1cm;
@@ -372,7 +372,7 @@
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .parents-programy {
     margin-top: calc(4rem - 1.5cm) !important;
   }
@@ -457,16 +457,6 @@
   }
 }
 
-/* Węższa kolumna niż w podglądzie 1280 px: akapit ma więcej wierszy, więc infografika nie może na niego zachodzić. */
-@media (min-width: 64rem) and (max-width: 79.99rem) {
-  .parents-wyzywienie-prose br {
-    display: none;
-  }
-
-  .parents-wyzywienie-stack .parents-oplaty-card {
-    margin-top: 0;
-  }
-}
 
 /* Formularz trzyma kolumnę z trzech ustawionych szerokości: 390, 820 i 1280. */
 body[data-frame="formularz"] .container-site {
@@ -713,7 +703,7 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   display: none;
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .parents-czesne-callout-br {
     display: block;
   }
