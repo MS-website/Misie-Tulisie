@@ -89,6 +89,24 @@
   background-color: var(--home-discover-fill);
 }
 
+@media (max-width: 79.99rem) {
+  .home-hero-copy {
+    container-type: inline-size;
+  }
+
+  .home-hero-title {
+    max-width: none !important;
+    font-size: min(5.9375rem, 14.6cqw) !important;
+    line-height: 1.02 !important;
+  }
+
+  .home-hero-lead {
+    max-width: 36rem;
+    font-size: 1.25rem !important;
+    line-height: 1.6;
+  }
+}
+
 @media (max-width: 1025px) {
   .home-play-growth-photo {
     display: none;

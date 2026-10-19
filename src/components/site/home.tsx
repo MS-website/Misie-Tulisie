@@ -10,11 +10,11 @@ const developmentMapAlt =
 
 export function HomeHero() {
   return (
-    <section className="relative min-w-0 pt-28 md:pt-32">
+    <section className="home-hero relative min-w-0 pt-28 md:pt-32">
       <div className="container-site grid min-w-0 items-end gap-10 lg:grid-cols-12 lg:items-start lg:gap-16 xl:items-end">
-        <div className="min-w-0 pb-2 lg:col-span-6 lg:pb-16">
+        <div className="home-hero-copy min-w-0 pb-2 lg:col-span-6 lg:pb-16">
           <p className="eyebrow mb-6">Żłobek w Gnieźnie</p>
-          <h1 className="font-display max-w-xl text-[clamp(2.5rem,4.4vw,5.75rem)] leading-[1.02]">
+          <h1 className="home-hero-title font-display max-w-xl text-[clamp(2.5rem,4.4vw,5.75rem)] leading-[1.02]">
             Miejsce,
             <br />
             w którym małe
@@ -23,7 +23,7 @@ export function HomeHero() {
             <br />
             <em className="text-honey">wielkie</em> znaczenie
           </h1>
-          <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="home-hero-lead mt-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
             Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we
             własnym tempie, a rodzice zyskują spokój i pewność, że ich dziecko jest pod dobrą
             opieką.
