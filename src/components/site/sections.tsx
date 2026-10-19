@@ -425,8 +425,8 @@ export function FAQ() {
 export function RecruitmentRules() {
   return (
     <section className="container-site pb-24 md:pb-32">
-      <div className="grid gap-10 lg:grid-cols-12">
-        <Reveal className="lg:col-span-4">
+      <div className="grid gap-10 xl:grid-cols-12">
+        <Reveal className="min-w-0 xl:col-span-4">
           <Eyebrow>Zasady rekrutacji</Eyebrow>
           <h2 className="font-display text-4xl md:text-5xl">
             Przez cały rok,
@@ -434,7 +434,7 @@ export function RecruitmentRules() {
             w wieku od 1 do 3 lat
           </h2>
         </Reveal>
-        <Reveal className="recruitment-rules-copy space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
+        <Reveal className="recruitment-rules-copy min-w-0 space-y-5 text-lg leading-relaxed text-muted-foreground xl:col-span-7 xl:col-start-6" delay={100}>
           <p>
             Rekrutacja do żłobka Misie Tulisie trwa przez cały rok i mogą w niej brać udział dzieci
             w wieku od 1 roku życia do 3 lat. Dziecko można zapisać w dowolnym miesiącu. Jeśli{" "}
@@ -519,9 +519,9 @@ export function RecruitmentSteps() {
   return (
     <section className="bg-secondary/70 py-24 md:py-32">
       <div className="container-site">
-        <Reveal>
+        <Reveal className="min-w-0 max-w-3xl">
           <Eyebrow>Krok po kroku</Eyebrow>
-          <h2 className="font-display max-w-3xl text-5xl md:text-7xl">Jak przebiega rekrutacja?</h2>
+          <h2 className="font-display text-5xl md:text-6xl xl:text-7xl">Jak przebiega rekrutacja?</h2>
         </Reveal>
         <ol className="mt-16 grid gap-6 lg:grid-cols-3">
           {recruitmentSteps.map((step, i) => (
@@ -545,12 +545,12 @@ export function RecruitmentSteps() {
 export function Adaptation() {
   return (
     <section className="container-site py-24 md:py-32">
-      <div className="grid gap-10 lg:grid-cols-12">
-        <Reveal className="lg:col-span-4">
+      <div className="grid gap-10 xl:grid-cols-12">
+        <Reveal className="min-w-0 xl:col-span-4">
           <Eyebrow>Adaptacja</Eyebrow>
           <h2 className="font-display text-4xl md:text-5xl">Adaptacja w nowym środowisku</h2>
         </Reveal>
-        <Reveal className="space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6" delay={100}>
+        <Reveal className="min-w-0 space-y-5 text-lg leading-relaxed text-muted-foreground xl:col-span-7 xl:col-start-6" delay={100}>
           <p>
             Przywiązujemy dużą wagę do tego, by wszystkie pociechy czuły się u nas kochane
             i bezpieczne. Dlatego niezwykle ważna jest dla nas bliskościowa adaptacja, która pozwala
@@ -575,10 +575,10 @@ export function Adaptation() {
 export function Recruitment() {
   return (
     <section className="container-site pb-24 md:pb-36">
-      <Reveal className="grid min-h-0 overflow-hidden rounded-md bg-cream md:grid-cols-2">
-        <div className="min-h-0 p-10 md:p-16 lg:p-20">
+      <Reveal className="grid min-h-0 overflow-hidden rounded-md bg-cream lg:grid-cols-2">
+        <div className="min-h-0 min-w-0 p-8 md:p-10 lg:p-20">
           <Eyebrow>Rekrutacja</Eyebrow>
-          <h2 className="font-display text-4xl md:text-6xl">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl">
             Zastanawiasz się, czy Misie Tulisie są dla Was?
           </h2>
           <p className="mt-8 max-w-md text-lg leading-relaxed text-muted-foreground">
@@ -591,7 +591,7 @@ export function Recruitment() {
         <Photo
           src={int1}
           alt="Przytulny kącik zabaw z namiotem tipi, drewnianymi zabawkami i miękkimi poduszkami"
-          className="aspect-[4/3] min-h-0 overflow-hidden rounded-none rounded-b-md bg-cream md:aspect-auto md:h-full md:rounded-b-none md:rounded-r-md"
+          className="aspect-[4/3] min-h-0 min-w-0 overflow-hidden rounded-none rounded-b-md bg-cream lg:aspect-auto lg:h-full lg:max-h-[28rem] lg:rounded-b-none lg:rounded-r-md xl:max-h-none"
         />
       </Reveal>
     </section>
@@ -628,8 +628,8 @@ export function ContactBlock() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   return (
     <section className="container-site max-lg:pb-0 pb-24 md:pb-36">
-      <div className="grid gap-16 lg:grid-cols-12">
-        <Reveal className="space-y-10 lg:col-span-5">
+      <div className="grid gap-10 md:grid-cols-12 md:items-start lg:gap-16">
+        <Reveal className="min-w-0 space-y-10 md:col-span-6 lg:col-span-5">
           <div>
             <p className="eyebrow mb-3">Adres</p>
             <p className="font-display text-3xl">
@@ -659,12 +659,12 @@ export function ContactBlock() {
             <p className="text-lg">{contact.hours}</p>
           </div>
         </Reveal>
-        <Reveal className="lg:col-span-7 lg:col-start-6" delay={100}>
+        <Reveal className="min-w-0 md:col-span-5 md:col-start-8 lg:col-span-7 lg:col-start-6" delay={100}>
           <div
             id="wizyta"
-            className="scroll-mt-28 w-full rounded-md bg-secondary px-5 py-5 md:px-8 md:py-6"
+            className="scroll-mt-28 w-full max-w-md rounded-md bg-secondary px-4 py-4 md:px-5 md:py-5 lg:max-w-none lg:px-8 lg:py-6"
           >
-            <h2 className="font-display text-3xl md:text-4xl">Umów wizytę</h2>
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl">Umów wizytę</h2>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
               Zostaw kontakt — oddzwonimy i ustalimy dogodny termin.
             </p>
@@ -719,7 +719,7 @@ export function ContactBlock() {
                   );
                 }}
               >
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 lg:grid-cols-2">
                   <label className="block">
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">
                       Imię i nazwisko
