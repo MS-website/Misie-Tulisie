@@ -13,6 +13,7 @@
     "pdf:wyprawka": "python3 scripts/generate-wyprawka-pdf.py",
     "uklad:import": "node scripts/import-uklad.mjs",
     "uklad:sync": "node scripts/open-uklad-sync.mjs",
+    "og:generate": "python3 scripts/generate-og-image.py",
     "test": "vitest run",
     "test:watch": "vitest"
   },

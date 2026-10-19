@@ -18,13 +18,45 @@ export const nav = [
   { to: "/kontakt", label: "Kontakt" },
 ] as const;
 
+export const OG_IMAGE_PATH = "/og-misie-tulisie.jpg";
+
+const OG_IMAGE_ALT =
+  "Żłobek Misie Tulisie — logo, hasło strony głównej i zdjęcie z żłobka";
+
+function siteOrigin(): string {
+  const fromProcess =
+    typeof process !== "undefined"
+      ? process.env["URL"] ?? process.env["DEPLOY_PRIME_URL"]
+      : undefined;
+  const fromVite = import.meta.env["VITE_SITE_URL"] as string | undefined;
+  const raw = fromProcess ?? fromVite ?? "";
+  return raw.replace(/\/$/, "");
+}
+
+export function absoluteUrl(path: string): string {
+  const origin = siteOrigin();
+  if (!origin) return path;
+  return `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export function seo(title: string, description: string) {
+  const image = absoluteUrl(OG_IMAGE_PATH);
   return [
     { title },
     { name: "description", content: description },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:type", content: "website" },
+    { property: "og:locale", content: "pl_PL" },
+    { property: "og:image", content: image },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:type", content: "image/jpeg" },
+    { property: "og:image:alt", content: OG_IMAGE_ALT },
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: image },
+    { name: "twitter:image:alt", content: OG_IMAGE_ALT },
   ];
 }
