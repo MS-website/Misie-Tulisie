@@ -12,9 +12,16 @@ type Web3FormsJson = {
   message?: string;
 };
 
-export async function submitWeb3Form(fields: Record<string, string>): Promise<boolean> {
+export type Web3FormsResult = {
+  ok: boolean;
+  message?: string;
+};
+
+export async function submitWeb3Form(fields: Record<string, string>): Promise<Web3FormsResult> {
   const accessKey = web3formsAccessKey();
-  if (!accessKey) return false;
+  if (!accessKey) {
+    return { ok: false, message: "Brak konfiguracji wysyłki formularza." };
+  }
 
   const body = new FormData();
   body.append("access_key", accessKey);
@@ -25,8 +32,12 @@ export async function submitWeb3Form(fields: Record<string, string>): Promise<bo
   try {
     const response = await fetch(WEB3FORMS_SUBMIT_URL, { method: "POST", body });
     const data = (await response.json()) as Web3FormsJson;
-    return data.success === true;
+    if (data.success === true) return { ok: true };
+    return {
+      ok: false,
+      message: data.message ?? "Serwer odrzucił wysyłkę.",
+    };
   } catch {
-    return false;
+    return { ok: false, message: "Błąd połączenia z serwerem wysyłki." };
   }
 }

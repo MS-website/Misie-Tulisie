@@ -11,6 +11,7 @@ import galeria3 from "@/assets/galeria-3.jpg";
 import galeria4 from "@/assets/galeria-4.jpg";
 import galeria5 from "@/assets/galeria-5.jpg";
 import galeria6 from "@/assets/galeria-6.jpg";
+import { submitContact } from "@/lib/forms";
 import { contact } from "@/lib/site";
 import { ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
@@ -623,6 +624,8 @@ export function FinalCTA() {
 /* ---------- CONTACT ---------- */
 export function ContactBlock() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   return (
     <section className="container-site max-lg:pb-0 pb-24 md:pb-36">
       <div className="grid gap-16 lg:grid-cols-12">
@@ -679,7 +682,10 @@ export function ContactBlock() {
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSent(false)}
+                  onClick={() => {
+                    setSent(false);
+                    setSubmitError(null);
+                  }}
                   className="link-underline mt-6 text-sm font-medium text-foreground"
                 >
                   Wyślij kolejne zapytanie
@@ -688,22 +694,29 @@ export function ContactBlock() {
             ) : (
               <form
                 className="mt-5 space-y-4"
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
                   if (!e.currentTarget.reportValidity()) return;
                   const f = new FormData(e.currentTarget);
-                  const phone = String(f.get("phone") ?? "").trim();
-                  const body = [
-                    `Imię i nazwisko: ${f.get("name")}`,
-                    `E-mail: ${f.get("email")}`,
-                    phone ? `Telefon: ${phone}` : null,
-                    "",
-                    String(f.get("msg")),
-                  ]
-                    .filter((line) => line != null)
-                    .join("\n");
-                  window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent("Umówienie wizyty")}&body=${encodeURIComponent(body)}`;
-                  setSent(true);
+                  setSubmitError(null);
+                  setSending(true);
+                  const result = await submitContact({
+                    name: String(f.get("name") ?? "").trim(),
+                    email: String(f.get("email") ?? "").trim(),
+                    phone: String(f.get("phone") ?? "").trim(),
+                    message: String(f.get("msg") ?? "").trim(),
+                  });
+                  setSending(false);
+                  if (result.ok) {
+                    setSent(true);
+                    return;
+                  }
+                  const detail = result.message?.trim();
+                  setSubmitError(
+                    detail
+                      ? `Nie udało się wysłać zapytania: ${detail} Spróbuj ponownie lub zadzwoń: ${contact.phone}.`
+                      : `Nie udało się wysłać zapytania. Spróbuj ponownie lub zadzwoń: ${contact.phone}.`,
+                  );
                 }}
               >
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -758,9 +771,15 @@ export function ContactBlock() {
                     className="mt-1.5 w-full resize-none border-b border-foreground/20 bg-transparent py-2 text-base outline-none transition-colors focus:border-foreground"
                   />
                 </label>
+                {submitError && (
+                  <p role="alert" className="text-sm leading-relaxed text-destructive" aria-live="polite">
+                    {submitError}
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-500 hover:-translate-y-px hover:bg-honey sm:w-auto"
+                  disabled={sending}
+                  className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-all duration-500 hover:-translate-y-px hover:bg-honey disabled:opacity-60 sm:w-auto"
                 >
                   Wyślij zapytanie
                 </button>
