@@ -9,7 +9,11 @@ export function SavedLayout() {
   const pathname = useLayoutPathname();
 
   useLayoutEffect(() => {
+    let cancelled = false;
+    let frame = 0;
+
     const run = () => {
+      if (cancelled) return;
       const size = sizeForWidth(window.innerWidth);
       applyLayout(document, pathname, size, store, {
         text: true,
@@ -17,16 +21,18 @@ export function SavedLayout() {
       });
       applyTheme(document, pathname, store);
     };
+
     run();
+
     let observer: MutationObserver | null = null;
     const main = document.querySelector("main");
-    let frame = 0;
     if (main) {
       const schedule = () => {
-        if (frame) return;
+        if (cancelled || frame) return;
         frame = window.requestAnimationFrame(() => {
           frame = 0;
-          if (!isApplying()) run();
+          if (cancelled || isApplying()) return;
+          run();
         });
       };
       observer = new MutationObserver(() => schedule());
@@ -36,12 +42,19 @@ export function SavedLayout() {
         attributes: false,
       });
     }
+
     const queries = [
       window.matchMedia("(max-width: 767px)"),
       window.matchMedia("(min-width: 1024px)"),
     ];
     for (const query of queries) query.addEventListener("change", run);
+
     return () => {
+      cancelled = true;
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+        frame = 0;
+      }
       observer?.disconnect();
       for (const query of queries) query.removeEventListener("change", run);
     };

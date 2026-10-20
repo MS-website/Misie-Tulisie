@@ -21,6 +21,7 @@ class TestObserver {
   }
 }
 vi.stubGlobal("IntersectionObserver", TestObserver);
+vi.stubGlobal("ResizeObserver", TestObserver);
 
 const store = normalizeLayout(savedFile);
 
@@ -171,5 +172,65 @@ describe("zapisany tekst w pierwszym HTML-u", () => {
       (message) => !/stylesheet|href/i.test(message),
     );
     expect(outsideHead).toEqual([]);
+  });
+
+  it("po przejściu /aktywny-maluch → /dla-rodzicow nie nakłada tekstu grup na nagłówek Plan dnia", async () => {
+    const bleed = "Dzieci do ukończenia roku szkolnego";
+    const errors: string[] = [];
+    const previous = console.error;
+    console.error = (...args: unknown[]) => {
+      errors.push(args.map(String).join(" "));
+    };
+    const router = await pageRouter("/aktywny-maluch");
+    const html = renderToString(<RouterProvider router={router} />);
+    document.open();
+    document.write(html);
+    document.close();
+    const clientRouter = await pageRouter("/aktywny-maluch");
+    let root: ReturnType<typeof hydrateRoot> | undefined;
+    const onWindowError = (event: ErrorEvent) => {
+      errors.push(event.message);
+      event.preventDefault();
+    };
+    window.addEventListener("error", onWindowError);
+    try {
+      await act(async () => {
+        root = hydrateRoot(document, <RouterProvider router={clientRouter} />);
+      });
+      await act(async () => {
+        await new Promise<void>((resolve) => {
+          requestAnimationFrame(() => resolve());
+        });
+      });
+      expect(plain(document.body.textContent ?? "")).toContain(bleed);
+
+      await act(async () => {
+        await clientRouter.navigate({ to: "/dla-rodzicow" });
+      });
+      // Oczekujące klatki z poprzedniej trasy (MutationObserver → rAF) muszą
+      // zostać anulowane; bez tego applyLayout("/aktywny-maluch") trafia w ten sam
+      // selektor co czerwony eyebrow „Plan dnia”.
+      await act(async () => {
+        await new Promise<void>((resolve) => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => resolve());
+          });
+        });
+      });
+
+      const planSection = document.querySelector("#plan-dnia");
+      expect(planSection).not.toBeNull();
+      const eyebrow = planSection?.querySelector("p.eyebrow");
+      expect(plain(eyebrow?.textContent ?? "")).toBe("Plan dnia");
+      expect(plain(eyebrow?.textContent ?? "")).not.toContain(bleed);
+      expect(plain(planSection?.textContent ?? "")).not.toContain(bleed);
+      expect(
+        plain(document.querySelector("#plan-dnia h2")?.textContent ?? ""),
+      ).toBe("Rytm dnia w Misiach Tulisiach");
+    } finally {
+      window.removeEventListener("error", onWindowError);
+      root?.unmount();
+      console.error = previous;
+    }
   });
 });
