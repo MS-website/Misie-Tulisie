@@ -237,7 +237,7 @@ export default defineConfig(({ mode }) => {
     nitro({
       routeRules: {
         "/formularz-rekrutacyjny": {
-          redirect: { to: "/rekrutacja", statusCode: 301 },
+          redirect: { to: "/rekrutacja", status: 301 },
         },
         "/karta-zgloszenia-dziecka.pdf": {
           headers: {
