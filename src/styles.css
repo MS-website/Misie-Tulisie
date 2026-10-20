@@ -250,6 +250,8 @@
 
   .galeria-intro + section.galeria-space {
     margin-top: 0 !important;
+    /* uklad lg: paddingTop 24px — +40px odstępu pod nawigacją */
+    padding-top: 64px !important;
   }
 }
 
