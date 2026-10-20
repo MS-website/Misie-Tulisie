@@ -1,6 +1,0 @@
----
-description: Keep source looking like a normal maintained codebase
-alwaysApply: true
----
-
-Write production code as a human team would. Do not add generator banners, scaffolding comments, tutorial warnings, or tool names in source, README, comments, or commit messages. Do not strip site pages, layout, copy, or assets unless the task explicitly asks for that. User-facing copy stays in Polish.
