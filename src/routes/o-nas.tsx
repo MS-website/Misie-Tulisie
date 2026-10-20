@@ -19,7 +19,7 @@ export const Route = createFileRoute("/o-nas")({
   }),
   component: () => (
     <>
-      <PageIntro className="subpage-intro" eyebrow="O nas" title="Ciepło, spokój i uważność." />
+      <PageIntro className="subpage-intro o-nas-intro" eyebrow="O nas" title="Ciepło, spokój i uważność." />
       <Story cta={false} />
       <AboutIntro />
       <Foundations />

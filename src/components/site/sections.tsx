@@ -90,14 +90,14 @@ export function Story({ cta = true }: { cta?: boolean }) {
   return (
     <section className="home-story bg-secondary/70 py-24 md:py-36">
       <div className="container-site grid items-center gap-8 lg:grid-cols-12 xl:gap-14">
-        <Reveal className="lg:col-span-5">
+        <Reveal className="order-2 lg:order-none lg:col-span-5">
           <Photo
             src={storyZabawaKlockami}
             alt="Maluch bawi się drewnianymi klockami w jasnej sali żłobkowej"
             className="aspect-[4/5]"
           />
         </Reveal>
-        <div className="lg:col-span-6 lg:col-start-6 xl:col-start-7">
+        <div className="order-1 lg:order-none lg:col-span-6 lg:col-start-6 xl:col-start-7">
           <Reveal>
             <Eyebrow>Dlaczego Misie Tulisie</Eyebrow>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl">
@@ -294,24 +294,29 @@ export const galleryImages = [
 export function Space({ full = false }: { full?: boolean }) {
   const imgs = full ? galleryImages : galleryImages.slice(0, 4);
   return (
-    <section className="py-24 md:py-36">
-      <div className="container-site">
-        <Reveal className="grid gap-8 xl:grid-cols-2 xl:items-end">
-          <div>
+    <section className={cn("py-24 md:py-36", full && "galeria-space")}>
+      <div className="container-site min-w-0">
+        <Reveal
+          className="grid gap-6 max-xl:flex max-xl:flex-col max-xl:items-center max-xl:text-center xl:grid-cols-2 xl:items-end xl:gap-8"
+        >
+          <div className="max-xl:w-full">
             <Eyebrow>Przestrzeń</Eyebrow>
             <h2 className="font-display text-5xl md:text-7xl">
-              <span className="max-xl:block max-xl:whitespace-nowrap">Każdy</span>{" "}
-              <span className="max-xl:block max-xl:whitespace-nowrap">szczegół ma</span>{" "}
-              <span className="max-xl:block max-xl:whitespace-nowrap">znaczenie.</span>
+              Każdy szczegół ma znaczenie.
             </h2>
           </div>
-          <p className="max-w-md text-lg leading-relaxed text-muted-foreground max-xl:max-w-none max-xl:whitespace-nowrap xl:justify-self-end">
+          <p className="max-w-md text-lg leading-relaxed text-muted-foreground max-xl:mx-auto xl:justify-self-end">
             Tworzymy przestrzeń bezpieczną, funkcjonalną i przyjazną najmłodszym.
           </p>
         </Reveal>
-        <div className="-mx-4 mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:-mx-6 md:-mx-10 md:gap-4 lg:grid-cols-3">
+        <div
+          className={cn(
+            "mt-10 grid w-full min-w-0 max-w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:gap-4",
+            "xl:mt-16 xl:-mx-4 xl:sm:-mx-6 xl:md:-mx-10 xl:grid-cols-3",
+          )}
+        >
           {imgs.map((im, i) => (
-            <Reveal key={im.src} delay={(i % 3) * 100} className="h-full w-full">
+            <Reveal key={im.src} delay={(i % 3) * 100} className="min-w-0 h-full w-full">
               <Photo
                 src={im.src}
                 alt={im.alt}
@@ -334,7 +339,7 @@ export function Space({ full = false }: { full?: boolean }) {
 /* ---------- TEAM ---------- */
 export function Team() {
   return (
-    <section className="bg-secondary/70 py-24 md:py-36">
+    <section className="team-block bg-secondary/70 py-24 md:py-36">
       <div className="container-site">
         <Reveal className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -521,7 +526,7 @@ const recruitmentSteps = [
 
 export function RecruitmentSteps() {
   return (
-    <section className="bg-secondary/70 py-24 md:py-32">
+    <section className="recruitment-steps bg-secondary/70 py-24 md:py-32">
       <div className="container-site">
         <Reveal className="min-w-0 max-w-3xl">
           <Eyebrow>Krok po kroku</Eyebrow>
@@ -548,7 +553,7 @@ export function RecruitmentSteps() {
 /* ---------- ADAPTATION ---------- */
 export function Adaptation() {
   return (
-    <section className="container-site py-24 md:py-32">
+    <section className="adaptation-block container-site py-24 md:py-32">
       <div className="grid gap-10 xl:grid-cols-12">
         <Reveal className="min-w-0 xl:col-span-4">
           <Eyebrow>Adaptacja</Eyebrow>
@@ -595,7 +600,7 @@ export function Recruitment() {
         <Photo
           src={int1}
           alt="Przytulny kącik zabaw z namiotem tipi, drewnianymi zabawkami i miękkimi poduszkami"
-          className="aspect-[4/3] min-h-0 min-w-0 overflow-hidden rounded-none rounded-b-md bg-cream lg:aspect-auto lg:h-full lg:max-h-[28rem] lg:rounded-b-none lg:rounded-r-md xl:max-h-none"
+          className="recruitment-cta-photo aspect-[4/3] min-h-0 min-w-0 overflow-hidden rounded-none rounded-b-md bg-cream lg:aspect-auto lg:h-full lg:max-h-[28rem] lg:rounded-b-none lg:rounded-r-md min-[1040px]:max-h-none"
         />
       </Reveal>
     </section>
@@ -631,9 +636,9 @@ export function ContactBlock() {
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   return (
-    <section className="container-site max-lg:pb-0 pb-24 md:pb-36">
-      <div className="grid gap-10 md:grid-cols-12 md:items-start md:gap-x-6 lg:gap-x-8 xl:gap-x-16">
-        <Reveal className="min-w-0 space-y-10 md:col-span-5 xl:col-span-5">
+    <section className="container-site kontakt-block max-lg:pb-0 pb-24 md:pb-36">
+      <div className="kontakt-pair grid gap-10 xl:grid-cols-12 xl:items-start xl:gap-x-16">
+        <Reveal className="kontakt-info min-w-0 space-y-10 xl:col-span-5">
           <div>
             <p className="eyebrow mb-3">Adres</p>
             <p className="font-display text-3xl">
@@ -663,10 +668,10 @@ export function ContactBlock() {
             <p className="text-lg">{contact.hours}</p>
           </div>
         </Reveal>
-        <Reveal className="min-w-0 md:col-span-7 md:col-start-6 xl:col-span-7 xl:col-start-6" delay={100}>
+        <Reveal className="kontakt-form min-w-0 xl:col-span-7 xl:col-start-6" delay={100}>
           <div
             id="wizyta"
-            className="scroll-mt-28 w-full rounded-md bg-secondary px-4 py-4 md:px-5 md:py-5 xl:px-8 xl:py-6"
+            className="scroll-mt-28 w-full rounded-md bg-secondary px-4 py-4 min-[670px]:px-5 min-[670px]:py-5 xl:px-8 xl:py-6"
           >
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl">Umów wizytę</h2>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">

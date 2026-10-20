@@ -105,18 +105,17 @@ export function Foundations() {
             aria-hidden="true"
             className="mb-8 hidden h-24 w-24 object-contain xl:block"
           />
-          <h2 className="font-display text-4xl md:text-6xl">
+          <h2 className="foundations-title font-display text-4xl md:text-6xl">
             <span className="xl:hidden">
-              <span className="block">Fundamenty</span>
-              <div className="flex justify-end py-1">
+              <span className="block text-center">Fundamenty naszej pracy</span>
+              <span className="mt-4 flex justify-end">
                 <img
                   src={foundations}
                   alt=""
                   aria-hidden="true"
                   className="h-20 w-20 object-contain sm:h-24 sm:w-24"
                 />
-              </div>
-              <span className="block">naszej pracy</span>
+              </span>
             </span>
             <span className="hidden xl:block">Fundamenty naszej pracy</span>
           </h2>

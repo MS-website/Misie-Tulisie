@@ -201,10 +201,12 @@
 
   /* Galeria ma pusty nagłówek strony; na desktopie zwija go zapisany układ. */
   .galeria-intro {
-    padding-top: 5rem;
-    padding-bottom: 0;
+    display: none;
   }
-  .galeria-intro + section {
+  .galeria-intro + section.galeria-space {
+    padding-top: 6.75rem;
+  }
+  .galeria-intro + section:not(.galeria-space) {
     padding-top: 3rem;
   }
 
@@ -220,12 +222,30 @@
     padding-bottom: 3rem;
   }
 
-  .galeria-intro h1 {
+  .galeria-intro + section.galeria-space {
+    padding-top: 7rem;
+  }
+
+  .galeria-intro + section:not(.galeria-space) {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 1279.98px) {
+  .galeria-space .eyebrow {
     display: none;
   }
 
-  .galeria-intro + section {
-    padding-top: 2rem;
+  .galeria-space h2,
+  .galeria-space h2 span,
+  .galeria-space p {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  section.galeria-space {
+    overflow-x: clip;
   }
 }
 
@@ -243,6 +263,15 @@
     padding-top: 6.5rem;
     padding-bottom: 2.5rem;
   }
+
+  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
+    padding-top: 6.25rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .o-nas-intro .eyebrow {
+    display: none;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -253,6 +282,56 @@
 
   .kontakt-intro .eyebrow {
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: 670px) and (max-width: 1279.98px) {
+  .kontakt-pair {
+    grid-template-columns: minmax(14.5rem, 18.5rem) minmax(18rem, 30rem);
+    justify-content: center;
+    align-items: start;
+    column-gap: 1.75rem;
+  }
+
+  .kontakt-pair > .kontakt-info,
+  .kontakt-pair > .kontakt-form {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 1279.98px) {
+  .recruitment-steps,
+  .adaptation-block,
+  .team-block {
+    --kicker-mid-pad: 6rem;
+    padding-top: 0;
+  }
+
+  .recruitment-steps .eyebrow,
+  .adaptation-block .eyebrow,
+  .team-block .eyebrow {
+    margin-bottom: 0;
+    padding-top: calc((var(--kicker-mid-pad) + 1.5rem) / 2);
+    padding-bottom: calc((var(--kicker-mid-pad) + 1.5rem) / 2);
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 1279.98px) {
+  .recruitment-steps,
+  .adaptation-block {
+    --kicker-mid-pad: 8rem;
+  }
+
+  .team-block {
+    --kicker-mid-pad: 9rem;
+  }
+}
+
+@media (min-width: 1040px) {
+  .recruitment-cta-photo {
+    max-height: none;
+    height: 100%;
+    aspect-ratio: auto;
   }
 }
 
@@ -327,8 +406,8 @@
   display: none;
 }
 
-/* Miś zajmuje prawe 32% grafiki, a ramka tabelki zaczyna się na 198/1024 jej szerokości. */
-@media (max-width: 63.99rem) {
+/* Miś + tabelka: owinięcie tekstu tylko poniżej 1040 px (powyżej tekst się ściska / miś wchodzi w tekst). */
+@media (max-width: 1039.98px) {
   .parents-wyzywienie-stack {
     gap: 0;
   }
@@ -369,43 +448,38 @@
     width: 100%;
     margin-top: calc(-19.34% + 0.75rem);
   }
+}
 
-  .parents-programy {
-    margin-top: 1cm !important;
+/* 1040–1333: ten sam stos co na węższym mobile, bez floatu i bez nachodzenia misia na tekst. */
+@media (min-width: 1040px) and (max-width: 1333.98px) {
+  .parents-wyzywienie-stack {
+    gap: 1.25rem;
   }
 
-  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+  .parents-wyzywienie-infografika {
+    width: 100%;
+    max-width: none;
     margin-top: 0;
+    margin-left: 0;
+  }
+
+  .parents-wyzywienie-stack .parents-oplaty-card {
+    margin-top: 0;
+  }
+
+  .parents-wyzywienie-prose {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .parents-wyzywienie-prose br {
+    display: none;
   }
 }
 
 .parents-wyzywienie-prose br {
   display: none;
-}
-
-/* 1024–1279: te same łamania i skala tabelki co na desktopie, bez owijania z tabletu. */
-@media (min-width: 64rem) and (max-width: 79.99rem) {
-  .parents-wyzywienie-stack {
-    gap: 0;
-  }
-
-  .parents-wyzywienie-prose br {
-    display: inline;
-  }
-
-  .parents-wyzywienie-prose {
-    width: max-content;
-    max-width: 100%;
-  }
-
-  .parents-wyzywienie-infografika {
-    width: 100%;
-    max-width: 40.625rem;
-  }
-
-  .parents-wyzywienie-stack .parents-oplaty-card {
-    margin-top: calc(-1.375rem - 2.5cm);
-  }
 }
 
 .parents-wyzywienie-media {
@@ -414,6 +488,16 @@
 
 .parents-programy {
   margin-top: calc(3.5rem - 1.5cm) !important;
+}
+
+@media (max-width: 79.99rem) {
+  .parents-programy {
+    margin-top: 2cm !important;
+  }
+
+  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+    margin-top: 0;
+  }
 }
 
 .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
@@ -454,6 +538,16 @@
   margin-top: calc(0.5cm + 4mm);
 }
 
+@media (max-width: 79.99rem) {
+  #wyprawka .parents-wyprawka-pdf {
+    display: block;
+    width: fit-content;
+    max-width: min(100%, 18rem);
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+}
+
 @media (min-width: 80rem) {
   #wyprawka .parents-wyprawka-pdf {
     position: relative;
@@ -477,6 +571,41 @@
   .parents-programy {
     margin-top: calc(4rem - 1.5cm) !important;
   }
+
+  .parents-oplaty-faq-panel {
+    margin-left: calc(0.5cm - 1mm);
+    max-width: 40.625rem;
+  }
+
+  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
+    max-width: none;
+    width: calc(100% + 12rem);
+  }
+
+  .parents-aktywny-rodzic-tytul {
+    white-space: nowrap;
+    width: 100%;
+    max-width: 42rem;
+    font-size: clamp(1.6875rem, 2.35vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
+    max-width: none;
+    width: calc(100% + 12rem);
+  }
+
+  .parents-aktywny-maluch-tytul {
+    white-space: nowrap;
+    width: 100%;
+    max-width: 44rem;
+    font-size: clamp(1.625rem, 2.25vw, 2.25rem);
+    line-height: 1.15;
+  }
+}
+
+/* Pełny układ mis + tabelka dopiero od 1334 px (wcześniej w 1040–1333 psuł tekst). */
+@media (min-width: 1334px) {
   .parents-wyzywienie-band {
     margin-top: 0.75cm !important;
   }
@@ -522,39 +651,8 @@
     margin-left: 1.95cm;
   }
 
-  .parents-oplaty-faq-panel {
-    margin-left: calc(0.5cm - 1mm);
-    max-width: 40.625rem;
-  }
-
   .parents-wyzywienie-stack .parents-oplaty-card {
     margin-top: calc(-1.375rem - 2.5cm);
-  }
-
-  .parents-programy [data-parents-tune="oplaty-aktywny-rodzic-tytul"] {
-    max-width: none;
-    width: calc(100% + 12rem);
-  }
-
-  .parents-aktywny-rodzic-tytul {
-    white-space: nowrap;
-    width: 100%;
-    max-width: 42rem;
-    font-size: clamp(1.6875rem, 2.35vw, 2.25rem);
-    line-height: 1.15;
-  }
-
-  .parents-programy [data-parents-tune="oplaty-maluch-tytul"] {
-    max-width: none;
-    width: calc(100% + 12rem);
-  }
-
-  .parents-aktywny-maluch-tytul {
-    white-space: nowrap;
-    width: 100%;
-    max-width: 44rem;
-    font-size: clamp(1.625rem, 2.25vw, 2.25rem);
-    line-height: 1.15;
   }
 }
 
@@ -757,13 +855,15 @@ body[data-frame="formularz"] .container-site {
   overflow: hidden;
   transition: transform 0.8s var(--ease-calm);
 }
-.gallery-frame:hover {
-  z-index: 3;
-  transform: scale(1.08);
-}
-.reveal:has(.gallery-frame:hover) {
-  position: relative;
-  z-index: 3;
+@media (hover: hover) and (min-width: 768px) {
+  .gallery-frame:hover {
+    z-index: 3;
+    transform: scale(1.08);
+  }
+  .reveal:has(.gallery-frame:hover) {
+    position: relative;
+    z-index: 3;
+  }
 }
 .parents-czesne-callout {
   display: flex;
