@@ -183,6 +183,18 @@
   color: var(--honey);
 }
 
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 @utility container-site {
   width: 100%;
   max-width: 82rem;
@@ -199,29 +211,13 @@
     display: inline;
   }
 
-  /* Galeria: H1 widoczny też poniżej 1280 px; zwarty intro bez nakładania na siatkę. */
-  .galeria-intro {
-    padding-top: 6.5rem;
-    padding-bottom: 1.25rem;
-  }
-
-  .galeria-intro .eyebrow {
-    display: none;
-  }
-
-  .galeria-intro h1 {
-    max-width: 100%;
-    font-size: clamp(1.75rem, 5.2vw, 2.5rem);
-    line-height: 1.15;
-    overflow-wrap: break-word;
-  }
-
+  /* Intro galerii jest sr-only — zostaw odstęp pod stałym headerem dla siatki. */
   .galeria-intro + section.galeria-space {
-    padding-top: 1.5rem;
+    padding-top: 6.75rem;
   }
 
   .galeria-intro + section:not(.galeria-space) {
-    padding-top: 1.5rem;
+    padding-top: 3rem;
   }
 
   .recruitment-rules-copy br {
@@ -236,17 +232,24 @@
     padding-bottom: 3rem;
   }
 
-  .galeria-intro {
-    padding-top: 7rem;
-    padding-bottom: 1.5rem;
-  }
-
   .galeria-intro + section.galeria-space {
-    padding-top: 2rem;
+    padding-top: 7rem;
   }
 
   .galeria-intro + section:not(.galeria-space) {
     padding-top: 2rem;
+  }
+}
+
+/* Desktop: intro poza flow (sr-only) — nie ciągnij siatki układem lg pod header. */
+@media (min-width: 1280px) {
+  .galeria-intro.sr-only {
+    padding: 0 !important;
+    margin: -1px !important;
+  }
+
+  .galeria-intro + section.galeria-space {
+    margin-top: 0 !important;
   }
 }
 

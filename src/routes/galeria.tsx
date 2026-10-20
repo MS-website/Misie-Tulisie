@@ -11,7 +11,7 @@ export const Route = createFileRoute("/galeria")({
     ),
   component: () => (
     <>
-      <PageIntro className="galeria-intro" eyebrow="Galeria" title="Nasza przestrzeń." />
+      <PageIntro className="galeria-intro sr-only" eyebrow="Galeria" title="Nasza przestrzeń." />
       <Space full />
     </>
   ),
