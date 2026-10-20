@@ -258,6 +258,17 @@
   }
 }
 
+@media (max-width: 1279.98px) {
+  /* O nas: mniej pustki między tytułem a „Dlaczego Misie Tulisie” (desktop bez zmian). */
+  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
+    padding-bottom: 1.25rem;
+  }
+
+  .o-nas-intro + .home-story {
+    padding-top: 2.5rem;
+  }
+}
+
 @media (max-width: 776px) {
   body:not([data-frame="formularz"]) main > section.container-site.subpage-intro:first-of-type {
     padding-top: 6.5rem;
@@ -266,7 +277,7 @@
 
   body:not([data-frame="formularz"]) main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
     padding-top: 6.25rem;
-    padding-bottom: 1.75rem;
+    padding-bottom: 1rem;
   }
 
   .o-nas-intro .eyebrow {
