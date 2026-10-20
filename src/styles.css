@@ -946,6 +946,10 @@ body[data-layout-editing="1"] .parents-green-rule-hit {
   position: relative;
   z-index: 1;
 }
+/* Cormorant: wielka „R” ma większy lewy sidebearing niż Manrope w eyebrow/opisie. */
+#plan-dnia h2.font-display {
+  margin-left: -0.045em;
+}
 .plan-dnia-schedule-card {
   border-radius: 1.75rem;
   background: oklch(1 0 0);
