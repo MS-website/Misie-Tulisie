@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
 import storyZabawaKlockami from "@/assets/story-zabawa-klockami.jpg";
 import play from "@/assets/play.jpg";
 import int1 from "@/assets/interior-1.jpg";
@@ -15,75 +13,6 @@ import { submitContact } from "@/lib/forms";
 import { contact } from "@/lib/site";
 import { ButtonLink, Eyebrow, Photo, Reveal } from "./ui";
 import { cn } from "@/lib/utils";
-
-/* ---------- HERO ---------- */
-export function Hero() {
-  return (
-    <section className="relative pt-28 md:pt-32">
-      <div className="container-site grid items-end gap-10 lg:grid-cols-12 lg:gap-16">
-        <div className="pb-4 lg:col-span-6 lg:pb-24">
-          <Reveal>
-            <Eyebrow>Żłobek w Gnieźnie</Eyebrow>
-            <h1 className="font-display text-[3.2rem] sm:text-7xl xl:text-[6.5rem]">
-              Miejsce, w którym małe kroki mają <em className="text-honey">wielkie</em> znaczenie.
-            </h1>
-          </Reveal>
-          <Reveal delay={150}>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-muted-foreground">
-              Misie Tulisie to bezpieczna, ciepła przestrzeń, w której dzieci mogą rozwijać się we
-              własnym tempie, a rodzice zyskują spokój i pewność, że ich dziecko jest pod dobrą
-              opieką.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-6">
-              <ButtonLink to="/kontakt" hash="wizyta">Umów wizytę</ButtonLink>
-              <ButtonLink to="/o-nas" variant="text">
-                Poznaj Misie Tulisie →
-              </ButtonLink>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal className="lg:col-span-6" delay={100}>
-          <Photo
-            src={hero}
-            alt="Opiekunka bawi się z dzieckiem drewnianymi klockami"
-            className="aspect-[4/5] lg:aspect-[9/11]"
-            eager
-          />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- TRUST BAR ---------- */
-const trust = [
-  ["Bezpieczna przestrzeń", "Przemyślane otoczenie stworzone z myślą o najmłodszych."],
-  ["Indywidualne podejście", "Każde dziecko ma swój rytm, potrzeby i temperament."],
-  ["Rozwój przez zabawę", "Codzienna aktywność wspiera rozwój poznawczy, ruchowy i społeczny."],
-  ["Spokój rodzica", "Dbamy o dobrą komunikację i poczucie bezpieczeństwa całej rodziny."],
-];
-export function TrustBar() {
-  return (
-    <section className="container-site py-20 md:py-28">
-      <div className="grid border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-        {trust.map(([t, d], i) => (
-          <Reveal
-            key={t}
-            delay={i * 80}
-            className={cn(
-              "border-b border-border py-8 sm:pr-8 lg:border-b-0 lg:py-10",
-              i > 0 && "lg:border-l lg:pl-8",
-              i % 2 === 1 && "sm:border-l sm:pl-8 lg:pl-8",
-            )}
-          >
-            <h3 className="text-base font-semibold">{t}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 /* ---------- STORY ---------- */
 export function Story({ cta = true }: { cta?: boolean }) {
@@ -120,37 +49,6 @@ export function Story({ cta = true }: { cta?: boolean }) {
             )}
           </Reveal>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- VALUES ---------- */
-const values = [
-  ["Bezpieczeństwo", "Tworzymy przestrzeń, w której dziecko może czuć się spokojnie i pewnie."],
-  ["Bliskość", "Relacja z dzieckiem jest dla nas podstawą dobrej opieki."],
-  ["Rozwój", "Wspieramy ciekawość, samodzielność i naturalną potrzebę poznawania świata."],
-  ["Zaufanie", "Rodzic jest naszym partnerem. Chcemy, aby zawsze wiedział, co dzieje się z jego dzieckiem."],
-];
-export function Values() {
-  return (
-    <section className="container-site py-24 md:py-36">
-      <Reveal>
-        <Eyebrow>Wartości</Eyebrow>
-        <h2 className="font-display max-w-3xl text-5xl md:text-7xl">Na tym zależy nam najbardziej.</h2>
-      </Reveal>
-      <div className="mt-16 grid gap-x-16 md:grid-cols-2">
-        {values.map(([t, d], i) => (
-          <Reveal key={t} delay={i * 80} className="group flex gap-8 border-t border-border py-10">
-            <span className="font-display text-5xl text-honey/70 transition-colors duration-700 group-hover:text-honey md:text-6xl">
-              0{i + 1}
-            </span>
-            <div className="pt-2">
-              <h3 className="text-xl font-semibold">{t}</h3>
-              <p className="mt-3 max-w-sm leading-relaxed text-muted-foreground">{d}</p>
-            </div>
-          </Reveal>
-        ))}
       </div>
     </section>
   );
@@ -358,75 +256,6 @@ export function Team() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-/* ---------- FAQ ---------- */
-const faq = [
-  [
-    "Jak wygląda proces adaptacji?",
-    "Adaptację planujemy indywidualnie, razem z rodzicem, w tempie dopasowanym do dziecka. Szczegóły chętnie omówimy podczas wizyty w żłobku.",
-  ],
-  [
-    "Co dziecko powinno przynieść pierwszego dnia?",
-    "Przed rozpoczęciem przekażemy rodzicom wszystkie potrzebne informacje. Jeśli masz pytania już teraz — zadzwoń lub napisz do nas.",
-  ],
-  [
-    "Jak wygląda dzień w żłobku?",
-    "Dzień ma spokojny, przewidywalny rytm: przywitanie i swobodna zabawa, śniadanie, zajęcia dopasowane do wieku, obiad i odpoczynek, popołudniowa zabawa i spokojne zakończenie dnia.",
-  ],
-  [
-    "Jak wygląda kontakt z rodzicami?",
-    "Rodzic jest dla nas partnerem. Zależy nam, aby zawsze wiedział, jak minął dzień jego dziecka. Formy kontaktu omówimy podczas spotkania.",
-  ],
-  [
-    "Jak dbacie o bezpieczeństwo dzieci?",
-    "Przestrzeń żłobka została zaprojektowana z myślą o najmłodszych, a dzieci przez cały czas pozostają pod opieką naszego zespołu. Zapraszamy, aby zobaczyć ją na miejscu.",
-  ],
-  [
-    "Jak wyglądają posiłki?",
-    "Dzieci jedzą posiłki o stałych porach w ciągu dnia. O szczegóły dotyczące jadłospisu zapytaj nas bezpośrednio.",
-  ],
-  ["Jakie są godziny otwarcia?", `Żłobek jest otwarty w godzinach ${contact.hours}.`],
-];
-export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-  return (
-    <div>
-      {faq.map(([q, a], i) => {
-        const isOpen = open === i;
-        return (
-          <div key={q} className="border-t border-border last:border-b">
-            <button
-              onClick={() => setOpen(isOpen ? null : i)}
-              aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-6 py-6 text-left"
-            >
-              <span className="text-lg md:text-xl">{q}</span>
-              <span className="relative h-4 w-4 shrink-0">
-                <span className="absolute top-1/2 left-0 h-px w-4 bg-foreground" />
-                <span
-                  className={cn(
-                    "absolute top-1/2 left-0 h-px w-4 bg-foreground transition-transform duration-500",
-                    isOpen ? "rotate-0" : "rotate-90",
-                  )}
-                />
-              </span>
-            </button>
-            <div
-              className={cn(
-                "grid transition-all duration-700 ease-[var(--ease-calm)]",
-                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-              )}
-            >
-              <p className="overflow-hidden pr-10 leading-relaxed text-muted-foreground">
-                <span className="block pb-6">{a}</span>
-              </p>
-            </div>
-          </div>
-        );
-      })}
-    </div>
   );
 }
 

@@ -199,15 +199,29 @@
     display: inline;
   }
 
-  /* Galeria ma pusty nagłówek strony; na desktopie zwija go zapisany układ. */
+  /* Galeria: H1 widoczny też poniżej 1280 px; zwarty intro bez nakładania na siatkę. */
   .galeria-intro {
+    padding-top: 6.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .galeria-intro .eyebrow {
     display: none;
   }
-  .galeria-intro + section.galeria-space {
-    padding-top: 6.75rem;
+
+  .galeria-intro h1 {
+    max-width: 100%;
+    font-size: clamp(1.75rem, 5.2vw, 2.5rem);
+    line-height: 1.15;
+    overflow-wrap: break-word;
   }
+
+  .galeria-intro + section.galeria-space {
+    padding-top: 1.5rem;
+  }
+
   .galeria-intro + section:not(.galeria-space) {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
   }
 
   .recruitment-rules-copy br {
@@ -217,13 +231,18 @@
 
 /* 768–1279: zapisany układ lg jeszcze nie działa, a PageIntro ma md:pt-52. */
 @media (min-width: 48rem) and (max-width: 1279.98px) {
-  body:not([data-frame="formularz"]) main > section.container-site:first-of-type:not(.galeria-intro) {
+  main > section.container-site:first-of-type:not(.galeria-intro) {
     padding-top: 7rem;
     padding-bottom: 3rem;
   }
 
-  .galeria-intro + section.galeria-space {
+  .galeria-intro {
     padding-top: 7rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .galeria-intro + section.galeria-space {
+    padding-top: 2rem;
   }
 
   .galeria-intro + section:not(.galeria-space) {
@@ -260,7 +279,7 @@
 
 @media (max-width: 1279.98px) {
   /* O nas: mniej pustki między tytułem a „Dlaczego Misie Tulisie” (desktop bez zmian). */
-  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
+  main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
     padding-bottom: 1.25rem;
   }
 
@@ -270,12 +289,12 @@
 }
 
 @media (max-width: 776px) {
-  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro:first-of-type {
+  main > section.container-site.subpage-intro:first-of-type {
     padding-top: 6.5rem;
     padding-bottom: 2.5rem;
   }
 
-  body:not([data-frame="formularz"]) main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
+  main > section.container-site.subpage-intro.o-nas-intro:first-of-type {
     padding-top: 6.25rem;
     padding-bottom: 1rem;
   }
@@ -648,23 +667,6 @@
   }
 }
 
-
-/* Formularz trzyma kolumnę z trzech ustawionych szerokości: 390, 820 i 1280. */
-body[data-frame="formularz"] .container-site {
-  max-width: 24.375rem;
-}
-
-@media (width >= 48rem) {
-  body[data-frame="formularz"] .container-site {
-    max-width: 51.25rem;
-  }
-}
-
-@media (width >= 64rem) {
-  body[data-frame="formularz"] .container-site {
-    max-width: 80rem;
-  }
-}
 
 @utility link-underline {
   box-decoration-break: clone;

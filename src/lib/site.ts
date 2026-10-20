@@ -20,45 +20,75 @@ export const nav = [
   { to: "/kontakt", label: "Kontakt" },
 ] as const;
 
+/** Kanoniczna domena produkcyjna (bez www). */
+export const SITE_ORIGIN = "https://zlobekmisietulisie.pl";
+
 export const OG_IMAGE_PATH = "/og-misie-tulisie.jpg";
 
 const OG_IMAGE_ALT =
   "Żłobek Misie Tulisie — logo, hasło strony głównej i zdjęcie z żłobka";
 
 function siteOrigin(): string {
+  const fromVite = import.meta.env["VITE_SITE_URL"];
+  if (typeof fromVite === "string" && fromVite.trim()) {
+    return fromVite.trim().replace(/\/$/, "");
+  }
+
   const fromProcess =
     typeof process !== "undefined"
       ? process.env["URL"] ?? process.env["DEPLOY_PRIME_URL"]
       : undefined;
-  const fromVite = import.meta.env["VITE_SITE_URL"] as string | undefined;
-  const raw = fromProcess ?? fromVite ?? "";
-  return raw.replace(/\/$/, "");
+  if (typeof fromProcess === "string" && fromProcess.trim()) {
+    try {
+      const host = new URL(fromProcess.trim()).hostname.replace(/^www\./, "");
+      if (host === "zlobekmisietulisie.pl") return SITE_ORIGIN;
+    } catch {
+      /* ignoruj niepoprawny URL z hostingu */
+    }
+  }
+
+  return SITE_ORIGIN;
 }
 
 export function absoluteUrl(path: string): string {
   const origin = siteOrigin();
-  if (!origin) return path;
-  return `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+  if (!path || path === "/") return `${origin}/`;
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${origin}${normalized}`;
 }
 
-export function seo(title: string, description: string) {
+function canonicalPath(path: string): string {
+  if (!path || path === "/") return "/";
+  const withSlash = path.startsWith("/") ? path : `/${path}`;
+  return withSlash.replace(/\/+$/, "") || "/";
+}
+
+/** Meta SEO + canonical dla konkretnej ścieżki (nie używaj samego „/” dla podstron). */
+export function seo(title: string, description: string, path: string) {
+  const pathname = canonicalPath(path);
+  const url = absoluteUrl(pathname);
   const image = absoluteUrl(OG_IMAGE_PATH);
-  return [
-    { title },
-    { name: "description", content: description },
-    { property: "og:title", content: title },
-    { property: "og:description", content: description },
-    { property: "og:type", content: "website" },
-    { property: "og:locale", content: "pl_PL" },
-    { property: "og:image", content: image },
-    { property: "og:image:width", content: "1200" },
-    { property: "og:image:height", content: "630" },
-    { property: "og:image:type", content: "image/jpeg" },
-    { property: "og:image:alt", content: OG_IMAGE_ALT },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-    { name: "twitter:image", content: image },
-    { name: "twitter:image:alt", content: OG_IMAGE_ALT },
-  ];
+  return {
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: url },
+      { property: "og:site_name", content: "Żłobek Misie Tulisie" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pl_PL" },
+      { property: "og:image", content: image },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: image },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+    ],
+    links: [{ rel: "canonical", href: url }],
+  };
 }

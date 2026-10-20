@@ -12,16 +12,21 @@ import {
 } from "@/components/site/home";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: seo(
+  head: () => {
+    const { meta, links } = seo(
       "Żłobek Misie Tulisie | Gniezno",
       "Misie Tulisie to bezpieczny i przyjazny żłobek w Gnieźnie. Ciepła przestrzeń, w której dzieci rozwijają się we własnym tempie.",
-    ),
-    links: [
-      { rel: "preload", as: "image", href: heroWalk },
-      { rel: "preload", as: "image", href: missionKids },
-    ],
-  }),
+      "/",
+    );
+    return {
+      meta,
+      links: [
+        ...links,
+        { rel: "preload", as: "image", href: heroWalk },
+        { rel: "preload", as: "image", href: missionKids },
+      ],
+    };
+  },
   component: () => (
     <>
       <HomeHero />

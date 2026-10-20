@@ -32,12 +32,12 @@ const zrodla = [
 ] as const;
 
 export const Route = createFileRoute("/aktywny-maluch")({
-  head: () => ({
-    meta: seo(
+  head: () =>
+    seo(
       "Aktywny Maluch | Żłobek Misie Tulisie Gniezno",
       "Informacje o realizowanym zadaniu i dofinansowaniu w żłobku Misie Tulisie w Gnieźnie.",
+      "/aktywny-maluch",
     ),
-  }),
   component: AktywnyMaluch,
 });
 

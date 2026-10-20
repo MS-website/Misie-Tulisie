@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AktywnyMaluchRouteImport } from './routes/aktywny-maluch'
 import { Route as DlaRodzicowRouteImport } from './routes/dla-rodzicow'
-import { Route as FormularzRekrutacyjnyRouteImport } from './routes/formularz-rekrutacyjny'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ONasRouteImport } from './routes/o-nas'
@@ -32,11 +31,6 @@ const AktywnyMaluchRoute = AktywnyMaluchRouteImport.update({
 const DlaRodzicowRoute = DlaRodzicowRouteImport.update({
   id: '/dla-rodzicow',
   path: '/dla-rodzicow',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FormularzRekrutacyjnyRoute = FormularzRekrutacyjnyRouteImport.update({
-  id: '/formularz-rekrutacyjny',
-  path: '/formularz-rekrutacyjny',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriaRoute = GaleriaRouteImport.update({
@@ -69,7 +63,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
-  '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
@@ -80,7 +73,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
-  '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
@@ -92,7 +84,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/aktywny-maluch': typeof AktywnyMaluchRoute
   '/dla-rodzicow': typeof DlaRodzicowRoute
-  '/formularz-rekrutacyjny': typeof FormularzRekrutacyjnyRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-nas': typeof ONasRoute
@@ -105,7 +96,6 @@ export interface FileRouteTypes {
     | '/'
     | '/aktywny-maluch'
     | '/dla-rodzicow'
-    | '/formularz-rekrutacyjny'
     | '/galeria'
     | '/kontakt'
     | '/o-nas'
@@ -116,7 +106,6 @@ export interface FileRouteTypes {
     | '/'
     | '/aktywny-maluch'
     | '/dla-rodzicow'
-    | '/formularz-rekrutacyjny'
     | '/galeria'
     | '/kontakt'
     | '/o-nas'
@@ -127,7 +116,6 @@ export interface FileRouteTypes {
     | '/'
     | '/aktywny-maluch'
     | '/dla-rodzicow'
-    | '/formularz-rekrutacyjny'
     | '/galeria'
     | '/kontakt'
     | '/o-nas'
@@ -139,7 +127,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AktywnyMaluchRoute: typeof AktywnyMaluchRoute
   DlaRodzicowRoute: typeof DlaRodzicowRoute
-  FormularzRekrutacyjnyRoute: typeof FormularzRekrutacyjnyRoute
   GaleriaRoute: typeof GaleriaRoute
   KontaktRoute: typeof KontaktRoute
   ONasRoute: typeof ONasRoute
@@ -168,13 +155,6 @@ declare module '@tanstack/react-router' {
       path: '/dla-rodzicow'
       fullPath: '/dla-rodzicow'
       preLoaderRoute: typeof DlaRodzicowRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/formularz-rekrutacyjny': {
-      id: '/formularz-rekrutacyjny'
-      path: '/formularz-rekrutacyjny'
-      fullPath: '/formularz-rekrutacyjny'
-      preLoaderRoute: typeof FormularzRekrutacyjnyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeria': {
@@ -219,7 +199,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AktywnyMaluchRoute: AktywnyMaluchRoute,
   DlaRodzicowRoute: DlaRodzicowRoute,
-  FormularzRekrutacyjnyRoute: FormularzRekrutacyjnyRoute,
   GaleriaRoute: GaleriaRoute,
   KontaktRoute: KontaktRoute,
   ONasRoute: ONasRoute,

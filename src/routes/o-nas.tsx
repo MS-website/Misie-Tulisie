@@ -11,12 +11,12 @@ import {
 } from "@/components/site/about";
 
 export const Route = createFileRoute("/o-nas")({
-  head: () => ({
-    meta: seo(
+  head: () =>
+    seo(
       "O nas | Żłobek Misie Tulisie Gniezno",
       "Poznaj żłobek Misie Tulisie w Gnieźnie — nasze wartości i zespół.",
+      "/o-nas",
     ),
-  }),
   component: () => (
     <>
       <PageIntro className="subpage-intro o-nas-intro" eyebrow="O nas" title="Ciepło, spokój i uważność." />

@@ -8,7 +8,7 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
@@ -121,80 +121,6 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function FaviconProbe() {
-  useEffect(() => {
-    const links = [...document.querySelectorAll('link[rel*="icon"]')].map(
-      (el) => ({
-        rel: el.getAttribute("rel"),
-        href: el.getAttribute("href"),
-        type: el.getAttribute("type"),
-      }),
-    );
-    // #region agent log
-    fetch("http://127.0.0.1:7272/ingest/eda9603b-a79b-47d5-8ca4-11ac27ee00aa", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Debug-Session-Id": "b1a893",
-      },
-      body: JSON.stringify({
-        sessionId: "b1a893",
-        runId: "post-fix-v3",
-        hypothesisId: "H10",
-        location: "__root.tsx:FaviconProbe",
-        message: "DOM icon links",
-        data: {
-          links,
-          ua: navigator.userAgent,
-          origin: location.origin,
-          href: location.href,
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
-
-    for (const url of [FAVICON_PNG, "/favicon.ico", "/vite.svg"]) {
-      fetch(url)
-        .then(async (res) => {
-          const bytes = new Uint8Array(await res.arrayBuffer());
-          const hex = [...bytes.slice(0, 8)]
-            .map((b) => b.toString(16).padStart(2, "0"))
-            .join("");
-          // #region agent log
-          fetch(
-            "http://127.0.0.1:7272/ingest/eda9603b-a79b-47d5-8ca4-11ac27ee00aa",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "X-Debug-Session-Id": "b1a893",
-              },
-              body: JSON.stringify({
-                sessionId: "b1a893",
-                runId: "post-fix-v3",
-                hypothesisId: "H10",
-                location: "__root.tsx:FaviconProbe",
-                message: "Favicon fetch probe",
-                data: {
-                  url,
-                  status: res.status,
-                  contentType: res.headers.get("content-type"),
-                  hex,
-                  len: bytes.length,
-                },
-                timestamp: Date.now(),
-              }),
-            },
-          ).catch(() => {});
-          // #endregion
-        })
-        .catch(() => {});
-    }
-  }, []);
-  return null;
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -202,7 +128,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <UkladStoreProvider>
         <RouteScrollReset />
-        <FaviconProbe />
         <Header />
         <main className="min-w-0">
           <Outlet />

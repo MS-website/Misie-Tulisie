@@ -37,7 +37,7 @@ export function Header() {
   const showVisitButton = useRouterState({
     select: (state) => {
       const path = state.location.pathname;
-      return path !== "/formularz-rekrutacyjny" && path !== "/kontakt";
+      return path !== "/kontakt";
     },
   });
 

@@ -236,6 +236,9 @@ export default defineConfig(({ mode }) => {
     viteReact(),
     nitro({
       routeRules: {
+        "/formularz-rekrutacyjny": {
+          redirect: { to: "/rekrutacja", statusCode: 301 },
+        },
         "/karta-zgloszenia-dziecka.pdf": {
           headers: {
             "Content-Disposition":

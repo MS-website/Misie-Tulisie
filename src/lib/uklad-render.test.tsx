@@ -147,7 +147,7 @@ describe("zapisany tekst w pierwszym HTML-u", () => {
         await clientRouter.navigate({ to: "/galeria" });
       });
       expect(plain(document.querySelector("main h1")?.textContent ?? "")).toBe(
-        "",
+        "Galeria żłobka Misie Tulisie w Gnieźnie",
       );
       await act(async () => {
         await clientRouter.navigate({ to: "/o-nas" });
