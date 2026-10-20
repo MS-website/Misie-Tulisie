@@ -1,5 +1,6 @@
 [build]
-  command = "npm install --include=optional lightningcss-linux-x64-gnu@1.33.0 && npm run build"
+  # npm optionalDeps bug on cross-OS lockfiles (npm/cli#4828): force Linux natives.
+  command = "npm install --include=optional @tailwindcss/oxide-linux-x64-gnu@4.3.3 lightningcss-linux-x64-gnu@1.33.0 && npm run build"
   publish = "dist"
 
 [build.environment]
