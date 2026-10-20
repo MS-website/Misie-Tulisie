@@ -327,10 +327,19 @@
   }
 }
 
+/* lg (1024): 2 kolumny; do 1039 trzymamy stary limit wysokości. */
+@media (min-width: 1024px) and (max-width: 1039.98px) {
+  .recruitment-cta-photo {
+    max-height: 28rem;
+  }
+}
+
+/* Od 1040: pełna wysokość karty, bez ucięcia limitem 28rem (ważne już przy 1040–1055). */
 @media (min-width: 1040px) {
   .recruitment-cta-photo {
-    max-height: none;
+    max-height: none !important;
     height: 100%;
+    min-height: 100%;
     aspect-ratio: auto;
   }
 }
@@ -406,8 +415,8 @@
   display: none;
 }
 
-/* Miś + tabelka: owinięcie tekstu tylko poniżej 1040 px (powyżej tekst się ściska / miś wchodzi w tekst). */
-@media (max-width: 1039.98px) {
+/* Miś + tabelka: owinięcie tekstu jak na mobile, aż do 1349 px (potem układ desktop). */
+@media (max-width: 1349.98px) {
   .parents-wyzywienie-stack {
     gap: 0;
   }
@@ -447,34 +456,6 @@
   .parents-wyzywienie-infografika {
     width: 100%;
     margin-top: calc(-19.34% + 0.75rem);
-  }
-}
-
-/* 1040–1333: ten sam stos co na węższym mobile, bez floatu i bez nachodzenia misia na tekst. */
-@media (min-width: 1040px) and (max-width: 1333.98px) {
-  .parents-wyzywienie-stack {
-    gap: 1.25rem;
-  }
-
-  .parents-wyzywienie-infografika {
-    width: 100%;
-    max-width: none;
-    margin-top: 0;
-    margin-left: 0;
-  }
-
-  .parents-wyzywienie-stack .parents-oplaty-card {
-    margin-top: 0;
-  }
-
-  .parents-wyzywienie-prose {
-    width: 100%;
-    max-width: none;
-    margin-left: 0;
-  }
-
-  .parents-wyzywienie-prose br {
-    display: none;
   }
 }
 
@@ -604,8 +585,8 @@
   }
 }
 
-/* Pełny układ mis + tabelka dopiero od 1334 px (wcześniej w 1040–1333 psuł tekst). */
-@media (min-width: 1334px) {
+/* Pełny układ mis + tabelka dopiero od 1350 px. */
+@media (min-width: 1350px) {
   .parents-wyzywienie-band {
     margin-top: 0.75cm !important;
   }

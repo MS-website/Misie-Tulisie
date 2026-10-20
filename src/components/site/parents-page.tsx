@@ -27,7 +27,7 @@ const UKLAD_OPLATY_MALUCH_TYTUL = '[data-uklad-text="oplaty-maluch-tytul"]';
 const MIS_NAD_TABELKA = 172 / 1024;
 
 /**
- * Poniżej xl tabelka z misiem zachodzi na koniec akapitu o wyżywieniu. Pływający
+ * Do 1349 px tabelka z misiem zachodzi na koniec akapitu o wyżywieniu. Pływający
  * blok przy prawej krawędzi sięga od wysokości czubka misia do końca akapitu,
  * a jego kształt (shape-outside w CSS) idzie po obrysie misia, więc wiersze
  * łamią się tuż przed nim. Odstęp nad blokiem tylko maleje między iteracjami —
@@ -42,7 +42,7 @@ function WyzywienieMisMiejsce() {
     const host = spacer?.parentElement;
     const text = host?.querySelector("p");
     if (!spacer || !place || !host || !text) return;
-    const mobile = window.matchMedia("(max-width: 1039.98px)");
+    const mobile = window.matchMedia("(max-width: 1349.98px)");
     let frame = 0;
 
     const fit = () => {
@@ -597,13 +597,13 @@ export function ParentsPageSections() {
             </ParentsTuneSurface>
           </Reveal>
 
-          <div className="parents-wyzywienie-band mt-5 md:mt-6 min-[1334px]:grid min-[1334px]:grid-cols-12 min-[1334px]:items-start min-[1334px]:gap-x-14">
-            <Reveal className="parents-wyzywienie-media min-[1334px]:col-span-5">
+          <div className="parents-wyzywienie-band mt-5 md:mt-6 min-[1350px]:grid min-[1350px]:grid-cols-12 min-[1350px]:items-start min-[1350px]:gap-x-14">
+            <Reveal className="parents-wyzywienie-media min-[1350px]:col-span-5">
               <ParentsTuneSurface
                 id="oplaty-wyzywienie-eyebrow"
                 className="parents-wyzywienie-eyebrow-wrap"
               >
-                <p className="eyebrow mb-3 md:mb-4 min-[1334px]:mb-0">Wyżywienie</p>
+                <p className="eyebrow mb-3 md:mb-4 min-[1350px]:mb-0">Wyżywienie</p>
               </ParentsTuneSurface>
               <ParentsTuneSurface id="oplaty-wyzywienie-foto" className="parents-wyzywienie-foto-wrap">
                 <Photo
@@ -615,7 +615,7 @@ export function ParentsPageSections() {
             </Reveal>
             <Reveal
               delay={80}
-              className="parents-wyzywienie-copy mt-6 w-full min-[1334px]:col-span-7 min-[1334px]:mt-0 min-[1334px]:pt-0"
+              className="parents-wyzywienie-copy mt-6 w-full min-[1350px]:col-span-7 min-[1350px]:mt-0 min-[1350px]:pt-0"
             >
               <div className="parents-wyzywienie-stack">
                 <ParentsTuneSurface id="oplaty-tekst-wyzywienie" className="w-full">
@@ -786,8 +786,8 @@ export function ParentsPageSections() {
                 Lista rzeczy do żłobka
               </h2>
               <WyprawkaList />
-              <div className="parents-wyprawka-note mt-8 flex flex-col items-end gap-6 xl:w-max xl:flex-row xl:items-center xl:gap-3">
-                <p className="w-full max-w-xl self-stretch text-base leading-relaxed md:text-lg xl:max-w-none xl:shrink-0 xl:self-auto">
+              <div className="parents-wyprawka-note mt-8 max-xl:flex max-xl:flex-col max-xl:items-end max-xl:gap-6 xl:flex xl:w-max xl:items-center xl:gap-3">
+                <p className="max-w-xl text-base leading-relaxed md:text-lg max-xl:w-full max-xl:self-stretch xl:max-w-none xl:shrink-0">
                   <strong className="font-semibold text-foreground">
                     Prosimy, aby wszystkie rzeczy były podpisane na specjalnych{" "}
                     <br className="hidden xl:block" />

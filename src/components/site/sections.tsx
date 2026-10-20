@@ -600,7 +600,7 @@ export function Recruitment() {
         <Photo
           src={int1}
           alt="Przytulny kącik zabaw z namiotem tipi, drewnianymi zabawkami i miękkimi poduszkami"
-          className="recruitment-cta-photo aspect-[4/3] min-h-0 min-w-0 overflow-hidden rounded-none rounded-b-md bg-cream lg:aspect-auto lg:h-full lg:max-h-[28rem] lg:rounded-b-none lg:rounded-r-md min-[1040px]:max-h-none"
+          className="recruitment-cta-photo aspect-[4/3] min-h-0 min-w-0 overflow-hidden rounded-none rounded-b-md bg-cream lg:aspect-auto lg:h-full lg:rounded-b-none lg:rounded-r-md"
         />
       </Reveal>
     </section>

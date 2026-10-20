@@ -107,8 +107,8 @@ export function Foundations() {
           />
           <h2 className="foundations-title font-display text-4xl md:text-6xl">
             <span className="xl:hidden">
-              <span className="block text-center">Fundamenty naszej pracy</span>
-              <span className="mt-4 flex justify-end">
+              <span className="mx-auto block w-fit text-center">Fundamenty naszej pracy</span>
+              <span className="mx-auto mt-4 flex w-fit justify-end pl-6 sm:pl-10">
                 <img
                   src={foundations}
                   alt=""
