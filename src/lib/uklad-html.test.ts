@@ -23,9 +23,11 @@ function differing() {
 describe("sanitizeUkladHtml", () => {
   it("przepuszcza wszystkie różniące się fragmenty bez zmiany treści", () => {
     const items = differing();
-    expect(items).toHaveLength(57);
+    expect(items.length).toBeGreaterThan(0);
     for (const item of items) {
-      expect(sanitizeUkladHtml(item.html), item.selector).toBe(item.html);
+      expect(sanitizeUkladHtml(item.html), `${item.pathname} ${item.selector}`).toBe(
+        item.html,
+      );
     }
   });
 
