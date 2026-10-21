@@ -243,23 +243,17 @@ const care: {
     title: "Zaufane i doświadczone opiekunki.",
     Icon: CarersMark,
     iconClass: "size-[3.4rem] translate-y-1 object-contain",
-    body: [
-      "Wiemy, że nawet najbardziej zaangażowany rodzic nie zawsze ma możliwość zapewnienia dziecku różnorodnych i rozwojowych aktywności każdego dnia. W Misiach Tulisiach dzieci w ciągu dnia otrzymują ",
-      <Em key="rytm">
-        czas, uważną obecność dorosłego oraz stabilny, przewidywalny rytm dnia
-      </Em>,
-      ", który daje im poczucie bezpieczeństwa i sprzyja zdrowemu rozwojowi.",
-    ],
+    body: "Wiemy, że nawet najbardziej zaangażowany rodzic nie zawsze ma możliwość zapewnienia dziecku różnorodnych i rozwojowych aktywności każdego dnia. W Misiach Tulisiach dzieci w ciągu dnia otrzymują czas, uważną obecność dorosłego oraz stabilny, przewidywalny rytm dnia, który daje im poczucie bezpieczeństwa i sprzyja zdrowemu rozwojowi.",
   },
   {
-    title: "Prywatny plac zabaw.",
+    title: "Prywatny plac zabaw",
     Icon: PlaygroundMarkIcon,
     iconClass: "h-[3.55rem] w-[4.15rem] object-contain object-center",
     body:
       "Dysponujemy własnym placem zabaw, wyposażonym w bezpieczne atrakcje dostosowane do potrzeb i możliwości najmłodszych. Każdego dnia, jeśli pozwala nam na to pogoda, organizujemy maluchom czas na świeżym powietrzu pod troskliwą opieką naszych opiekunek.",
   },
   {
-    title: "Język angielski w codzienności.",
+    title: "Język angielski w codzienności",
     Icon: EnglishMarkIcon,
     iconClass: "size-[3.6rem] object-contain object-center",
     body:
