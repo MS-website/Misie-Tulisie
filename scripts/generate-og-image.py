@@ -54,7 +54,7 @@ def main() -> None:
     draw.text((64 + logo_w + 18, 68), "Misie Tulisie", font=font_brand, fill=FG)
 
     font_eyebrow = ImageFont.truetype(FONT_SANS, 15)
-    eyebrow = "ŻŁOBEK W GNIEŹNIE"
+    eyebrow = "DWUJĘZYCZNY ŻŁOBEK W GNIEŹNIE"
     draw.text((64, 148), eyebrow, font=font_eyebrow, fill=HONEY)
 
     font_h1 = ImageFont.truetype(FONT_SERIF, 58)

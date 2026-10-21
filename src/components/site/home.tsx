@@ -13,7 +13,7 @@ export function HomeHero() {
     <section className="home-hero relative min-w-0 pt-28 md:pt-32">
       <div className="container-site grid min-w-0 items-end gap-10 lg:grid-cols-12 lg:items-start lg:gap-16 xl:items-end">
         <div className="home-hero-copy min-w-0 pb-2 lg:col-span-6 lg:pb-16">
-          <p className="eyebrow mb-6">Żłobek w Gnieźnie</p>
+          <p className="eyebrow mb-6">Dwujęzyczny żłobek w Gnieźnie</p>
           <h1 className="home-hero-title font-display max-w-xl text-[clamp(2.5rem,4.4vw,5.75rem)] leading-[1.02]">
             Miejsce,
             <br />
